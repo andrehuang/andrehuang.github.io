@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am Haiwen Huang, my Chinese name is 黄海文. I am a PhD student at University of Tübingen, co-supervised by [Prof. Andreas Geiger](http://www.cvlibs.net/) and [Dr. Dan Zhang](https://www.bosch-ai.com/research/researcher-pages/t_overviewpage_133.html), starting in Jan 2022. 
+I am Haiwen Huang, my Chinese name is 黄海文. I am a PhD student at University of Tübingen, co-supervised by [Prof. Andreas Geiger](http://www.cvlibs.net/) and [Dr. Dan Zhang](https://www.bosch-ai.com/research/researcher-pages/t_overviewpage_133.html), starting in Jan. 2022. 
 
 My research interests span robust machine learning, uncertainty estimation, out-of-distribution detection, and out-of-distribution generalization. More generally, I am interested in problems that machine learning faces when we deploy it in the real-world applications, e.g., large-scale annotation, AI alignment, small-data tasks.
 
