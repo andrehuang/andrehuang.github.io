@@ -10,9 +10,9 @@ redirect_from:
 
 I am Haiwen Huang, my Chinese name is 黄海文. I am a PhD student at University of Tübingen, co-supervised by [Prof. Andreas Geiger](http://www.cvlibs.net/) and [Dr. Dan Zhang](https://www.bosch-ai.com/research/researcher-pages/t_overviewpage_133.html), starting in Jan. 2022. 
 
-My research interests span robust machine learning, uncertainty estimation, out-of-distribution detection, and out-of-distribution generalization. More generally, I am interested in problems that machine learning faces when we deploy it in the real-world applications, e.g., large-scale annotation, AI alignment, small-data tasks.
+My research interests span robust machine learning, uncertainty estimation, out-of-distribution detection, and out-of-distribution generalization. More generally, I am interested in problems that machine learning faces when we deploy it in the real-world applications, e.g., large-scale annotation, AI alignment, small-data tasks. My PhD research falls mainly in the intersection of these ML problems and computer vision.
 
-Before my PhD studies, I completed my MSc in CS at University of Oxford (supervisor: Prof. Yarin Gal) and my BSc in Math at Peking University (supervisor: Prof. Bin Dong). I have also worked as a researcher for a year at Megvii (previously known as Face++), studying large-scale annotation and OoD detection methods.
+Before my PhD studies, I completed my MSc in CS at University of Oxford (supervisor: [Prof. Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/)) and my BSc in Math at Peking University (supervisor: [Prof. Bin Dong](https://bicmr.pku.edu.cn/~dongbin/)). I have also worked as a researcher for a year at Megvii (previously known as Face++), studying large-scale annotation and OoD detection methods.
 
 My CV is [here](https://andrehuang.github.io/files/CV.pdf).
 
@@ -22,7 +22,7 @@ Education
 	* Ph.D, Computer Science
 	* Advisor: Andreas Geiger and Dan Zhang
 * **University of Oxford, UK (Oct. 2020 - Sept. 2021)**
-	* M.S., Computer Science
+	* M.S., Computer Science (Distinction)
 	* Advisor: Yarin Gal
 *  **Peking University, China (Sept. 2015 - June 2019)**
 	* B.S., Computing Mathematics
