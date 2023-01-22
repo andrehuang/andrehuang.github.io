@@ -36,6 +36,10 @@ Work experience
 
 Preprints and Publications 
 ==
+* **[GOOD: Exploring Geometric Cues for Detecting Objects in an Open World](https://arxiv.org/abs/2212.11720)**
+  * **Haiwen Huang**, Andreas Geiger, Dan Zhang
+  * ICLR 2023.
+
 * **[Decomposing Representations for Deterministic Uncertainty Estimation](https://arxiv.org/abs/2112.00856)**
   * **Haiwen Huang**, Joost van Amersfoort, Yarin Gal
   * 6th Bayesian Deep Learning workshop at NeurIPS 2021. 
