@@ -14,7 +14,7 @@ My career goal is to empower industry with AI to boost the producitivity of huma
 - To be trustworthy, the AI systems need to be able to tell when they are unreliable (**OOD detection**); 
 - To be powerful, the AI systems need to be robust to the (unseen) changes of the environments and domains (**OOD generalization**). 
 
-Our world is a 3D world with strong physical constraints. When training on 2D images, the models can easily take shortcuts and not learn the 3D geometry of the world. I believe this is a key problem of current OOD generalization. My PhD studies aim to explore ways to build 3D-aware computer vision models that are more robust and generalizable to unseen environments and objects.
+Our world is a 3D world with strong physical constraints. When training on 2D images, the models can easily take shortcuts and not learn the 3D geometry of the world. I believe this is a key problem of current OOD generalization. My PhD studies aim to explore ways to build 3D-aware computer vision models that are more robust and generalizable to unseen objects and environments.
 
 
 Before my PhD studies, I completed my MSc in CS at University of Oxford (supervisor: [Prof. Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/)) and my BSc in Math at Peking University (supervisor: [Prof. Bin Dong](https://bicmr.pku.edu.cn/~dongbin/)). I have also worked as a researcher for a year at Megvii (previously known as Face++), studying large-scale annotation and OoD detection methods.
