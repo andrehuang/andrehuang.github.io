@@ -10,7 +10,9 @@ redirect_from:
 
 I am Haiwen Huang, my Chinese name is 黄海文. I am a PhD student at University of Tübingen, co-supervised by [Prof. Andreas Geiger](http://www.cvlibs.net/) and [Dr. Dan Zhang](https://www.bosch-ai.com/research/researcher-pages/t_overviewpage_133.html), starting in Jan. 2022. I am also an [ELLIS PhD student](https://ellis.eu/phd-postdoc).
 
-My career goal is to empower industry with AI to boost the producitivity of human society. To achieve this, we need AI systems to be **trustworthy and powerful in various environments**. To be trustworthy, the AI systems need to be able to tell when they are unreliable (**OOD detection**); to be powerful, the AI systems need to be robust to the (unseen) changes of the environments and domains (**OOD generalization**). 
+My career goal is to empower industry with AI to boost the producitivity of human society. To achieve this, we need AI systems to be **trustworthy and powerful in various environments**. 
+- To be trustworthy, the AI systems need to be able to tell when they are unreliable (**OOD detection**); 
+- To be powerful, the AI systems need to be robust to the (unseen) changes of the environments and domains (**OOD generalization**). 
 
 Our world is a 3D world with strong physical constraints. When training on 2D images, the models can easily take shortcuts and not learn the 3D geometry of the world. I believe this is a key problem of current OOD generalization. My PhD studies aim to explore ways to build 3D-aware computer vision models that are more robust and generalizable to unseen environments and objects.
 
