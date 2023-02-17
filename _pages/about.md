@@ -44,6 +44,7 @@ Preprints and Publications
 * **[GOOD: Exploring Geometric Cues for Detecting Objects in an Open World](https://arxiv.org/abs/2212.11720)**
   * **Haiwen Huang**, Andreas Geiger, Dan Zhang
   * ICLR 2023.
+  * [OpenReview](https://openreview.net/forum?id=W-nZDQyuy8D)
 
 * **[Decomposing Representations for Deterministic Uncertainty Estimation](https://arxiv.org/abs/2112.00856)**
   * **Haiwen Huang**, Joost van Amersfoort, Yarin Gal
