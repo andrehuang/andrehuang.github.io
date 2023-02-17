@@ -19,7 +19,7 @@ Our world is a 3D world with strong physical constraints. When training on 2D im
 
 Before my PhD studies, I completed my MSc in CS at University of Oxford (supervisor: [Prof. Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/)) and my BSc in Math at Peking University (supervisor: [Prof. Bin Dong](https://bicmr.pku.edu.cn/~dongbin/)). I have also worked as a researcher for a year at Megvii (previously known as Face++), studying large-scale annotation and OoD detection methods.
 
-My CV is [here](https://andrehuang.github.io/files/CV.pdf).
+My CV is [here](https://andrehuang.github.io/files/CV_2023_2.pdf).
 
 Education
 ======
