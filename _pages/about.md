@@ -20,7 +20,7 @@ I believe that using large pretrained models (e.g. Omnidata models and Stable Di
 
 Before my PhD studies, I completed my MSc in CS at University of Oxford (supervisor: [Prof. Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/)) and my BSc in Math at Peking University (supervisor: [Prof. Bin Dong](https://bicmr.pku.edu.cn/~dongbin/)). I have also worked as a researcher for a year at Megvii (previously known as Face++), studying large-scale annotation and OoD detection methods.
 
-My CV is [here](https://andrehuang.github.io/files/HaiwenHuang-CV.pdf).
+My CV is [here](https://andrehuang.github.io/files/HaiwenHuang_CV.pdf).
 
 Education
 ======
