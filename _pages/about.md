@@ -14,7 +14,7 @@ My career goal is to empower industry with AI to boost the producitivity of huma
 - To be trustworthy, the AI systems need to be able to tell when they are unreliable (**OOD detection**); 
 - To be powerful, the AI systems need to be robust to the (unseen) changes of the environments and domains (**OOD generalization**). 
 
-In order to achieve generalization to unseen objects and environments, a model requires additional information that is invariant across categories and domains. As part of my PhD studies, I aim to explore methods for **incorporating knowledge from pretrained large models to achieve out-of-distribution generalization in various tasks**. 
+In order to achieve generalization to unseen objects and environments, a model requires additional information that is invariant across categories and domains. My PhD studies aim to explore methods for **incorporating knowledge from pretrained large models to achieve out-of-distribution generalization in various tasks**. 
 
 I believe that using large pretrained models (e.g. Omnidata models and Stable Diffusion) will significantly reduce the cost of AI development and deployment while improving the overall well-being of the world.
 
