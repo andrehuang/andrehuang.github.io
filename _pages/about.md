@@ -14,7 +14,9 @@ My career goal is to empower industry with AI to boost the producitivity of huma
 - To be trustworthy, the AI systems need to be able to tell when they are unreliable (**OOD detection**); 
 - To be powerful, the AI systems need to be robust to the (unseen) changes of the environments and domains (**OOD generalization**). 
 
-In order to achieve generalization to unseen objects and environments, a model requires additional information that is invariant across categories and domains. To inject proper prior knowledge in a suitable way, human developers are necessary. As part of my PhD studies, I aim to explore methods for incorporating knowledge from pretrained large models (e.g. Omnidata models and Stable Diffusion) to achieve out-of-distribution generalization in various tasks. I believe that using large pretrained models will significantly reduce the cost of AI development and deployment while improving the overall well-being of the world.
+In order to achieve generalization to unseen objects and environments, a model requires additional information that is invariant across categories and domains. As part of my PhD studies, I aim to explore methods for **incorporating knowledge from pretrained large models to achieve out-of-distribution generalization in various tasks**. 
+
+I believe that using large pretrained models (e.g. Omnidata models and Stable Diffusion) will significantly reduce the cost of AI development and deployment while improving the overall well-being of the world.
 
 Before my PhD studies, I completed my MSc in CS at University of Oxford (supervisor: [Prof. Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/)) and my BSc in Math at Peking University (supervisor: [Prof. Bin Dong](https://bicmr.pku.edu.cn/~dongbin/)). I have also worked as a researcher for a year at Megvii (previously known as Face++), studying large-scale annotation and OoD detection methods.
 
