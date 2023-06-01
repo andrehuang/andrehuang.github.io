@@ -66,3 +66,8 @@ Preprints and Publications
   * **Haiwen Huang**, Chang Wang and Bin Dong
   * IJCAI 2019. 
   * [Code](https://github.com/andrehuang/NostalgicAdam-NosAdam) 
+
+Teaching
+==
+* [Computer Vision](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/autonomous-vision/lectures/computer-vision/) (summer term 2023)
+* [Seminar: Large-scale Generative Models: Prospects and Limitations](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/sicheres-deep-learning/teaching/) (summer term 2023)
