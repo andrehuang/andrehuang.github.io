@@ -42,6 +42,13 @@ Work experience
 
 Preprints and Publications 
 ==
+* ** Renovating Names in Open-Vocabulary Segmentation Benchmarks
+  * Release soon.
+
+* ** Multimodal Dataset Upgrading: a New Challenge for Data Annotation
+   * Haiwen Huang, Dan Zhang, Andreas Geiger
+   * ICLR 2024 [DPFM workshop](https://sites.google.com/view/dpfm-iclr24/call-for-paper?authuser=0)
+ 
 * **[GOOD: Exploring Geometric Cues for Detecting Objects in an Open World](https://arxiv.org/abs/2212.11720)**
   * **Haiwen Huang**, Andreas Geiger, Dan Zhang
   * ICLR 2023.
