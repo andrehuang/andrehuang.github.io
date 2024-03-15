@@ -40,40 +40,39 @@ Work experience
   * Research projects: Large-scale data annotation, out-of-distribution detection, few-shot learning
   * Group leader: [Xinyu Zhou](https://scholar.google.com/citations?user=Jv4LCj8AAAAJ&hl=en)
 
-Preprints and Publications 
+Highlighted Research 
 ==
 * **[Renovating Names in Open-Vocabulary Segmentation Benchmarks](https://arxiv.org/abs/2403.09593)**
   * Haiwen Huang, Songyou Peng, Dan Zhang, Andreas Geiger
+   <img src="../images/RENOVATE_teaser.png" width="430" height="150" alt="Alt text" title="Optional title">
+
 
 * Multimodal Dataset Upgrading: a New Challenge for Data Annotation
    * Haiwen Huang, Dan Zhang, Andreas Geiger
    * ICLR 2024 [DPFM workshop](https://sites.google.com/view/dpfm-iclr24/call-for-paper?authuser=0)
    * Paper is releasing soon.
+   <img src="../images/data_upgrading.png" width="430" height="100" alt="Alt text" title="Optional title">
  
 * **[GOOD: Exploring Geometric Cues for Detecting Objects in an Open World](https://arxiv.org/abs/2212.11720)**
   * **Haiwen Huang**, Andreas Geiger, Dan Zhang
   * ICLR 2023.
   * [OpenReview](https://openreview.net/forum?id=W-nZDQyuy8D), [Code](https://github.com/autonomousvision/good)
+  <img src="../images/good.png" width="430" height="120" alt="Alt text" title="Optional title">
 
 * **[Decomposing Representations for Deterministic Uncertainty Estimation](https://arxiv.org/abs/2112.00856)**
   * **Haiwen Huang**, Joost van Amersfoort, Yarin Gal
   * 6th Bayesian Deep Learning workshop at NeurIPS 2021. 
   * [Poster](https://andrehuang.github.io/files/decomp_poster.png)
-
-* **[Can convolutional ResNets approximately preserve input distances? A frequency analysis perspective](https://arxiv.org/abs/2106.02469)**
-  * Lewis Smith, Joost van Amersfoort, **Haiwen Huang**, Stephen Roberts, Yarin Gal
-  * preprint
-  * [Paper](https://arxiv.org/abs/2106.02469)
+  
+    <img src="../images/decompose.png" width="430" height="135" alt="Alt text" title="Optional title">
 
 * **[Feature Space Singularity for Out-of-distribution Detection](https://arxiv.org/abs/2011.14654)**
   * **Haiwen Huang**, Zhihan Li, Lulu Wang, Sishuo Chen, Xinyu Zhou, Bin Dong
   * Safe AI 2021 workshop at AAAI-21. 
-  * [Code](https://github.com/megvii-research/FSSD_OoD_Detection) [Poster](https://andrehuang.github.io/files/fssd-poster.pdf)
+  * [Code](https://github.com/megvii-research/FSSD_OoD_Detection), [Poster](https://andrehuang.github.io/files/fssd-poster.pdf)
 
-* **[Nostalgic Adam: Weighing more of the past gradients when designing the adaptive learning rate](http://bicmr.pku.edu.cn/~dongbin/Publications/NosAdam.pdf)**
-  * **Haiwen Huang**, Chang Wang and Bin Dong
-  * IJCAI 2019. 
-  * [Code](https://github.com/andrehuang/NostalgicAdam-NosAdam) 
+    <img src="../images/fssd.png" width="430" height="135" alt="Alt text" title="Optional title">
+
 
 Teaching
 ==
