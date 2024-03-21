@@ -44,6 +44,7 @@ Highlighted Research
 ==
 * **[Renovating Names in Open-Vocabulary Segmentation Benchmarks](https://arxiv.org/abs/2403.09593)**
   * Haiwen Huang, Songyou Peng, Dan Zhang, Andreas Geiger
+  * [Project Page](https://andrehuang.github.io/renovate/)
 
 
 * Multimodal Dataset Upgrading: a New Challenge for Data Annotation
