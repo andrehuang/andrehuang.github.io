@@ -44,6 +44,7 @@ Highlighted Research
 ==
 * **[Renovating Names in Open-Vocabulary Segmentation Benchmarks](https://arxiv.org/abs/2403.09593)**
   * Haiwen Huang, Songyou Peng, Dan Zhang, Andreas Geiger
+  * NeurIPS 2024.
   * [Project Page](https://andrehuang.github.io/renovate/)
 
 
