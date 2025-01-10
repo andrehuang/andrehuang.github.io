@@ -45,7 +45,7 @@ Highlighted Research
 * **[Renovating Names in Open-Vocabulary Segmentation Benchmarks](https://arxiv.org/abs/2403.09593)**
   * Haiwen Huang, Songyou Peng, Dan Zhang, Andreas Geiger
   * NeurIPS 2024.
-  * [Project Page](https://andrehuang.github.io/renovate/)
+  * [OpenReview](https://openreview.net/forum?id=Uw2eJOI822&referrer=%5Bthe%20profile%20of%20Andreas%20Geiger%5D), [Project Page](https://andrehuang.github.io/renovate/)
 
 
 * Multimodal Dataset Upgrading: a New Challenge for Data Annotation
