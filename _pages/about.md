@@ -10,17 +10,15 @@ redirect_from:
 
 I am Haiwen Huang, my Chinese name is 黄海文. I am a PhD student at University of Tübingen, co-supervised by [Prof. Andreas Geiger](http://www.cvlibs.net/) and [Dr. Dan Zhang](https://www.bosch-ai.com/research/researcher-pages/t_overviewpage_133.html), starting in Jan. 2022. I am also an [ELLIS PhD student](https://ellis.eu/phd-postdoc).
 
-I am dedicated to developing AI technologies that benefit the world. My PhD research focuses on improving the generalization of vision and multimodal models, enabling them to perform robustly across diverse tasks and domains. For example, I have developed methods that leverage 3D priors to enhance 2D object detection ([GOOD, ICLR2023](https://openreview.net/forum?id=W-nZDQyuy8D)) and use class-agnostic masks to upsample features in Vision Foundation Models ([LoftUp, coming soon](https://andrehuang.github.io/)). I have also contributed to building more reliable evaluations of open-vocabulary generalization ([RENOVATE](https://openreview.net/forum?id=Uw2eJOI822&referrer=%5Bthe%20profile%20of%20Andreas%20Geiger%5D)).
+I am dedicated to developing AI technologies that benefit the world. My PhD research focuses on **improving the generalization of vision and multimodal models**, enabling them to perform robustly across diverse tasks and domains. For example, I have developed methods that leverage 3D priors to enhance 2D object detection in [GOOD](https://openreview.net/forum?id=W-nZDQyuy8D) (ICLR2023) and use class-agnostic masks to upsample features in Vision Foundation Models in [LoftUp](https://andrehuang.github.io/) (coming soon). I have also contributed to building more reliable evaluations of open-vocabulary generalization in [RENOVATE](https://openreview.net/forum?id=Uw2eJOI822&referrer=%5Bthe%20profile%20of%20Andreas%20Geiger%5D) (NeurIPS 2024).
 
-In order to achieve generalization to unseen objects and environments, a model requires additional information that is invariant across categories and domains. My PhD studies aim to explore methods for **incorporating knowledge from pretrained large models to achieve out-of-distribution generalization in various tasks**. 
-
-I envision my work through a three-tiered “research pyramid”: (1) Method Development, (2) Performance Evaluation, and (3) Normative Meta-Evaluation. My current PhD projects focus on the first two levels, but my long-term goal is to address all three to ensure that AI truly benefits society.
+I envision my work through a three-tiered “research pyramid”: (1) Method Development, (2) Performance Evaluation, and (3) Normative Meta-Evaluation. My prior PhD projects focus on the first two levels, but my long-term goal is to address all three to ensure that AI truly benefits society.
 
 ![Research Pyramid](../images/pyramid-proposal.png)
 
 Right now, my focus is on vision-language models (VLMs) and multimodal large language models (MLLMs), which I believe will transform the world. 
 
-🔴🔴 I am curently seeking internships where I can explore methods for understanding and evaluating the generalization and capabilities of vision-language models (VLMs), as well as the scientific principles behind designing robust benchmarks for them.
+🔴 I am curently **seeking internships** where I can explore methods for understanding and evaluating the generalization and capabilities of vision-language models (VLMs), as well as the scientific principles behind designing robust benchmarks for them.
 
 Before my PhD studies, I completed my MSc in CS at University of Oxford, advised by [Prof. Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/), and my undergrad study in Mathematics at Peking University, advised by [Prof. Bin Dong](https://bicmr.pku.edu.cn/~dongbin/). I have also worked as a researcher for a year at Megvii (previously known as Face++) with [Xinyu Zhou](https://scholar.google.com/citations?user=Jv4LCj8AAAAJ&hl=en) as my group leader, studying large-scale annotation and OoD detection methods. 
 
