@@ -16,8 +16,6 @@ I envision my work through a three-tiered “research pyramid”: (1) Method Dev
 
 ![Research Pyramid](../images/pyramid-proposal.png)
 
-Right now, my focus is on vision-language models (VLMs) and multimodal large language models (MLLMs), which I believe will transform the world. 
-
 🔴 I am curently **seeking internships** where I can explore methods for understanding and evaluating the generalization and capabilities of vision-language models (VLMs), as well as the scientific principles behind designing robust benchmarks for them.
 
 Before my PhD studies, I completed my MSc in CS at University of Oxford, advised by [Prof. Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/), and my undergrad study in Mathematics at Peking University, advised by [Prof. Bin Dong](https://bicmr.pku.edu.cn/~dongbin/). I have also worked as a researcher for a year at Megvii (previously known as Face++) with [Xinyu Zhou](https://scholar.google.com/citations?user=Jv4LCj8AAAAJ&hl=en) as my group leader, studying large-scale annotation and OoD detection methods. 
