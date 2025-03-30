@@ -14,7 +14,7 @@ My PhD research focuses on **improving the generalization of vision and multimod
 
 I envision my work through a three-tiered “research pyramid”: (1) Method Development, (2) Performance Evaluation, and (3) Normative Meta-Evaluation. My prior PhD projects focus on the first two levels, but my long-term goal is to address all three to ensure that AI truly benefits society.
 
-![Research Pyramid](pyramid-propsal.png)
+<img src="pyramid-propsal.png" alt="Research Pyramid" width="520" height="300"/>
 
 🔴 I am curently **seeking internships** where I can explore methods for understanding and evaluating the generalization and capabilities of vision-language models (VLMs), as well as the scientific principles behind designing robust benchmarks for them.
 
