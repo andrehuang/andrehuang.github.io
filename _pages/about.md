@@ -12,7 +12,7 @@ I am Haiwen Huang, my Chinese name is 黄海文. I am a PhD student at Universit
 
 My PhD research focuses on **improving the generalization of vision and multimodal models**, enabling them to perform robustly across diverse tasks and domains. For example, I have developed methods that leverage 3D priors to enhance 2D object detection in [GOOD](https://openreview.net/forum?id=W-nZDQyuy8D) (ICLR2023) and use self-distillation to upsample features in Vision Foundation Models in [LoftUp](https://andrehuang.github.io/) (coming soon). I have also contributed to building more reliable evaluations of open-vocabulary generalization in [RENOVATE](https://openreview.net/forum?id=Uw2eJOI822&referrer=%5Bthe%20profile%20of%20Andreas%20Geiger%5D) (NeurIPS 2024).
 
-I envision my work through a three-tiered “research pyramid”: (1) Method Development, (2) Performance Evaluation, and (3) Normative Meta-Evaluation. My prior PhD projects focus on the first two levels, but my long-term goal is to address all three to ensure that AI truly benefits society.
+I envision my work through a three-tiered “research pyramid”: (1) Method Development, (2) Performance Evaluation, and (3) Normative Meta-Evaluation. My PhD projects focus on the first two levels, but my long-term goal is to address all three to ensure that AI truly benefits society.
 
 ![Research Pyramid](pyramid-propsal.png)
 
