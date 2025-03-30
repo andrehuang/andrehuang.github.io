@@ -16,6 +16,8 @@ In order to achieve generalization to unseen objects and environments, a model r
 
 I envision my work through a three-tiered “research pyramid”: (1) Method Development, (2) Performance Evaluation, and (3) Normative Meta-Evaluation. My current PhD projects focus on the first two levels, but my long-term goal is to address all three to ensure that AI truly benefits society.
 
+![Research Pyramid](../images/pyramid-proposal.png)
+
 Right now, my focus is on vision-language models (VLMs) and multimodal large language models (MLLMs), which I believe will transform the world. 
 
 🔴🔴 I am curently seeking internships where I can explore methods for understanding and evaluating the generalization and capabilities of vision-language models (VLMs), as well as the scientific principles behind designing robust benchmarks for them.
