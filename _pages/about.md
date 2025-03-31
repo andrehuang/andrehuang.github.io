@@ -20,7 +20,7 @@ I envision my work through a three-tiered “research pyramid”: (1) Method Dev
 
 Before my PhD studies, I completed my MSc in CS at University of Oxford, advised by [Prof. Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/), and my undergrad study in Mathematics at Peking University, advised by [Prof. Bin Dong](https://bicmr.pku.edu.cn/~dongbin/). I have also worked as a researcher for a year at Megvii (previously known as Face++) with [Xinyu Zhou](https://scholar.google.com/citations?user=Jv4LCj8AAAAJ&hl=en) as my group leader, studying large-scale annotation and OoD detection methods. 
 
-My CV is [here](https://andrehuang.github.io/files/HaiwenHuang_CV.pdf).
+My CV is [here](../files/HaiwenHuang-2025.3-new.pdf).
 
 
 Highlighted Research 
