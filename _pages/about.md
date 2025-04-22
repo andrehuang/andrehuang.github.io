@@ -10,7 +10,7 @@ redirect_from:
 
 I am Haiwen Huang, my Chinese name is 黄海文. I am a PhD student at University of Tübingen, co-supervised by [Prof. Andreas Geiger](http://www.cvlibs.net/) and [Dr. Dan Zhang](https://www.bosch-ai.com/research/researcher-pages/t_overviewpage_133.html), starting in Jan. 2022. I am also an [ELLIS PhD student](https://ellis.eu/phd-postdoc).
 
-My PhD research focuses on **improving the generalization of vision and multimodal models**, enabling them to perform robustly across diverse tasks and domains. For example, I have developed methods that leverage 3D priors to enhance 2D object detection in [GOOD](https://openreview.net/forum?id=W-nZDQyuy8D) (ICLR 2023) and use self-distillation to upsample features in Vision Foundation Models in [LoftUp](https://andrehuang.github.io/) (coming soon). I have also contributed to building more reliable evaluations of open-vocabulary generalization in [RENOVATE](https://openreview.net/forum?id=Uw2eJOI822&referrer=%5Bthe%20profile%20of%20Andreas%20Geiger%5D) (NeurIPS 2024).
+My PhD research focuses on **improving the generalization of vision and multimodal models**, enabling them to perform robustly across diverse tasks and domains. For example, I have developed methods that leverage 3D priors to enhance 2D object detection in [GOOD](https://openreview.net/forum?id=W-nZDQyuy8D) (ICLR 2023) and use self-distillation to upsample features in Vision Foundation Models in [LoftUp](https://arxiv.org/abs/2504.14032). I have also contributed to building more reliable evaluations of open-vocabulary generalization in [RENOVATE](https://openreview.net/forum?id=Uw2eJOI822&referrer=%5Bthe%20profile%20of%20Andreas%20Geiger%5D) (NeurIPS 2024).
 
 I envision my work through a three-tiered “research pyramid”: (1) Method Development, (2) Performance Evaluation, and (3) Normative Meta-Evaluation. My PhD projects focus on the first two levels, but my long-term goal is to address all three to ensure that AI truly benefits society.
 
@@ -26,6 +26,11 @@ My CV is [here](../files/HaiwenHuang-2025.3-new.pdf).
 
 Highlighted Research 
 ==
+
+* **[LoftUp: Learning a Coordinate-Based Feature Upsampler for Vision Foundation Models](https://arxiv.org/abs/2403.09593)**
+  * Haiwen Huang, Anpei Chen, Volodymyr Havrylov, Andreas Geiger, Dan Zhang
+  * [Code](https://github.com/andrehuang/loftup)
+
 * **[Renovating Names in Open-Vocabulary Segmentation Benchmarks](https://arxiv.org/abs/2403.09593)**
   * Haiwen Huang, Songyou Peng, Dan Zhang, Andreas Geiger
   * NeurIPS 2024.
