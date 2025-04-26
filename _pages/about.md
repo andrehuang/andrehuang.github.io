@@ -29,7 +29,7 @@ Highlighted Research
 
 * **[LoftUp: Learning a Coordinate-Based Feature Upsampler for Vision Foundation Models](https://arxiv.org/abs/2403.09593)**
   * Haiwen Huang, Anpei Chen, Volodymyr Havrylov, Andreas Geiger, Dan Zhang
-  * [Code](https://github.com/andrehuang/loftup)
+  * [Code](https://github.com/andrehuang/loftup), [Project Page](https://github.com/andrehuang/loftup-site)
 
 * **[Renovating Names in Open-Vocabulary Segmentation Benchmarks](https://arxiv.org/abs/2403.09593)**
   * Haiwen Huang, Songyou Peng, Dan Zhang, Andreas Geiger
