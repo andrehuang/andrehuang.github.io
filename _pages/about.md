@@ -17,7 +17,6 @@ I envision my work through a three-tiered “research pyramid”: (1) Method Dev
 ![Research Pyramid](pyramid-propsal.png)
 
 🔴 **News**:
-- May 2025: I am recognized as an Outstanding Reviwer for CVPR 2025! [Link](https://cvpr.thecvf.com/Conferences/2025/ProgramCommittee#all-outstanding-reviewer)
 - April 2025: I will be starting an internship in _Google Zurich_ from July 2025.
 
 Before my PhD studies, I completed my MSc in CS at University of Oxford, advised by [Prof. Yarin Gal](http://www.cs.ox.ac.uk/people/yarin.gal/website/), and my undergrad study in Mathematics at Peking University, advised by [Prof. Bin Dong](https://bicmr.pku.edu.cn/~dongbin/). I have also worked as a researcher for a year at Megvii (previously known as Face++) with [Xinyu Zhou](https://scholar.google.com/citations?user=Jv4LCj8AAAAJ&hl=en) as my group leader, studying large-scale annotation and OoD detection methods. 
