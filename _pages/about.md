@@ -32,7 +32,7 @@ Highlighted Research
 
 * **[LoftUp: Learning a Coordinate-Based Feature Upsampler for Vision Foundation Models](https://arxiv.org/abs/2504.14032)**
   * Haiwen Huang, Anpei Chen, Volodymyr Havrylov, Andreas Geiger, Dan Zhang
-  * ICCV 2025.
+  * ICCV 2025 **(oral)**.
   * [Code](https://github.com/andrehuang/loftup), [Project Page](https://andrehuang.github.io/loftup-site/)
 
 * **[Renovating Names in Open-Vocabulary Segmentation Benchmarks](https://arxiv.org/abs/2403.09593)**
