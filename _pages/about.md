@@ -19,6 +19,8 @@ I envision my work through a three-tiered “research pyramid”: (1) Method Dev
 ![Research Pyramid](pyramid-propsal.png)
 
 🔴 **News**:
+- Sept. 2025: Our follow-up work on [feature upsampling for interactive segmentation](https://www.arxiv.org/abs/2505.02075) got selected as an **oral presentation** at the [Instance-Level Recognition and Generation (ILR+G) Workshop](https://iccv.thecvf.com/virtual/2025/workshop/2744) at ICCV 2025.
+- July 2025: [LoftUp](https://andrehuang.github.io/loftup-site/) is selected as an **oral presentation** at ICCV 2025!
 - June 2025: [LoftUp](https://andrehuang.github.io/loftup-site/) is accepted to ICCV 2025!
 - April 2025: I will be starting an internship in _Google Zurich_ from July 2025.
 
