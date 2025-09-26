@@ -13,10 +13,12 @@ Education
 ======
 * B.S. in Computational Mathematics, Peking University, 2019
 * M.S. in Computer Science, University of Oxford, 2021
-* Ph.D in Computer Science, University of Tübingen, 2024 (expected)
+* Ph.D in Computer Science, University of Tübingen, 2026 (expected)
 
 Work experience
 ======
+* July 2025 - Oct. 2025: Student Researcher, Google Zurich
+  * Research in improving multimodal reasoning abilities of multimodal LLMs
 * Feb. 2019 - Sept. 2020: ML Researcher, Data Research Group, [Megvii Technology Inc](https://megvii.com/)
   * Research projects: Large-scale data annotation, out-of-distribution detection, few-shot learning
   * Group leader: [Xinyu Zhou](https://scholar.google.com/citations?user=Jv4LCj8AAAAJ&hl=en)
@@ -30,7 +32,7 @@ Work experience
   * Sub-skill 2.3
 * Skill 3 -->
 
-Publications
+Selected Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
