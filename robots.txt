@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://andrehuang.github.io/sitemap.xml
