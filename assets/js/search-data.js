@@ -23,13 +23,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/news/";
           },
-        },{id: "nav-cv",
-          title: "CV",
-          description: "Haiwen Huang&#39;s academic CV.",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/cv/";
-          },
         },{id: "nav-teaching",
           title: "teaching",
           description: "Courses taught at University of Tübingen.",
