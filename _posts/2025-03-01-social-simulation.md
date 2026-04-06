@@ -6,4 +6,5 @@ description: "When curiosity alone stopped being enough"
 tags:
 categories:
 redirect: https://substack.com/@forabetterworld/p-189635537
+external_source: Substack
 ---
