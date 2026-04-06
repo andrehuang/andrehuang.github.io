@@ -30,7 +30,25 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "news-renovate-is-accepted-to-neurips-2024",
+        },{id: "nav-blog",
+          title: "blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
+        },{id: "post-why-i-39-m-moving-into-social-simulation",
+        
+          title: 'Why I&#39;m Moving into Social Simulation <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "When curiosity alone stopped being enough",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://substack.com/@forabetterworld/p-189635537", "_blank");
+          
+        },
+      },{id: "news-renovate-is-accepted-to-neurips-2024",
           title: 'RENOVATE is accepted to NeurIPS 2024!',
           description: "",
           section: "News",},{id: "news-i-will-be-starting-an-internship-at-google-zurich-from-july-2025",
@@ -44,6 +62,9 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "news-our-follow-up-work-on-feature-upsampling-for-interactive-segmentation-got-selected-as-an-oral-presentation-at-the-ilr-g-workshop-at-iccv-2025",
           title: 'Our follow-up work on feature upsampling for interactive segmentation got selected as an...',
+          description: "",
+          section: "News",},{id: "news-i-will-be-joining-prof-moritz-hardt-s-group-at-the-max-planck-institute-for-intelligent-systems-mpi-is-in-tübingen-starting-mid-2026",
+          title: 'I will be joining Prof. Moritz Hardt’s group at the Max Planck Institute...',
           description: "",
           section: "News",},{
         id: 'social-email',
