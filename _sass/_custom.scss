@@ -1,0 +1,210 @@
+/*******************************************************************************
+ * Custom styles for Haiwen Huang's personal website
+ * - Custom font families (Inter + Source Serif 4)
+ * - News timeline styling
+ * - Publication venue badges
+ * - Scroll fade-in animations
+ ******************************************************************************/
+
+// ============================================================================
+// Typography — Custom font families
+// ============================================================================
+
+body {
+  font-family: "Source Serif 4", -apple-system, "PingFang SC", "Microsoft YaHei", Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar, .nav-item, .nav-link,
+.btn, .badge,
+.header-bar h1, .header-bar h2 {
+  font-family: "Inter", -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+}
+
+// Subtitle on about page
+.about .profile .address p {
+  font-family: "Inter", sans-serif;
+}
+
+// ============================================================================
+// About page enhancements
+// ============================================================================
+
+// Subtle emphasis on the profile section
+.about .profile {
+  .profile-img {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 28px rgba(0, 0, 0, 0.18);
+    }
+  }
+}
+
+// Research pyramid image styling
+.about .row .col-sm-8 img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+// ============================================================================
+// News section — Timeline styling
+// ============================================================================
+
+.news {
+  .table {
+    td {
+      border-bottom: 1px solid var(--global-divider-color);
+      padding: 0.75rem 0.5rem;
+      position: relative;
+
+      &:first-child {
+        // Date column
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 0.85rem;
+        color: var(--global-text-color-light);
+        white-space: nowrap;
+        padding-left: 1rem;
+        border-left: 2px solid var(--global-theme-color);
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: -5px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: var(--global-hover-color);
+        }
+      }
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+  }
+}
+
+// ============================================================================
+// Publication venue badges
+// ============================================================================
+
+.publications {
+  .badge-base {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+}
+
+// ============================================================================
+// Scroll fade-in animations
+// ============================================================================
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================================================
+// Card hover effects
+// ============================================================================
+
+.card {
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+// ============================================================================
+// Links — subtle underline animation
+// ============================================================================
+
+.about a:not(.btn):not(.nav-link):not(.social) {
+  text-decoration: none;
+  background-image: linear-gradient(var(--global-hover-color), var(--global-hover-color));
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+
+  &:hover {
+    background-size: 100% 2px;
+    text-decoration: none;
+  }
+}
+
+// ============================================================================
+// Publication list enhancements
+// ============================================================================
+
+.bibliography {
+  li {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--global-divider-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  // Award/oral badge
+  .award {
+    color: #e65100;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    font-size: 0.85rem;
+  }
+}
+
+// ============================================================================
+// Footer refinement
+// ============================================================================
+
+footer.fixed-bottom {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+}
+
+// ============================================================================
+// Responsive adjustments
+// ============================================================================
+
+@media (max-width: 768px) {
+  .news .table td:first-child {
+    padding-left: 0.75rem;
+    border-left-width: 2px;
+  }
+
+  .about .profile .profile-img {
+    max-width: 200px;
+    margin: 0 auto 1.5rem;
+  }
+}

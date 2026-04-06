@@ -1,0 +1,110 @@
+{
+  "basics": {
+    "name": "Haiwen Huang",
+    "label": "PhD Student in Computer Vision & Machine Learning",
+    "image": "",
+    "email": "andrehuang0@gmail.com",
+    "url": "https://andrehuang.github.io",
+    "summary": "PhD student at University of Tübingen researching vision and multimodal model generalization. ELLIS PhD student.",
+    "location": {
+      "city": "Tübingen",
+      "countryCode": "DE",
+      "region": "Baden-Württemberg"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "andrehuang",
+        "url": "https://github.com/andrehuang"
+      },
+      {
+        "network": "Google Scholar",
+        "url": "https://scholar.google.com/citations?user=9LJzK7gAAAAJ"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Google",
+      "position": "Research Intern",
+      "location": "Zurich, Switzerland",
+      "startDate": "2025-07-01",
+      "endDate": "",
+      "summary": "Research internship at Google Zurich.",
+      "highlights": []
+    },
+    {
+      "name": "Megvii (Face++)",
+      "position": "Research Engineer",
+      "location": "Beijing, China",
+      "startDate": "2019-07-01",
+      "endDate": "2020-08-01",
+      "summary": "Worked on large-scale annotation and out-of-distribution detection methods.",
+      "highlights": [
+        "Developed FSSD for out-of-distribution detection",
+        "Research on large-scale data annotation"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Tübingen",
+      "location": "Tübingen, Germany",
+      "area": "Computer Science",
+      "studyType": "PhD",
+      "startDate": "2022-01-01",
+      "endDate": "",
+      "summary": "Co-supervised by Prof. Andreas Geiger and Dr. Dan Zhang. ELLIS PhD student. Research on vision and multimodal model generalization."
+    },
+    {
+      "institution": "University of Oxford",
+      "location": "Oxford, UK",
+      "area": "Computer Science",
+      "studyType": "MSc",
+      "startDate": "2020-10-01",
+      "endDate": "2021-09-01",
+      "summary": "Advised by Prof. Yarin Gal. Research on uncertainty estimation in deep learning."
+    },
+    {
+      "institution": "Peking University",
+      "location": "Beijing, China",
+      "area": "Mathematics",
+      "studyType": "BSc",
+      "startDate": "2015-09-01",
+      "endDate": "2019-07-01",
+      "summary": "Advised by Prof. Bin Dong. Research on optimization methods for deep learning."
+    }
+  ],
+  "awards": [
+    {
+      "title": "CVPR 2025 Outstanding Reviewer Award",
+      "date": "2025-06-01",
+      "awarder": "CVPR"
+    },
+    {
+      "title": "NeurIPS 2024 Top Reviewer Award",
+      "date": "2024-12-01",
+      "awarder": "NeurIPS"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Machine Learning",
+      "keywords": ["Computer Vision", "Foundation Models", "Multimodal Learning", "Open-Vocabulary Recognition", "Uncertainty Estimation"]
+    },
+    {
+      "name": "Programming",
+      "keywords": ["Python", "PyTorch", "C++", "CUDA"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Chinese",
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    }
+  ]
+}
