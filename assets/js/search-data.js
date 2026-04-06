@@ -71,7 +71,7 @@ ninja.data = [{
         title: 'X',
         section: 'Socials',
         handler: () => {
-          window.open("https://twitter.com/hhwpku", "_blank");
+          window.open("https://twitter.com/HaiwenHuang_", "_blank");
         },
       },{
         id: 'social-cv',
