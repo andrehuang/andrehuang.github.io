@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-why-i-39-m-moving-into-social-simulation",
+        },{id: "post-research-with-ai-not-by-ai",
+        
+          title: 'Research With AI, Not By AI <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        
+        description: "A proposal for how the relationship should actually work.",
+        section: "Posts",
+        handler: () => {
+          
+            window.open("https://forhumandignity.substack.com/p/research-with-ai-not-by-ai", "_blank");
+          
+        },
+      },{id: "post-why-i-39-m-moving-into-social-simulation",
         
           title: 'Why I&#39;m Moving into Social Simulation <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
         
