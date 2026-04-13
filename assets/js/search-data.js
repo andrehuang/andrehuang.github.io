@@ -23,6 +23,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/news/";
           },
+        },{id: "nav-projects",
+          title: "projects",
+          description: "Things I&#39;m building alongside research.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
         },{id: "nav-teaching",
           title: "teaching",
           description: "Courses taught at University of Tübingen.",
@@ -77,7 +84,17 @@ ninja.data = [{
           section: "News",},{id: "news-i-will-be-joining-prof-moritz-hardt-s-group-at-the-max-planck-institute-for-intelligent-systems-mpi-is-in-tübingen-starting-mid-2026",
           title: 'I will be joining Prof. Moritz Hardt’s group at the Max Planck Institute...',
           description: "",
-          section: "News",},{
+          section: "News",},{id: "projects-researcher-pack",
+          title: 'researcher-pack',
+          description: "A Claude Code research loop that keeps reading, ideation, experiments, and writing connected through shared plain-text state.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_researcher_pack/";
+            },},{id: "projects-social-simulation",
+          title: 'social simulation',
+          description: "Ongoing research on agent-based social simulation with LLMs. More to come.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_social_simulation/";
+            },},{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
