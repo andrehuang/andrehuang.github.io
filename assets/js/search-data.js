@@ -123,13 +123,6 @@ ninja.data = [{
           window.open("https://twitter.com/HaiwenHuang_", "_blank");
         },
       },{
-        id: 'social-cv',
-        title: 'CV',
-        section: 'Socials',
-        handler: () => {
-          window.open("/assets/pdf/CV_HaiwenHuang.pdf", "_blank");
-        },
-      },{
         id: 'social-rss',
         title: 'RSS Feed',
         section: 'Socials',
