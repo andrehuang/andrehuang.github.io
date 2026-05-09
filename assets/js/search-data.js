@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/blog/";
           },
-        },{id: "post-research-with-ai-not-by-ai",
+        },{id: "post-读-在大理石悬崖上",
+        
+          title: "读《在大理石悬崖上》",
+        
+        description: "一份不太信任的阅读笔记 — on Jünger&#39;s Auf den Marmorklippen and the aestheticization of politics.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/assets/html/marmorklippen.html";
+          
+        },
+      },{id: "post-research-with-ai-not-by-ai",
         
           title: 'Research With AI, Not By AI <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
         
@@ -94,6 +105,11 @@ ninja.data = [{
           description: "Ongoing research on agent-based social simulation with LLMs. More to come.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_social_simulation/";
+            },},{id: "projects-ai-education-minecraft-case-study",
+          title: 'AI Education (Minecraft case study)',
+          description: "A 3-month project-based course teaching middle schoolers to harness AI through Minecraft — building a PVP arena, an AI teammate bot, and shipping a real mod, without writing a line of code. Living working journal, in Chinese.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_ai_minecraft/";
             },},{
         id: 'social-email',
         title: 'email',
