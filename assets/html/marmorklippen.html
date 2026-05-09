@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>读《在大理石悬崖上》 · 一份不太信任的阅读笔记</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f4efe4;
+    --paper-2: #ebe5d4;
+    --paper-3: #ddd4be;
+    --ink: #161310;
+    --ink-soft: #36302a;
+    --ink-mute: #6b6354;
+    --rule: #b8ad95;
+    --rule-soft: #d4cbb1;
+    --blood: #6e1f1f;
+    --blood-bright: #8b2424;
+    --blood-soft: #a85959;
+    --reader: #1f3955;
+    --reader-bright: #2e5685;
+    --reader-paper: #e7ecf2;
+    --moss: #4a5230;
+    --max-w: 1180px;
+    --read-w: 660px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif SC', 'EB Garamond', serif;
+    line-height: 1.8;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-image:
+      radial-gradient(ellipse 1100px 600px at 15% 8%, rgba(184,173,149,0.16), transparent 60%),
+      radial-gradient(ellipse 800px 500px at 85% 90%, rgba(110,31,31,0.04), transparent 60%),
+      repeating-linear-gradient(118deg, transparent 0, transparent 260px, rgba(58,52,44,0.022) 260px, rgba(58,52,44,0.022) 261px);
+    background-attachment: fixed;
+  }
+  .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 2.4rem; }
+  .narrow { max-width: var(--read-w); margin: 0 auto; padding: 0 2.4rem; }
+  .latin { font-family: 'EB Garamond', 'Cormorant Garamond', serif; }
+
+  /* ============ STICKY SIDE NAV ============ */
+  .nav {
+    position: fixed;
+    right: 1.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 0.9rem 0.7rem;
+    background: rgba(244,239,228,0.92);
+    border: 1px solid var(--rule);
+    backdrop-filter: blur(4px);
+  }
+  .nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: var(--ink-mute);
+    transition: color 0.15s ease;
+  }
+  .nav a:hover { color: var(--blood); }
+  .nav a .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--rule);
+    transition: background 0.15s ease;
+  }
+  .nav a:hover .dot { background: var(--blood); }
+  @media (max-width: 1080px) { .nav { display: none; } }
+
+  /* ============ FRONTISPIECE ============ */
+  .frontis {
+    min-height: 88vh;
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .frontis::before {
+    content: "";
+    position: absolute;
+    top: 25%; right: -12%;
+    width: 540px; height: 720px;
+    background: linear-gradient(110deg, transparent 40%, rgba(110,31,31,0.06) 50%, transparent 60%);
+    transform: rotate(-18deg);
+    pointer-events: none;
+  }
+  .frontis-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.9rem;
+    margin-bottom: 3.4rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.2em;
+  }
+  .frontis-meta .right {
+    color: var(--ink-mute);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .frontis-german {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+    color: var(--blood);
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.02em;
+  }
+  .frontis-title {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-size: clamp(3.2rem, 7.6vw, 6.2rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.4rem;
+  }
+  .frontis-title em { font-style: italic; font-weight: 400; color: var(--blood); }
+  .frontis-sub {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    color: var(--ink-soft);
+    margin-bottom: 2.4rem;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 30ch;
+  }
+  .frontis-sub em { color: var(--reader); font-style: italic; }
+  .frontis-attribution {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.9rem 2.4rem;
+    align-items: baseline;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.2rem;
+    margin-top: 1.6rem;
+    max-width: 580px;
+  }
+  .frontis-attribution .key {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.7rem;
+    color: var(--blood);
+    font-weight: 600;
+  }
+  .frontis-attribution .val {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .epigraph {
+    margin-top: 3.4rem;
+    padding: 1.6rem 1.6rem 1.6rem 2.2rem;
+    border-left: 3px solid var(--reader);
+    background: var(--reader-paper);
+    max-width: 660px;
+  }
+  .epigraph .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--reader-bright);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+  .epigraph blockquote {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 1.06rem;
+    line-height: 1.8;
+    color: var(--reader);
+    font-weight: 400;
+  }
+  .epigraph blockquote p { margin-bottom: 0.6rem; }
+  .epigraph blockquote p:last-child { margin-bottom: 0; }
+
+  /* ============ SECTIONS ============ */
+  section {
+    padding: 5rem 0 4.4rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  section:last-of-type { border-bottom: none; }
+
+  .sec-head {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 2rem;
+    align-items: baseline;
+    margin-bottom: 2.6rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  .sec-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--blood);
+    font-weight: 400;
+  }
+  .sec-titles h2 {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1.18;
+    margin-bottom: 0.3rem;
+  }
+  .sec-titles .sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink-mute);
+    font-size: 0.95rem;
+  }
+
+  /* Generic prose body */
+  .prose p {
+    font-size: 1.04rem;
+    line-height: 1.95;
+    margin-bottom: 1.2rem;
+    color: var(--ink-soft);
+    max-width: var(--read-w);
+  }
+  .prose p strong { color: var(--ink); font-weight: 600; }
+  .prose p em { color: var(--blood); font-style: italic; font-weight: 500; }
+  .prose .anchor {
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--reader);
+    font-weight: 500;
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+    font-size: 1.04rem;
+    max-width: var(--read-w);
+  }
+  .prose .anchor em { color: var(--blood); font-style: italic; }
+
+  .prose p.first::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.4rem;
+    line-height: 0.9;
+    float: left;
+    padding: 0.2rem 0.5rem 0 0;
+    color: var(--blood);
+    font-weight: 500;
+  }
+
+  /* ============ PLOT GRID (§I) ============ */
+  .plot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .plot-grid .prose p { max-width: 100%; }
+  .glossary {
+    background: var(--paper-2);
+    padding: 1.7rem 1.5rem;
+    border-left: 3px solid var(--blood);
+  }
+  .glossary-title {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--blood);
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .glossary dl { font-size: 0.92rem; }
+  .glossary dt {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.04rem;
+    color: var(--ink);
+    margin-top: 0.85rem;
+  }
+  .glossary dt:first-child { margin-top: 0; }
+  .glossary dd {
+    color: var(--ink-soft);
+    font-size: 0.86rem;
+    line-height: 1.55;
+    margin-top: 0.15rem;
+  }
+  .glossary dd .cn { color: var(--blood); font-weight: 500; margin-right: 0.3em; }
+
+  /* ============ THREE READINGS (§II) ============ */
+  .three-readings {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--ink);
+    background: var(--paper-2);
+  }
+  .three-readings .r {
+    padding: 1.5rem 1.3rem;
+    border-right: 1px solid var(--rule);
+  }
+  .three-readings .r:last-child { border-right: none; }
+  .three-readings .r .n {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 2.2rem;
+    color: var(--blood);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .three-readings .r h4 {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-size: 1.04rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .three-readings .r p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.7; }
+
+  /* ============ TOLSTOY COMPARE (§III) ============ */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 2rem 0 1.4rem;
+    border: 1px solid var(--ink);
+  }
+  .compare .side { padding: 1.7rem 1.4rem; background: var(--paper-2); }
+  .compare .side.right { border-left: 1px solid var(--ink); background: var(--paper); }
+  .compare .who {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+  }
+  .compare .work {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink-mute);
+    margin-bottom: 0.95rem;
+    font-size: 0.86rem;
+  }
+  .compare ul { list-style: none; }
+  .compare li {
+    padding: 0.42rem 0;
+    border-top: 1px solid var(--rule);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .compare li:first-child { border-top: none; }
+  .compare li::before { content: "·"; margin-right: 0.5em; color: var(--blood); font-weight: 700; }
+
+  /* ============ ARENDT TRIAD (§IV) ============ */
+  .triad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin: 1.8rem 0 1.4rem;
+  }
+  .triad-item {
+    padding: 1.4rem 1.2rem;
+    background: var(--paper-2);
+    border-top: 3px solid var(--rule);
+  }
+  .triad-item.action {
+    border-top-color: var(--blood);
+    background: var(--paper);
+    box-shadow: 0 0 0 1px var(--blood);
+  }
+  .triad-item .lat {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--blood);
+    margin-bottom: 0.15rem;
+  }
+  .triad-item h4 {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.45rem;
+  }
+  .triad-item p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.6; }
+  .triad-item p strong { color: var(--blood); font-weight: 600; }
+
+  /* ============ TIMELINE (§V) ============ */
+  .timeline { margin: 1.8rem 0 1.4rem; }
+  .tl-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1.6rem;
+    border-top: 1px solid var(--rule);
+    padding: 1.3rem 0;
+  }
+  .tl-row:last-child { border-bottom: 1px solid var(--rule); }
+  .tl-row .era {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--blood);
+    line-height: 1.2;
+  }
+  .tl-row .era .yr {
+    display: block;
+    font-style: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .tl-row .col p {
+    font-size: 0.93rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+  }
+  .tl-row .col p strong { color: var(--blood); font-weight: 500; }
+
+  /* ============ EVIDENCE CARDS (§V, §VII) ============ */
+  .evidence {
+    margin: 1.8rem 0;
+    padding: 1.5rem 1.6rem 1.5rem 1.9rem;
+    border-left: 3px solid var(--blood);
+    background: var(--paper-2);
+    max-width: 76ch;
+  }
+  .evidence .e-tag {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 0.68rem;
+    color: var(--blood);
+    margin-bottom: 0.55rem;
+    font-weight: 600;
+  }
+  .evidence .e-source {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-size: 0.98rem;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+    font-weight: 500;
+  }
+  .evidence .e-source .work {
+    font-style: italic;
+    color: var(--ink-mute);
+    font-weight: 400;
+  }
+  .evidence .e-quote {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-style: italic;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 0.7rem;
+  }
+  .evidence .e-gloss {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  .evidence .e-gloss strong { color: var(--blood); font-weight: 600; }
+
+  /* ============ DEBATE (§V) ============ */
+  .debate {
+    display: grid;
+    grid-template-columns: 1fr 50px 1fr;
+    gap: 0;
+    margin: 1.8rem 0 1.4rem;
+    align-items: stretch;
+  }
+  .debate-side {
+    padding: 1.6rem 1.4rem;
+    background: var(--paper-2);
+    border-top: 3px solid var(--ink);
+  }
+  .debate-side.right { border-top-color: var(--blood); background: var(--paper); }
+  .debate-side h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+  }
+  .debate-side .yr {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink-mute);
+    margin-bottom: 0.9rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+  }
+  .debate-side blockquote {
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .debate-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--blood);
+  }
+
+  /* ============ RESISTERS (§VI) ============ */
+  .resisters {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    margin: 1.8rem 0 1.4rem;
+  }
+  .resister {
+    padding: 1.3rem 1rem;
+    background: var(--paper-2);
+    border-top: 3px solid var(--blood);
+  }
+  .resister h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+  }
+  .resister .yrs {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink-mute);
+    font-size: 0.72rem;
+    margin-bottom: 0.65rem;
+    letter-spacing: 0.04em;
+  }
+  .resister p { font-size: 0.84rem; line-height: 1.55; color: var(--ink-soft); }
+
+  /* ============ SYNTHESIS BOX (§VII) ============ */
+  .synthesis {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2.2rem 2rem;
+    margin: 2rem 0 1rem;
+    max-width: var(--read-w);
+  }
+  .synthesis .lab {
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.7rem;
+    color: #d4756e;
+    margin-bottom: 0.9rem;
+    font-weight: 600;
+  }
+  .synthesis p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #e6dfca;
+    margin-bottom: 0.6rem;
+  }
+  .synthesis p strong { color: #fff; font-weight: 600; }
+  .synthesis p em { color: #f0c094; font-style: italic; }
+
+  /* ============ CODA (§VIII) ============ */
+  .coda {
+    background: var(--paper);
+    padding: 5rem 0 5.4rem;
+    border-bottom: none;
+  }
+  .coda .colophon {
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--rule);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+    max-width: var(--read-w);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 880px) {
+    .plot-grid, .compare, .debate { grid-template-columns: 1fr; }
+    .compare .side.right { border-left: none; border-top: 1px solid var(--ink); }
+    .debate { grid-template-columns: 1fr; }
+    .debate-vs { padding: 0.5rem 0; }
+    .triad, .resisters { grid-template-columns: 1fr 1fr; }
+    .three-readings { grid-template-columns: 1fr; }
+    .three-readings .r { border-right: none; border-bottom: 1px solid var(--rule); }
+    .three-readings .r:last-child { border-bottom: none; }
+    .tl-row { grid-template-columns: 1fr; gap: 0.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ STICKY NAV ============ -->
+<nav class="nav" aria-label="Sections">
+  <a href="#book"><span class="dot"></span>I · BOOK</a>
+  <a href="#readings"><span class="dot"></span>II · READINGS</a>
+  <a href="#battle"><span class="dot"></span>III · BATTLE</a>
+  <a href="#desk"><span class="dot"></span>IV · DESK</a>
+  <a href="#author"><span class="dot"></span>V · AUTHOR</a>
+  <a href="#generation"><span class="dot"></span>VI · GENERATION</a>
+  <a href="#name"><span class="dot"></span>VII · NAME</a>
+  <a href="#how"><span class="dot"></span>VIII · CODA</a>
+</nav>
+
+<!-- ============ FRONTISPIECE ============ -->
+<header class="frontis">
+  <div class="wrap">
+    <div class="frontis-meta">
+      <div class="left">READING NOTES · 阅 读 笔 记</div>
+      <div class="right">SAT · 09 · MAY · 2026</div>
+    </div>
+
+    <div class="frontis-german">Auf den Marmorklippen</div>
+    <h1 class="frontis-title">在大理石<br>悬<em>崖</em>上</h1>
+    <div class="frontis-sub">一份不太信任的<em>阅读笔记</em>。</div>
+
+    <div class="frontis-attribution">
+      <div class="key">作者</div>
+      <div class="val">Ernst Jünger <span class="latin" style="font-style:italic;color:var(--ink-mute)">(1895–1998)</span></div>
+      <div class="key">出版</div>
+      <div class="val">1939 · Hamburg · Hanseatische Verlagsanstalt</div>
+      <div class="key">体裁</div>
+      <div class="val">寓言中篇 · <span class="latin" style="font-style:italic">Allegorical Novella</span></div>
+    </div>
+
+    <div class="epigraph">
+      <div class="tag">Epigraph · 题 记</div>
+      <blockquote>
+        <p>我虽然是科学家，但总觉得无法静坐书桌——而对那么做的人有一种逃避者的感觉。</p>
+      </blockquote>
+    </div>
+  </div>
+</header>
+
+<!-- ============ §I · THE BOOK ============ -->
+<section id="book">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">I</div>
+      <div class="sec-titles">
+        <h2>这本书</h2>
+        <div class="sub">A Mediterranean civilization on the edge of dark forests</div>
+      </div>
+    </div>
+
+    <div class="plot-grid">
+      <div class="prose">
+        <p class="first">1939 年 10 月，《在大理石悬崖上》在汉堡出版。它的语言精微得几乎妨碍阅读：每一段都像是从十六世纪的手抄本里临摹过来。它讲两兄弟（叙事者与他的兄弟 Otho）退居一座俯瞰地中海葡萄酒之乡 Marina 的悬崖修院，整理植物标本、誊抄古籍、酿酒。山下的远方森林里，盘踞着 Oberförster——大林务官——一个面目模糊的暴君。他的爪牙逐渐侵蚀 Marina 的秩序，先是放任无法无天，再是赤裸的恐怖。书中有一处 Köppels-Bleek，一座剥皮屋／屠人场，门口挂着死人头骨——几乎不加掩饰地预言了集中营。</p>
+
+        <p>兄弟二人最终目睹 Marina 被毁。他们参与了象征性的抵抗，但小说真正的"胜利"是内在的——书斋、植物标本、Father Lampros 的祈祷、语言本身的庄严，构成一种暴力无法触及的存在层次。</p>
+
+        <p>——至少作者希望读者这样相信。</p>
+
+        <p>这本书在第三帝国出版后未被查禁。这件事本身就是一个谜，到 §V 我会再回到它。</p>
+      </div>
+
+      <aside class="glossary">
+        <div class="glossary-title">Dramatis Personae</div>
+        <dl>
+          <dt>Oberförster</dt>
+          <dd><span class="cn">大林务官</span>面目模糊的暴君；最直接的解读 = 希特勒</dd>
+          <dt>Köppels-Bleek</dt>
+          <dd><span class="cn">剥皮屋</span>挂头骨的屠人场；集中营预言式意象</dd>
+          <dt>Marina</dt>
+          <dd><span class="cn">马里纳</span>地中海式文明之乡，被摧毁的欧洲</dd>
+          <dt>Mauretanien</dt>
+          <dd><span class="cn">茅利塔尼亚</span>黑暗势力之乡；兄弟早年曾为之服役</dd>
+          <dt>Father Lampros</dt>
+          <dd><span class="cn">兰普罗斯神父</span>隐藏的基督教精神中心</dd>
+          <dt>Belovar</dt>
+          <dd><span class="cn">贝洛瓦</span>带猎犬冲入森林的牧人</dd>
+          <dt>Otho</dt>
+          <dd><span class="cn">奥托</span>叙事者的兄弟，沉思生活的同行者</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §II · THREE READINGS ============ -->
+<section id="readings">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">II</div>
+      <div class="sec-titles">
+        <h2>三种读法</h2>
+        <div class="sub">How the book has been read · before adding mine</div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p>它最直接的读法是政治寓言：Oberförster = 希特勒，Marina = 被毁灭的欧洲文明，Mauretanien = 黑暗势力之乡，剥皮屋 = 集中营。</p>
+      <p>第二种读法（George Steiner 等批评家提出过）认为 Oberförster 也带着云格尔自己 1920 年代立场的阴影——他早年赞美战争、机械、英雄式虚无主义。这本书是他与自己的告别，但带着浓重的贵族审美距离，从未真正变成政治悔罪。</p>
+      <p>第三种是云格尔自己晚年坚持的：这是关于"秩序与混乱"的普遍寓言，Oberförster 也可以是斯大林、任何蛮族首领。这种"普遍化"恰恰是后来批评者最警觉的——它把可分析的具体历史灾难变成永恒善恶的剧场。</p>
+    </div>
+
+    <div class="three-readings">
+      <div class="r">
+        <div class="n">i.</div>
+        <h4>政治寓言</h4>
+        <p>Hitler = Oberförster。出版未被禁这件事本身令人困惑。</p>
+      </div>
+      <div class="r">
+        <div class="n">ii.</div>
+        <h4>云格尔的自我对峙</h4>
+        <p>暴君的影子部分来自云格尔 1920 年代赞美战争的自己。这本书是他与自己的告别——但姿态高于悔罪。</p>
+      </div>
+      <div class="r">
+        <div class="n">iii.</div>
+        <h4>云格尔的版本</h4>
+        <p>"普遍善恶寓言"。把具体灾难抽象化的这种动作，恰恰是后来被警觉的东西。</p>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0; margin-top:2rem">
+      <p>下面的笔记从书的内部讲起，再一点点扩展到云格尔本人和他所属的那一代。我读的时候有些地方反复让我停下来。我把那些停顿一一拆开看了一下。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §III · BATTLE ============ -->
+<section id="battle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">III</div>
+      <div class="sec-titles">
+        <h2>战斗读起来不真实</h2>
+        <div class="sub">First textual unease · the heraldic vs. the chaotic</div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p class="anchor">第一个让我停下的地方是战斗。</p>
+
+      <p>云格尔写两兄弟、Father Lampros、牧羊人 Belovar 带着猎犬冲进森林对抗暴君的爪牙。文笔精微，画面像中世纪挂毯。但这种战斗读起来不真实。它没有混乱、没有群众、没有那种"个人无法阻挡的大势"。每个人都站在自己应站的位置上做应站的事。这是荷马式的战斗，不是 1939 年的战斗。</p>
+
+      <p>对照读《战争与和平》就清楚——Tolstoy 那本书的伟大恰好在反面：</p>
+    </div>
+
+    <div class="narrow" style="padding:0; max-width:none">
+      <div class="compare" style="max-width:var(--read-w); margin-left:auto; margin-right:auto">
+        <div class="side">
+          <div class="who">Jünger</div>
+          <div class="work">Auf den Marmorklippen · 1939</div>
+          <ul>
+            <li>Belovar 带着猎犬冲进森林（荷马式）</li>
+            <li>Sunmyra 公子的高贵阵亡（中世纪传奇）</li>
+            <li>剥皮屋作为绝对邪恶的纹章符号</li>
+            <li>清晰善恶轮廓、可识别英雄姿态</li>
+            <li>没有群众、没有组织、没有计划</li>
+          </ul>
+        </div>
+        <div class="side right">
+          <div class="who">Tolstoy</div>
+          <div class="work">War and Peace · 1869</div>
+          <ul>
+            <li>Napoleon 不能控制全局，Kutuzov 也只是顺势</li>
+            <li>Pierre 在 Borodino 像迷路的孩子</li>
+            <li>意义只在一万个小人物的相互联系中浮现</li>
+            <li>大势难以被个人姿态阻挡</li>
+            <li>真实战争 = 混乱 + 集体 + 偶然</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p>这里有个值得记住的悖论：云格尔本人是 WWI 一线老兵，写过《钢铁风暴》（In Stahlgewittern, 1920）——那本书对工业化战争的描写极其残酷、肉感、毫无英雄主义浪漫，是公认的一战文学杰作。所以问题不是他不会写真实战争——他在《大理石悬崖》里是<em>主动选择了不写</em>。他要的是寓言、神话、纹章式的世界。</p>
+
+      <p>为什么这种美学选择本身已经是政治选择？因为它否认了群众、否认了组织、否认了那种"个人无法阻挡的大势"中蕴含的集体能动性。读起来觉得"几个人的暴乱"、不真实——读到的恰恰是这本书拒绝去看的东西。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §IV · DESK ============ -->
+<section id="desk">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">IV</div>
+      <div class="sec-titles">
+        <h2>书桌作为抵抗</h2>
+        <div class="sub">Second textual unease · the ethical proposition that doesn't hold</div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p class="anchor">第二个让我停下的地方更核心——它不是某段细节，是这本书的整个伦理主张。</p>
+
+      <p>兄弟二人的"抵抗"是退居书斋。他们整理植物标本，誊抄古籍。书把这种生活写成精神高度的极致：暴力无法触及的层次。读到这一段时，我本能地感到某种欺骗。</p>
+
+      <p>我自己也每天坐在书桌前。书桌的工作不是没有意义的——这点我清楚。但兄弟二人的书桌生活有一个具体的特征：他们的世界里几乎没有别人。他们不在公共领域中显现，不与不同立场的人争辩，不参与任何具体决策。这不是被极权剥夺了公共领域——是<em>他们主动放弃了公共领域，并把这种放弃叫作精神高贵</em>。</p>
+
+      <p>这种区分有一个名字。Hannah Arendt 在《人的境况》（1958）里把人类活动分三层。她做的事是革命性的：把柏拉图以来奉为最高的"沉思生活"降下来，把"行动"举上去。</p>
+    </div>
+
+    <div class="narrow" style="padding:0; max-width:none">
+      <div class="triad" style="max-width:var(--read-w); margin-left:auto; margin-right:auto">
+        <div class="triad-item">
+          <div class="lat">Labor</div>
+          <h4>劳动</h4>
+          <p>生物循环——吃喝、繁衍、维持生存。<em>animal laborans</em>。</p>
+        </div>
+        <div class="triad-item">
+          <div class="lat">Work</div>
+          <h4>工作</h4>
+          <p>制造耐久之物，建立"世界"。<em>homo faber</em>。手艺人的位格。</p>
+        </div>
+        <div class="triad-item action">
+          <div class="lat">Action</div>
+          <h4>行动</h4>
+          <p>在他人面前、与他人一起，以言语和行为出现于公共空间。<strong>这才是真正的政治。</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p>Arendt 还在《极权主义的起源》里说过一句更尖锐的话：极权的核心罪恶不是它的暴力，而是它<strong>消灭了人与人之间的"中间空间"</strong>，把人原子化。当一整代知识分子认为公共生活配不上自己、隐居读书比建设制度更高贵，极权就有了它需要的真空。两兄弟在悬崖上的生活恰好就是这个真空的具象。</p>
+
+      <p>云格尔通过精微之物保存世界——但 Marina 也最后付之一炬了。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §V · THE AUTHOR ============ -->
+<section id="author">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">V</div>
+      <div class="sec-titles">
+        <h2>这个作者</h2>
+        <div class="sub">Stepping out · what the biography adds</div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p class="anchor">读到这里我以为这本书最大的伦理裂缝在它自身的提议里。但合上书之后再看作者本人，发现裂缝更深。</p>
+
+      <p>有一个简单的对照可以把它讲清楚。</p>
+    </div>
+
+    <div class="narrow" style="padding:0; max-width:none">
+      <div class="timeline" style="max-width:var(--read-w); margin-left:auto; margin-right:auto">
+        <div class="tl-row">
+          <div class="era">魏玛<div class="yr">1919 · 1933</div></div>
+          <div class="col">
+            <p><strong>大声攻击</strong>共和国的"软弱""市民庸俗""缺乏英雄品质"。写《工人》（Der Arbeiter, 1932）这类客观上协助瓦解共和国合法性的作品。从未在共和国还能被拯救的时候为它说一句话。</p>
+            <p style="color:var(--ink-mute); font-size:0.86rem">而魏玛是一个保护批评者的政治系统。批评它，是<em>成本最低的勇气</em>。</p>
+          </div>
+        </div>
+
+        <div class="tl-row">
+          <div class="era">第三帝国<div class="yr">1933 · 1945</div></div>
+          <div class="col">
+            <p>1933 年<strong>拒绝</strong>普鲁士艺术院（Preußische Akademie der Künste）席位——这是真的，但拒绝的理由是对政治本身的贵族距离，不是对纳粹的反对。<strong>退回庄园</strong>（Kirchhorst），写植物学日记和梦境。1939 年发表《大理石悬崖》。在被占领的法国担任 Wehrmacht 军官，写巴黎日记。</p>
+            <p style="color:var(--ink-mute); font-size:0.86rem">而这个时段批评纳粹会被处死。Bonhoeffer 在这一刻说话，1945 年被绞死。Scholl 在这一刻散发传单，21 岁被斩首。</p>
+          </div>
+        </div>
+
+        <div class="tl-row">
+          <div class="era">战后<div class="yr">1945 · 1998</div></div>
+          <div class="col">
+            <p><strong>从未公开承认</strong>"我对共和国的攻击是错的"。维护"我从不是党员"的姿态（这是真的），但拒绝任何更深的反思。活到 102 岁，成为德国文坛的"活化石"，获各种荣誉，包括 1982 年颇有争议的 Goethe-Preis。</p>
+            <p style="color:var(--ink-mute); font-size:0.86rem">而战后允许、鼓励反思——又一次成本极低的窗口。这一次连话也不说。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0; margin-top:1.4rem">
+      <p>这个时间表已经够说明问题。但还有一块决定性的史实，能把"未被查禁是个谜"那一段一并解开：</p>
+    </div>
+
+    <div class="narrow" style="padding:0; max-width:none">
+      <div class="evidence" style="max-width:var(--read-w); margin-left:auto; margin-right:auto">
+        <div class="e-tag">史实 · 决定性细节</div>
+        <div class="e-source">Helmuth Kiesel · <span class="work">Ernst Jünger: Die Biographie · 2007</span></div>
+        <div class="e-quote">
+          1939 年《大理石悬崖》出版后，戈培尔曾考虑查禁。希特勒亲自下令保护：<em>"让他去吧，他是一个老兵。"</em>
+        </div>
+        <div class="e-gloss">
+          云格尔在第三帝国能"安全地"出版一本可以被读作反纳粹的寓言，<strong>正是因为他此前对一战军国主义的赞美使他在希特勒眼中是"自己人"</strong>。他在 1939 年支取的那一笔"勇气利息"，本金是他 1920 年代为之鼓吹的那个传统。这不是反纳粹的勇气——这是同一个生态里被允许的内部分歧。
+        </div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p>战后这种姿态有专门的名字——<strong>"内在流亡"</strong>（innere Emigration）——以及一场关于它合法性的著名论战。1945 年夏，留守德国的小说家 Frank Thiess 写文章主张留守者比流亡者更勇敢；流亡的 Thomas Mann 从洛杉矶公开回应：</p>
+    </div>
+
+    <div class="narrow" style="padding:0; max-width:none">
+      <div class="debate" style="max-width:var(--read-w); margin-left:auto; margin-right:auto">
+        <div class="debate-side">
+          <h4>Frank Thiess</h4>
+          <div class="yr">1945 · 留守者的辩护</div>
+          <blockquote>留在德国"内在流亡"的人比真正出走的人更勇敢——他们承担了更深的"经验"。他们没有逃离，他们与人民同苦。</blockquote>
+        </div>
+        <div class="debate-vs">⊕</div>
+        <div class="debate-side right">
+          <h4>Thomas Mann</h4>
+          <div class="yr">1945 · 致 Walter von Molo 的公开信</div>
+          <blockquote>1933–1945 年间在德国境内出版的所有书，都带着"血与耻辱的气味"。你们继续被允许出版，本身就证明了你们的妥协。</blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0; margin-top:1.4rem">
+      <p>Mann 在同一封信里另有一句更狠的——大意是：真正的勇气是在公共空间发声并承担代价；不是在暴政下保持优雅，然后事后宣称自己是受难者。云格尔战后做的恰恰是这一招。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §VI · THE GENERATION ============ -->
+<section id="generation">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">VI</div>
+      <div class="sec-titles">
+        <h2>这一代人</h2>
+        <div class="sub">Stepping out further · what was politically thinkable</div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p class="anchor">但仅说云格尔个人也不够。读这本书最让人闷的，是它流露出来的那种政治想象的贫乏。</p>
+
+      <p>它能想象的"极权的反面"就只有沉思生活，仿佛除此之外人与人组织世界的方式都不值得严肃考虑。但这不是世界没有别的可能——是云格尔已经预先把所有别的可能判定为"庸俗"。他的整个思想形成期（1920 年代）里，议会民主、社会民主、市民社会的妥协与协商、工人组织——一一被他鄙视掉了。所以等到极权真的到来，他能动用的位置只剩下贵族式隐修。<em>别的位置都已经被他自己提前抹掉了</em>。</p>
+
+      <p>这一代人的局限不只是云格尔的问题。但同代人里有人做出了完全不同的选择，面对的也是同一个政权：</p>
+    </div>
+
+    <div class="narrow" style="padding:0; max-width:none">
+      <div class="resisters" style="max-width:var(--read-w); margin-left:auto; margin-right:auto">
+        <div class="resister">
+          <h4>Bonhoeffer</h4>
+          <div class="yrs">1906 – 1945</div>
+          <p>路德宗神学家。1933 年 2 月希特勒上台两天后即在广播里讲反对"领袖原则"的布道。1943 年被捕，1945 年 4 月被绞死。</p>
+        </div>
+        <div class="resister">
+          <h4>Sophie Scholl</h4>
+          <div class="yrs">1921 – 1943</div>
+          <p>白玫瑰小组成员。1943 年 2 月在慕尼黑大学散发反纳粹传单被捕，21 岁被斩首。她散发的是<em>公开的话</em>——不是寓言。</p>
+        </div>
+        <div class="resister">
+          <h4>Simone Weil</h4>
+          <div class="yrs">1909 – 1943</div>
+          <p>哲学家、神秘主义者。在工厂做工、在西班牙参战、最终为团结于受难者而绝食至死。基督教灵性的政治化身。</p>
+        </div>
+        <div class="resister">
+          <h4>Thomas Mann</h4>
+          <div class="yrs">1875 – 1955</div>
+          <p>1933 年外部流亡。战时在 BBC 公开广播反纳粹（Deutsche Hörer!，55 期）。承担实际代价的发声。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p>这四个名字里最值得放在云格尔旁边的是 Bonhoeffer。他不是世俗政治家——他是个虔诚的路德宗神学家，这意味着他的"信仰内核"和云格尔的"精神高度"本来站在同一个起点。但他做了相反的事：他把信仰带进公共空间，写《狱中书简》，参与刺杀希特勒的密谋，被绞死。<em>他没有选择书桌</em>。这个对照让"信仰需要隐居"的辩护当场失效。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §VII · THE NAME ============ -->
+<section id="name">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">VII</div>
+      <div class="sec-titles">
+        <h2>这种姿态有名字</h2>
+        <div class="sub">The diagnosis was already made — twice — before this book was written</div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p class="anchor">合上书查了一阵之后才发现，我一路上累积的不耐烦不是新观察。它有一个传统替我命名过——而且第一次被命名是在云格尔写《大理石悬崖》前九年。</p>
+
+      <p>1930 年，Walter Benjamin 给云格尔编的一本战争文集（Krieg und Krieger）写了一篇书评，题为《德国法西斯主义的理论》。这篇文章直接对云格尔本人下诊断：</p>
+    </div>
+
+    <div class="narrow" style="padding:0; max-width:none">
+      <div class="evidence" style="max-width:var(--read-w); margin-left:auto; margin-right:auto">
+        <div class="e-tag">Witness I · 直接对云格尔</div>
+        <div class="e-source">Walter Benjamin · <span class="work">Theorien des deutschen Faschismus · 1930</span></div>
+        <div class="e-quote">
+          一切对战争的形而上学化、神秘化与英雄化，都把它从一个可被分析的政治—历史现象，转变成永恒命运式的"伟大体验"。
+        </div>
+        <div class="e-gloss">
+          Benjamin 指出云格尔的语言把战争抬升为审美对象，从而使战争<strong>不可批评</strong>——你只能在它面前肃立。这套操作搬到 1939 年的《大理石悬崖》上，等价物是把第三帝国抬升为"秩序与混乱的永恒寓言"，于是它也不可批评，只能在它面前哀悼文明的逝去。
+        </div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p>四十五年后，Susan Sontag 在《迷人的法西斯》（NYRB, 1975）里把这个操作的边界画得更清楚。她名义上写的是 Riefenstahl，实际上给整套"对纯粹形式、高贵姿态、距离美的迷恋"开了诊断书：</p>
+    </div>
+
+    <div class="narrow" style="padding:0; max-width:none">
+      <div class="evidence" style="max-width:var(--read-w); margin-left:auto; margin-right:auto">
+        <div class="e-tag">Witness II · 操作的边界</div>
+        <div class="e-source">Susan Sontag · <span class="work">Fascinating Fascism · NYRB · 1975</span></div>
+        <div class="e-quote">
+          法西斯艺术歌颂屈服，颂扬无意识；它把死亡浪漫化。它的核心情感是一种被剥夺了思考能力的崇高感。
+        </div>
+        <div class="e-gloss">
+          Sontag 的关键观察：审美的目光看见<em>姿态、命运、悲剧、崇高</em>；它<strong>看不见</strong>"哪些环节本来可以被阻止"。同一个对象（剥皮屋／集中营）可以有两种写法——审美写法让人感受恶并产生敬畏；政治写法让人理解恶以便下次能识别它。云格尔的剥皮屋是前者：写得极其精微、极其美。读完会战栗。但<strong>读完不知道这种事是怎么被组织起来的</strong>——所以下次它换一种形式回来时，认不出来。
+        </div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p>把 Benjamin 和 Sontag 放在一起读，他们指向的是同一台引擎。可以把它叫一个名字，免得绕：</p>
+    </div>
+
+    <div class="narrow" style="padding:0; max-width:none">
+      <div class="synthesis" style="margin-left:auto; margin-right:auto">
+        <div class="lab">把它叫做这个</div>
+        <p><strong>贵族审美距离</strong>：把恐怖、灾难、政治当作美学对象来观看，并以观看的"高度"代替参与的代价。它的产物是<em>姿态</em>——可识别的、可被欣赏的、不会被还原成具体决策与具体责任的姿态。</p>
+        <p>这种距离不必出于恶意。它的危险在于它对操作者本人感觉是"高贵"的：我看见这一切，我没有同流合污，我以更精微的方式承担着痛苦——这种自我感觉构成它的奖励机制，使它在道德上自我巩固。</p>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p>回头看，前面四节我读出来的几个不耐烦，其实都在指向这一个东西。战斗写得不真实——是因为真实战争不能被审美化，否则就不再是真实战争。书桌作为抵抗——是因为这个姿态需要的就是<em>不下场</em>，不下场才能保住高度。云格尔欺软怕硬地批评魏玛而对纳粹恭敬——是因为要维持高度，就必须永远不下场；要不下场，就必须永远只射击靶子里没有真子弹的那一边。极权的反面只有沉思生活——是因为别的反面都得下场。</p>
+
+      <p>四件事，<em>一台引擎</em>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §VIII · CODA ============ -->
+<section class="coda" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num">VIII</div>
+      <div class="sec-titles">
+        <h2>怎么读它</h2>
+        <div class="sub">A reading verdict, not a verdict on Jünger as a person</div>
+      </div>
+    </div>
+
+    <div class="prose narrow" style="padding:0">
+      <p>那么怎么读这本书。</p>
+
+      <p>我不主张不读它。它对极权恐怖的某些描写——剥皮屋、语言腐化——确实有先见之明。它的语言之美也是真的。它值得作为现象去理解。</p>
+
+      <p>但要带着这副眼镜读：它提供的"出路"是一条死胡同。一条贵族式的、审美化的、最终是自我安慰的死胡同。它无法回答"什么是抵抗"，因为它已经预先排除了所有真正的抵抗形式——有组织的、群众的、公共的、承担代价的。它只能给出一种姿态：在悬崖上整理标本，然后逃往北方。</p>
+
+      <p>这种姿态值得作为<em>现象</em>去理解，不值得作为<em>榜样</em>去追随。</p>
+
+      <p>真正的精神抵抗——如果存在的话——更接近 Bonhoeffer、Weil、Scholl、Havel 那一脉：在公共空间里，以可见的姿态，承担具体的代价。两件事的语言听上去都很高，但只有一件事的语言落地之后还能站着。</p>
+
+      <p>回头看题记里那句"作为科学家觉得无法静坐书桌"的不安——那种不安不是科学家身份的偶然反应。它是健康的政治直觉本身。当一本书反复让人感到"哪里不对，但说不上来"，那个"哪里"通常已经有人替我们写出来过名字。这次的名字是 <span class="latin" style="font-style:italic">aestheticization of politics</span>。</p>
+
+      <div class="colophon">
+        Set in Cormorant Garamond · Noto Serif SC · Noto Sans SC · EB Garamond<br>
+        一份不太信任的阅读笔记 · Tübingen · 2026.05.09
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

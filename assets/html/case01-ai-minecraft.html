@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case 01 · AI × Minecraft — 教青少年驾驭AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Paper and ink */
+    --bg:        #f7f5ee;
+    --bg-2:      #efebde;
+    --surface:   #ffffff;
+    --surface-2: #fdfbf3;
+
+    --ink:       #14140f;
+    --ink-2:     #41413a;
+    --ink-3:     #767164;
+    --ink-4:     #a8a394;
+
+    --line:      #e3ddc9;
+    --line-2:    #c8c0a3;
+    --line-soft: #efeadd;
+
+    /* Forest — primary, calm Minecraft grass */
+    --forest:       #2f5a2c;
+    --forest-mid:   #4a8447;
+    --forest-deep:  #1c3a1b;
+    --forest-tint:  rgba(47, 90, 44, 0.07);
+    --forest-tint-2:rgba(47, 90, 44, 0.16);
+
+    /* Copper — in-progress / annotations */
+    --copper:       #b8642a;
+    --copper-deep:  #7e3f15;
+    --copper-tint:  rgba(184, 100, 42, 0.08);
+
+    /* Gold — highlights, "recommended" */
+    --gold:         #c79420;
+
+    --serif-en:  'Fraunces', Georgia, serif;
+    --serif-cn:  'Noto Serif SC', 'Songti SC', serif;
+    --serif:     'Fraunces', 'Noto Serif SC', Georgia, serif;
+    --sans:      'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --mono:      'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.75;
+    font-size: 16.5px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--forest-tint-2); color: var(--ink); }
+
+  /* ════════════════════ COMMON ════════════════════ */
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+  .wrap-wide { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .eyebrow .dot { color: var(--forest); margin: 0 8px; }
+  h1, h2, h3, h4 { font-family: var(--serif); color: var(--ink); }
+  h2 { font-weight: 600; letter-spacing: -0.018em; }
+
+  /* ════════════════════ TOP BAR ════════════════════ */
+  .topbar {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .topbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.1em;
+  }
+  .topbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+  .brand-block {
+    display: inline-grid;
+    grid-template-columns: repeat(2, 8px);
+    grid-template-rows: repeat(2, 8px);
+    gap: 1.5px;
+  }
+  .brand-block div { background: var(--forest); }
+  .brand-block div:nth-child(1) { background: var(--forest-mid); }
+  .brand-block div:nth-child(4) { background: var(--copper); }
+  .topbar .nav { display: flex; gap: 22px; }
+  .topbar .nav a {
+    color: var(--ink-3);
+    text-decoration: none;
+    transition: color 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .topbar .nav a:hover { color: var(--forest); }
+  @media (max-width: 720px) { .topbar .nav { display: none; } }
+
+  /* ════════════════════ HERO ════════════════════ */
+  .hero {
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-eyebrow {
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-eyebrow .rule {
+    flex: 0 0 80px;
+    height: 1px;
+    background: var(--line-2);
+  }
+  h1.hero-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(40px, 6.5vw, 76px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    margin-bottom: 30px;
+    color: var(--ink);
+  }
+  h1.hero-title .accent { color: var(--forest); font-style: italic; font-weight: 500; }
+  h1.hero-title .second { color: var(--ink-2); font-style: italic; font-weight: 500; }
+  .hero-lede {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 700px;
+    margin-bottom: 64px;
+    font-weight: 400;
+  }
+  .hero-lede em {
+    color: var(--ink);
+    font-style: italic;
+    border-bottom: 1px solid var(--forest-tint-2);
+    padding-bottom: 1px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 720px) { .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
+  .stat .num {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .stat .num .unit {
+    font-size: 18px;
+    color: var(--ink-3);
+    margin-left: 2px;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .stat .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-top: 8px;
+  }
+
+  .hero-art {
+    position: absolute;
+    top: 70px;
+    right: -20px;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  @media (max-width: 1100px) { .hero-art { right: 10px; opacity: 0.55; } }
+  @media (max-width: 800px) { .hero-art { display: none; } }
+
+  /* ════════════════════ SECTION SHELL ════════════════════ */
+  section.block {
+    padding: 88px 0 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  section.block:last-of-type { border-bottom: none; }
+  .sec-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.018em;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+  .sec-title em { color: var(--forest); font-style: italic; font-weight: 500; }
+  .sec-blurb {
+    font-size: 17.5px;
+    color: var(--ink-2);
+    max-width: 680px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  /* ════════════════════ PHILOSOPHY ════════════════════ */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: var(--surface);
+    margin-bottom: 64px;
+  }
+  @media (max-width: 760px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar {
+    padding: 32px 30px;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .pillar:last-child { border-right: none; }
+  @media (max-width: 760px) {
+    .pillar { border-right: none; border-bottom: 1px solid var(--line); }
+    .pillar:last-child { border-bottom: none; }
+  }
+  .pillar .level {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .pillar h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .pillar p {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .pillar .where {
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+  }
+
+  .principle {
+    padding: 36px 40px;
+    background: var(--forest-tint);
+    border-left: 3px solid var(--forest);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 0;
+  }
+  .principle .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--forest);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .principle .big {
+    font-family: var(--serif-cn);
+    font-weight: 600;
+    font-size: 28px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .principle p {
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  /* ════════════════════ CURRICULUM MAP ════════════════════ */
+  .map-table {
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 36px;
+  }
+  .map-row {
+    display: grid;
+    grid-template-columns: 60px 1.4fr 2fr 130px 130px;
+    border-bottom: 1px solid var(--line);
+    align-items: stretch;
+  }
+  .map-row:last-child { border-bottom: none; }
+  .map-row.head {
+    background: var(--bg-2);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+  .map-row > div {
+    padding: 18px 18px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+  }
+  .map-row > div:last-child { border-right: none; }
+  .map-row .pid {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--forest);
+    letter-spacing: 0.05em;
+  }
+  .map-row .pname {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    line-height: 1.3;
+  }
+  .map-row .pname .glyph { margin-right: 8px; opacity: 0.85; }
+  .map-row .ptag {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+  .map-row .pses {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  @media (max-width: 880px) {
+    .map-row { grid-template-columns: 1fr; }
+    .map-row.head { display: none; }
+    .map-row > div { border-right: none; border-bottom: 1px dashed var(--line-soft); }
+    .map-row > div:last-child { border-bottom: none; }
+  }
+
+  /* Status pill */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .pill .ind {
+    width: 7px; height: 7px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .pill.done {
+    background: var(--forest-tint);
+    color: var(--forest-deep);
+  }
+  .pill.done .ind { background: var(--forest); }
+  .pill.now {
+    background: var(--copper-tint);
+    color: var(--copper-deep);
+  }
+  .pill.now .ind { background: var(--copper); animation: pulse 2s infinite; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .pill.next {
+    background: var(--bg-2);
+    color: var(--ink-3);
+  }
+  .pill.next .ind { background: var(--ink-4); }
+
+  /* Concept timeline */
+  .concept-bar {
+    margin-top: 56px;
+    padding-top: 36px;
+    border-top: 1px solid var(--line);
+  }
+  .concept-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 22px;
+    font-weight: 600;
+  }
+  .concept-track {
+    position: relative;
+    padding: 30px 0 10px;
+  }
+  .concept-track::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0; right: 0;
+    height: 2px;
+    background: var(--line-2);
+  }
+  .concept-stops {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+    z-index: 1;
+  }
+  .concept-stop {
+    position: relative;
+    padding-left: 14px;
+  }
+  .concept-stop::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 12px; height: 12px;
+    background: var(--surface);
+    border: 2px solid var(--forest);
+    border-radius: 50%;
+  }
+  .concept-stop.now::before { border-color: var(--copper); background: var(--copper-tint); }
+  .concept-stop.next::before { border-color: var(--line-2); }
+  .concept-stop .when {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 50px;
+  }
+  .concept-stop .what {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .concept-stop .ctxt {
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    padding-right: 18px;
+  }
+  @media (max-width: 880px) {
+    .concept-stops { grid-template-columns: 1fr; gap: 28px; }
+    .concept-track::before { display: none; }
+    .concept-stop { border-left: 2px solid var(--forest); padding-left: 18px; }
+    .concept-stop::before { display: none; }
+    .concept-stop .when { margin-top: 0; }
+  }
+
+  /* ════════════════════ FIELD NOTES ════════════════════ */
+  .field-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+  }
+  @media (max-width: 880px) { .field-grid { grid-template-columns: 1fr; gap: 24px; } }
+  .field-side {
+    position: sticky;
+    top: 90px;
+    align-self: start;
+    height: fit-content;
+  }
+  .field-side .meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding-top: 6px;
+    border-top: 2px solid var(--ink);
+    line-height: 1.7;
+  }
+  .field-side .meta .lbl { color: var(--ink-3); }
+  .field-side .meta .val { color: var(--ink); display: block; margin-bottom: 12px; }
+
+  .entry {
+    margin-bottom: 56px;
+    padding-bottom: 48px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .entry:last-child { border-bottom: none; }
+  .entry-stamp {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.1em;
+  }
+  .entry-stamp .where {
+    background: var(--bg-2);
+    padding: 3px 9px;
+    border-radius: 2px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .entry h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .entry p {
+    color: var(--ink-2);
+    font-size: 16.5px;
+    line-height: 1.78;
+    margin-bottom: 16px;
+  }
+  .entry p strong { color: var(--ink); font-weight: 600; }
+  .entry p code {
+    font-family: var(--mono);
+    background: var(--bg-2);
+    padding: 1px 6px;
+    font-size: 13px;
+    border-radius: 2px;
+    color: var(--forest-deep);
+  }
+  .entry .lesson {
+    background: var(--surface);
+    border-left: 3px solid var(--forest);
+    padding: 18px 24px;
+    margin: 24px 0;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+  .entry .lesson .l-tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    color: var(--forest);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .entry blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 28px 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--copper);
+    max-width: 600px;
+  }
+  .entry blockquote .att {
+    display: block;
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-top: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .obstacle {
+    background: var(--copper-tint);
+    border: 1px solid rgba(184, 100, 42, 0.2);
+    border-radius: 3px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .obstacle .otag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--copper-deep);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .obstacle .otitle {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .obstacle p {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .obstacle .resolved {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--forest-deep);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  .obstacle .resolved::before {
+    content: '→';
+    margin-right: 6px;
+    color: var(--forest);
+  }
+
+  /* ════════════════════ TOOLKIT ════════════════════ */
+  .toolkit {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: 2px;
+  }
+  @media (max-width: 760px) { .toolkit { grid-template-columns: 1fr; } }
+  .tool {
+    padding: 26px 28px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .tool:nth-child(2n) { border-right: none; }
+  @media (max-width: 760px) {
+    .tool { border-right: none; }
+    .tool:nth-child(2n) { border-right: none; }
+  }
+  .tool:nth-last-child(-n+2) { border-bottom: none; }
+  @media (max-width: 760px) { .tool { border-bottom: 1px solid var(--line); } .tool:last-child { border-bottom: none; } }
+  .tool-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tool-head .name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .tool-head .stage {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .tool .why {
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .tool .why code {
+    font-family: var(--mono);
+    background: var(--forest-tint);
+    color: var(--forest-deep);
+    padding: 1px 5px;
+    font-size: 12.5px;
+    border-radius: 2px;
+  }
+  .tool .swap {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--copper);
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+  }
+  .tool .swap::before { content: '⇆ '; }
+
+  /* ════════════════════ MATERIALS ════════════════════ */
+  .mat-list { display: flex; flex-direction: column; gap: 14px; }
+  .mat-item {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 22px;
+    align-items: center;
+    padding: 18px 22px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .mat-item:hover {
+    transform: translateX(2px);
+    border-color: var(--forest-mid);
+    box-shadow: 0 12px 24px -16px rgba(20, 20, 15, 0.18);
+  }
+  @media (max-width: 760px) {
+    .mat-item { grid-template-columns: 40px 1fr; }
+    .mat-item .mat-pill { grid-column: 1 / -1; justify-self: start; }
+  }
+  .mat-item .icon {
+    width: 44px; height: 44px;
+    background: var(--forest-tint);
+    color: var(--forest);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+  .mat-item.copper .icon { background: var(--copper-tint); color: var(--copper); }
+  .mat-item.gold .icon { background: rgba(199, 148, 32, 0.15); color: #8a6610; }
+  .mat-item .mat-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: -0.005em;
+  }
+  .mat-item .mat-desc {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  /* ════════════════════ OPEN QS / NEXT ════════════════════ */
+  .questions { display: grid; gap: 16px; }
+  .q {
+    background: var(--surface);
+    border-left: 3px solid var(--gold);
+    padding: 22px 26px;
+    border-radius: 2px;
+  }
+  .q .qmeta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .q .qtext {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .q .qtext em { font-style: italic; color: var(--copper-deep); }
+  .q .qnote {
+    font-size: 14px;
+    color: var(--ink-2);
+    margin-top: 12px;
+    line-height: 1.65;
+  }
+
+  /* ════════════════════ CASE SERIES ════════════════════ */
+  .series-card {
+    background: linear-gradient(180deg, var(--forest-tint) 0%, transparent 100%);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 44px 40px;
+    margin-top: 16px;
+  }
+  .series-card .seyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--forest);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .series-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  .series-card p {
+    color: var(--ink-2);
+    font-size: 16.5px;
+    line-height: 1.75;
+    max-width: 720px;
+    margin-bottom: 14px;
+  }
+  .series-card p strong { color: var(--ink); font-weight: 600; }
+  .series-card .case-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+  @media (max-width: 760px) { .series-card .case-list { grid-template-columns: 1fr; } }
+  .series-card .case-list .ci {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 16px 18px;
+  }
+  .ci .cnum {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.14em;
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .ci .ctitle {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .ci .ctxt2 { font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
+  .ci.current { border-color: var(--forest); }
+  .ci.current .cnum { color: var(--forest); }
+
+  /* ════════════════════ FOOTER ════════════════════ */
+  footer {
+    padding: 64px 0 56px;
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+  }
+  footer .foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    align-items: end;
+  }
+  @media (max-width: 720px) { footer .foot-grid { grid-template-columns: 1fr; } }
+  footer .who {
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 560px;
+  }
+  footer .who strong { color: var(--ink); font-weight: 600; }
+  footer .stamp {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.14em;
+    line-height: 1.85;
+  }
+  footer .stamp .ll { color: var(--ink); font-weight: 500; }
+  .pixel-rule {
+    display: grid;
+    grid-template-columns: repeat(16, 10px);
+    gap: 2px;
+    margin: 0 0 32px;
+  }
+  .pixel-rule div { height: 10px; background: var(--line-2); }
+  .pixel-rule div:nth-child(3n) { background: var(--forest); opacity: 0.45; }
+  .pixel-rule div:nth-child(7n) { background: var(--copper); opacity: 0.55; }
+  .pixel-rule div:nth-child(11n) { background: var(--gold); opacity: 0.4; }
+
+  /* small grass-block svg used as bullet */
+  .grass-bullet {
+    width: 16px; height: 16px;
+    display: inline-block;
+    vertical-align: -3px;
+    margin-right: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ TOPBAR ════════════════════ -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-block"><div></div><div></div><div></div><div></div></span>
+      Cases · Haiwen
+    </div>
+    <nav class="nav">
+      <a href="#design">设计</a>
+      <a href="#map">课程地图</a>
+      <a href="#field">现场实录</a>
+      <a href="#toolkit">工具包</a>
+      <a href="#materials">材料</a>
+      <a href="#next">下一个</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">
+      <span class="eyebrow">Case 01<span class="dot">·</span>AI × Minecraft<span class="dot">·</span>Living document</span>
+      <span class="rule"></span>
+    </div>
+    <h1 class="hero-title">用<span class="accent">Minecraft</span>，<br>教青少年<br><span class="second">驾驭AI</span>。</h1>
+    <p class="hero-lede">
+      一个为初中生设计的三个月项目制课程。学生<em>不写一行代码</em>，但要做出一个能玩的竞技场、一个完整的游戏模式、一个会自己行动的AI队友，最后<em>发布一个真正的Minecraft mod</em>到网上。
+      这一页是这门课的设计、现场记录和未解之问——它会随着教学过程持续更新。
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="num">04</div>
+        <div class="label">个项目</div>
+      </div>
+      <div class="stat">
+        <div class="num">~10</div>
+        <div class="label">个 session</div>
+      </div>
+      <div class="stat">
+        <div class="num">~3<span class="unit">月</span></div>
+        <div class="label">教学周期</div>
+      </div>
+      <div class="stat">
+        <div class="num">00</div>
+        <div class="label">行手写代码</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- corner art: a small isometric grass-block stack -->
+  <svg class="hero-art" width="220" height="200" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="grass" patternUnits="userSpaceOnUse" width="14" height="14">
+        <rect width="14" height="14" fill="#4a8447"/>
+        <rect width="3" height="3" x="2" y="2" fill="#2f5a2c"/>
+        <rect width="3" height="3" x="9" y="6" fill="#2f5a2c" opacity="0.6"/>
+        <rect width="2" height="2" x="6" y="10" fill="#1c3a1b" opacity="0.5"/>
+      </pattern>
+      <pattern id="dirt" patternUnits="userSpaceOnUse" width="14" height="14">
+        <rect width="14" height="14" fill="#a8896b"/>
+        <rect width="3" height="3" x="2" y="2" fill="#7d6849"/>
+        <rect width="3" height="3" x="9" y="7" fill="#7d6849" opacity="0.7"/>
+      </pattern>
+    </defs>
+    <!-- back block -->
+    <g transform="translate(70,30)">
+      <polygon points="0,30 40,10 80,30 80,80 40,100 0,80" fill="url(#grass)" stroke="#1c3a1b" stroke-width="1.5"/>
+      <polygon points="0,30 40,50 80,30" fill="url(#grass)" stroke="#1c3a1b" stroke-width="1.5"/>
+      <polygon points="0,30 40,50 40,100 0,80" fill="url(#dirt)" stroke="#1c3a1b" stroke-width="1.5" opacity="0.85"/>
+    </g>
+    <!-- front block -->
+    <g transform="translate(40,80)">
+      <polygon points="0,30 40,10 80,30 80,80 40,100 0,80" fill="url(#grass)" stroke="#1c3a1b" stroke-width="1.5"/>
+      <polygon points="0,30 40,50 80,30" fill="url(#grass)" stroke="#1c3a1b" stroke-width="1.5"/>
+      <polygon points="0,30 40,50 40,100 0,80" fill="url(#dirt)" stroke="#1c3a1b" stroke-width="1.5" opacity="0.85"/>
+    </g>
+    <!-- floating "?" pixel cluster -->
+    <g transform="translate(160,20)">
+      <rect x="6" y="0" width="6" height="6" fill="#b8642a"/>
+      <rect x="0" y="6" width="6" height="6" fill="#b8642a"/>
+      <rect x="12" y="6" width="6" height="6" fill="#b8642a"/>
+      <rect x="6" y="12" width="6" height="6" fill="#b8642a"/>
+      <rect x="6" y="24" width="6" height="6" fill="#b8642a"/>
+    </g>
+  </svg>
+</section>
+
+<!-- ════════════════════ DESIGN / PHILOSOPHY ════════════════════ -->
+<section class="block" id="design">
+  <div class="wrap">
+    <div class="eyebrow">▍ 课程设计</div>
+    <h2 class="sec-title">这<em>不是</em>一门讲AI是什么的课。<br>这是一门让AI<em>变成你超能力</em>的课。</h2>
+    <p class="sec-blurb">
+      学生玩Minecraft Java版、有基础编程经验、把AI当成搜索引擎或聊天机器人来用。这门课要把那个理解换掉——AI是<strong>可以被指挥的</strong>，而你要学会怎么指挥它。
+    </p>
+
+    <!-- the three pillars -->
+    <div class="pillars">
+      <div class="pillar">
+        <div class="level">Level 1 / Prompt</div>
+        <h3>说清楚</h3>
+        <p>怎么把脑子里的想法描述成AI能理解、能给出好结果的话。模糊的问法和具体的问法，结果天差地别。</p>
+        <div class="where">在 项目一·竞技场 自然学会</div>
+      </div>
+      <div class="pillar">
+        <div class="level">Level 2 / Decomposition</div>
+        <h3>拆解好</h3>
+        <p>复杂任务一次说太多，AI会搞混。拆成小步骤，一次一步，每步验证——这是agentic coding的核心动作。</p>
+        <div class="where">在 项目二·僵尸围城 前半段冒出来</div>
+      </div>
+      <div class="pillar">
+        <div class="level">Level 3 / Harness</div>
+        <h3>搭好环境</h3>
+        <p>当prompt不够用时，给AI搭工作环境：记忆 + 规则 + 自我检查。这就是行业里说的harness——不是因为AI笨，而是复杂任务需要支撑。</p>
+        <div class="where">在 项目二·僵尸围城 后半段被需要</div>
+      </div>
+    </div>
+
+    <div class="principle" style="margin-top: 48px;">
+      <div class="tag">核心教学原则</div>
+      <div class="big">先体验后命名</div>
+      <p>
+        prompt engineering、decomposition、harness——这些概念<strong>不被提前讲</strong>。让学生在项目里先撞上问题，感受到痛点，然后我们再给这个东西一个名字。先有体感，名字才不会变成空话。
+      </p>
+    </div>
+
+    <div class="principle" style="margin-top: 20px; background: var(--copper-tint); border-left-color: var(--copper);">
+      <div class="tag" style="color: var(--copper);">附加维度 · 在 P3 里浮现</div>
+      <div class="big">顺带教一点科学方法</div>
+      <p>
+        驾驭AI是这门课的明面目标。但我在Project 3里发现一个更隐的可能性——通过<strong>探索Mindcraft</strong>这种半结构化的开源项目，自然演练<strong>「发现问题 → 提出猜想 → 动手验证 → 解决」</strong>这一整套循环。
+        Bot会卡在墙里、profile改了不生效、两个bot不会真协作——这些都是真问题，不是练习题。
+        当学生第一次说"我猜是因为它没读到我加的指令"——那一刻他在做的事，跟科学家在做的事，结构是一样的。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ CURRICULUM MAP ════════════════════ -->
+<section class="block" id="map">
+  <div class="wrap">
+    <div class="eyebrow">▍ 课程地图</div>
+    <h2 class="sec-title">四个项目，<em>越来越深</em>。</h2>
+    <p class="sec-blurb">每个项目的产出都是真实可玩的东西，不是练习题。学生和AI的关系也在每个项目里换：从顾问，到下属，到队友，到合作开发者。</p>
+
+    <div class="map-table">
+      <div class="map-row head">
+        <div>ID</div>
+        <div>项目</div>
+        <div>核心动作 · AI是什么角色</div>
+        <div>Sessions</div>
+        <div>状态</div>
+      </div>
+      <div class="map-row">
+        <div class="pid">P1</div>
+        <div class="pname"><span class="glyph">🏟️</span>魔法竞技场</div>
+        <div class="ptag">用AI生成的命令搭一个能玩的PVP竞技场。<br><span style="color:var(--ink-3);font-size:13px;">AI是顾问</span></div>
+        <div class="pses">3 sessions</div>
+        <div><span class="pill done"><span class="ind"></span>已完成</span></div>
+      </div>
+      <div class="map-row">
+        <div class="pid">P2</div>
+        <div class="pname"><span class="glyph">🧟</span>僵尸围城</div>
+        <div class="ptag">用Cursor让AI写完整的Minecraft数据包。学会给AI搭工作环境。<br><span style="color:var(--ink-3);font-size:13px;">AI是程序员，学生是项目经理</span></div>
+        <div class="pses">压缩 · 1-2 sessions</div>
+        <div><span class="pill done"><span class="ind"></span>已完成</span></div>
+      </div>
+      <div class="map-row">
+        <div class="pid">P3</div>
+        <div class="pname"><span class="glyph">🤖</span>我的AI队友</div>
+        <div class="ptag">让AI bot直接进入MC世界。调教性格、做多bot协作。<br><span style="color:var(--ink-3);font-size:13px;">AI是队友 · 顺带练科学方法</span></div>
+        <div class="pses">3 sessions</div>
+        <div><span class="pill now"><span class="ind"></span>进行中</span></div>
+      </div>
+      <div class="map-row">
+        <div class="pid">P4</div>
+        <div class="pname"><span class="glyph">⚒️</span>我的MC Mod</div>
+        <div class="ptag">做一个真正的Minecraft mod并发布到网上。<br><span style="color:var(--ink-3);font-size:13px;">AI是合作开发者</span></div>
+        <div class="pses">3 sessions</div>
+        <div><span class="pill next"><span class="ind"></span>待启动</span></div>
+      </div>
+    </div>
+
+    <!-- concept timeline -->
+    <div class="concept-bar">
+      <div class="concept-eyebrow">▍ 概念在哪里冒出来</div>
+      <div class="concept-track">
+        <div class="concept-stops">
+          <div class="concept-stop">
+            <div class="when">P1 · 竞技场</div>
+            <div class="what">AI在生成，不是搜索</div>
+            <div class="ctxt">AI写出网上不存在的MC内容；你用MC知识考住了它。Prompt = 说清楚你要什么。</div>
+          </div>
+          <div class="concept-stop">
+            <div class="when">P2 · 僵尸围城</div>
+            <div class="what">Agentic coding · RCON pipeline</div>
+            <div class="ctxt">你没写一行代码，但做出了能跑的东西。AI能直接发命令进游戏。这个项目做得偏快，主要收获是pipeline。</div>
+          </div>
+          <div class="concept-stop now">
+            <div class="when">P3 · AI队友</div>
+            <div class="what">Agent · Profile = Harness · 科学方法</div>
+            <div class="ctxt">同一AI + 不同profile = 不同行为。Bot会卡在墙里——这就是发现问题、提出猜想、动手修的入口。</div>
+          </div>
+          <div class="concept-stop next">
+            <div class="when">P4 · 发布Mod</div>
+            <div class="what">项目级Harness · 可迁移性</div>
+            <div class="ctxt">开工第一件事：搭CLAUDE.md。这套方法可以用在网站、写作、研究、任何项目。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FIELD NOTES ════════════════════ -->
+<section class="block" id="field">
+  <div class="wrap-wide">
+    <div class="eyebrow">▍ 现场实录</div>
+    <h2 class="sec-title">真的发生了什么——<em>断点、惊喜、坑</em>。</h2>
+    <p class="sec-blurb">这门课设计上很整齐。但教学现场永远比设计书复杂。下面是按时间顺序的笔记：什么按预期发生了、什么没有、什么是设计书没考虑到的。</p>
+
+    <div class="field-grid">
+      <aside class="field-side">
+        <div class="meta">
+          <span class="lbl">学生</span>
+          <span class="val">表弟 · 8年级</span>
+          <span class="lbl">起点</span>
+          <span class="val">玩MC Java · 有基础编程经验</span>
+          <span class="lbl">学生当前AI工具</span>
+          <span class="val">WorkBuddy (GLM5.1)</span>
+          <span class="lbl">教学者</span>
+          <span class="val">Haiwen · ML研究 + 哲学背景</span>
+          <span class="lbl">分工</span>
+          <span class="val">学生：高层设计 · AI：debug循环 · Haiwen：架构 + 工具决定</span>
+        </div>
+      </aside>
+
+      <div class="field-main">
+
+        <!-- entry 1: P1 reflections -->
+        <article class="entry">
+          <div class="entry-stamp">
+            <span class="where">项目一 · 已完结</span>
+            <span>魔法竞技场</span>
+          </div>
+          <h3>项目一：把PVP竞技场搭起来——好的部分和卡住的部分</h3>
+          <p>
+            <strong>好的部分：</strong>学生在没人提"prompt engineering"这个词的情况下，自己撞上了它。第一次写"帮我做计分系统"，AI给了一个泛泛的方案；改成"帮我做命令方块计分系统，杀死对方加1分，记分板显示在屏幕右边，到5分显示胜利信息"，立刻好了一档。我没解释，他自己说："哦怎么问决定了答案的质量。"
+          </p>
+          <p>
+            <strong>第一次让他debug：</strong>一开始的描述方式是"它不行""有bug"。我让他换成"我期望X但实际是Y，操作步骤是Z"——再扔给AI，立刻能修。这是项目一最值得记录的一个能力转化点。
+          </p>
+
+          <div class="lesson">
+            <span class="l-tag">Lesson</span>
+            <strong>Debug就是描述差异</strong>——"期望X / 实际Y / 怎么复现"是个万能模板。学生学到的不是Minecraft，是<strong>怎么把模糊不满意翻译成可操作信号</strong>。
+          </div>
+
+          <div class="obstacle">
+            <div class="otag">遇到的坑 · 项目一最大痛点</div>
+            <div class="otitle">手动debug循环——AI不能自我闭环</div>
+            <p>
+              整个项目一的工作流是：跟AI描述 → AI给命令 → 学生<strong>手动复制进MC</strong> → 进游戏测 → 出错 → 把报错<strong>手动转述给AI</strong> → 改 → 又复制回去……每个循环少则2分钟多则10分钟，注意力和耐心是被这个循环吃掉的，不是被MC吃掉的。
+            </p>
+            <p>到项目一后半段，学生已经开始烦躁地说"我又得复制一遍"。这是项目设计里没充分预料到的成本。</p>
+            <div class="resolved">解决方案在项目二的pipeline里：让AI能直接发命令进游戏，无需人工搬运。</div>
+          </div>
+
+          <blockquote>
+            "我不是不想测，是测一遍要复制四次。"
+            <span class="att">— 学生，项目一后期</span>
+          </blockquote>
+        </article>
+
+        <!-- entry 2: P2 brief -->
+        <article class="entry">
+          <div class="entry-stamp">
+            <span class="where">项目二 · 已完结</span>
+            <span>僵尸围城</span>
+          </div>
+          <h3>项目二：做得偏快，但 RCON pipeline 立住了</h3>
+          <p>
+            坦白说，项目二做得比设计书里赶——3-session的plan被压成了1-2次。学生对"做一个新的游戏模式"的兴趣没我预想得高，所以我没硬撑足时长。但<strong>这个项目的核心价值不在游戏模式本身，在于它把项目一那个手动循环换掉了</strong>——这个目标达到了。
+          </p>
+          <p>
+            新pipeline的三件套：<strong>Cursor</strong>（AI辅助IDE）+ <strong>本地MC Java dedicated server</strong>（脱离单机）+ <strong>RCON / <code>mcrcon</code></strong>（AI能直接发命令进游戏、读回执）。
+            关键发现：原版MC dedicated server <strong>原生支持RCON</strong>——只要在 <code>server.properties</code> 里改两行配置即可，不需要Fabric mod loader。这一发现把整个pipeline的复杂度砍掉一半，也是这个项目能压缩到很短的原因。
+          </p>
+
+          <div class="obstacle" style="background: var(--forest-tint); border-color: rgba(47,90,44,0.2);">
+            <div class="otag" style="color: var(--forest-deep);">现场惊喜 · 留作反复使用的素材</div>
+            <div class="otitle">Agent 自己识别并修了 JDK 版本问题</div>
+            <p>
+              Pipeline搭建过程中，AI agent最初装了JDK 21，跑MC server失败。它<strong>自己读了报错</strong>，<strong>自己判断需要切到JDK 25</strong>，<strong>自己重装并重试成功</strong>——整个过程没有人介入。
+            </p>
+            <p>这一刻比任何PPT解释"什么是autonomous debugging"都直观。已留作之后讲解的核心案例——它会反复在P3、P4里被引回来。</p>
+          </div>
+
+          <div class="lesson">
+            <span class="l-tag">事后反省</span>
+            如果重做P2，我会<strong>更尊重学生当下的兴趣信号</strong>——他对"自己设计游戏模式"没那么大热情时，应该更快切到下一个项目，而不是按plan走。设计书是骨架，不是时刻表。
+          </div>
+        </article>
+
+        <!-- entry 3: P3 in progress -->
+        <article class="entry">
+          <div class="entry-stamp">
+            <span class="where">项目三 · 进行中</span>
+            <span>我的AI队友 · Mindcraft 探索周</span>
+          </div>
+          <h3>项目三：AI 走进游戏的那一刻——也是科学方法浮现的那一刻</h3>
+          <p>
+            P3启动方式跟P1、P2很不一样：我先布置了一个<strong>Mindcraft 探索周</strong>——一份 A-E 五部分、3-5小时的自主任务文档，让弟弟用Cursor自己读bot的codebase、改它、跟它玩、做实验。我退后一步，不在场。
+          </p>
+          <p>
+            这个赌注是：<strong>给一个真实的开源项目（不是练习题）+ 一个能解释代码的AI助手（Cursor）+ 几个具体的小问题，看学生能走到哪</strong>。
+          </p>
+
+          <div class="lesson">
+            <span class="l-tag">作业回收 · 弟弟的实测</span>
+            一周之内他确实走完了核心：自己用Cursor逛了codebase（找到了 <code>main.js</code> 是入口、<code>profiles/</code> 是bot性格、 <code>actions.js</code> 是命令）、做了"押韵bot"的人格实验、自己加了一条 <code>!goToBed</code> 命令让bot天黑能自动睡觉、跑了基础任务。这跟一周前的他比，是有跨度的。
+          </div>
+
+          <blockquote>
+            "达到了预期，说话确实押韵了。不会破功——我让他介绍自己他依旧押韵，但是如果我给他不押韵的指令他就不会押韵了。"
+            <span class="att">— 弟弟，关于他设计的押韵bot</span>
+          </blockquote>
+
+          <p>这条观察其实非常细：他自己注意到了人格设定<strong>有作用域</strong>——只在自我表达时生效，被指令覆盖时不生效。这是个很真的现象，也是LLM行为里一个有意思的点。我没教过他这个，他自己看出来了。</p>
+
+          <div class="obstacle">
+            <div class="otag">现场debug · 上周一起干的事</div>
+            <div class="otitle">Bot 总是卡在墙里——发现问题 · 提出猜想 · 修</div>
+            <p>
+              探索周里他注意到了一个反复出现的故障：<strong>bot执行 "帮我挖到铁矿" 时，会传送到铁矿位置但卡死在墙里走不动</strong>。一周后我们一起在Cursor里debug——他描述现象，Cursor帮他定位逻辑，我们顺着代码走了一遍寻路-挖路那一段，最后找到问题并修了。
+            </p>
+            <p>
+              这一段对我来说是这门课目前为止<strong>最值的一次教学时刻</strong>。原因不在bug本身——而在他经历的那个完整循环：
+            </p>
+            <p style="margin-left: 12px;">
+              <code>观察现象</code> → <code>形成可检验的猜想</code> → <code>用工具(Cursor)验证</code> → <code>动手改</code> → <code>看结果</code>
+            </p>
+            <div class="resolved">已修复 · 被记入教学日志，作为P3"科学方法在AI项目里自然浮现"的核心样本。</div>
+          </div>
+
+          <div class="lesson">
+            <span class="l-tag">设计层的新发现</span>
+            <strong>这门课原本只是"教怎么驾驭AI"。但P3里浮现了一个隐藏副产品——它顺便在教科学方法。</strong>Mindcraft是个有bug、行为不完美的真实开源项目，正因为它"不完美"，它给了学生反复练 <em>发现问题 → 提出猜想 → 验证 → 解决</em> 的机会。这是练习题给不了的。我之后会更主动地往这个方向倾斜P3的设计。
+          </div>
+
+          <p style="margin-top: 24px;">还在路上的事：profile setups我们一起探索了几个（生存模式 vs 上帝模式 vs 助手模式的行为差异）；DeepSeek多模型对比还没系统做；两个bot协作还没实测；C3那个 <code>thinking</code> 参数小坑还没碰。这些都是接下来session的素材。</p>
+        </article>
+
+        <!-- entry 4: meta observation -->
+        <article class="entry">
+          <div class="entry-stamp">
+            <span class="where">横向观察 · 持续</span>
+            <span>关于学生本人</span>
+          </div>
+          <h3>意外的提前到达：他自己在做"拆解"和"提问"</h3>
+          <p>
+            按设计书，<strong>decomposition</strong>应该在P2中段冒出来。但P1末期他已经在自然拆任务——"我先做计分，搞定再做倒计时"。<strong>科学方法</strong>本来根本不在课程图谱里，但P3里他自己就开始用了。
+          </p>
+          <div class="lesson">
+            <span class="l-tag">教学者的调整</span>
+            学生提前到的，就在那个当下命名、当下承认那是真东西。<strong>我越来越倾向于把"课程结构"当骨架而不是时刻表</strong>——他比我设计的速度快的时候，让他过去；慢的时候，停下来等。这种flexibility本身就是这门课的形式选择。
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ TOOLKIT ════════════════════ -->
+<section class="block" id="toolkit">
+  <div class="wrap">
+    <div class="eyebrow">▍ 工具包</div>
+    <h2 class="sec-title">每个项目用什么、<em>为什么</em>。</h2>
+    <p class="sec-blurb">每个工具都是某个具体痛点的回应——不是为了多用工具而用工具。下面也标了我换过的几样，方便后面想复刻这门课的人参考。</p>
+
+    <div class="toolkit">
+      <div class="tool">
+        <div class="tool-head">
+          <span class="name">WorkBuddy (GLM5.1)</span>
+          <span class="stage">P1 · 学生当前</span>
+        </div>
+        <div class="why">学生侧的聊天式AI入口——为P1的"AI当顾问"角色足够。围绕这个我做了 <code>context-setting</code>、<code>bug描述模板</code>、<code>handoff document</code> 三份小cheat sheet给学生。</div>
+      </div>
+
+      <div class="tool">
+        <div class="tool-head">
+          <span class="name">Cursor IDE</span>
+          <span class="stage">P2 · 教学者侧</span>
+        </div>
+        <div class="why">P2的agentic coding主战场。AI能直接读写本地文件、跑命令、看回执。</div>
+        <div class="swap">原计划用 VS Code + Cline，改成 Cursor —— 集成度更高，迭代更快</div>
+      </div>
+
+      <div class="tool">
+        <div class="tool-head">
+          <span class="name">MC Java Dedicated Server</span>
+          <span class="stage">P2 · 本地</span>
+        </div>
+        <div class="why">脱离单机客户端，AI才能从"外面"控制游戏。在 <code>D:\mc-server\</code> 下放 <code>server.jar</code> 直接跑。</div>
+      </div>
+
+      <div class="tool">
+        <div class="tool-head">
+          <span class="name">RCON + mcrcon</span>
+          <span class="stage">P2 · 控制层</span>
+        </div>
+        <div class="why">RCON开在 <code>server.properties</code>，<code>pip install mcrcon</code>，AI就能通过脚本直接往MC里发命令、读回执，关掉了P1那个手动复制循环。</div>
+      </div>
+
+      <div class="tool">
+        <div class="tool-head">
+          <span class="name">CLAUDE.md / .cursorrules</span>
+          <span class="stage">P2后期 · Harness</span>
+        </div>
+        <div class="why">AI agent的工作手册——项目背景、文件路径规范、命名规范、自我检查清单。学生第一次"搭harness"的产物。</div>
+      </div>
+
+      <div class="tool">
+        <div class="tool-head">
+          <span class="name">JDK 25</span>
+          <span class="stage">P2 · 运行时</span>
+        </div>
+        <div class="why">MC新版本server需要的Java运行时。</div>
+        <div class="swap">原本装 JDK 21，agent自己识别并切换到 25 —— 见现场实录</div>
+      </div>
+
+      <div class="tool">
+        <div class="tool-head">
+          <span class="name">Mindcraft</span>
+          <span class="stage">P3 · 在用</span>
+        </div>
+        <div class="why">开源的LLM驱动MC bot项目（github.com/mindcraft-bots/mindcraft）。让AI以玩家身份进游戏。学生通过Cursor读、改、调它的代码——profile = harness的另一种形态。</div>
+        <div class="swap">为兼容稳定性，MC降到 1.21.11（mindcraft底层mineflayer未支持26.1）</div>
+      </div>
+
+      <div class="tool">
+        <div class="tool-head">
+          <span class="name">DeepSeek API</span>
+          <span class="stage">P3 · Bot大脑</span>
+        </div>
+        <div class="why">P3里bot调用频繁（每几秒一次），DeepSeek成本低、国内访问稳定。预算估计：30元以内跑完整个P3。已注册，<code>chat / reasoner / v4-flash / v4-pro</code> 模型都在试。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ MATERIALS ════════════════════ -->
+<section class="block" id="materials">
+  <div class="wrap">
+    <div class="eyebrow">▍ 已产出材料</div>
+    <h2 class="sec-title">教这门课<em>需要</em>的东西，已经有的。</h2>
+    <p class="sec-blurb">下面这些是教学过程中沉淀下来的、可以直接复用的材料。每一份都对应一个具体的教学场景——不是模板填空，是用过的、改过几轮的版本。</p>
+
+    <div class="mat-list">
+      <div class="mat-item">
+        <div class="icon">SYL</div>
+        <div>
+          <div class="mat-name">学生版课程大纲（"你"视角）</div>
+          <div class="mat-desc">直接给学生看的版本，用第二人称写。讲什么不重要，<strong>讲学生会撞上什么</strong>才重要。覆盖4个项目12个session。</div>
+        </div>
+        <div class="mat-pill"><span class="pill done"><span class="ind"></span>已完成</span></div>
+      </div>
+
+      <div class="mat-item">
+        <div class="icon">PREP</div>
+        <div>
+          <div class="mat-name">教学者备课指南</div>
+          <div class="mat-desc">每个session对应的<strong>课前清单 + 现场contingency plan</strong>——什么时候介入、什么时候放手、怎么把现场出错变成教学素材。</div>
+        </div>
+        <div class="mat-pill"><span class="pill done"><span class="ind"></span>已完成</span></div>
+      </div>
+
+      <div class="mat-item copper">
+        <div class="icon">AI</div>
+        <div>
+          <div class="mat-name">学生AI使用速查表</div>
+          <div class="mat-desc">三张：context-setting / bug描述 / handoff document。学生卡住时直接对照，几次之后自然内化。围绕WorkBuddy(GLM5.1)写。</div>
+        </div>
+        <div class="mat-pill"><span class="pill done"><span class="ind"></span>已完成</span></div>
+      </div>
+
+      <div class="mat-item">
+        <div class="icon">P2</div>
+        <div>
+          <div class="mat-name">项目二课前准备指南</div>
+          <div class="mat-desc">三件东西要装：<strong>Cursor / MC Server / Python</strong>。课上一起做：开服 / 改 <code>server.properties</code> / 装 <code>mcrcon</code> / 写 <code>CLAUDE.md</code>。已经发给学生家长。</div>
+        </div>
+        <div class="mat-pill"><span class="pill done"><span class="ind"></span>已完成</span></div>
+      </div>
+
+      <div class="mat-item copper">
+        <div class="icon">P3</div>
+        <div>
+          <div class="mat-name">项目三 · Mindcraft探索周（任务 + 弟弟答案）</div>
+          <div class="mat-desc">5部分（A-E）的自主探索作业，3-5小时分几次做：<strong>跟bot玩 / 用Cursor读懂codebase / 改性格 / 跑任务 / 自由探索</strong>。结尾附给Haiwen的codebase速览。<br>已发出并收回——弟弟的答案密度比预期高，是P3"科学方法浮现"的实物证据。</div>
+        </div>
+        <div class="mat-pill"><span class="pill done"><span class="ind"></span>已完成</span></div>
+      </div>
+
+      <div class="mat-item gold">
+        <div class="icon">P4</div>
+        <div>
+          <div class="mat-name">项目四 · 6个候选mod方向 pitch deck</div>
+          <div class="mat-desc">两个大方向（A: 从0造AI-flavored mod / B: 改进Mindcraft），各3个具体候选。带"玩起来什么样"、"技术拼图"、"呼应了你学过的什么"、推荐选项。</div>
+        </div>
+        <div class="mat-pill"><span class="pill done"><span class="ind"></span>已完成</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ OPEN QUESTIONS ════════════════════ -->
+<section class="block" id="open">
+  <div class="wrap">
+    <div class="eyebrow">▍ 待解之问</div>
+    <h2 class="sec-title">教学现场抛出的<em>真问题</em>。</h2>
+    <p class="sec-blurb">这些是设计书没回答、需要在下次session当场处理的问题。记下来，避免被遗忘。</p>
+
+    <div class="questions">
+      <div class="q">
+        <div class="qmeta">Q · 教学者 · P3 中浮现</div>
+        <div class="qtext">"<em>科学方法</em>"这个隐藏副线，要不要明面化？</div>
+        <div class="qnote">目前是让它"自然浮现"。但如果P4或后面的case里我也能让学生反复经历"发现-猜想-验证"，是不是干脆把它作为这门课的<strong>第二条主线</strong>对外呈现？讨论中。</div>
+      </div>
+
+      <div class="q">
+        <div class="qmeta">Q · 教学者 · P2 反思</div>
+        <div class="qtext">学生<em>当下兴趣</em>和设计书冲突时，谁让步？</div>
+        <div class="qnote">P2压缩这件事让我心里有点不踏实——是不是他还没真正吃透 harness 的概念就过去了？也可能我多虑了，因为P3里 <code>profile = harness</code> 又会回来。看下次教学时他对harness的反应再判断。</div>
+      </div>
+
+      <div class="q">
+        <div class="qmeta">Q · 教学者 · 体验层</div>
+        <div class="qtext">"<em>课</em>"这个字到底要不要避开？</div>
+        <div class="qnote">目前一直用"session"避免"课"——是为了减少学生的时间压力感。但语言上略别扭，长期效果还要观察。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ NEXT / SERIES ════════════════════ -->
+<section class="block" id="next">
+  <div class="wrap">
+    <div class="eyebrow">▍ 下一步 & 这只是第一个</div>
+    <h2 class="sec-title">这个case，<em>是个系列的开头</em>。</h2>
+    <p class="sec-blurb">每个case是一个~3个月、可以拿来教一个孩子的完整项目。我会持续做更多。Minecraft是第一个，因为它是"造东西"最直观的领域之一——但同样的方法，可以套到很多别的载体上。</p>
+
+    <div class="series-card">
+      <div class="seyebrow">// case 系列规划 · early thinking</div>
+      <h3>从Minecraft开始，但不止于Minecraft。</h3>
+      <p>每个case都用同一套底层方法：<strong>项目制 / 学生不写代码 / 在真实痛点里自然带出概念 / 教结束时学生有一个真实的、可向外展示的产出</strong>。</p>
+      <p>Case 02和03还在草稿阶段，先列下来，之后单独开页：</p>
+
+      <div class="case-list">
+        <div class="ci current">
+          <div class="cnum">Case 01</div>
+          <div class="ctitle">AI × Minecraft</div>
+          <div class="ctxt2">↑ 就是这一页。</div>
+        </div>
+        <div class="ci">
+          <div class="cnum">Case 02 · 草稿</div>
+          <div class="ctitle">AI × 个人网站</div>
+          <div class="ctxt2">学生跟AI做一个有真实功能的个人主页/博客并发布。Harness这套照搬到web项目里。</div>
+        </div>
+        <div class="ci">
+          <div class="cnum">Case 03 · 草稿</div>
+          <div class="ctitle">AI × 数据分析</div>
+          <div class="ctxt2">从一个真实数据集（学生自己感兴趣的）开始，让AI辅助分析、可视化、写结论。落到一篇真的能被人读的报告。</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 56px;">
+      <div class="eyebrow" style="margin-bottom: 16px;">▍ Case 01 当前在路上的事</div>
+      <div class="map-table">
+        <div class="map-row">
+          <div class="pid" style="color: var(--copper);">P3</div>
+          <div class="pname" style="font-size: 16px;">回收探索周作业，过一遍弟弟的笔记</div>
+          <div class="ptag">他写下的答案密度比预期高——挑3-4个点跟他当面回。重点：押韵bot没破功的观察、 <code style="font-family:var(--mono);font-size:13px;background:var(--bg-2);padding:1px 6px;border-radius:2px;">!goToBed</code> 自加命令的逻辑。</div>
+          <div class="pses" style="font-size: 12px;">下次session</div>
+          <div><span class="pill now"><span class="ind"></span>临门</span></div>
+        </div>
+        <div class="map-row">
+          <div class="pid" style="color: var(--copper);">P3</div>
+          <div class="pname" style="font-size: 16px;">DeepSeek 多模型对比 (C3)</div>
+          <div class="ptag">在同一个有难度任务上跑 <code style="font-family:var(--mono);font-size:13px;background:var(--bg-2);padding:1px 6px;border-radius:2px;">chat / reasoner / v4-flash / v4-pro</code>，对比响应质量和速度。 <code style="font-family:var(--mono);font-size:13px;background:var(--bg-2);padding:1px 6px;border-radius:2px;">thinking</code> 参数那个小坑也碰一下。</div>
+          <div class="pses" style="font-size: 12px;">下次session</div>
+          <div><span class="pill now"><span class="ind"></span>临门</span></div>
+        </div>
+        <div class="map-row">
+          <div class="pid" style="color: var(--copper);">P3</div>
+          <div class="pname" style="font-size: 16px;">两个 bot 真协作 (C4)</div>
+          <div class="ptag">两个不同profile的bot，同一个任务（采木 + 建房）。看它们是真协作还是各干各的——讲"AI能力边界"的入口。</div>
+          <div class="pses" style="font-size: 12px;">下次session</div>
+          <div><span class="pill now"><span class="ind"></span>临门</span></div>
+        </div>
+        <div class="map-row">
+          <div class="pid" style="color: var(--ink-3);">P4</div>
+          <div class="pname" style="font-size: 16px;">让弟弟选 mod 方向</div>
+          <div class="ptag">把 P4 pitch deck 拿给他看 —— 6个候选mod。让他选一个真的想做的，下个月开工。</div>
+          <div class="pses" style="font-size: 12px;">P3 收尾时</div>
+          <div><span class="pill next"><span class="ind"></span>等 P3 完结</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="pixel-rule">
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    <div class="foot-grid">
+      <div class="who">
+        <strong>Haiwen</strong> · 设计、教这门课的人。ML研究和哲学背景。
+        相信教概念之前先创造体感——名字总是给已经存在的东西取的，反过来不行。
+        这一页是设计文档，也是working journal——它会随着教学过程持续更新。
+      </div>
+      <div class="stamp">
+        <span class="ll">CASE 01 · AI × MINECRAFT</span><br>
+        Status: Living document<br>
+        Last updated: 2026-05-09<br>
+        Language: 中文 (zh-CN)<br>
+        For: 同行教育者 / 自留 working journal
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
