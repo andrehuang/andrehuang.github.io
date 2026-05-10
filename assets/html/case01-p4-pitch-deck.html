@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>项目4 · 你的第一个Minecraft Mod</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ── Paper-like warm light palette ── */
+    --bg:        #f4eedf;     /* warm cream paper */
+    --bg-2:      #ebe2cc;     /* slightly darker cream */
+    --surface:   #fdfaf2;     /* lifted card */
+    --surface-2: #ffffff;     /* highest elevation */
+
+    --ink:       #1f1c16;     /* warm near-black ink */
+    --ink-2:     #4a463e;     /* secondary text */
+    --ink-3:     #857e6e;     /* muted */
+    --ink-4:     #aea795;     /* very muted */
+
+    --line:      #d8d0bc;     /* paper-rule borders */
+    --line-2:    #b8af96;     /* stronger borders */
+
+    /* Direction A: warm earth amber/terracotta */
+    --a:         #b25e2c;
+    --a-bright:  #d97548;
+    --a-deep:    #7e3f15;
+    --a-tint:    rgba(178, 94, 44, 0.08);
+    --a-tint-2:  rgba(178, 94, 44, 0.18);
+
+    /* Direction B: forest moss green */
+    --b:         #4d7c0f;
+    --b-bright:  #6b9a26;
+    --b-deep:    #2c4a07;
+    --b-tint:    rgba(77, 124, 15, 0.08);
+    --b-tint-2:  rgba(77, 124, 15, 0.18);
+
+    --gold:      #c79420;     /* highlight accent */
+
+    --serif:     'Fraunces', 'Noto Serif SC', Georgia, serif;
+    --sans:      'Noto Sans SC', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --mono:      'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.75;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Subtle paper grain via stacked very-low-opacity gradients */
+    background-image:
+      radial-gradient(rgba(120, 90, 50, 0.025) 1px, transparent 1px),
+      radial-gradient(rgba(120, 90, 50, 0.02) 1px, transparent 1px);
+    background-size: 24px 24px, 60px 60px;
+    background-position: 0 0, 12px 30px;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--a-tint-2); color: var(--ink); }
+
+  /* ───────────────────── HERO ───────────────────── */
+  .hero {
+    position: relative;
+    padding: 100px 32px 80px;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .meta-strip {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .meta-strip .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--line-2);
+    max-width: 120px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-variation-settings: "SOFT" 50, "opsz" 144;
+    font-size: clamp(44px, 7vw, 88px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin-bottom: 36px;
+    color: var(--ink);
+  }
+  .hero h1 .accent {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--a);
+  }
+  .hero h1 .b-accent {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--b);
+  }
+  .hero-lede {
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 680px;
+    margin-bottom: 56px;
+    font-weight: 400;
+  }
+  .hero-lede em {
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 500;
+    border-bottom: 1px solid var(--a-tint-2);
+    padding-bottom: 1px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding-top: 36px;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 700px) {
+    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 8px;
+  }
+
+  /* Decorative pixel-block accent */
+  .pixel-cluster {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(4, 14px);
+    gap: 2px;
+    opacity: 0.4;
+  }
+  .pixel-cluster div {
+    width: 14px; height: 14px;
+    background: var(--line-2);
+  }
+  .pixel-cluster.tr {
+    top: 80px;
+    right: 40px;
+    transform: rotate(-12deg);
+  }
+  .pixel-cluster.tr div:nth-child(2) { background: var(--a); opacity: 0.5; }
+  .pixel-cluster.tr div:nth-child(7) { background: var(--b); opacity: 0.5; }
+
+  /* ───────────────────── INTRO ───────────────────── */
+  .intro {
+    padding: 96px 32px 80px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-variation-settings: "SOFT" 30;
+    font-size: clamp(32px, 4.5vw, 48px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.015em;
+  }
+  .section-blurb {
+    font-size: 18px;
+    color: var(--ink-2);
+    max-width: 680px;
+    line-height: 1.7;
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 56px;
+  }
+  @media (max-width: 800px) {
+    .intro-grid { grid-template-columns: 1fr; }
+  }
+  .intro-card {
+    padding: 36px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .intro-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -16px rgba(60, 40, 10, 0.18);
+  }
+  .intro-card.a { border-top: 4px solid var(--a); }
+  .intro-card.b { border-top: 4px solid var(--b); }
+  .intro-card.a:hover { border-color: var(--a); border-top-color: var(--a); }
+  .intro-card.b:hover { border-color: var(--b); border-top-color: var(--b); }
+
+  .intro-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 10px;
+    margin-bottom: 18px;
+    letter-spacing: 0.1em;
+    color: var(--surface);
+  }
+  .intro-card.a .intro-tag { background: var(--a); }
+  .intro-card.b .intro-tag { background: var(--b); }
+
+  .intro-card h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .intro-card .one-liner {
+    font-size: 16px;
+    color: var(--ink-2);
+    margin-bottom: 24px;
+    line-height: 1.65;
+  }
+  .intro-card ul {
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .intro-card li {
+    font-size: 14px;
+    padding: 12px 0;
+    border-bottom: 1px dotted var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ink-2);
+  }
+  .intro-card li:last-child { border-bottom: none; }
+  .intro-card li .v {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .intro-card.a li .v.hot { color: var(--a); }
+  .intro-card.b li .v.hot { color: var(--b); }
+
+  /* ───────────────────── DIRECTION SECTIONS ───────────────────── */
+  .direction {
+    padding: 96px 32px 64px;
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+  .direction.a { background: var(--a-tint); }
+  .direction.b { background: var(--b-tint); }
+
+  .direction-inner {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .direction-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 72px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--line-2);
+  }
+  @media (max-width: 700px) {
+    .direction-header { grid-template-columns: 1fr; gap: 16px; }
+  }
+  .direction-mark {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 120px;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+  }
+  .direction.a .direction-mark { color: var(--a); }
+  .direction.b .direction-mark { color: var(--b); }
+
+  .direction-header-text .label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .direction.a .direction-header-text .label { color: var(--a-deep); }
+  .direction.b .direction-header-text .label { color: var(--b-deep); }
+  .direction-header-text h2 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .direction-header-text p {
+    color: var(--ink-2);
+    font-size: 17.5px;
+    line-height: 1.7;
+    max-width: 640px;
+  }
+  .direction-header-text strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ───────────────────── PROJECT CARD ───────────────────── */
+  .project {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    margin-bottom: 56px;
+    overflow: hidden;
+    border-radius: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .project:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 50px -20px rgba(60, 40, 10, 0.18);
+  }
+  .direction.a .project:hover { border-color: var(--a); }
+  .direction.b .project:hover { border-color: var(--b); }
+
+  .project-top {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 700px) {
+    .project-top { grid-template-columns: 1fr; }
+  }
+  .project-visual {
+    background: var(--bg-2);
+    border-right: 1px solid var(--line);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (max-width: 700px) {
+    .project-visual {
+      aspect-ratio: 16/8;
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+    }
+  }
+  .project-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(80, 60, 30, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(80, 60, 30, 0.04) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+  .project-visual svg {
+    position: relative;
+    z-index: 1;
+    width: 75%;
+    height: 75%;
+  }
+
+  .project-header {
+    padding: 36px;
+  }
+  .project-id {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .project-id .id-num {
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .direction.a .project-id .id-num { color: var(--a); }
+  .direction.b .project-id .id-num { color: var(--b); }
+  .project-id .recommended {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 2px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-left: auto;
+  }
+  .project-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .project-pitch {
+    color: var(--ink-2);
+    font-size: 16.5px;
+    line-height: 1.7;
+  }
+  .project-pitch em {
+    font-style: italic;
+    color: var(--ink);
+  }
+  .direction.a .project-pitch em { color: var(--a-deep); }
+  .direction.b .project-pitch em { color: var(--b-deep); }
+  .project-pitch strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .project-body {
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  @media (max-width: 700px) {
+    .project-body { grid-template-columns: 1fr; gap: 28px; padding: 28px; }
+  }
+  .field h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .field h4::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 1px;
+  }
+  .direction.a .field h4::before { background: var(--a); }
+  .direction.b .field h4::before { background: var(--b); }
+
+  .field p, .field .scenario {
+    color: var(--ink-2);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .field p strong { color: var(--ink); font-weight: 600; }
+
+  .field .scenario {
+    background: var(--bg-2);
+    border-left: 3px solid;
+    padding: 18px 22px;
+    color: var(--ink);
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+  .direction.a .field .scenario { border-left-color: var(--a); }
+  .direction.b .field .scenario { border-left-color: var(--b); }
+  .field .quote {
+    display: block;
+    font-style: italic;
+    color: var(--ink-2);
+    font-size: 15px;
+    margin: 12px 0;
+    padding: 8px 0 8px 14px;
+    border-left: 1px solid var(--line-2);
+  }
+  .field code {
+    font-family: var(--mono);
+    background: var(--bg-2);
+    padding: 1px 6px;
+    font-size: 13px;
+    color: var(--ink);
+    border-radius: 2px;
+  }
+  .direction.a .field code { color: var(--a-deep); background: var(--a-tint); }
+  .direction.b .field code { color: var(--b-deep); background: var(--b-tint); }
+
+  /* Project meta footer */
+  .project-meta {
+    background: var(--bg-2);
+    border-top: 1px solid var(--line);
+    padding: 18px 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .meta-item .label {
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 11px;
+  }
+  .meta-item .value {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .scope-bar {
+    display: inline-flex;
+    gap: 3px;
+  }
+  .scope-bar div {
+    width: 14px;
+    height: 8px;
+    background: var(--line);
+    border-radius: 1px;
+  }
+  .direction.a .scope-bar .on { background: var(--a); }
+  .direction.b .scope-bar .on { background: var(--b); }
+
+  .project-quote {
+    padding: 24px 36px;
+    border-top: 1px solid var(--line);
+    background: var(--surface-2);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .project-quote::before {
+    content: '“';
+    font-family: var(--serif);
+    font-size: 60px;
+    line-height: 0.6;
+    margin-top: 14px;
+    flex-shrink: 0;
+  }
+  .direction.a .project-quote::before { color: var(--a); }
+  .direction.b .project-quote::before { color: var(--b); }
+
+  /* ───────────────────── DECISION ───────────────────── */
+  .decide {
+    padding: 110px 32px 80px;
+    border-top: 1px solid var(--line);
+    background: var(--bg-2);
+  }
+  .decide-inner {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .matrix {
+    margin: 56px 0 24px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .matrix-row {
+    display: grid;
+    grid-template-columns: 56px 1.6fr repeat(4, 1fr);
+    border-bottom: 1px solid var(--line);
+  }
+  .matrix-row:last-child { border-bottom: none; }
+  .matrix-row.header {
+    background: var(--bg-2);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .matrix-row > div {
+    padding: 16px 18px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .matrix-row > div:last-child { border-right: none; }
+  .matrix-row .id {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .matrix-row.a-row .id { color: var(--a); }
+  .matrix-row.b-row .id { color: var(--b); }
+  .matrix-row .name {
+    font-size: 15.5px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .matrix-row .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--line);
+  }
+  .matrix-row.a-row .dot.on { background: var(--a); }
+  .matrix-row.b-row .dot.on { background: var(--b); }
+  .matrix-note {
+    font-size: 13px;
+    color: var(--ink-3);
+    font-family: var(--mono);
+    margin-bottom: 56px;
+    text-align: right;
+  }
+
+  @media (max-width: 800px) {
+    .matrix-row { grid-template-columns: 50px 1fr; }
+    .matrix-row > div:nth-child(n+3) { display: none; }
+  }
+
+  .questions {
+    margin-top: 72px;
+    display: grid;
+    gap: 20px;
+  }
+  .question {
+    background: var(--surface);
+    border-left: 4px solid var(--line-2);
+    padding: 22px 28px;
+    border-radius: 2px;
+    transition: transform 0.2s ease;
+  }
+  .question:hover { transform: translateX(2px); }
+  .question:nth-child(1) { border-left-color: var(--a); }
+  .question:nth-child(2) { border-left-color: var(--b); }
+  .question:nth-child(3) { border-left-color: var(--gold); }
+  .question .q-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .question .q-text {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 1.45;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .question .q-text em {
+    font-style: italic;
+    color: var(--a-deep);
+  }
+  .question:nth-child(2) .q-text em { color: var(--b-deep); }
+  .question:nth-child(3) .q-text em { color: var(--gold); }
+
+  /* ───────────────────── FOOTER ───────────────────── */
+  footer {
+    padding: 72px 32px 56px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    color: var(--ink-3);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+  footer .pixel-row {
+    display: inline-grid;
+    grid-template-columns: repeat(8, 12px);
+    gap: 2px;
+    margin-bottom: 28px;
+  }
+  footer .pixel-row div {
+    height: 12px;
+    background: var(--line-2);
+  }
+  footer .pixel-row div:nth-child(2n) { background: var(--a); opacity: 0.5; }
+  footer .pixel-row div:nth-child(3n) { background: var(--b); opacity: 0.5; }
+  footer .footer-line {
+    margin-bottom: 12px;
+  }
+  footer .footer-line.dim {
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════ HERO ════════════════════════ -->
+<section class="hero">
+  <div class="pixel-cluster tr">
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="hero-inner">
+    <div class="meta-strip">
+      <span>Project 04</span>
+      <span class="rule"></span>
+      <span>Final · AI × Minecraft</span>
+    </div>
+    <h1>你要做的<br>第一个<span class="accent">真</span>Mod，<br>选哪个？</h1>
+    <p class="hero-lede">
+      你已经做完了竞技场、僵尸围城、AI队友——这次，<em>你要做一个发布到网上、陌生人能下载来玩的Minecraft mod</em>。下面6个方向都做得完，scope都合理。哪个最让你想动手？
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">06</div>
+        <div class="stat-label">候选项目</div>
+      </div>
+      <div>
+        <div class="stat-num">03</div>
+        <div class="stat-label">Sessions / 约3周</div>
+      </div>
+      <div>
+        <div class="stat-num">00</div>
+        <div class="stat-label">行你手写的代码</div>
+      </div>
+      <div>
+        <div class="stat-num">01</div>
+        <div class="stat-label">最终发布的mod</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ INTRO / TWO DIRECTIONS ════════════════════════ -->
+<section class="intro">
+  <div class="section-eyebrow">▍ 两条路 · 选个起点</div>
+  <h2 class="section-title">两个大方向，<br>怎么选？</h2>
+  <p class="section-blurb">两边都跟你学过的东西呼应得很紧。差别在于：A方向是<strong>从0造一个新的小世界</strong>，B方向是<strong>把你已经熟悉的Mindcraft变得更强</strong>。先看看哪种感觉更对你的胃口——具体的6个项目在下面。</p>
+
+  <div class="intro-grid">
+    <div class="intro-card a">
+      <span class="intro-tag">A · 从0造</span>
+      <h3>AI-flavored Mods</h3>
+      <p class="one-liner">从空白mod开始，做一个"AI是主角"的东西。你做的mod，本身就是个AI。</p>
+      <ul>
+        <li>想象空间 <span class="v hot">★★★★★</span></li>
+        <li>跟课程主题契合度 <span class="v hot">★★★★★</span></li>
+        <li>陌生人会想下载吗 <span class="v">★★★★</span></li>
+        <li>需要管理AI写多少代码 <span class="v">很多</span></li>
+      </ul>
+    </div>
+    <div class="intro-card b">
+      <span class="intro-tag">B · 改进熟悉的</span>
+      <h3>Mindcraft 扩展</h3>
+      <p class="one-liner">在你已经玩过的Mindcraft基础上加东西。社区真的会用上你的成果。</p>
+      <ul>
+        <li>起步速度 <span class="v hot">★★★★★</span></li>
+        <li>对Mindcraft社区的实际价值 <span class="v hot">★★★★★</span></li>
+        <li>跟Project 3的衔接 <span class="v">无缝</span></li>
+        <li>需要管理AI写多少代码 <span class="v">中等</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ DIRECTION A ════════════════════════ -->
+<section class="direction a" id="direction-a">
+  <div class="direction-inner">
+    <div class="direction-header">
+      <div class="direction-mark">A.</div>
+      <div class="direction-header-text">
+        <div class="label">// AI-flavored mods · 3 个候选</div>
+        <h2>让AI成为<br>mod本身的灵魂</h2>
+        <p>这一档的mod都有一个共同点：mod的"卖点"就是某种AI行为。你做这种mod意味着两件事同时发生——你<strong>用AI</strong>（Cursor + DeepSeek）来写代码，而你做出来的东西<strong>本身是AI</strong>。这是整门课最优雅的闭环。</p>
+      </div>
+    </div>
+
+    <!-- ── A1 ── -->
+    <article class="project">
+      <div class="project-top">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Thought bubble -->
+            <g>
+              <rect x="105" y="20" width="80" height="50" fill="#fdfaf2" stroke="#b25e2c" stroke-width="2.5"/>
+              <text x="145" y="52" fill="#b25e2c" font-family="JetBrains Mono" font-size="18" font-weight="700" text-anchor="middle">?!</text>
+              <rect x="100" y="68" width="6" height="6" fill="#b25e2c"/>
+              <rect x="92" y="76" width="5" height="5" fill="#b25e2c"/>
+              <rect x="86" y="83" width="4" height="4" fill="#b25e2c"/>
+            </g>
+            <!-- Creature body -->
+            <g transform="translate(50,90)">
+              <rect x="20" y="0" width="60" height="50" fill="#fdfaf2" stroke="#1f1c16" stroke-width="2.5"/>
+              <rect x="32" y="14" width="10" height="10" fill="#b25e2c"/>
+              <rect x="58" y="14" width="10" height="10" fill="#b25e2c"/>
+              <rect x="40" y="34" width="20" height="3" fill="#1f1c16"/>
+              <rect x="24" y="50" width="14" height="20" fill="#fdfaf2" stroke="#1f1c16" stroke-width="2.5"/>
+              <rect x="62" y="50" width="14" height="20" fill="#fdfaf2" stroke="#1f1c16" stroke-width="2.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="project-header">
+          <div class="project-id">
+            <span class="id-num">A1</span>
+            <span>难度 中等 · 2-3 sessions</span>
+          </div>
+          <h3 class="project-title">会"思考"的生物</h3>
+          <p class="project-pitch">一只你设计的Minecraft生物，头顶冒思考气泡，让你<em>看见</em>它的AI在做什么决定。换一份配置文件，它的人格就完全变了——这是Project 3的"性格实验"，但这次主角是你的原创生物。</p>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="field">
+          <h4>玩起来什么样</h4>
+          <div class="scenario">
+            你召唤出一只叫<code>Echodile</code>的原创生物。它头顶飘着一朵小云，里面写着 <code>🤔 想吃东西</code>。它在地上嗅来嗅去找苹果。突然出现一只骷髅——云变成 <code>😨 害怕，逃</code>，它转身就跑。
+            <span class="quote">你打开 <code>echodile.profile.json</code>，把"勇气：低"改成"勇气：高"。</span>
+            重新召唤一只——这次它看到骷髅直接冲过去，云变成 <code>😡 战！</code>。
+          </div>
+        </div>
+        <div class="field">
+          <h4>技术拼图</h4>
+          <p>自定义entity（用Fabric框架）+ 一个简单的goal-based AI（vanilla里僵尸、村民都是用这套）+ 头顶显示当前goal的nameplate或粒子 + 外部的<code>profile.json</code>定义性格参数（勇气、好奇、贪心等）。</p>
+        </div>
+        <div class="field">
+          <h4>呼应了你学过的什么</h4>
+          <p><strong>Project 3 性格实验</strong>——这次主角是你自己造的生物，不是Mindcraft的bot。<br><strong>Project 2 harness</strong>——profile.json就是这只生物的harness。</p>
+        </div>
+        <div class="field">
+          <h4>陌生人下载会觉得？</h4>
+          <p>"这个mod让我可以<em>设计自己生物的脾气</em>。"</p>
+        </div>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <span class="label">scope</span>
+          <span class="scope-bar"><div class="on"></div><div class="on"></div><div class="on"></div><div></div><div></div></span>
+        </div>
+        <div class="meta-item"><span class="label">callback</span><span class="value">Project 3</span></div>
+        <div class="meta-item"><span class="label">载体</span><span class="value">Fabric Mod</span></div>
+        <div class="meta-item"><span class="label">最酷瞬间</span><span class="value">看见生物"决定"做什么</span></div>
+      </div>
+
+      <div class="project-quote">
+        如果Mindcraft是"AI走进了别人的MC"，那A1是"AI走进了我亲手做的MC生物里"。
+      </div>
+    </article>
+
+    <!-- ── A2 ── -->
+    <article class="project">
+      <div class="project-top">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Speech bubble -->
+            <g>
+              <rect x="90" y="20" width="100" height="60" fill="#fdfaf2" stroke="#b25e2c" stroke-width="2.5"/>
+              <rect x="100" y="35" width="78" height="2.5" fill="#b25e2c"/>
+              <rect x="100" y="44" width="60" height="2.5" fill="#b25e2c"/>
+              <rect x="100" y="53" width="70" height="2.5" fill="#b25e2c"/>
+              <rect x="100" y="62" width="40" height="2.5" fill="#b25e2c"/>
+              <rect x="92" y="78" width="6" height="6" fill="#b25e2c"/>
+              <rect x="86" y="86" width="5" height="5" fill="#b25e2c"/>
+            </g>
+            <!-- Villager -->
+            <g transform="translate(38,95)">
+              <rect x="10" y="0" width="40" height="40" fill="#a8896b" stroke="#1f1c16" stroke-width="2"/>
+              <rect x="22" y="14" width="16" height="20" fill="#7d6849"/>
+              <rect x="14" y="12" width="6" height="8" fill="#1f1c16"/>
+              <rect x="40" y="12" width="6" height="8" fill="#1f1c16"/>
+              <rect x="8" y="40" width="44" height="40" fill="#5b4a3a" stroke="#1f1c16" stroke-width="2"/>
+              <rect x="14" y="48" width="32" height="3" fill="#c79420"/>
+            </g>
+          </svg>
+        </div>
+        <div class="project-header">
+          <div class="project-id">
+            <span class="id-num">A2</span>
+            <span>难度 中高 · 3 sessions</span>
+            <span class="recommended">★ 推荐</span>
+          </div>
+          <h3 class="project-title">真的能聊天的村民</h3>
+          <p class="project-pitch">一个你右键就能用自然语言对话的村民——不是vanilla那种点击买卖，是<em>真的</em>聊。背后是DeepSeek API。每个村民有自己的人格、记忆、价格偏好。<strong>世界上还没人做过这个。</strong></p>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="field">
+          <h4>玩起来什么样</h4>
+          <div class="scenario">
+            你右键一个特殊村民，跳出对话框：
+            <span class="quote">玩家："嗨，我有32个铁锭，能换什么？"<br>村民："32铁？嗯……我老婆病了，需要钻石做药水。5个钻石，我把这把祖传剑给你。"<br>玩家："不行，太贵。"<br>村民："好吧，3个钻石+10块面包，我家娃也得吃饭。"</span>
+            第二天你回来——他记得你上次的交易，会说："欢迎回来，那把剑用得还顺手吗？"
+          </div>
+        </div>
+        <div class="field">
+          <h4>技术拼图</h4>
+          <p>自定义villager entity，右键打开自定义GUI（聊天框）→ 玩家输入文本 → 调DeepSeek API → 流式返回回复 → 渲染。每个村民的<code>system_prompt</code>定义TA的人格、背景、记忆。简单的JSON文件保存对话历史。<br><br><strong>附加好处：</strong>DeepSeek很便宜，发布出去陌生人用自己的key也不肉疼。</p>
+        </div>
+        <div class="field">
+          <h4>呼应了你学过的什么</h4>
+          <p><strong>Project 1 prompt engineering</strong>——设计system prompt就是设计村民人格。<br><strong>Project 2 harness</strong>——system prompt里的规则就是村民的harness。<br><strong>Project 3 agent</strong>——这个村民就是agent。<br>这一个项目把整门课的概念全用上了。</p>
+        </div>
+        <div class="field">
+          <h4>陌生人下载会觉得？</h4>
+          <p>"我的MC村民<em>真的</em>会跟我聊天？！"——这是会上reddit的mod。</p>
+        </div>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <span class="label">scope</span>
+          <span class="scope-bar"><div class="on"></div><div class="on"></div><div class="on"></div><div class="on"></div><div></div></span>
+        </div>
+        <div class="meta-item"><span class="label">callback</span><span class="value">Project 1+2+3 全部</span></div>
+        <div class="meta-item"><span class="label">载体</span><span class="value">Fabric Mod + API</span></div>
+        <div class="meta-item"><span class="label">最酷瞬间</span><span class="value">朋友说一句没预设的话，村民秒回</span></div>
+      </div>
+
+      <div class="project-quote">
+        Mod的简介可以这样写："Talk to your villagers. Really talk. Powered by DeepSeek."
+      </div>
+    </article>
+
+    <!-- ── A3 ── -->
+    <article class="project">
+      <div class="project-top">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Eye in the sky -->
+            <g transform="translate(80,30)">
+              <rect x="0" y="10" width="40" height="20" fill="#fdfaf2" stroke="#b25e2c" stroke-width="2.5"/>
+              <rect x="14" y="14" width="12" height="12" fill="#b25e2c"/>
+              <rect x="18" y="18" width="4" height="4" fill="#fdfaf2"/>
+            </g>
+            <!-- Rays -->
+            <line x1="100" y1="60" x2="60" y2="120" stroke="#b25e2c" stroke-width="1.2" stroke-dasharray="3,4" opacity="0.5"/>
+            <line x1="100" y1="60" x2="100" y2="130" stroke="#b25e2c" stroke-width="1.2" stroke-dasharray="3,4" opacity="0.5"/>
+            <line x1="100" y1="60" x2="140" y2="120" stroke="#b25e2c" stroke-width="1.2" stroke-dasharray="3,4" opacity="0.5"/>
+            <!-- Tiny scene -->
+            <g transform="translate(40,130)">
+              <rect x="0" y="40" width="120" height="20" fill="#a8896b" stroke="#1f1c16" stroke-width="1.5"/>
+              <rect x="50" y="20" width="14" height="20" fill="#6b9a26" stroke="#1f1c16" stroke-width="1.5"/>
+              <rect x="52" y="14" width="10" height="8" fill="#c79420"/>
+              <rect x="20" y="22" width="12" height="18" fill="#4d7c0f" stroke="#1f1c16" stroke-width="1.5"/>
+              <rect x="90" y="28" width="18" height="12" fill="#7d6849" stroke="#1f1c16" stroke-width="1.5"/>
+              <rect x="96" y="32" width="6" height="4" fill="#c79420"/>
+            </g>
+          </svg>
+        </div>
+        <div class="project-header">
+          <div class="project-id">
+            <span class="id-num">A3</span>
+            <span>难度 中等 · 2-3 sessions</span>
+          </div>
+          <h3 class="project-title">看不见的难度导演</h3>
+          <p class="project-pitch">一个隐形的AI在云端看着你玩，悄悄调整世界。你赢得太轻松？下波怪变强。连死3次？前面chest里多一把好剑。它就像一个<em>懂你</em>的关卡设计师。</p>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="field">
+          <h4>玩起来什么样</h4>
+          <div class="scenario">
+            你正在玩一个空岛生存。前10分钟一切顺利。导演AI默默注意到你血量一直满，饭也不缺——它<em>不会</em>告诉你，但它在下一波刷怪时悄悄加了2只僵尸猪人。
+            <span class="quote">死了3次后，导演AI又默默调整：下一只僵尸的掉落里加了一把铁剑。你不知道发生了什么，只是感觉游戏"刚刚好"。</span>
+            最妙的是：它不是固定规则，是一个真实的小LLM在分析你的状态做决定。
+          </div>
+        </div>
+        <div class="field">
+          <h4>技术拼图</h4>
+          <p>后台tick handler读取游戏状态（HP、最近死亡数、装备、stuck时间）→ 每隔30秒打包成JSON发给DeepSeek API → 返回调整指令（"刷一只husk在玩家西北50格"、"在最近的chest里加铁剑"）→ 用RCON执行。</p>
+        </div>
+        <div class="field">
+          <h4>呼应了你学过的什么</h4>
+          <p><strong>Project 2 僵尸围城</strong>——还记得游戏平衡崩了那一课吗？这就是<em>用AI解决那个问题</em>。<br><strong>Project 3 agent</strong>——导演就是一个agent，只是它不在游戏里有身体。</p>
+        </div>
+        <div class="field">
+          <h4>陌生人下载会觉得？</h4>
+          <p>"我感觉MC<em>知道</em>我在想什么。"——很meta、很哲学、很酷。</p>
+        </div>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <span class="label">scope</span>
+          <span class="scope-bar"><div class="on"></div><div class="on"></div><div class="on"></div><div></div><div></div></span>
+        </div>
+        <div class="meta-item"><span class="label">callback</span><span class="value">Project 2 平衡崩</span></div>
+        <div class="meta-item"><span class="label">载体</span><span class="value">数据包 + Python桥接</span></div>
+        <div class="meta-item"><span class="label">最酷瞬间</span><span class="value">游戏"读懂"你的挫败感</span></div>
+      </div>
+
+      <div class="project-quote">
+        L4D（Left 4 Dead）有名的"AI Director"——你在MC里复刻一个，还更厉害。
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ════════════════════════ DIRECTION B ════════════════════════ -->
+<section class="direction b" id="direction-b">
+  <div class="direction-inner">
+    <div class="direction-header">
+      <div class="direction-mark">B.</div>
+      <div class="direction-header-text">
+        <div class="label">// Mindcraft 扩展 · 3 个候选</div>
+        <h2>把你已经玩过的<br>工具变得更强</h2>
+        <p>Project 3里你已经把Mindcraft玩透了。它是开源的，全世界MC玩家都在用。这意味着<strong>你做的扩展真的会被陌生人用上</strong>——不是练手玩具，是社区贡献。这一档起步快、技术坡缓，但成就感非常实在。</p>
+      </div>
+    </div>
+
+    <!-- ── B1 ── -->
+    <article class="project">
+      <div class="project-top">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Bot -->
+            <g transform="translate(50,40)">
+              <rect x="20" y="0" width="60" height="55" fill="#fdfaf2" stroke="#1f1c16" stroke-width="2.5"/>
+              <rect x="46" y="-12" width="8" height="14" fill="#4d7c0f"/>
+              <circle cx="50" cy="-15" r="4" fill="#6b9a26"/>
+              <rect x="30" y="18" width="12" height="8" fill="#4d7c0f"/>
+              <rect x="58" y="18" width="12" height="8" fill="#4d7c0f"/>
+              <rect x="40" y="38" width="20" height="3" fill="#1f1c16"/>
+              <rect x="14" y="55" width="72" height="60" fill="#fdfaf2" stroke="#1f1c16" stroke-width="2.5"/>
+              <rect x="34" y="68" width="32" height="20" fill="#f4eedf" stroke="#4d7c0f" stroke-width="1.5"/>
+              <text x="50" y="83" fill="#4d7c0f" font-family="JetBrains Mono" font-size="11" font-weight="700" text-anchor="middle">v2</text>
+            </g>
+            <!-- Tool/skill icon -->
+            <g transform="translate(150,90)">
+              <rect x="0" y="0" width="24" height="24" fill="#fdfaf2" stroke="#4d7c0f" stroke-width="1.5"/>
+              <rect x="4" y="4" width="4" height="16" fill="#6b9a26"/>
+              <rect x="8" y="2" width="4" height="4" fill="#c79420"/>
+              <rect x="12" y="2" width="4" height="4" fill="#c79420"/>
+              <rect x="16" y="2" width="4" height="4" fill="#c79420"/>
+            </g>
+          </svg>
+        </div>
+        <div class="project-header">
+          <div class="project-id">
+            <span class="id-num">B1</span>
+            <span>难度 入门-中 · 2 sessions</span>
+          </div>
+          <h3 class="project-title">给Mindcraft Bot加新技能</h3>
+          <p class="project-pitch">Mindcraft的bot已经会聊天、会砍树、会战斗。你给它加一个全新的"技能模块"——比如<em>会种地的农夫bot</em>，或者<em>会做红石自动化的工程师bot</em>。然后把这个模块发布出去，全世界用Mindcraft的人都能装。</p>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="field">
+          <h4>玩起来什么样</h4>
+          <div class="scenario">
+            你的bot叫Andy。你装上"farming-skills"模块后：
+            <span class="quote">你："Andy, 给我建一个5×5的小麦农场。"<br>Andy: "好嘞。我先挖一条水渠……" → 它走到水边挖方块、放水、整地、种麦子、围上围栏。</span>
+            第二天你登录，Andy说："小麦熟了，我帮你收一下吗？"
+          </div>
+        </div>
+        <div class="field">
+          <h4>技术拼图</h4>
+          <p>Mindcraft是开源的JS项目，技能是模块化的。你需要写一个新的skill module（一个JS文件 + 一些prompt模板），让Cursor帮你照着已有skill的样子写一个新的。然后fork仓库，提PR或者发独立扩展包。</p>
+        </div>
+        <div class="field">
+          <h4>呼应了你学过的什么</h4>
+          <p><strong>Project 3</strong> 直接续作。<br><strong>Project 2 harness</strong>——skill的prompt template就是这个能力的harness。</p>
+        </div>
+        <div class="field">
+          <h4>陌生人下载会觉得？</h4>
+          <p>"等等，原来还能给Mindcraft加这个？"</p>
+        </div>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <span class="label">scope</span>
+          <span class="scope-bar"><div class="on"></div><div class="on"></div><div></div><div></div><div></div></span>
+        </div>
+        <div class="meta-item"><span class="label">callback</span><span class="value">Project 3 直接</span></div>
+        <div class="meta-item"><span class="label">载体</span><span class="value">Mindcraft 扩展</span></div>
+        <div class="meta-item"><span class="label">最酷瞬间</span><span class="value">PR被Mindcraft maintainer合并</span></div>
+      </div>
+
+      <div class="project-quote">
+        最低门槛 + 真实的开源贡献。GitHub上你的名字会出现在Mindcraft contributors列表里。
+      </div>
+    </article>
+
+    <!-- ── B2 (NEW: visualization panel) ── -->
+    <article class="project">
+      <div class="project-top">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Monitor frame -->
+            <rect x="20" y="30" width="160" height="110" fill="#fdfaf2" stroke="#1f1c16" stroke-width="2.5"/>
+            <rect x="20" y="30" width="160" height="14" fill="#4d7c0f"/>
+            <circle cx="29" cy="37" r="2" fill="#fdfaf2"/>
+            <circle cx="36" cy="37" r="2" fill="#fdfaf2"/>
+            <circle cx="43" cy="37" r="2" fill="#fdfaf2"/>
+            <!-- Dashboard contents -->
+            <rect x="28" y="52" width="50" height="6" fill="#4d7c0f"/>
+            <rect x="28" y="64" width="38" height="3" fill="#857e6e"/>
+            <rect x="28" y="72" width="46" height="3" fill="#857e6e"/>
+            <rect x="28" y="80" width="32" height="3" fill="#857e6e"/>
+            <!-- Line graph -->
+            <polyline points="90,120 102,108 114,113 126,98 138,103 150,90 162,95"
+                      fill="none" stroke="#4d7c0f" stroke-width="2"/>
+            <circle cx="90" cy="120" r="2" fill="#4d7c0f"/>
+            <circle cx="114" cy="113" r="2" fill="#4d7c0f"/>
+            <circle cx="138" cy="103" r="2" fill="#4d7c0f"/>
+            <circle cx="162" cy="95" r="2" fill="#4d7c0f"/>
+            <!-- bars -->
+            <rect x="90" y="55" width="6" height="16" fill="#6b9a26"/>
+            <rect x="100" y="60" width="6" height="11" fill="#6b9a26"/>
+            <rect x="110" y="52" width="6" height="19" fill="#6b9a26"/>
+            <rect x="120" y="58" width="6" height="13" fill="#6b9a26"/>
+            <!-- "stand" -->
+            <rect x="80" y="140" width="40" height="6" fill="#1f1c16"/>
+            <rect x="60" y="146" width="80" height="6" fill="#1f1c16"/>
+            <!-- floating bot reference -->
+            <g transform="translate(150,160)">
+              <rect x="0" y="0" width="20" height="22" fill="#fdfaf2" stroke="#1f1c16" stroke-width="1.5"/>
+              <rect x="4" y="6" width="4" height="3" fill="#4d7c0f"/>
+              <rect x="12" y="6" width="4" height="3" fill="#4d7c0f"/>
+            </g>
+            <line x1="155" y1="160" x2="140" y2="100" stroke="#4d7c0f" stroke-width="1" stroke-dasharray="2,3" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="project-header">
+          <div class="project-id">
+            <span class="id-num">B2</span>
+            <span>难度 中等 · 2-3 sessions</span>
+            <span class="recommended">★ 推荐</span>
+          </div>
+          <h3 class="project-title">Bot思考过程可视化面板</h3>
+          <p class="project-pitch">现在用Mindcraft最大的痛点：bot在干什么、为什么这么干，你完全看不见——它就是个黑盒。这个mod做一个web dashboard，<em>实时显示</em> bot的reasoning chain、当前goal、最近5个决策。让黑盒变透明。</p>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="field">
+          <h4>玩起来什么样</h4>
+          <div class="scenario">
+            你启动bot Andy，浏览器打开 <code>localhost:3030</code>——一个dashboard亮起来：
+            <span class="quote">左边：当前Goal "收集10根原木 (3/10)"<br>中间：思考链<br>　└ 看见橡树在西北方向<br>　└ 决策：先伐木，回基地后整理库存<br>　└ 执行：移动到坐标 (-45, 64, 132)<br>右边：周围5格的实体、库存、HP/食物</span>
+            下午Andy又卡住了——你打开dashboard，立刻看见 <code>困惑：路径被阻挡，重试3次后放弃</code>。<strong>问题2秒就找到了，不用再猜。</strong>
+          </div>
+        </div>
+        <div class="field">
+          <h4>技术拼图</h4>
+          <p>Mindcraft是Node.js写的。让Cursor + DeepSeek给它加几个hook：bot每次做决定时push一个event到websocket。新建一个简单的web app（HTML+CSS+JS）订阅这个websocket，实时渲染dashboard。一晚上能搭出MVP。</p>
+        </div>
+        <div class="field">
+          <h4>呼应了你学过的什么</h4>
+          <p><strong>Project 2 harness</strong>——这是harness的可视化版：让你<em>看见</em>你写的rules怎么影响bot。<br><strong>Project 3 debug痛点</strong>——你Project 3里"为什么bot又犯傻了"的挫败感，自己解决了。</p>
+        </div>
+        <div class="field">
+          <h4>陌生人下载会觉得？</h4>
+          <p>"我用Mindcraft半年了，第一次能<em>真正debug</em>我的bot。"这是社区里真实的need。</p>
+        </div>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <span class="label">scope</span>
+          <span class="scope-bar"><div class="on"></div><div class="on"></div><div class="on"></div><div></div><div></div></span>
+        </div>
+        <div class="meta-item"><span class="label">callback</span><span class="value">Project 2+3</span></div>
+        <div class="meta-item"><span class="label">载体</span><span class="value">Mindcraft 扩展 + web app</span></div>
+        <div class="meta-item"><span class="label">最酷瞬间</span><span class="value">看着bot做决定的过程实时画出来</span></div>
+      </div>
+
+      <div class="project-quote">
+        工具型贡献往往是最被记住的——就像写小说的人都用同一个写作软件。你做的就是Mindcraft的那个"软件"。
+      </div>
+    </article>
+
+    <!-- ── B3 (NEW: tutor bot) ── -->
+    <article class="project">
+      <div class="project-top">
+        <div class="project-visual">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Sage bot (larger, with graduation/teacher hat motif) -->
+            <g transform="translate(100,40)">
+              <!-- mortarboard (teacher) -->
+              <rect x="-30" y="-8" width="60" height="6" fill="#1f1c16"/>
+              <rect x="-22" y="-2" width="44" height="14" fill="#4d7c0f"/>
+              <!-- tassel -->
+              <line x1="22" y1="-5" x2="32" y2="6" stroke="#c79420" stroke-width="2"/>
+              <circle cx="32" cy="8" r="2" fill="#c79420"/>
+              <!-- bot head -->
+              <rect x="-22" y="12" width="44" height="42" fill="#fdfaf2" stroke="#1f1c16" stroke-width="2.5"/>
+              <rect x="-12" y="22" width="8" height="6" fill="#4d7c0f"/>
+              <rect x="4" y="22" width="8" height="6" fill="#4d7c0f"/>
+              <rect x="-6" y="40" width="12" height="3" fill="#1f1c16"/>
+              <!-- body -->
+              <rect x="-26" y="54" width="52" height="35" fill="#fdfaf2" stroke="#1f1c16" stroke-width="2.5"/>
+            </g>
+            <!-- Small student figure -->
+            <g transform="translate(30,130)">
+              <rect x="0" y="0" width="14" height="18" fill="#a8896b" stroke="#1f1c16" stroke-width="1.5"/>
+              <rect x="2" y="-6" width="10" height="8" fill="#7d6849" stroke="#1f1c16" stroke-width="1.5"/>
+            </g>
+            <!-- speech bubble: lesson -->
+            <g transform="translate(40,40)">
+              <rect x="0" y="0" width="50" height="36" fill="#fdfaf2" stroke="#4d7c0f" stroke-width="1.5"/>
+              <rect x="6" y="8" width="30" height="2.5" fill="#4d7c0f"/>
+              <rect x="6" y="15" width="38" height="2.5" fill="#857e6e"/>
+              <rect x="6" y="22" width="20" height="2.5" fill="#857e6e"/>
+              <!-- bubble tail -->
+              <rect x="44" y="36" width="5" height="5" fill="#fdfaf2" stroke="#4d7c0f" stroke-width="1.5"/>
+            </g>
+            <!-- light bulb (insight) -->
+            <g transform="translate(150,135)">
+              <circle cx="8" cy="8" r="9" fill="#c79420" stroke="#1f1c16" stroke-width="1.5"/>
+              <rect x="4" y="16" width="8" height="4" fill="#1f1c16"/>
+              <line x1="8" y1="-3" x2="8" y2="-7" stroke="#c79420" stroke-width="1.5"/>
+              <line x1="18" y1="8" x2="22" y2="8" stroke="#c79420" stroke-width="1.5"/>
+              <line x1="-2" y1="8" x2="-6" y2="8" stroke="#c79420" stroke-width="1.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="project-header">
+          <div class="project-id">
+            <span class="id-num">B3</span>
+            <span>难度 中等 · 3 sessions</span>
+          </div>
+          <h3 class="project-title">MC Tutor Bot · Sage 老师</h3>
+          <p class="project-pitch">现在所有Mindcraft bot都是"帮你干活"的方向。这个bot反过来——它是<em>教你玩MC</em>的老师。评估你的level、给你出task、解释原理、看你做错时给提示。给MC新手一个真正耐心的导师。</p>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <div class="field">
+          <h4>玩起来什么样</h4>
+          <div class="scenario">
+            你召唤bot Sage：
+            <span class="quote">你："Hi, 我想学MC，但我不知道从哪开始。"<br>Sage："好的！让我看看你周围。"（它走一圈观察）"你已经有一些木头了——你已经懂得伐木。下面我教你做工作台，这是MC里几乎所有进阶的起点。先把4块木头放进背包的2x2格子里，看看会出现什么？"</span>
+            你按它说的做。Sage："对！这就是crafting。它是MC的核心机制——把简单材料组合成复杂工具。下一步我教你的是……"
+            <br><br>它根据你的level出task，循序渐进。它<em>懂得克制</em>——不替你做，只教你做。
+          </div>
+        </div>
+        <div class="field">
+          <h4>技术拼图</h4>
+          <p>主要是profile + system prompt设计——这就是你课程的精髓。一个新skill用来"评估玩家level"（看背包、看周围、看玩家最近的动作）。然后是教学逻辑：每次response先评估玩家progress，再决定教什么。</p>
+        </div>
+        <div class="field">
+          <h4>呼应了你学过的什么</h4>
+          <p><strong>Project 1 prompt engineering</strong>——整个bot就是一个大的system prompt艺术品。<br><strong>Project 3 性格</strong>——这是一个特别具体且有用的"性格"。<br><strong>元呼应</strong>——你做的这个mod，本质上是把你这门"AI for Teens"课的精神，做成一个产品：AI作为<em>学习伙伴</em>，不替你做事，教你成长。</p>
+        </div>
+        <div class="field">
+          <h4>陌生人下载会觉得？</h4>
+          <p>"这是给MC新手的最好礼物。"父母会装这个让小孩玩。</p>
+        </div>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <span class="label">scope</span>
+          <span class="scope-bar"><div class="on"></div><div class="on"></div><div class="on"></div><div></div><div></div></span>
+        </div>
+        <div class="meta-item"><span class="label">callback</span><span class="value">Project 1+3 + 元层</span></div>
+        <div class="meta-item"><span class="label">载体</span><span class="value">Mindcraft profile + skill</span></div>
+        <div class="meta-item"><span class="label">最酷瞬间</span><span class="value">不会玩MC的人，被你的bot教会</span></div>
+      </div>
+
+      <div class="project-quote">
+        你做的不是工具，是给MC新人的一个朋友。
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ════════════════════════ DECISION ════════════════════════ -->
+<section class="decide">
+  <div class="decide-inner">
+    <div class="section-eyebrow">▍ 收敛阶段 · 怎么选</div>
+    <h2 class="section-title">放在一起<br>对比一下</h2>
+    <p class="section-blurb">不要试图选"最强的"——选最让你<em style="font-style:italic;color:var(--a-deep);">想动手</em>的那个。下面这张表帮你横向比较，但最重要的还是后面那三个问题。</p>
+
+    <div class="matrix">
+      <div class="matrix-row header">
+        <div>id</div>
+        <div>名字</div>
+        <div>scope</div>
+        <div>呼应度</div>
+        <div>炫酷度</div>
+        <div>publish故事</div>
+      </div>
+      <div class="matrix-row a-row">
+        <div class="id">A1</div>
+        <div class="name">会"思考"的生物</div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
+      <div class="matrix-row a-row">
+        <div class="id">A2</div>
+        <div class="name">真的能聊天的村民</div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
+      </div>
+      <div class="matrix-row a-row">
+        <div class="id">A3</div>
+        <div class="name">看不见的难度导演</div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+      </div>
+      <div class="matrix-row b-row">
+        <div class="id">B1</div>
+        <div class="name">Bot加新技能</div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+      </div>
+      <div class="matrix-row b-row">
+        <div class="id">B2</div>
+        <div class="name">Bot思考过程可视化面板</div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
+      </div>
+      <div class="matrix-row b-row">
+        <div class="id">B3</div>
+        <div class="name">MC Tutor Bot</div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></div>
+        <div><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></div>
+      </div>
+    </div>
+    <div class="matrix-note">● = 高 · ○ = 低 · 5个圆点全亮 = 满分</div>
+
+    <div class="section-eyebrow" style="margin-top: 80px;">▍ 三个问题 · 选给自己听</div>
+    <h2 class="section-title">现在，<br>问问自己：</h2>
+
+    <div class="questions">
+      <div class="question">
+        <div class="q-num">Q1 — 关于Project 3</div>
+        <div class="q-text">你玩Mindcraft的时候，最让你兴奋的是哪个moment？是<em>"AI走进了我的世界"</em>那种新奇感？还是<em>"改了配置bot变了"</em>的可控感？还是<em>"我能改它的代码"</em>的工程感？</div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q2 — 关于野心</div>
+        <div class="q-text">你想做一个让<em>同学朋友</em>觉得酷的mod？还是让<em>陌生人在Modrinth上下载</em>的mod？还是对<em>开源社区有真实贡献</em>的mod？三个都ok，但目标不一样。</div>
+      </div>
+      <div class="question">
+        <div class="q-num">Q3 — 关于直觉</div>
+        <div class="q-text">把名字念一遍：<em>"会思考的生物" / "能聊天的村民" / "难度导演" / "Bot新技能" / "可视化面板" / "Tutor Bot"</em>。哪一个名字让你<em>立刻想看到它跑起来</em>？那个就是答案。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ FOOTER ════════════════════════ -->
+<footer>
+  <div class="pixel-row">
+    <div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div>
+  </div>
+  <div class="footer-line">AI × MINECRAFT · PROJECT 04 · DESIGNED BY HAIWEN</div>
+  <div class="footer-line dim">3 SESSIONS · 0 LINES OF CODE BY YOU · 1 PUBLISHED MOD</div>
+</footer>
+
+</body>
+</html>
