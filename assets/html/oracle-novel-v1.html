@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《神谕》— v1 · 古代晚期的过渡地带</title>
+<style>
+  :root {
+    --bg: #f4ede0;
+    --bg-card: #faf6ec;
+    --bg-sunken: #ebe2d0;
+    --ink: #2a2418;
+    --ink-soft: #6a5e4a;
+    --ink-faint: #a89c84;
+    --rule: #d4c8af;
+    --rule-soft: #e4dcc6;
+
+    --west: #3e5d82;
+    --west-soft: #c2cfde;
+    --east: #a87444;
+    --east-soft: #e2cdb4;
+    --contested: #7a5582;
+    --contested-soft: #d4c2d8;
+    --steppe: #8a7e4a;
+    --steppe-soft: #d6cfaf;
+    --maritime: #3e7a78;
+    --maritime-soft: #b8d2d0;
+
+    --oracle: #4a4a58;
+    --oracle-soft: #c8c8d4;
+    --awakening: #8a5a8e;
+    --awakening-soft: #d8c4da;
+    --uncertain: #b87a5a;
+
+    --war: #8b3a3a;
+    --plague: #6b4a6b;
+    --religion: #5a7a4a;
+    --treaty: #4a6a8a;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 20% 30%, rgba(180,160,120,0.06), transparent 40%),
+                      radial-gradient(circle at 80% 70%, rgba(140,100,60,0.05), transparent 40%);
+    z-index: 1;
+  }
+
+  /* === NAV === */
+  nav.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(244,237,224,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.7rem 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+  nav.topnav .nav-title {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    margin-right: auto;
+  }
+  nav.topnav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+  nav.topnav a:hover {
+    color: var(--ink);
+    background: var(--rule-soft);
+  }
+  nav.topnav a.back {
+    color: var(--ink-faint);
+    border: 1px solid var(--rule);
+    padding: 0.15rem 0.55rem;
+  }
+
+  /* === HERO === */
+  header.hero {
+    position: relative;
+    padding: 6rem 2rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  .hero .eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin: 0 0 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .hero h1 .alt-title {
+    font-size: 0.4em;
+    color: var(--ink-faint);
+    font-style: italic;
+    margin-left: 1rem;
+    letter-spacing: 0;
+  }
+  .hero .subtitle {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    max-width: 760px;
+    margin: 1rem 0 2rem;
+  }
+  .hero .premise {
+    max-width: 760px;
+    border-left: 3px solid var(--rule);
+    padding-left: 1.2rem;
+    color: var(--ink);
+    font-size: 1.02rem;
+  }
+  .hero .meta {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+  }
+  .hero .lineage {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+  .hero .lineage a {
+    color: var(--ink-soft);
+  }
+
+  /* === SECTIONS === */
+  section.block {
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+  }
+  section.block h2 {
+    font-size: 1.8rem;
+    margin: 0 0 0.3rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  section.block h2 .num {
+    color: var(--ink-faint);
+    font-size: 0.7em;
+    margin-right: 0.8rem;
+    font-variant-numeric: oldstyle-nums;
+  }
+  section.block .section-lede {
+    color: var(--ink-soft);
+    font-style: italic;
+    margin: 0 0 2.5rem;
+    max-width: 760px;
+  }
+
+  /* === EPIGRAPH === */
+  .epigraph {
+    max-width: 760px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    text-align: center;
+    color: var(--ink-soft);
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+  }
+  .epigraph .source {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+    font-style: normal;
+  }
+
+  /* === CARDS === */
+  .grid { display: grid; gap: 1.2rem; }
+  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.4rem 1.5rem;
+    position: relative;
+  }
+  .card h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .card p { margin: 0.5rem 0; }
+  .card .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+    background: var(--rule-soft);
+    color: var(--ink-soft);
+  }
+  .card .tag.west { background: var(--west-soft); color: var(--west); }
+  .card .tag.east { background: var(--east-soft); color: var(--east); }
+  .card .tag.contested { background: var(--contested-soft); color: var(--contested); }
+  .card .tag.steppe { background: var(--steppe-soft); color: var(--steppe); }
+  .card .tag.maritime { background: var(--maritime-soft); color: var(--maritime); }
+  .card .tag.oracle { background: var(--oracle-soft); color: var(--oracle); }
+  .card .tag.awakening { background: var(--awakening-soft); color: var(--awakening); }
+  .card.uncertain { border-color: var(--uncertain); }
+  .card.uncertain h3 { color: var(--uncertain); }
+
+  /* === MARGINALIA === */
+  .marginalia {
+    margin: 2rem 0;
+    padding: 1rem 1.4rem;
+    background: var(--bg-sunken);
+    border-left: 3px solid var(--uncertain);
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .marginalia .mark {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--uncertain);
+    margin-right: 0.5rem;
+    font-weight: 600;
+  }
+
+  /* === TIMELINE === */
+  .timeline-wrap {
+    margin: 3rem 0;
+    padding: 2rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+  .timeline-axis {
+    position: relative;
+    height: 2px;
+    background: var(--rule);
+    margin: 5rem 2rem;
+    min-width: 800px;
+  }
+  .tm {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--ink-soft);
+    border: 2px solid var(--bg-card);
+  }
+  .tm.war { background: var(--war); }
+  .tm.plague { background: var(--plague); }
+  .tm.religion { background: var(--religion); }
+  .tm.treaty { background: var(--treaty); }
+  .tm.now {
+    width: 16px;
+    height: 16px;
+    background: var(--ink);
+    box-shadow: 0 0 0 4px rgba(42,36,24,0.12);
+  }
+  .tm-label {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -100%);
+    margin-top: -12px;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    width: 130px;
+    line-height: 1.3;
+  }
+  .tm-label .year {
+    display: block;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 0.85rem;
+  }
+  .tm-label.below {
+    transform: translate(-50%, 100%);
+    margin-top: 12px;
+  }
+  .tm-label.now .year {
+    color: var(--ink);
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+  }
+  .timeline-legend {
+    display: flex;
+    gap: 1.2rem;
+    margin: 0 2rem 1rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+  .timeline-legend .swatch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+  }
+
+  /* === EVENT LIST === */
+  .events {
+    margin: 2rem 0;
+    border-left: 2px solid var(--rule);
+    padding-left: 1.5rem;
+  }
+  .event {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .event::before {
+    content: "";
+    position: absolute;
+    left: -1.85rem;
+    top: 0.6rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--ink-soft);
+    border: 2px solid var(--bg);
+  }
+  .event.war::before { background: var(--war); }
+  .event.plague::before { background: var(--plague); }
+  .event.religion::before { background: var(--religion); }
+  .event.treaty::before { background: var(--treaty); }
+  .event-year {
+    font-weight: 600;
+    color: var(--ink);
+    font-variant-numeric: oldstyle-nums;
+    letter-spacing: 0.03em;
+  }
+  .event-body {
+    color: var(--ink-soft);
+    margin-top: 0.2rem;
+  }
+  .event-body strong { color: var(--ink); }
+
+  /* === ARCHIVE QUOTE === */
+  .archive {
+    margin: 2.5rem 0;
+    padding: 1.6rem 1.8rem;
+    background: var(--bg-sunken);
+    border: 1px dashed var(--rule);
+    border-radius: 4px;
+    font-family: "Iowan Old Style", "Songti SC", Georgia, serif;
+    position: relative;
+  }
+  .archive::before {
+    content: "档案 · ARCHIVE";
+    position: absolute;
+    top: -0.7rem;
+    left: 1.5rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    background: var(--bg);
+    padding: 0 0.6rem;
+    color: var(--ink-faint);
+  }
+  .archive .src {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+    font-style: italic;
+  }
+
+  /* === WORLD MAP / SIMPLE === */
+  .worldmap {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    color: var(--ink-soft);
+  }
+  .worldmap pre {
+    margin: 0;
+    white-space: pre;
+  }
+
+  /* === FOUR THEMES === */
+  .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .theme-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1.3rem 1.4rem;
+    border-top: 3px solid var(--ink-faint);
+  }
+  .theme-card.t1 { border-top-color: var(--east); }
+  .theme-card.t2 { border-top-color: var(--west); }
+  .theme-card.t3 { border-top-color: var(--awakening); }
+  .theme-card.t4 { border-top-color: var(--oracle); }
+  .theme-card .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.4rem;
+  }
+  .theme-card.t1 .label { color: var(--east); }
+  .theme-card.t2 .label { color: var(--west); }
+  .theme-card.t3 .label { color: var(--awakening); }
+  .theme-card.t4 .label { color: var(--oracle); }
+  .theme-card h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  /* === READING LIST === */
+  .reading {
+    margin: 2rem 0;
+  }
+  .reading-group {
+    margin-bottom: 2rem;
+  }
+  .reading-group h3 {
+    font-size: 1.05rem;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+  .reading-item {
+    margin-bottom: 0.7rem;
+    color: var(--ink-soft);
+  }
+  .reading-item .title {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .reading-item .note {
+    font-style: italic;
+    color: var(--ink-faint);
+    display: block;
+    font-size: 0.92rem;
+  }
+
+  /* === FOOTER === */
+  footer.colophon {
+    margin-top: 6rem;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 2;
+  }
+  footer.colophon .signature {
+    letter-spacing: 0.1em;
+  }
+  footer.colophon a {
+    color: var(--ink-soft);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 720px) {
+    nav.topnav { padding: 0.7rem 1rem; gap: 0.8rem; }
+    header.hero { padding: 4rem 1.2rem 3rem; }
+    section.block { margin: 3rem auto; padding: 0 1.2rem; }
+    .timeline-wrap { padding: 1rem 0.4rem; }
+    .timeline-axis { margin: 4rem 1rem; }
+  }
+
+  strong { color: var(--ink); }
+  em { color: var(--ink-soft); }
+  a { color: var(--west); text-decoration: none; border-bottom: 1px dotted var(--west); }
+  a:hover { background: var(--west-soft); }
+</style>
+</head>
+
+<body>
+
+<nav class="topnav">
+  <div class="nav-title">神谕 · v1</div>
+  <a href="#time">时间</a>
+  <a href="#world">世界</a>
+  <a href="#edessa">埃德萨</a>
+  <a href="#sensorium">风貌</a>
+  <a href="#protagonist">主角</a>
+  <a href="#themes">母题</a>
+  <a href="#form">形式</a>
+  <a href="#opening">开篇</a>
+  <a href="#reading">阅读</a>
+  <a class="back" href="/projects/oracle-novel/">← 项目</a>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">长篇小说 · v1 重构 · 古代晚期</div>
+  <h1>神谕 · v1<span class="alt-title">古代晚期的过渡地带 · Late Antiquity</span></h1>
+  <p class="subtitle">把 v0 的两大架空文明集团换成真实历史的双极世界：拜占庭与萨珊波斯。<br>开篇 601 年，距"空和平"条约十年，距阿拉伯崛起三十年。所有人都以为长平静会继续。</p>
+  <div class="premise">
+    时间是公元 601 年初春。地点是上美索不达米亚的<strong>埃德萨</strong>——一座叙利亚语日常、希腊语行政、波斯语商务、阿拉伯语穿越的双语三语城市。距离两个帝国之间的最近边境约一天行军。距离 591 年结束的二十年大战十周年。莫里斯皇帝在君士坦丁堡，霍斯劳二世在泰西封；两人互相称义父义子；表面上是一个长平静的时代。<br><br>
+    一位刚到埃德萨四个月的外来学生，被派去一位老学者家里取一个塞满文件的木箱。那位老学者已经死了三天。学生扛着比自己重的箱子穿过埃德萨的街道，回到修道院。打开箱子。<strong>里面是过去三十年里从地中海各处、波斯帝国各处、阿拉伯半岛、甚至中亚来的预言文本、星象记录、梦记、神秘启示、商人账目、外交信件</strong>。<br><br>
+    他/她读了一夜。<br><br>
+    这本书是这个夜晚开始的。<strong>三十年后阿拉伯人会改写一切，但今夜没有人能预见</strong>。
+  </div>
+  <div class="meta">v1 · 2026.5.12 · 锚定于真实历史</div>
+  <div class="lineage">承接 <a href="oracle-novel-framework.html">v0 框架</a>，重新设定时空底层，保留 v0 的四大母题与档案体形式构想。</div>
+</header>
+
+<div class="epigraph">
+  "他们都在准备战争，但他们准备错了战争。"
+  <span class="source">— 待写</span>
+</div>
+
+<!-- ============================================================ -->
+<section class="block" id="time">
+  <h2><span class="num">I.</span>时间的支点 · 601 年</h2>
+  <p class="section-lede">601 年没有任何教科书事件。但它精确地落在两件历史枢轴之间——这就是开篇时间的意义。</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <span class="tag treaty" style="background: rgba(74,106,138,0.18); color: var(--treaty);">回望</span>
+      <h3>十年前 · "空和平"条约 (591 CE)</h3>
+      <p>591 年签订的拜占庭—萨珊和约结束了一场二十年的战争（572–591）。萨珊王子<strong>霍斯劳二世</strong>父亲被弑后流亡到拜占庭，借皇帝<strong>莫里斯</strong>的兵打回国夺位。条约里两人互称"义父义子"——一个互相成全姿态的体面退场。<strong>谁也没真的赢。</strong>这就是 v0 的"空和平"。</p>
+    </div>
+    <div class="card">
+      <span class="tag war" style="background: rgba(139,58,58,0.18); color: var(--war);">前瞻</span>
+      <h3>明年起 · 大灾难 (602–628 CE)</h3>
+      <p>602 年，福卡斯将军在君士坦丁堡叛变弑君。霍斯劳二世以"为义父复仇"为名进攻，开启 26 年大战。<strong>614 年萨珊夺取耶路撒冷、掳走真十字架。619 年攻陷亚历山大里亚。622 年穆罕默德从麦加迁至麦地那（伊斯兰元年）。628 年霍斯劳二世被儿子杀死，萨珊投降。两个帝国都筋疲力尽。</strong></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 3rem; font-size: 1.2rem;">这是历史给的开篇节拍</h3>
+  <p style="color: var(--ink-soft); max-width: 760px;">v0 设计的"条约十周年开篇 + 神谕调停的瘟疫后空和平 + 战时一代让位给战后一代 + 一场更大的危机正在到来"——<strong>在真实历史里精确对应到 601 年的埃德萨</strong>。无需架空。</p>
+
+  <div class="timeline-wrap">
+    <div class="timeline-legend">
+      <span><span class="swatch" style="background: var(--war);"></span>战争</span>
+      <span><span class="swatch" style="background: var(--plague);"></span>瘟疫</span>
+      <span><span class="swatch" style="background: var(--religion);"></span>宗教 / 文化</span>
+      <span><span class="swatch" style="background: var(--treaty);"></span>条约 / 政治</span>
+      <span><span class="swatch" style="background: var(--ink);"></span>故事的"现在"</span>
+    </div>
+    <div class="timeline-axis">
+      <div class="tm" style="left: 0%;"></div>
+      <div class="tm-label" style="left: 0%;"><span class="year">525</span>安条克大地震</div>
+
+      <div class="tm religion" style="left: 4%;"></div>
+      <div class="tm-label below" style="left: 4%;"><span class="year">529</span>查士丁尼关闭雅典学院</div>
+
+      <div class="tm treaty" style="left: 7%;"></div>
+      <div class="tm-label" style="left: 7%;"><span class="year">532</span>尼卡暴动</div>
+
+      <div class="tm religion" style="left: 11%;"></div>
+      <div class="tm-label below" style="left: 11%;"><span class="year">537</span>圣索菲亚落成</div>
+
+      <div class="tm plague" style="left: 16%;"></div>
+      <div class="tm-label" style="left: 16%;"><span class="year">541</span>查士丁尼大瘟疫</div>
+
+      <div class="tm war" style="left: 36%;"></div>
+      <div class="tm-label below" style="left: 36%;"><span class="year">572–591</span>"二十年战争"</div>
+
+      <div class="tm treaty" style="left: 50%;"></div>
+      <div class="tm-label" style="left: 50%;"><span class="year">591</span>"空和平"条约</div>
+
+      <div class="tm now" style="left: 57%;"></div>
+      <div class="tm-label now" style="left: 57%;"><span class="year">601</span>故事开始</div>
+
+      <div class="tm war" style="left: 60%;"></div>
+      <div class="tm-label below" style="left: 60%;"><span class="year">602</span>福卡斯弑君</div>
+
+      <div class="tm war" style="left: 66%;"></div>
+      <div class="tm-label" style="left: 66%;"><span class="year">614</span>萨珊夺耶路撒冷</div>
+
+      <div class="tm religion" style="left: 72%;"></div>
+      <div class="tm-label below" style="left: 72%;"><span class="year">622</span>穆罕默德希吉拉</div>
+
+      <div class="tm treaty" style="left: 78%;"></div>
+      <div class="tm-label" style="left: 78%;"><span class="year">628</span>萨珊投降</div>
+
+      <div class="tm religion" style="left: 84%;"></div>
+      <div class="tm-label below" style="left: 84%;"><span class="year">632</span>穆罕默德死</div>
+
+      <div class="tm war" style="left: 90%;"></div>
+      <div class="tm-label" style="left: 90%;"><span class="year">636</span>雅尔木克</div>
+
+      <div class="tm war" style="left: 100%;"></div>
+      <div class="tm-label below" style="left: 100%;"><span class="year">651</span>萨珊不存在</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 2.5rem; font-size: 1.15rem;">上一代留下的创伤记忆</h3>
+  <p style="color: var(--ink-soft); max-width: 760px;">主角的父母大致是 540–570 年间出生。他们经历过——</p>
+  <div class="events">
+    <div class="event plague">
+      <span class="event-year">541–549 · 查士丁尼瘟疫第一波</span>
+      <div class="event-body">从尼罗河起源，沿地中海蔓延。<strong>君士坦丁堡顶峰每天死 5000–10000 人</strong>，尸体堆进城墙塔楼。地中海世界人口锐减 25–50%——人类历史上第一次有记录的瘟疫大流行，比黑死病早八百年。<strong>它没有真正结束</strong>——每 10–15 年小复发，一直持续到约 750 年。</div>
+    </div>
+    <div class="event religion">
+      <span class="event-year">540 · 霍斯劳一世洗劫安条克</span>
+      <div class="event-body">把整城居民押到波斯，在泰西封旁边给他们建一座新城叫"霍斯劳之优于安条克"（Veh-Antiyok-Khosrow）——<strong>完整复制安条克的街道布局，把同一些家庭安置在波斯版"同一条街"上</strong>。征服者照顾被掳者的家乡感。</div>
+    </div>
+    <div class="event religion">
+      <span class="event-year">529 · 雅典学院关闭</span>
+      <div class="event-body">柏拉图—亚里士多德的直系学派传承终结。<strong>最后的七位哲人</strong>逃到泰西封霍斯劳一世的宫廷。霍斯劳给了他们书房，但他们在波斯也呆不住。532 年通过和约的特殊条款回到罗马领土——<strong>条款规定他们终身免受迫害</strong>。这些人之后在边境地带（叙利亚、亚美尼亚）秘密授徒。<strong>主角的某位老师可能就是这条秘密血脉的孙辈。</strong></div>
+    </div>
+    <div class="event treaty">
+      <span class="event-year">532 · 尼卡暴动</span>
+      <div class="event-body">君士坦丁堡赛车场，蓝党和绿党联手反皇帝。<strong>三万市民被屠杀</strong>。皇后狄奥多拉对要逃跑的查士丁尼说："紫袍是体面的裹尸布"——逼丈夫留下战斗。<strong>所有后世皇帝知道公民暴力极限的那一天。</strong></div>
+    </div>
+    <div class="event war">
+      <span class="event-year">572–591 · "二十年战争"</span>
+      <div class="event-body">v1 设定的"那场失败的战争"。<strong>主角是个孩子时进行的</strong>。他依稀记得父亲披甲离开的样子、母亲在烛光下抄写圣物以祈求保佑的样子。结束于双方都筋疲力尽的"互相成全"和约。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="world">
+  <h2><span class="num">II.</span>世界在 601 年</h2>
+  <p class="section-lede">两个主帝国，一片过渡地带，几个被它们都意识到却谁也不能完全把握的角色。中国仍然是雾里的庞然大物——这次是史实。</p>
+
+  <div class="worldmap">
+<pre>
+                                                    [ 突厥可汗国 · 蒙古到里海 ]
+                                                              │
+                                                              │
+   [ 西哥特西班牙 ]    [ 阿瓦尔 ]    [ 拜占庭 ]──长边境──[ 萨珊波斯 ]──[ 笈多残部 / 印度 ]
+          │                          (莫里斯)        ╲╱        (霍斯劳二世)             │
+   [ 北非省 ]    [ 伦巴第意大利 ]                ╲╱过渡地带╲╱                          │
+          │                                  · 埃德萨   ·                              │
+          │                                  · 尼西比斯  · 阿米达                       │
+          │                                  · 亚美尼亚                                 │
+                                                             ╲                          │
+                                                              [ 阿拉伯诸部 ]            │
+                                                                    │                  │
+   [ 亚历山大里亚 ]─红海─[ 阿克苏姆 ]─印度洋季风─[ 也门 ]─[ 印度西岸 ]─[ 锡兰 ]─[ 隋唐之交的中国 ]
+                                                          (粟特商人网络贯穿)
+</pre>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <span class="tag west">WEST · 拜占庭</span>
+      <h3>"罗马"在 601 年</h3>
+      <p>皇帝<strong>莫里斯</strong>。首都君士坦丁堡，人口约 50 万——世界最大城市之一。官方语言希腊语，国教迦克墩派基督教。<strong>已经丢掉意大利大半</strong>（伦巴第人占领）、西班牙只剩沿海几座城、巴尔干被斯拉夫人渗透。财政紧张，军队拖欠军饷——这就是 602 年福卡斯篡位的直接原因。</p>
+      <p>仍自称"罗马帝国"，每个仪式都假装这是天下。<strong>这种自我维持的、知道自己虚弱却仍然演下去的普世主义</strong>——是给读者看的"老欧洲 / 晚期美国"的远古对应。</p>
+    </div>
+    <div class="card">
+      <span class="tag east">EAST · 萨珊</span>
+      <h3>"伊朗"在 601 年</h3>
+      <p>万王之王<strong>霍斯劳二世·帕尔维兹</strong>，30 多岁，前半生流亡过、被人救过、回家做过国王、现在统治祖父留下的多文明帝国。首都泰西封（在巴格达南方——未来巴格达的建材就来自这里）。</p>
+      <p>官方语言中古波斯语（Pahlavi），但行政上多语并用：阿拉米语、希腊语、亚美尼亚语、阿拉伯语。国教祆教，但<strong>基督教（聂斯托利派为主）、犹太教、佛教都合法存在</strong>。表面上一切顺利——但他正在悄悄不喜欢这种共治。<strong>十年后他会变成另一种人。</strong></p>
+    </div>
+    <div class="card">
+      <span class="tag contested">CONTESTED · 过渡地带</span>
+      <h3>上美索不达米亚 · 亚美尼亚 · 黎凡特</h3>
+      <p>夹在拜占庭和萨珊之间的破碎地带。北段是亚美尼亚（双方都试图拉拢的基督教王国）；中段是上美索不达米亚——<strong>埃德萨、尼西比斯、阿米达</strong>——你这本书的主要舞台；南段是叙利亚沙漠（巴尔米拉早就成废墟，北阿拉伯诸部分属波斯、罗马代理人）。</p>
+      <p>这里的人能<strong>同时看见两边</strong>。双语三语城市、混血族群、改宗者、流亡者。<strong>本书最美的篇章很可能发生在这里。</strong></p>
+    </div>
+    <div class="card">
+      <span class="tag steppe">STEPPE · 北方草原</span>
+      <h3>突厥可汗国 (Türk Khaganate)</h3>
+      <p>从蒙古高原到里海的草原帝国。<strong>v0 设定的"北方草原不可收编者"在 6–7 世纪的真实历史对应物</strong>。突厥可汗国与拜占庭和萨珊都有外交关系，常被双方拉拢以打侧翼。东西突厥分裂大致发生在 581 年——581 年的突厥相当于"刚分家的强大近亲"。</p>
+      <p>叙述功能：防止"东方 vs. 西方"二元化。任何关于世界秩序的讨论都必须面对它们的存在。</p>
+    </div>
+    <div class="card">
+      <span class="tag maritime">MARITIME · 商业网络</span>
+      <h3>粟特—叙利亚—犹太—阿拉伯—阿克苏姆</h3>
+      <p>没有皇帝、没有军队、没有意识形态，但真实存在的全球商业秩序。<strong>粟特商人</strong>从撒马尔罕到长安到君士坦丁堡。<strong>聂斯托利派基督徒商人 + 传教士网络</strong>到达中国（唐代长安景教碑就是这条网络的产物，635 年立）。<strong>Radhanite 犹太商人</strong>从西班牙到印度。<strong>阿克苏姆王国</strong>控制红海西岸，把印度香料中国丝绸经红海运到罗马。</p>
+      <p>这套秩序<strong>不在乎你信什么、说什么、效忠谁</strong>。它只在乎契约履行、利润、关税。这是 v0 那个"南方商业邦联"的真实历史对应。</p>
+    </div>
+    <div class="card">
+      <span class="tag oracle">FAR · 视线边缘</span>
+      <h3>远东 · 中国仍是雾</h3>
+      <p>隋朝刚统一中国（589 年），即将在 618 年崩溃成唐。<strong>两个帝国知道有这么个地方，通过粟特商人间接得到丝绸和瓷器，没人见过那边的人</strong>。罗马—汉时代曾有 166 年自称"大秦王安敦"使节到洛阳的记录；之后再无直接接触。</p>
+      <p><strong>"两个庞然大物隔着一片他们不能直接见面的中间地带相互模糊地知道彼此存在"</strong>——丝路时代的真实状态。这就完美保住了 v0 那个"中国是雾里的庞然大物"的修辞——而且这次它是史实。</p>
+    </div>
+  </div>
+
+  <div class="marginalia">
+    <span class="mark">关于阿拉伯</span>
+    阿拉伯半岛上<strong>穆罕默德此时约 30 岁，在麦加做商人，还没有得到第一次启示</strong>（启示在 610 年）。<strong>他在小说里完全可以不出场——但他的世界正在小说的边角熟成</strong>。读者一定带着史实知识阅读这本书；这是文学杠杆。
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="edessa">
+  <h2><span class="num">III.</span>舞台 · 埃德萨</h2>
+  <p class="section-lede">今天的土耳其尚勒乌尔法。601 年人口约五万到八万——不大不小，刚够装一个完整社会。我推荐这座城作为主舞台。</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>位置 · 边境一日</h3>
+      <p><strong>就在拜占庭—萨珊边界拜占庭一侧</strong>，距离边境约一天行军。两边的间谍、流亡者、商人、传教士每天进出。<strong>是上美索不达米亚最大的叙利亚语（Syriac）文化中心</strong>——叙利亚语是阿拉米语的后裔，是耶稣讲的语言的近亲，是从公元 2 世纪到 8 世纪整个中近东基督教世界的通用语。</p>
+    </div>
+    <div class="card">
+      <h3>三层语言</h3>
+      <p><strong>希腊语</strong>（教会高层、帝国官僚）<br><strong>叙利亚语</strong>（日常生活、本地学问、街市）<br><strong>阿拉伯语和波斯语</strong>（商人、外交、边境人口）<br><br>真正的双语三语城市——v0 设定的"双语城市、混血族群、改宗者"就是这里。</p>
+    </div>
+    <div class="card">
+      <h3>基督教内部分裂的最前线</h3>
+      <p>埃德萨当地多数是<strong>一性论派（Miaphysite）</strong>——认为基督只有一个本性。但拜占庭皇帝执行<strong>迦克墩派</strong>——认为基督有两个本性。<strong>埃德萨人是自己帝国官方教会眼里的异端</strong>。一些人因此偷偷向萨珊（那里聂斯托利派受容）认同。<strong>"自由"与"专制"在这一座城里就已经无法用国境线划分。</strong></p>
+    </div>
+    <div class="card">
+      <h3>学校 · 知识的离散</h3>
+      <p>曾有著名的"埃德萨学校"，把希腊哲学和神学翻译成叙利亚语。<strong>489 年被拜占庭皇帝芝诺关闭、教员逃过边境到尼西比斯重建</strong>。<strong>所以最好的叙利亚学问现在在敌国境内</strong>。这本身就是这本书要谈的所有问题的具象化：自由的脆弱、知识跨越政治边界的流动、思想避难。</p>
+    </div>
+    <div class="card">
+      <h3>曼底林 (Mandylion) · 灵性技术</h3>
+      <p>城里供奉着传说中<strong>基督本人的脸印在布上的"非人手所造之像"</strong>。相传当年保护城市免于波斯围困（544 年的围城真的解了，记作奇迹）。<strong>这是一件"灵性技术"</strong>——一件被相信能改变政治军事现实的圣物。<strong>它在 944 年才被运到君士坦丁堡——601 年仍在埃德萨</strong>。</p>
+    </div>
+    <div class="card">
+      <h3>占星传统的暗流</h3>
+      <p>埃德萨在基督教化之前是星辰崇拜中心。<strong>巴尔达伊桑（Bardaisan，2 世纪）</strong>——埃德萨的基督徒占星家——写过把希腊星象学、基督教神学、伊朗思想综合起来的著作。<strong>他的传统在公元 600 年仍然有秘密的传承者</strong>。</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 3rem; font-size: 1.15rem;">主角能在街上遇到的人群</h3>
+  <div class="grid grid-3">
+    <div class="card" style="padding: 1rem 1.2rem; font-size: 0.93rem;">
+      <p>一性论的本地神父和教师 · 迦克墩派的派驻官员（被本地居民暗中讨厌）</p>
+    </div>
+    <div class="card" style="padding: 1rem 1.2rem; font-size: 0.93rem;">
+      <p>聂斯托利派的边境穿梭者（在波斯那边享有官方地位）</p>
+    </div>
+    <div class="card" style="padding: 1rem 1.2rem; font-size: 0.93rem;">
+      <p><strong>摩尼教徒</strong>（在两个帝国都被禁，但仍有秘密社群）</p>
+    </div>
+    <div class="card" style="padding: 1rem 1.2rem; font-size: 0.93rem;">
+      <p><strong>玛兹达克派幸存者</strong>（528 年波斯大屠杀的幸存者后裔，70 年前的事，活下来的孙辈现在在埃德萨做手工业）</p>
+    </div>
+    <div class="card" style="padding: 1rem 1.2rem; font-size: 0.93rem;">
+      <p>犹太学者（巴比伦犹太学院在 50 公里外）</p>
+    </div>
+    <div class="card" style="padding: 1rem 1.2rem; font-size: 0.93rem;">
+      <p>阿拉伯部族的访问者（拉赫米和加萨尼的商人、信使、部落代表）</p>
+    </div>
+    <div class="card" style="padding: 1rem 1.2rem; font-size: 0.93rem;">
+      <p><strong>粟特商人</strong>（来自中亚，丝路东半段的中间商，会说四五种语言）</p>
+    </div>
+    <div class="card" style="padding: 1rem 1.2rem; font-size: 0.93rem;">
+      <p>来自亚历山大里亚的<strong>新柏拉图主义残余者</strong>（雅典学院流亡哲人的徒孙）</p>
+    </div>
+    <div class="card" style="padding: 1rem 1.2rem; font-size: 0.93rem;">
+      <p>占星师、解梦人、行医的修士、女预言者</p>
+    </div>
+  </div>
+  <p style="color: var(--ink-soft); margin-top: 1rem;"><strong>这一切都是历史真实，不需要发明。</strong></p>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="sensorium">
+  <h2><span class="num">IV.</span>风貌 · 感官细节</h2>
+  <p class="section-lede">写小说不靠观点靠物件。下面是一些可以直接搬进场景的具体物质。</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>衣</h3>
+      <p>罗马的托加已经死了一百多年。城市男性穿<strong>及膝或及踝束腰长袍（tunica）</strong>，腰束带，外面披斗篷（pallium）。穷人是粗麻或羊毛、未染色（土黄、棕褐、浅灰）；中产是亚麻和染色羊毛（红、蓝、绿）；富人是丝绸。</p>
+      <p><strong>552 年两个景教派修士把蚕卵藏在空心竹杖里从中国偷到拜占庭</strong>——这一年前丝绸只能从中国买、单价等同黄金；这一年后拜占庭自己开始养蚕。<strong>裤子（波斯影响）开始普及</strong>——1 世纪罗马人会认为这是野蛮人服饰，6 世纪罗马军人和东方人都穿。</p>
+    </div>
+
+    <div class="card">
+      <h3>食</h3>
+      <p>早餐是面包蘸橄榄油、几颗橄榄、白奶酪。市场上有腌鱼（garum——古典时代的鱼露，仍在用）、烘面饼、扁豆、洋葱、大蒜。城北有葡萄园（埃德萨地区盛产葡萄酒）。<strong>从波斯进口的米饭仅在富人桌上、被视作奇珍</strong>。从印度来的胡椒和肉桂、从锡兰来的肉桂——通过粟特商人带来。</p>
+      <p><strong>柠檬还没传到地中海</strong>（中世纪阿拉伯人才带过来）。<strong>糖也几乎没有</strong>（蜂蜜是主要甜味来源）。咖啡、茶、烟草、土豆、番茄都不存在。</p>
+    </div>
+
+    <div class="card">
+      <h3>钱</h3>
+      <p>拜占庭金币 solidus（4.5 克黄金，纯度近 24K）——著名的"千年硬币"，<strong>从查士丁二世铸的版本到中世纪末几乎不贬值</strong>，是国际贸易标准。萨珊银币 drachm（4 克白银，刻着祆教火坛和国王头像）。</p>
+      <p>两种钱在埃德萨都流通，市场上换汇。<strong>银币本身就是一种宣传媒介</strong>——萨珊新王登基第一年发行的银币会送到帝国各角落，"换钱"是政治信号。</p>
+    </div>
+
+    <div class="card">
+      <h3>声音</h3>
+      <p>清早教堂钟（<strong>钟才刚开始在 6 世纪传入基督教礼仪</strong>；某些修道院仍用木板敲击，叫 semantron）。希腊语和叙利亚语的礼拜诵唱。市场上的多语混杂叫卖。骆驼商队进城时铜铃叮当。锻铁声、织布机声、磨坊水轮声。</p>
+      <p><strong>没有任何机械动力声</strong>——人类听到的所有规律性声音都是某个人的身体或动物在做工的声音。</p>
+    </div>
+
+    <div class="card">
+      <h3>气味</h3>
+      <p>清早烤面包、烧木柴。寺院和教堂的乳香。市场上的腌鱼、汗、家畜粪便、热油炸蔬菜。街角公共厕所的尿味（罗马式公共厕所一直用到这个时代）。<strong>没有香水的现代调制</strong>——但有玫瑰水、雪松、檀木、麝香（从东方来）。</p>
+    </div>
+
+    <div class="card">
+      <h3>夜里</h3>
+      <p>油灯（橄榄油），蜡烛（蜂蜡或牛脂；蜂蜡很贵，给教堂用）。<strong>一般家庭天黑后大致就睡觉了</strong>，没有"夜生活"。<strong>深夜的城市是真的黑</strong>——星空是日常的天花板。</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 2.5rem; font-size: 1.15rem;">看不到、但感觉得到的事</h3>
+  <ul style="color: var(--ink-soft); max-width: 760px; line-height: 1.9;">
+    <li><strong>死亡仍然近</strong>。瘟疫每隔几年小复发。儿童死亡率约 30–50%。主角的同辈里，平均每个家庭有兄弟姐妹死在童年。</li>
+    <li><strong>奴隶制还存在</strong>，但主要是家奴形式（不是大型种植园奴隶）。穷人卖自己或孩子为奴是真实选项。</li>
+    <li><strong>女性的法律地位</strong>在罗马法下相对成熟（继承财产、起诉、做生意），但实际社会期待还是嫁人生子。<strong>寡妇的自由度反而最高</strong>。基督教女修道院给一部分女性提供了独立空间。</li>
+    <li><strong>识字率</strong>：自由人成年男性 15–25%，自由人成年女性 5–10%。<strong>埃德萨—尼西比斯地区比一般地区高得多</strong>，因为叙利亚教会重视识字。主角识字本身就把他/她放在前 15% 的位置上——但仍然是"小人物"。</li>
+  </ul>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="protagonist">
+  <h2><span class="num">V.</span>主角 · 仍然未命名</h2>
+  <p class="section-lede">小人物，无名之人。性别、年龄、确切身份保留模糊。三个候选保持开放——最终也可能是混合。</p>
+
+  <div class="grid grid-3">
+    <div class="card" style="border-top: 3px solid var(--west);">
+      <span class="tag">候选 A · 推荐</span>
+      <h3>外来学生</h3>
+      <p>18–22 岁。来自小亚细亚某个山区小城、叙利亚乡下，或亚美尼亚边境。有一封介绍信去埃德萨某个修道院或某位老学者那里读书。<strong>不是富家子弟，但识字、好奇、不安</strong>。</p>
+      <p>父辈中有一人死于上次战争（591 之前那场）；母亲健在或刚死。<strong>混血血统</strong>——比如父亲希腊语行政小吏，母亲当地叙利亚妇女。来埃德萨没有具体计划，读书是借口。</p>
+      <p style="font-size: 0.9rem; color: var(--ink-faint); margin-top: 1rem;"><strong>好处</strong>：完全没有历史人物对应，作者彻底自由 · 他/她和读者同时学习这座城 · 年纪轻意味着可以跨越故事 25–30 年的时间线（开篇 20 岁，结尾 50 岁——经历整场大战）</p>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--east);">
+      <span class="tag">候选 B</span>
+      <h3>本地抄写员／公证人</h3>
+      <p>30 出头，已婚或鳏夫/寡妇。在埃德萨大教堂的缮写室工作，同时为城里几家商人做合同公证。会希腊语、叙利亚语，能读一点波斯语。父辈是埃德萨本地人，至少三代；自己出身平民。</p>
+      <p><strong>职业本身就是这本书的形式</strong>——抄写员负责文件流转，自然接触到来自帝国各处的信件、报告、神谕记录、商务账目。</p>
+    </div>
+    <div class="card" style="border-top: 3px solid var(--awakening);">
+      <span class="tag">候选 C</span>
+      <h3>玛兹达克派后裔</h3>
+      <p>父祖辈从波斯逃来（528 年大屠杀的孙辈），现在做染布或制革或抄写。表面上是普通基督徒，<strong>家里秘密保留祖辈的玛兹达克信仰碎片</strong>。</p>
+      <p><strong>这个人的存在本身就是"觉醒的政治后果"</strong>——一场被暴力终结的觉醒运动如何活在三代之后的人身上。</p>
+    </div>
+  </div>
+
+  <div class="marginalia">
+    <span class="mark">建议</span>
+    理想结构：<strong>A 是主角，B 是 A 的导师，C 是 A 的爱人或近友</strong>。三种候选都进入故事，但只有一个承担叙事重心。性别暂时不定——6 世纪末叙利亚女性识字率比想象中高（尤其在叙利亚基督教社群里），女性主角完全可行，且能让你写到拜占庭—萨珊女性领域那些被史书忽略的部分。
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="themes">
+  <h2><span class="num">VI.</span>四个母题 · 在 601 年如何落地</h2>
+  <p class="section-lede">v0 留下的四大母题，每一个都在 601 年的世界里有具体的物质、人物、文本对应。</p>
+
+  <div class="themes-grid">
+    <div class="theme-card t1">
+      <div class="label">母题 · I</div>
+      <h3>天下作为政治可能性</h3>
+      <p>三种并存的"天下"实验同时运行，主角能从埃德萨同时看见。</p>
+    </div>
+    <div class="theme-card t2">
+      <div class="label">母题 · II</div>
+      <h3>自由-专制对立的内部复杂</h3>
+      <p>"自由的"罗马在迫害自己 60% 的基督徒；"专制的"波斯在公开容许七个宗教。</p>
+    </div>
+    <div class="theme-card t3">
+      <div class="label">母题 · III</div>
+      <h3>觉醒的政治后果</h3>
+      <p>四种政治回应在 601 年都已具象——压制、纳入、逃逸、平行秩序。每一种都在书里有真实人物对应。</p>
+    </div>
+    <div class="theme-card t4">
+      <div class="label">母题 · IV</div>
+      <h3>神谕/技术的逼迫</h3>
+      <p>古典神谕被国家暴力终结的最后阶段。新的预言文学在大量涌现。同步性是事实而非比喻。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="theme-1">
+  <h2 style="font-size: 1.5rem;"><span class="num">VI.1</span>天下作为政治可能性</h2>
+  <p class="section-lede">601 年的世界提供了三个并存的"天下"实验。没有一个胜出——它们都在 50 年内崩溃。但**一个第四个**正在地平线下熟成（伊斯兰），没有任何角色能预见。</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <span class="tag west">A · 拜占庭基督教普世主义</span>
+      <h3>查士丁尼的项目 (527–565)</h3>
+      <p><strong>《查士丁尼法典》（Corpus Juris Civilis）</strong>：在六年里把一千年罗马法整合成可工作的文献。今天欧洲大陆法系的母本。它的政治哲学：<strong>全人类应该在一套统一的法律下生活</strong>。</p>
+      <p><strong>圣索菲亚</strong>：不是教堂，是一个论证。完工那天查士丁尼说：<em>"所罗门，我已经胜过你了。"</em></p>
+      <p><strong>军事重新征服</strong>：贝利萨留斯重夺北非（533–534）和意大利（535–554）。<strong>意大利战争 18 年让意大利人口锐减约三分之一</strong>，半岛永远没有恢复古典繁荣。<strong>普世主义的代价是被普世的地方付的</strong>。</p>
+      <p style="color: var(--ink-soft); font-style: italic; margin-top: 1rem;">601 年状况：项目衰退中——意大利大半丢给伦巴第人，西班牙只剩沿海，斯拉夫人渗透巴尔干。但意识形态仍在。</p>
+    </div>
+
+    <div class="card">
+      <span class="tag east">B · 萨珊伊朗普世主义</span>
+      <h3>霍斯劳一世的项目 (531–579)</h3>
+      <p>祖父辈记得的"圣君"，<strong>霍斯劳·阿努希尔万</strong>（Anushirvan，"不死之灵"）。他做的事：</p>
+      <ul style="font-size: 0.95rem; color: var(--ink-soft); margin: 0.8rem 0; padding-left: 1.2rem;">
+        <li>税制理性化（固定地租取代按收成抽税）</li>
+        <li>建立四方军区制，削弱旧贵族军事垄断</li>
+        <li><strong>赞助知识翻译</strong>——印度棋艺、《五卷书》、阿育吠陀医学</li>
+        <li>接纳 529 年雅典学院流亡的七位新柏拉图哲人</li>
+        <li><strong>建立 Gondēšāpūr 学院（Jundishapur）</strong>——医学院+天文台+翻译院+医院</li>
+      </ul>
+      <p><strong>Jundishapur 是真实存在的、连续了几百年的多文明知识中心</strong>——这本身就是一个完整的天下样本。<strong>主角如果有学问理想，Jundishapur 是他的精神圣城——虽然它在敌国境内</strong>。</p>
+    </div>
+  </div>
+
+  <div class="grid grid-2" style="margin-top: 1.5rem;">
+    <div class="card">
+      <span class="tag east">B (续) · 当代国王</span>
+      <h3>霍斯劳二世·帕尔维兹</h3>
+      <p>在位 590–628。和拜占庭公主<strong>玛丽亚（Maria）</strong>结婚——莫里斯的女儿（或养女）。又娶了<strong>叙利亚基督徒希琳（Shirin）</strong>——一段在后来千年波斯文学里被反复书写的爱情。<strong>尼扎米的《霍斯劳与希琳》（12 世纪）是波斯爱情诗的双壁之一</strong>。</p>
+      <p>601 年时，他享受祖父打下的基础。<strong>多元主义还在运作。但他正在悄悄不喜欢这种共治——他喜欢专断。十年后他会变成另一种人。</strong></p>
+    </div>
+
+    <div class="card">
+      <span class="tag maritime">C · 商业秩序</span>
+      <h3>没有皇帝的全球网络</h3>
+      <p><strong>粟特人</strong>：撒马尔罕、布哈拉的伊朗系商人。说粟特语、写粟特文。商队站从长安到君士坦丁堡。<strong>敦煌出土的"粟特商人书信"</strong>（4 世纪初）描述他们的经济网络。</p>
+      <p><strong>叙利亚商人</strong>：以埃德萨、安条克为根。许多人是聂斯托利派基督徒——这个教派<strong>因为商业网络传播得比帝国疆域远得多</strong>，最远到长安（635 年到达；唐代景教碑就是这条网络的产物）。</p>
+      <p>这套秩序的政治含义：<strong>它不在乎你信什么、说什么、效忠谁</strong>。所有意识形态都必须给它让路。<strong>这是马基雅维利之前的资本主义雏形</strong>。</p>
+    </div>
+  </div>
+
+  <div class="archive">
+    主角能在埃德萨的市场上一上午接触到：一位拜占庭税官（A）、一位聂斯托利派商人（B 的代理）、一位粟特商队领头（C）。三种天下的代表，三种语言，三种价值观——<strong>同一座城里同一时辰</strong>。这本书的张力之一就是主角在三种天下之间反复偏移，最终发现没有一种能完全满足他/她。
+    <div class="src">— 给写作的便条</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="theme-2">
+  <h2 style="font-size: 1.5rem;"><span class="num">VI.2</span>自由-专制对立的内部复杂</h2>
+  <p class="section-lede">这本书最锋利的一根刺。在 601 年的埃德萨，一系列具体事实让任何简单二元都崩溃。</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>普罗柯比的三本书</h3>
+      <p><strong>普罗柯比（Procopius，约 500–565）</strong>——同一辈子写了三本完全矛盾的书：</p>
+      <ul style="font-size: 0.95rem; color: var(--ink-soft);">
+        <li><strong>《战记》</strong>：官方公历，赞美贝利萨留斯</li>
+        <li><strong>《建筑物》</strong>：宫廷颂歌，把查士丁尼说成神</li>
+        <li><strong>《秘史》（Anekdota）</strong>：他死后发现的手稿。把查士丁尼描绘成<strong>字面意义上的魔鬼</strong>——夜里头颅会离开身体在宫殿里漂浮——把狄奥多拉描绘成性变态、谋杀犯、政治阴谋家</li>
+      </ul>
+      <p><strong>同一个人，三本书</strong>。这告诉你 6 世纪受过教育的罗马知识分子如何在公开和私下之间扭曲。"罗马自由"已经退化到：<strong>白天写颂歌，夜里在秘密手稿里写真话</strong>。</p>
+      <p style="color: var(--ink-soft); font-style: italic; margin-top: 0.8rem;">给小说的素材：你的某个角色可能是普罗柯比的曾孙、徒孙、私生子的后代——继承了某个抄本——这本身就是一条情节线索。</p>
+    </div>
+
+    <div class="card">
+      <h3>蓝党和绿党 · 被管理的群众</h3>
+      <p>君士坦丁堡的赛车场派系，已经从体育演变成街头政治帮派。蓝党靠近正统迦克墩派和富人；绿党靠近一性论派和平民。<strong>皇帝刻意操纵两派对立</strong>。</p>
+      <p>这就是"民主"在 6 世纪罗马的形态——<strong>一种被国家管理的群众分裂</strong>。<strong>今天读起来令人毛骨悚然地熟悉</strong>。</p>
+    </div>
+
+    <div class="card">
+      <h3>萨珊的七大家族</h3>
+      <p>Karen、Suren、Mihran、Spandiyad 等等——<strong>他们能废立皇帝</strong>。霍斯劳二世本人就是被他们从巴赫拉姆·楚宾手里救回王位的。</p>
+      <p><strong>萨珊的"专制"是一个深度妥协的、多极协商的、贵族共和气质的君主制</strong>——比拜占庭的"共和帝国"更分权。</p>
+    </div>
+
+    <div class="card">
+      <h3>萨珊的语言宽容与宗教自治</h3>
+      <p>政府日常使用<strong>中古波斯语、阿拉米语、希腊语、亚美尼亚语</strong>——根据地区。碑文经常是双语或三语。</p>
+      <p>基督徒、犹太人、佛教徒、摩尼教徒——每个社区有自己的"族长"（catholicos / exilarch / mobad），对内司法自治，对外向国王效忠。<strong>这是"千年帝国宽容模式"的原型</strong>——后来奥斯曼的米利特（millet）制度直接继承自这里。</p>
+    </div>
+  </div>
+
+  <div class="archive">
+    <strong>双场景对照</strong><br><br>
+    <strong>场景 A · 埃德萨</strong>：一性论基督徒在自己家里举行礼拜。一个迦克墩派官员来调查——他们必须假装自己是迦克墩派、用迦克墩派的圣歌。"自由的"基督教罗马在迫害自己 60% 的基督徒。<br><br>
+    <strong>场景 B · 泰西封</strong>：城里的一座聂斯托利派教堂公开举行礼拜，一个萨珊官员路过点头致意继续走。"专制的"祆教帝国在公开容许基督教——只要你交人头税、不传教给祆教徒。<br><br>
+    主角同一年内看见这两幕。他/她不会得出反向结论"专制更好"——而是得出更深的发现：<strong>自由不是一个政体属性，是一个政体里某些具体安排的总和。</strong>
+    <div class="src">— 给写作的便条</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="theme-3">
+  <h2 style="font-size: 1.5rem;"><span class="num">VI.3</span>觉醒的政治后果</h2>
+  <p class="section-lede">601 年的世界正处于"觉醒浪潮"的高峰。四种政治回应在这一年都已具象——而它们的最终命运分别预示了这本书要谈的一切。</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <span class="tag awakening">沙漠 · 退出</span>
+      <h3>沙漠教父与柱头修士</h3>
+      <p><strong>《教父箴言录》（Apophthegmata Patrum）</strong>——已编纂的语录集，短、像禅宗公案、神秘。</p>
+      <p><strong>老西门·斯泰利特斯</strong>（Symeon Stylites the Elder，约 390–459）在阿勒颇附近的柱子上活了 37 年。皇帝、国王、农民都来求他。</p>
+      <p><strong>小西门·斯泰利特斯</strong>（Symeon Stylites the Younger，约 521–592）——<strong>离 601 年只隔 9 年</strong>。在安条克附近"奇迹山"的柱子上活了几十年。<strong>主角的父母可能朝拜过他。</strong></p>
+    </div>
+
+    <div class="card">
+      <span class="tag awakening">平行秩序 · 网络</span>
+      <h3>摩尼教 · 自觉的世界宗教</h3>
+      <p>摩尼（Mani, 216–274）阿拉米语 + 波斯语 + 希腊语三语布道。<strong>自称耶稣的使徒，也是佛陀和琐罗亚斯德的延续</strong>。<strong>亲手画自己的经书（Arzhang）</strong>——历史上唯一一位用图画做圣典的世界宗教创始人。</p>
+      <p>摩尼教文本在埃及（Medinet Madi 1929 年发现的科普特文摩尼教文库）、中亚（吐鲁番粟特文、中古波斯文、回鹘文残片）、中国（敦煌中文摩尼教文献；<strong>福建泉州草庵摩尼教石刻至今存在</strong>）都有发现。</p>
+      <p>601 年状态：在拜占庭被严酷镇压；在萨珊官方被禁但有秘密社区；在中亚和北非繁荣；<strong>通过粟特商人已经传到中国边境</strong>。<strong>埃德萨绝对有秘密摩尼教社区。</strong></p>
+    </div>
+
+    <div class="card">
+      <span class="tag awakening">压制后的地下 · 记忆</span>
+      <h3>玛兹达克派</h3>
+      <p>5 世纪末–6 世纪初的波斯。<strong>Mazdak ibn Bamdad</strong> 宣讲：财产应当共享、阶级应当废除、（也许）女性应当共享。</p>
+      <p><strong>国王卡瓦德一世初期支持他</strong>——这是世界历史上第一个"国王支持革命"的案例——后来被贵族集团废掉，复位后被迫镇压玛兹达克。<strong>528 或 529 年大屠杀</strong>。据说让玛兹达克和他几千名追随者参加一个"宴会"，把他们倒栽种在花园里让脚朝天。</p>
+      <p>601 年状态：表面消失，地下存活。<strong>后裔会在 8 世纪化身为 Khorramite 运动，又在 9 世纪化身为巴贝克·霍拉姆丁反阿拔斯起义，坚持了 20 年</strong>。</p>
+    </div>
+
+    <div class="card">
+      <span class="tag awakening">理性的神秘 · 抵抗</span>
+      <h3>新柏拉图主义的余烬</h3>
+      <p>529 年雅典学院关闭后，<strong>Damascius</strong>（最后一位院长）和同事写了大量神秘主义—理性主义混合著作。他们认为<strong>真正的哲学是通过仪式和神契达到神圣</strong>。</p>
+      <p>这条思想线索通过亚历山大里亚一直延续到 7 世纪——亚历山大里亚最后一位伟大哲人<strong>斯特凡努斯（Stephanus of Alexandria）</strong>在希拉克略宫廷做占星师。<strong>哲学家最终归化于占星术——这本身就是 6–7 世纪精神史的一种症状。</strong></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 2.5rem; font-size: 1.15rem;">四种政治回应 · 历史结局</h3>
+  <div class="grid grid-4">
+    <div class="card" style="background: rgba(139,58,58,0.08);">
+      <h3 style="color: var(--war);">绝对压制</h3>
+      <p style="font-size: 0.92rem;">拜占庭对一性论、聂斯托利、摩尼派、玛尼派 → <strong>本地民众逐渐不再认同帝国，为阿拉伯征服铺路</strong>（叙利亚和埃及落入阿拉伯人之手时，本地居民没怎么抵抗）</p>
+    </div>
+    <div class="card" style="background: rgba(168,116,68,0.08);">
+      <h3 style="color: var(--east);">纳入但限制</h3>
+      <p style="font-size: 0.92rem;">萨珊对基督徒、犹太人、佛教徒 → <strong>多元社会的稳定，但任何一个群体不能完全融入</strong></p>
+    </div>
+    <div class="card" style="background: rgba(138,126,74,0.08);">
+      <h3 style="color: var(--steppe);">逃逸</h3>
+      <p style="font-size: 0.92rem;">沙漠修士、柱头修士、隐士 → <strong>精神精英从政治中退出，带走了帝国本该用来更新自己的智慧</strong></p>
+    </div>
+    <div class="card" style="background: rgba(138,90,142,0.08);">
+      <h3 style="color: var(--awakening);">平行秩序</h3>
+      <p style="font-size: 0.92rem;">摩尼教、玛兹达克、犹太学院网络、聂斯托利商人—传教士网络 → <strong>在帝国之外形成另一种"国际"——这条最终接管历史</strong>（伊斯兰将以这种形式起步）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="theme-4">
+  <h2 style="font-size: 1.5rem;"><span class="num">VI.4</span>神谕/技术对人类处境的逼迫</h2>
+  <p class="section-lede">6 世纪末的"神谕世界"——古典神谕传统的最后阶段，被基督教国家有意终结。但整个社会运作仍然依赖各种占卜技术。这是这本书的真正轴心。</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <span class="tag oracle">最高级、最系统化</span>
+      <h3>占星学</h3>
+      <p>托勒密《四书》（Tetrabiblos）仍是教科书。<strong>约 6 世纪 Rhetorius of Egypt 编纂的星象案例集</strong>——是这一行的实务手册。</p>
+      <p>萨珊宫廷有官方编制的占星师。<strong>国王每年要根据自己的星盘咨询</strong>。Jundishapur 学院翻译印度占星术——<strong>印度的二十七宿系统、希腊的十二宫系统、伊朗本土的占星传统在这里融合</strong>。</p>
+    </div>
+
+    <div class="card">
+      <span class="tag oracle">官方信息源</span>
+      <h3>梦解释</h3>
+      <p>Artemidorus 的《Oneirocritica》（2 世纪）仍是标准。基督徒重写它为基督教版本——<strong>Achmet 的《Oneirocriticon》大约在 8 世纪写定，但反映 6–7 世纪的梦书传统</strong>。</p>
+      <p>梦在 6 世纪是一种官方信息源——<strong>皇帝的梦被官方解释；将军在战前会斋戒求梦</strong>。</p>
+    </div>
+
+    <div class="card">
+      <span class="tag oracle">异教神谕的替代</span>
+      <h3>圣物 · 灵性技术</h3>
+      <p><strong>埃德萨曼底林</strong>（基督脸印在布上）<br><strong>真十字架</strong>（在耶路撒冷，14 年后会被萨珊掠走）<br><strong>圣母玛利亚的衣袍</strong>（君士坦丁堡——626 年阿瓦尔围城时巡游城墙，包围解除）</p>
+      <p>这些是<strong>"基督教世界最高级的政治物理对象"</strong>——一片木头、一块布、一件衣袍能改变战争走向。</p>
+    </div>
+
+    <div class="card">
+      <span class="tag oracle">大量涌现</span>
+      <h3>新的预言文学</h3>
+      <p><strong>西比拉神谕</strong>（不断更新的希腊罗马—犹太—基督教预言诗）</p>
+      <p><strong>《伪美多迪乌斯启示》</strong>（7 世纪末写定，反映此前几十年的氛围）——<strong>预言一个最后皇帝会出现、击败异教徒、然后基督再来</strong></p>
+      <p><strong>波斯祆教末世文学</strong>：《Bahman Yasht》、《Zand-i Wahman Yasn》——预言救世主 Saoshyant 的到来</p>
+      <p><strong>犹太弥赛亚文学</strong>：《Sefer Zerubbabel》（约 7 世纪初）——预言弥赛亚 ben Joseph 和 ben David 的到来。<strong>写于 614 年波斯攻陷耶路撒冷前后</strong>。</p>
+    </div>
+  </div>
+
+  <h3 style="margin-top: 2.5rem; font-size: 1.15rem;">"网络开始同步" · 它在 v1 里具体是什么</h3>
+
+  <div class="card" style="margin-top: 1rem;">
+    <p>主角接到一份工作（或继承一份遗物）：要把过去三十年里——也就是"空和平"以来——从各地寄到埃德萨某位老学者手里的文件按时间整理。这些文件包括：</p>
+    <ul style="color: var(--ink-soft); margin: 1rem 0; line-height: 1.9;">
+      <li>一位君士坦丁堡占星师的星象记录</li>
+      <li>一位泰西封宫廷算命人的报告抄本</li>
+      <li>一位亚历山大里亚新柏拉图哲人的梦记</li>
+      <li>一位埃及沙漠苦修者口述被门徒记下的"启示"</li>
+      <li>一位粟特商人传来的"中亚某佛寺住持的预言"</li>
+      <li>一位希拉的阿拉伯诗人写下的"听到的句子"</li>
+      <li>一位也门犹太长老的对《但以理书》某节的注疏</li>
+    </ul>
+    <p><strong>分散看是各种各样的神秘主义；按时间排列、并置阅读，开始呈现一个让人难以承认的事实——它们在描述同一组未来事件。</strong></p>
+  </div>
+
+  <h3 style="margin-top: 2.5rem; font-size: 1.15rem;">四种解释——这本书拒绝在它们之间选择</h3>
+  <div class="grid grid-4">
+    <div class="card">
+      <h3 style="font-size: 1rem;">超验</h3>
+      <p style="font-size: 0.92rem;">神/诸神/宇宙真的在通过分散的渠道说话</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size: 1rem;">物质</h3>
+      <p style="font-size: 0.92rem;">所有文本反映同一时代的真实焦虑——"集体潜意识"的统计涌现</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size: 1rem;">技术</h3>
+      <p style="font-size: 0.92rem;">占星 + 数学的进步真的让人能预测某些大尺度模式（行星会合、瘟疫周期、王朝寿命）</p>
+    </div>
+    <div class="card">
+      <h3 style="font-size: 1rem;">政治</h3>
+      <p style="font-size: 0.92rem;">所有这些预言其实是各方政治宣传的合奏——但在合奏中产生了意外的同步性</p>
+    </div>
+  </div>
+
+  <div class="marginalia">
+    <span class="mark">关键</span>
+    <strong>小说本身不告诉读者哪个对</strong>。这就是"技术逼迫人类反思自己处境"的最佳实现——<strong>不是有没有神，而是当一种现象超出现有解释框架时，人类该怎么继续做政治、做信仰、做关系</strong>。这跟 AI 在我们这个时代逼迫人类重新认识自己的处境结构同构。
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="form">
+  <h2><span class="num">VII.</span>形式 · 作为档案的小说</h2>
+  <p class="section-lede">不严格演义，也不严格 Yourcenar。一种混合。</p>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>主体</h3>
+      <p>第三人称紧贴主角的叙事（<strong>或第一人称——可能更佳，因为主角即档案的汇编者</strong>）。日常生活、对话、街景、内省。</p>
+    </div>
+    <div class="card">
+      <h3>穿插</h3>
+      <p>主角整理出的档案文件——以"原貌"出现在书页里。神谕原文、信件、梦记、商人账单、外交照会（书面）——每一种用不同的版式、不同的边距、不同的字体处理。<strong>读者实际上在读两层文本</strong>：主角的叙事 + 主角档案里的引文。</p>
+    </div>
+    <div class="card">
+      <h3>篇幅</h3>
+      <p>单本，<strong>15–25 万字</strong>。<strong>不要往多卷史诗想——一本足够。</strong></p>
+    </div>
+    <div class="card">
+      <h3>结尾</h3>
+      <p>故事跨越约 25–30 年。结束时间在 <strong>626–628 之间</strong>。主角已经五十岁左右。大战快要结束。所有人都以为长平静会回来。<strong>读者知道阿拉伯人还没出现。</strong></p>
+      <p style="margin-top: 0.8rem;">最后一章可以是这样：主角把自己汇编的档案锁进一个铜匣子，藏进埃德萨某个修道院的图书馆——<strong>这个匣子十几年后在阿拉伯征服中要么被毁、要么以"我们今天读到的形式"流传</strong>。这就给档案体一个内在的"为什么我们能读到它"的解释——它是一份险险流传下来的文献。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="opening">
+  <h2><span class="num">VIII.</span>开篇情境</h2>
+  <p class="section-lede">第一章场景的草图。</p>
+
+  <div class="card" style="font-size: 1rem; line-height: 1.9;">
+    <p>公元 601 年初春。主角到埃德萨已经四个月。寄住在城北一个一性论修道院附属的小房间，每天替图书馆整理档案换取食宿。今天他/她奉派去城里一位老学者家——那位学者要把自己一个塞满文件的木箱赠给修道院图书馆，主角要去取。</p>
+    <p>走到那栋有内院和无花果树的房子。<strong>老学者已经死了三天</strong>。家属正在准备葬礼，催主角快点把箱子拿走。主角扛着比自己重的箱子穿过埃德萨的街道，路过曼底林节庆游行队伍，路过波斯商人卸货的栈房，路过迦克墩派教堂前争论的两个修士。</p>
+    <p>回到修道院。打开箱子。<strong>最上面一张是三十年前萨第斯一位占星师的星象笔记。下一张是君士坦丁堡某位苦修者一段梦的转抄。再下一张是亚历山大里亚某哲人的私人信件。</strong></p>
+    <p style="text-align: center; margin: 1.5rem 0; font-style: italic; color: var(--ink-soft);">主角读了一夜。</p>
+    <p>第二天早上他/她去见修道院的图书管理员，问：<br><strong>"这位老人到底是做什么的？"</strong></p>
+  </div>
+
+  <p style="color: var(--ink-soft); max-width: 760px; margin-top: 1.5rem;">开篇的张力在于：<strong>主角和读者同步发现自己捧着的是一份非常奇怪的、跨越三十年的、来自世界各地的文献集</strong>。后面 25–30 年的故事，就是这个发现的展开。</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="reading">
+  <h2><span class="num">IX.</span>阅读清单</h2>
+  <p class="section-lede">这段历史在中文世界几乎没有文艺作品，在英文世界也比想象中少——这本身就是这本小说的机会。</p>
+
+  <div class="reading">
+
+    <div class="reading-group">
+      <h3>一手史料 · 拜占庭一侧</h3>
+      <div class="reading-item">
+        <span class="title">Procopius</span>《Wars》《Buildings》《Secret History》
+        <span class="note">《Secret History》必读，短，毒辣，奇怪。Penguin 有 G.A. Williamson 译本。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">John of Ephesus</span>《Lives of the Eastern Saints》《Ecclesiastical History》
+        <span class="note">叙利亚一性论派的内部声音——听到埃德萨人怎么说话的最近来源。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Theophylact Simocatta</span>《History》
+        <span class="note">记录莫里斯朝（580s–602），正好是 v1 小说开篇前的十年。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">John Moschos</span>《The Spiritual Meadow》(Pratum Spirituale, 约 600 年)
+        <span class="note"><strong>几乎就是 v1 小说设定的那一年写的</strong>。一个修士走遍东地中海，记录他遇到的各种圣徒和怪事的轶闻。这是 v1 小说的氛围圣经。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Cyril of Scythopolis</span>《Lives of the Monks of Palestine》
+        <span class="note">5–6 世纪巴勒斯坦修士的传记。</span>
+      </div>
+    </div>
+
+    <div class="reading-group">
+      <h3>一手史料 · 叙利亚一侧</h3>
+      <div class="reading-item">
+        <span class="title">Apophthegmata Patrum</span>《教父箴言录》
+        <span class="note">必读。短、奇、像公案。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Liber Graduum</span>《阶梯之书》
+        <span class="note">4–5 世纪叙利亚禁欲文献。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Babai the Great</span> 的著作
+        <span class="note">萨珊治下的聂斯托利派学者。</span>
+      </div>
+    </div>
+
+    <div class="reading-group">
+      <h3>一手史料 · 波斯 / 犹太 / 摩尼教</h3>
+      <div class="reading-item">
+        <span class="title">Letter of Tansar</span>
+        <span class="note">萨珊宫廷的政治文书。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Bundahishn</span>《创世纪》 ·  <span class="title">Denkard</span>
+        <span class="note">祆教宇宙论 + 百科全书（9 世纪编纂，但保留 6 世纪材料）。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Acts of the Persian Martyrs</span>
+        <span class="note">叙利亚语写的萨珊治下基督徒受难录。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Babylonian Talmud</span>
+        <span class="note">某些 tractates 6 世纪定型，反映萨珊治下犹太生活。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Sefer Zerubbabel</span>
+        <span class="note">7 世纪初犹太弥赛亚启示。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Hans-Joachim Klimkeit</span>《Gnosis on the Silk Road》
+        <span class="note">汇集摩尼教各语言原始文本英译。</span>
+      </div>
+    </div>
+
+    <div class="reading-group">
+      <h3>现代历史研究 · 框架</h3>
+      <div class="reading-item">
+        <span class="title">Peter Brown</span>《The World of Late Antiquity》(1971)
+        <span class="note">薄、传奇之作、改变了整个学术领域。<strong>先读这本。</strong></span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Peter Brown</span>《The Cult of the Saints》《The Making of Late Antiquity》《Power and Persuasion in Late Antiquity》
+      </div>
+      <div class="reading-item">
+        <span class="title">Garth Fowden</span>《Empire to Commonwealth》(1993)
+        <span class="note"><strong>这本书几乎是为 v1 的"天下"母题写的</strong>——讨论古代晚期普世主义如何被一神论改造。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Garth Fowden</span>《Before and After Muḥammad: The First Millennium Refocused》(2014)
+      </div>
+    </div>
+
+    <div class="reading-group">
+      <h3>现代研究 · 萨珊 · 大战 · 阿拉伯</h3>
+      <div class="reading-item">
+        <span class="title">Touraj Daryaee</span>《Sasanian Persia》
+        <span class="note">可及的萨珊概览。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Patricia Crone</span>《The Nativist Prophets of Early Islamic Iran》(2012)
+        <span class="note">玛兹达克的后续生命。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Walter Kaegi</span>《Heraclius, Emperor of Byzantium》(2003)
+      </div>
+      <div class="reading-item">
+        <span class="title">James Howard-Johnston</span>《Witnesses to a World Crisis》(2010)
+        <span class="note">重建 600–660 年的史料学——本书设定时代最完整的现代史学梳理。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Robert Hoyland</span>《In God's Path: The Arab Conquests and the Creation of an Islamic Empire》(2014)
+      </div>
+      <div class="reading-item">
+        <span class="title">Glen Bowersock</span>《The Crucible of Islam》(2017)
+        <span class="note">薄、精——伊斯兰前夜的阿拉伯。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Aziz Al-Azmeh</span>《The Emergence of Islam in Late Antiquity》
+      </div>
+    </div>
+
+    <div class="reading-group">
+      <h3>现代研究 · 瘟疫 · 城市</h3>
+      <div class="reading-item">
+        <span class="title">Lester K. Little (ed.)</span>《Plague and the End of Antiquity》
+      </div>
+      <div class="reading-item">
+        <span class="title">Kyle Harper</span>《The Fate of Rome》(2017)
+        <span class="note">气候 + 瘟疫 + 帝国终结，文笔好。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">J.B. Segal</span>《Edessa: The Blessed City》(1970)
+        <span class="note">老但仍然是埃德萨研究的标准著作。</span>
+      </div>
+    </div>
+
+    <div class="reading-group">
+      <h3>文艺作品 · 极少，但有</h3>
+      <div class="reading-item">
+        <span class="title">Guy Gavriel Kay</span>《Sailing to Sarantium》《Lord of Emperors》(1998–2000)
+        <span class="note">把查士丁尼时代彻底搬到一个幻想世界（Valerius = 查士丁尼，Alixana = 狄奥多拉）。<strong>作为氛围参考极佳——也许这是离 v1 想做的事情最近的现代作品。</strong></span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Robert Graves</span>《Count Belisarius》(1938)
+        <span class="note">查士丁尼时代的小说，关于贝利萨留斯。英文世界这个时期最严肃的小说之一。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Gore Vidal</span>《Julian》(1964)
+        <span class="note">背景早一个世纪（4 世纪 Julian 皇帝），但晚古的整体氛围、智识张力、宗教斗争——本书最好的现代渲染。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Marguerite Yourcenar</span>《Memoirs of Hadrian》
+        <span class="note">背景早 400 年，但形式（皇帝晚年自述）、声音、对时代过渡的感知——任何古代背景小说的金本位。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Hilary Mantel</span>《Wolf Hall》三部曲
+        <span class="note">背景晚一千年，但心理细致 + 第三人称紧贴 + 时代浸入的现代历史小说典范。</span>
+      </div>
+    </div>
+
+    <div class="reading-group">
+      <h3>视觉素材 (网上可查)</h3>
+      <div class="reading-item">
+        <span class="title">拉文纳的拜占庭马赛克</span>
+        <span class="note">尤其是 San Vitale 教堂的查士丁尼和狄奥多拉马赛克（547）。这就是 6 世纪的眼睛。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Naqsh-e Rustam 和 Bishapur 的萨珊岩雕</span>
+        <span class="note">伊朗境内。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Taq-i Kasra (泰西封宫殿拱门) 的废墟</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Madaba 镶嵌地图</span>
+        <span class="note">6 世纪约旦发现的圣地马赛克地图——这是 6 世纪人脑中的世界。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Sasanian 银盘</span>
+        <span class="note">博物馆藏品，萨珊国王狩猎、宴饮场景——非常具体的衣物、器物、姿态。</span>
+      </div>
+      <div class="reading-item">
+        <span class="title">Coptic textile fragments</span>
+        <span class="note">埃及科普特纺织品残片，体现晚古地中海日常视觉。</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section class="block" id="why-empty">
+  <h2><span class="num">X.</span>为什么这段历史在文艺里如此空白</h2>
+  <p class="section-lede">一个观察，也是一个机会。</p>
+
+  <div class="grid grid-3">
+    <div class="card">
+      <h3>断裂的叙事</h3>
+      <p>西方文化记忆把"古典"和"中世纪"做成两个完整故事，<strong>中间这 300 年是"过渡"——没人想读过渡</strong>。但 v1 这本书可以反过来用这个事实：那个被遗忘的过渡，是塑造了我们当前世界的真正铸造场。</p>
+    </div>
+    <div class="card">
+      <h3>宗教史的让位</h3>
+      <p>基督教—伊斯兰的分野让叙述断裂。基督教世界的史学不太愿意写"我们之前怎么活的"；伊斯兰世界的史学倾向把"前伊斯兰"当作 jahiliyyah（蒙昧）一笔带过。<strong>结果两边都没好好讲过这段。</strong></p>
+    </div>
+    <div class="card">
+      <h3>没有干净的英雄</h3>
+      <p>查士丁尼是矛盾的；霍斯劳二世先聪明后疯狂；希拉克略胜利后失去一切；穆罕默德是宗教人物难写。<strong>没有一个"我们的拿破仑"</strong>——文学家就避开了。</p>
+    </div>
+  </div>
+
+  <div class="marginalia">
+    <span class="mark">机会</span>
+    v1 的小说要的恰恰不是英雄。要的是<strong>一个没有名字的人在 600 年的埃德萨</strong>——目睹一个世界尝试、失败、被全新的事物改写。<strong>这个空白，就是这本书的真正机遇。</strong>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<footer class="colophon">
+  <div class="signature">《神谕》 · v1 · 古代晚期重构 · 2026 年 5 月 12 日</div>
+  <div style="margin-top: 0.6rem;">前作 · <a href="oracle-novel-framework.html">v0 框架草图</a> · 项目目录 · <a href="/projects/oracle-novel/">Oracle</a></div>
+</footer>
+
+</body>
+</html>
