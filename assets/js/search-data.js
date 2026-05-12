@@ -112,9 +112,9 @@ ninja.data = [{
               window.location.href = "/projects/3_ai_minecraft/";
             },},{id: "projects-oracle-novel-in-planning",
           title: 'Oracle (novel, in planning)',
-          description: "A long novel in planning — half-realistic, half-alternate-history. Ancient setting, modern questions. On civilizational encounter and misreading, the fragility of freedom, and a &quot;tianxia&quot; that has not yet arrived. Living framework in Chinese; not even a first draft.",
+          description: "A long novel in planning — half-realistic, half-alternate-history. Ancient setting, modern questions. On civilizational encounter and misreading, the fragility of freedom, the political consequences of awakening, and a &quot;tianxia&quot; that has not yet arrived. Living frameworks in Chinese; not even a first draft.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/4_oracle_novel/";
+              window.location.href = "/projects/oracle-novel/";
             },},{
         id: 'social-email',
         title: 'email',
