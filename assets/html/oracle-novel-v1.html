@@ -407,22 +407,176 @@
     font-style: italic;
   }
 
-  /* === WORLD MAP / SIMPLE === */
-  .worldmap {
+  /* === WORLD MAP === */
+  .map-wrap {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
     background: var(--bg-card);
     border: 1px solid var(--rule);
-    padding: 2rem;
-    margin: 2rem 0;
     border-radius: 4px;
-    font-family: ui-monospace, "SF Mono", Consolas, monospace;
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-x: auto;
+    padding: 1.2rem;
+  }
+  @media (max-width: 900px) {
+    .map-wrap { grid-template-columns: 1fr; }
+  }
+  .map-svg-wrap {
+    background: var(--bg-sunken);
+    border-radius: 4px;
+    padding: 0.6rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .map-svg-wrap svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .map-svg-wrap .region {
+    cursor: pointer;
+    transition: opacity 0.2s, filter 0.2s;
+  }
+  .map-svg-wrap .region:hover {
+    filter: brightness(1.07);
+  }
+  .map-svg-wrap .region.dim {
+    opacity: 0.35;
+  }
+  .map-svg-wrap .region.active {
+    filter: brightness(1.12) saturate(1.1);
+  }
+  .map-svg-wrap .region.active.has-outline {
+    stroke-width: 2.5;
+  }
+  .map-svg-wrap .city {
+    cursor: pointer;
+    transition: r 0.2s, transform 0.2s;
+  }
+  .map-svg-wrap .city:hover { r: 5; }
+  .map-svg-wrap .city.featured {
+    fill: var(--ink);
+    stroke: var(--bg);
+    stroke-width: 2;
+  }
+  .map-svg-wrap .oracle-marker {
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  .map-svg-wrap .oracle-marker:hover {
+    transform: scale(1.25);
+  }
+  .map-svg-wrap .city-label,
+  .map-svg-wrap .sea-label,
+  .map-svg-wrap .region-label {
+    pointer-events: none;
+    user-select: none;
+    font-family: Georgia, "Songti SC", serif;
+  }
+  .map-svg-wrap .sea-label {
+    fill: var(--west);
+    font-style: italic;
+    opacity: 0.6;
+    letter-spacing: 0.15em;
+  }
+  .map-svg-wrap .region-label {
+    fill: var(--ink);
+    font-weight: 600;
+    opacity: 0.75;
+    letter-spacing: 0.08em;
+  }
+  .map-svg-wrap .city-label {
+    fill: var(--ink-soft);
+    font-size: 11px;
+  }
+  .map-svg-wrap .city-label.featured {
+    fill: var(--ink);
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .map-svg-wrap .route {
+    fill: none;
+    stroke-dasharray: 4 4;
+    stroke-linecap: round;
+    pointer-events: none;
+  }
+
+  .map-info {
+    padding: 0.4rem 0.4rem;
+    font-size: 0.95rem;
     color: var(--ink-soft);
   }
-  .worldmap pre {
-    margin: 0;
-    white-space: pre;
+  .map-info h3 {
+    margin: 0.4rem 0 0.6rem;
+    color: var(--ink);
+    font-size: 1.05rem;
+  }
+  .map-info p { margin: 0.5rem 0; }
+  .map-info .info-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.55rem;
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+  }
+  .map-info .info-meta {
+    margin-top: 0.8rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--rule-soft);
+    font-size: 0.88rem;
+  }
+  .map-info .info-meta strong {
+    display: block;
+    color: var(--ink-faint);
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.15rem;
+  }
+  .map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+    padding: 0.6rem 0;
+    border-top: 1px solid var(--rule-soft);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+  .map-legend .swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+  }
+
+  /* === SENSORIUM ICONS === */
+  .sensorium-card {
+    position: relative;
+  }
+  .sensorium-card h3 {
+    padding-right: 64px;
+  }
+  .sensorium-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    width: 52px;
+    height: 52px;
+    color: var(--ink-soft);
+    opacity: 0.72;
+  }
+  .sensorium-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   /* === FOUR THEMES === */
@@ -667,23 +821,303 @@
   <h2><span class="num">II.</span>世界在 601 年</h2>
   <p class="section-lede">两个主帝国，一片过渡地带，几个被它们都意识到却谁也不能完全把握的角色。中国仍然是雾里的庞然大物——这次是史实。</p>
 
-  <div class="worldmap">
-<pre>
-                                                    [ 突厥可汗国 · 蒙古到里海 ]
-                                                              │
-                                                              │
-   [ 西哥特西班牙 ]    [ 阿瓦尔 ]    [ 拜占庭 ]──长边境──[ 萨珊波斯 ]──[ 笈多残部 / 印度 ]
-          │                          (莫里斯)        ╲╱        (霍斯劳二世)             │
-   [ 北非省 ]    [ 伦巴第意大利 ]                ╲╱过渡地带╲╱                          │
-          │                                  · 埃德萨   ·                              │
-          │                                  · 尼西比斯  · 阿米达                       │
-          │                                  · 亚美尼亚                                 │
-                                                             ╲                          │
-                                                              [ 阿拉伯诸部 ]            │
-                                                                    │                  │
-   [ 亚历山大里亚 ]─红海─[ 阿克苏姆 ]─印度洋季风─[ 也门 ]─[ 印度西岸 ]─[ 锡兰 ]─[ 隋唐之交的中国 ]
-                                                          (粟特商人网络贯穿)
-</pre>
+  <p style="color: var(--ink-soft); font-size: 0.92rem; max-width: 760px; margin: 0 0 1rem;">点击任一区域、城市或神谕点。<strong>埃德萨</strong>是 v1 故事的中心，标为深色实心。</p>
+
+  <div class="map-wrap">
+    <div class="map-svg-wrap">
+      <svg viewBox="0 0 1200 800" id="world-map-601" role="img" aria-label="601 年的世界地图">
+        <defs>
+          <pattern id="sea-pattern-v1" x="0" y="0" width="60" height="32" patternUnits="userSpaceOnUse">
+            <rect width="60" height="32" fill="#d8e2da"/>
+            <path d="M 0 16 Q 15 10 30 16 T 60 16" stroke="#6b8082" stroke-width="0.4" fill="none" opacity="0.3"/>
+            <path d="M 0 26 Q 15 20 30 26 T 60 26" stroke="#6b8082" stroke-width="0.35" fill="none" opacity="0.22"/>
+          </pattern>
+          <pattern id="land-grain-v1" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <circle cx="6" cy="8" r="0.5" fill="#3a2818" opacity="0.15"/>
+            <circle cx="22" cy="14" r="0.4" fill="#3a2818" opacity="0.13"/>
+            <circle cx="32" cy="6" r="0.4" fill="#3a2818" opacity="0.14"/>
+            <circle cx="12" cy="28" r="0.4" fill="#3a2818" opacity="0.12"/>
+            <circle cx="28" cy="32" r="0.5" fill="#3a2818" opacity="0.14"/>
+          </pattern>
+          <filter id="coast-rough-v1" x="-2%" y="-2%" width="104%" height="104%">
+            <feTurbulence baseFrequency="0.05" numOctaves="2" seed="11"/>
+            <feDisplacementMap in="SourceGraphic" scale="2.2"/>
+          </filter>
+          <pattern id="fog-pattern" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+            <rect width="8" height="8" fill="#d4d0c8"/>
+            <circle cx="2" cy="3" r="0.5" fill="#a89c84" opacity="0.4"/>
+            <circle cx="6" cy="6" r="0.4" fill="#a89c84" opacity="0.3"/>
+          </pattern>
+        </defs>
+
+        <!-- Sea -->
+        <rect width="1200" height="800" fill="url(#sea-pattern-v1)"/>
+
+        <!-- Sea labels -->
+        <text class="sea-label" x="280" y="395" font-size="14">地 中 海</text>
+        <text class="sea-label" x="540" y="245" font-size="10">黑 海</text>
+        <text class="sea-label" x="850" y="295" font-size="10">里 海</text>
+        <text class="sea-label" x="565" y="610" font-size="9" transform="rotate(75 565 610)">红 海</text>
+        <text class="sea-label" x="900" y="690" font-size="11">阿 拉 伯 海</text>
+        <text class="sea-label" x="780" y="510" font-size="8" transform="rotate(40 780 510)">波斯湾</text>
+
+        <!-- Lands (rough coastlines) -->
+        <g filter="url(#coast-rough-v1)">
+
+          <!-- Italy (decorative) -->
+          <polygon points="80,255 138,258 130,300 120,355 95,380 78,315"
+                   fill="#c8baa0" stroke="#6a5e4a" stroke-width="1" opacity="0.65"/>
+
+          <!-- Balkans / Greece (Byzantine European) -->
+          <polygon class="region has-outline" data-region="byzantium"
+                   points="240,180 420,200 450,260 440,300 395,335 330,360 255,335 230,250"
+                   fill="#9eb3cc" stroke="#3e5d82" stroke-width="1.4"/>
+
+          <!-- Anatolia (Byzantine core east) -->
+          <polygon class="region has-outline" data-region="byzantium"
+                   points="455,200 720,205 730,255 720,335 615,355 475,340 460,265"
+                   fill="#9eb3cc" stroke="#3e5d82" stroke-width="1.4"/>
+
+          <!-- Caucasus -->
+          <polygon class="region has-outline" data-region="caucasus"
+                   points="725,200 880,200 900,260 870,285 800,280 725,260"
+                   fill="#b3a47e" stroke="#6a5e4a" stroke-width="1.2"/>
+
+          <!-- Levant (south transition) -->
+          <polygon class="region has-outline" data-region="levant"
+                   points="615,355 705,360 720,400 705,440 685,475 610,475 600,420"
+                   fill="#bda5c1" stroke="#7a5582" stroke-width="1.4"/>
+
+          <!-- Egypt -->
+          <polygon class="region has-outline" data-region="egypt"
+                   points="445,470 560,470 580,520 575,585 460,590 440,540"
+                   fill="#d4c089" stroke="#6a5e4a" stroke-width="1.3"/>
+
+          <!-- Upper Mesopotamia / Transition Zone (EDESSA) -->
+          <polygon class="region has-outline" data-region="contested"
+                   points="695,290 825,290 820,360 810,405 715,400 695,355"
+                   fill="#c1a3c5" stroke="#7a5582" stroke-width="1.6"/>
+
+          <!-- Sasanian Persia (Mesopotamia + Iran) -->
+          <polygon class="region has-outline" data-region="sasanid"
+                   points="825,265 1000,250 1060,290 1080,400 1080,520 980,575 870,580 810,540 805,440 815,360"
+                   fill="#cda582" stroke="#a87444" stroke-width="1.5"/>
+
+          <!-- Arabia -->
+          <polygon class="region has-outline" data-region="arabia"
+                   points="600,485 720,470 800,540 870,580 905,630 900,720 725,755 615,705 590,605"
+                   fill="#d8b486" stroke="#8a5e3a" stroke-width="1.3"/>
+
+          <!-- Türk Steppe (north band) -->
+          <polygon class="region has-outline" data-region="steppe"
+                   points="190,40 1130,40 1140,165 800,175 460,170 215,170"
+                   fill="#c8c0a0" stroke="#6a6240" stroke-width="1.3"/>
+
+          <!-- Sogdia / Bactria (between Persia and Türks; under Sasanian-Türk pressure) -->
+          <polygon class="region has-outline" data-region="sogdia"
+                   points="930,190 1100,195 1100,250 1050,290 1000,275 940,260"
+                   fill="#bfb898" stroke="#7a6e4a" stroke-width="1.2"/>
+
+          <!-- India edge -->
+          <polygon class="region has-outline" data-region="india"
+                   points="1080,420 1190,415 1192,560 1180,720 1095,730 1055,610 1050,510"
+                   fill="#b4c6a6" stroke="#5a7a4a" stroke-width="1.3"/>
+
+          <!-- Aksum (East Africa) -->
+          <polygon class="region has-outline" data-region="aksum"
+                   points="545,640 660,640 685,720 600,760 530,720 525,680"
+                   fill="#c4a08a" stroke="#7a4a32" stroke-width="1.2"/>
+
+          <!-- China fog (far east, faded) -->
+          <rect class="region" data-region="fareast"
+                x="1085" y="185" width="110" height="220"
+                fill="url(#fog-pattern)" opacity="0.7"/>
+          <rect class="region" data-region="fareast"
+                x="1085" y="185" width="110" height="220"
+                fill="#a89c84" opacity="0.18"/>
+
+        </g>
+
+        <!-- Land grain overlay on key regions -->
+        <g pointer-events="none" opacity="0.25">
+          <polygon points="455,200 720,205 730,255 720,335 615,355 475,340 460,265" fill="url(#land-grain-v1)"/>
+          <polygon points="825,265 1000,250 1060,290 1080,400 1080,520 980,575 870,580 810,540 805,440 815,360" fill="url(#land-grain-v1)"/>
+          <polygon points="695,290 825,290 820,360 810,405 715,400 695,355" fill="url(#land-grain-v1)"/>
+        </g>
+
+        <!-- Mountain shorthand (Caucasus, Zagros, Taurus) -->
+        <g stroke="#5a4a32" stroke-width="0.9" fill="none" opacity="0.55" stroke-linecap="round">
+          <!-- Caucasus -->
+          <path d="M 740 235 l 8 -10 l 8 10 M 760 235 l 8 -10 l 8 10 M 780 235 l 8 -10 l 8 10 M 800 235 l 8 -10 l 8 10 M 820 240 l 8 -10 l 8 10"/>
+          <!-- Taurus (S Anatolia) -->
+          <path d="M 540 335 l 6 -8 l 6 8 M 558 338 l 6 -8 l 6 8 M 580 340 l 6 -8 l 6 8 M 602 342 l 6 -8 l 6 8"/>
+          <!-- Zagros (W Persia) -->
+          <path d="M 820 380 l 6 -8 l 6 8 M 838 400 l 6 -8 l 6 8 M 855 420 l 6 -8 l 6 8 M 870 445 l 6 -8 l 6 8 M 885 470 l 6 -8 l 6 8"/>
+        </g>
+
+        <!-- Trade routes -->
+        <g class="routes">
+          <!-- Silk Road (Samarkand to Edessa to Mediterranean) -->
+          <path class="route" d="M 970 240 Q 920 260 870 290 Q 820 305 770 320 Q 700 330 640 350 Q 560 360 480 365"
+                stroke="#8a7e4a" stroke-width="1.5" opacity="0.7"/>
+          <!-- Royal Road (Sardis to Ctesiphon) -->
+          <path class="route" d="M 555 265 Q 640 300 760 320 Q 810 340 830 380"
+                stroke="#a87444" stroke-width="1.5" opacity="0.55"/>
+          <!-- Maritime: Alexandria → Red Sea → Aksum → India -->
+          <path class="route" d="M 485 475 Q 530 530 555 600 Q 580 650 620 700 Q 720 720 850 690 Q 970 640 1080 580"
+                stroke="#3e7a78" stroke-width="1.5" opacity="0.6"/>
+        </g>
+
+        <!-- Region labels -->
+        <text class="region-label" x="335" y="270" font-size="13">拜占庭</text>
+        <text class="region-label" x="555" y="275" font-size="12" opacity="0.6">小亚细亚</text>
+        <text class="region-label" x="630" y="425" font-size="11">黎凡特</text>
+        <text class="region-label" x="495" y="540" font-size="12">埃及</text>
+        <text class="region-label" x="730" y="345" font-size="11" fill="#7a5582">过渡地带</text>
+        <text class="region-label" x="910" y="420" font-size="14" fill="#a87444">萨珊</text>
+        <text class="region-label" x="725" y="640" font-size="13">阿拉伯诸部</text>
+        <text class="region-label" x="555" y="105" font-size="14">突厥可汗国</text>
+        <text class="region-label" x="990" y="225" font-size="10" opacity="0.7">粟特</text>
+        <text class="region-label" x="1120" y="500" font-size="13">印度</text>
+        <text class="region-label" x="572" y="700" font-size="10">阿克苏姆</text>
+        <text class="region-label" x="1138" y="290" font-size="11" opacity="0.55" font-style="italic">远东</text>
+        <text class="region-label" x="1138" y="308" font-size="9" opacity="0.45" font-style="italic">诸天朝</text>
+
+        <!-- Cities -->
+        <g>
+          <!-- Constantinople -->
+          <circle class="city" cx="448" cy="218" r="3.5" fill="#3e5d82" data-region="city-constantinople"/>
+          <text class="city-label" x="455" y="215">君士坦丁堡</text>
+
+          <!-- Athens -->
+          <circle class="city" cx="370" cy="320" r="2.8" fill="#3e5d82" data-region="city-athens"/>
+          <text class="city-label" x="346" y="334">雅典</text>
+
+          <!-- Sardis -->
+          <circle class="city" cx="555" cy="270" r="2.8" fill="#3e5d82" data-region="city-sardis"/>
+          <text class="city-label" x="538" y="262">萨第斯</text>
+
+          <!-- Antioch -->
+          <circle class="city" cx="640" cy="350" r="3.2" fill="#3e5d82" data-region="city-antioch"/>
+          <text class="city-label" x="608" y="350">安条克</text>
+
+          <!-- EDESSA — featured -->
+          <circle class="city featured" cx="760" cy="320" r="5.5" data-region="city-edessa"/>
+          <text class="city-label featured" x="770" y="318">埃德萨 ★</text>
+
+          <!-- Nisibis (a tiny dot near Edessa, on Sasanian side) -->
+          <circle class="city" cx="795" cy="338" r="2.4" fill="#a87444" data-region="city-nisibis"/>
+          <text class="city-label" x="803" y="343" font-size="10">尼西比斯</text>
+
+          <!-- Damascus -->
+          <circle class="city" cx="660" cy="410" r="2.8" fill="#7a5582" data-region="city-damascus"/>
+          <text class="city-label" x="668" y="408">大马士革</text>
+
+          <!-- Jerusalem -->
+          <circle class="city" cx="640" cy="448" r="2.8" fill="#7a5582" data-region="city-jerusalem"/>
+          <text class="city-label" x="600" y="461">耶路撒冷</text>
+
+          <!-- Alexandria -->
+          <circle class="city" cx="485" cy="475" r="3.5" fill="#7a5582" data-region="city-alexandria"/>
+          <text class="city-label" x="425" y="471">亚历山大里亚</text>
+
+          <!-- Ctesiphon -->
+          <circle class="city" cx="830" cy="385" r="3.8" fill="#a87444" data-region="city-ctesiphon"/>
+          <text class="city-label" x="838" y="383">泰西封</text>
+
+          <!-- Jundishapur (Gondēšāpūr) -->
+          <circle class="city" cx="885" cy="430" r="2.8" fill="#a87444" data-region="city-jundishapur"/>
+          <text class="city-label" x="892" y="433" font-size="10">Jundishapur</text>
+
+          <!-- Hira -->
+          <circle class="city" cx="785" cy="475" r="2.4" fill="#d8b486" data-region="city-hira"/>
+          <text class="city-label" x="792" y="478" font-size="10">希拉</text>
+
+          <!-- Mecca -->
+          <circle class="city" cx="710" cy="615" r="2.8" fill="#8a5e3a" data-region="city-mecca"/>
+          <text class="city-label" x="676" y="628" font-size="10">麦加</text>
+
+          <!-- Medina (a bit NW of Mecca) -->
+          <circle class="city" cx="695" cy="572" r="2.4" fill="#8a5e3a" data-region="city-mecca"/>
+          <text class="city-label" x="703" y="569" font-size="9" opacity="0.85">麦地那</text>
+
+          <!-- Samarkand -->
+          <circle class="city" cx="980" cy="235" r="2.8" fill="#8a7e4a" data-region="city-samarkand"/>
+          <text class="city-label" x="988" y="232">撒马尔罕</text>
+
+          <!-- Aksum -->
+          <circle class="city" cx="610" cy="700" r="2.4" fill="#7a4a32" data-region="city-aksum"/>
+          <text class="city-label" x="618" y="704" font-size="10">阿克苏姆</text>
+        </g>
+
+        <!-- Oracle markers (5-pointed star) -->
+        <g class="oracle-markers" fill="#4a4a58">
+          <!-- Central Oracle at Edessa -->
+          <g class="oracle-marker" data-region="oracle-central" transform="translate(760, 304)">
+            <polygon points="0,-10 2.9,-3.1 10,-3.1 4.1,1.6 6.5,9.5 0,5 -6.5,9.5 -4.1,1.6 -10,-3.1 -2.9,-3.1"
+                     fill="#4a4a58" stroke="#faf6ec" stroke-width="0.8"/>
+          </g>
+
+          <!-- Greek oracle (Athens area; faded) -->
+          <g class="oracle-marker" data-region="oracle-greek" transform="translate(360, 305)" opacity="0.55">
+            <polygon points="0,-7 2,-2.2 7,-2.2 2.9,1.1 4.5,6.6 0,3.5 -4.5,6.6 -2.9,1.1 -7,-2.2 -2,-2.2"
+                     fill="#4a4a58"/>
+          </g>
+
+          <!-- Persian oracle (Ctesiphon — court astrologers) -->
+          <g class="oracle-marker" data-region="oracle-persian" transform="translate(848, 372)">
+            <polygon points="0,-8 2.3,-2.5 8,-2.5 3.3,1.3 5.2,7.6 0,4 -5.2,7.6 -3.3,1.3 -8,-2.5 -2.3,-2.5"
+                     fill="#4a4a58"/>
+          </g>
+
+          <!-- Egyptian oracle (Siwa traditionally; here as cluster near Alexandria) -->
+          <g class="oracle-marker" data-region="oracle-egyptian" transform="translate(500, 510)" opacity="0.65">
+            <polygon points="0,-7 2,-2.2 7,-2.2 2.9,1.1 4.5,6.6 0,3.5 -4.5,6.6 -2.9,1.1 -7,-2.2 -2,-2.2"
+                     fill="#4a4a58"/>
+          </g>
+
+          <!-- Sogdian / Manichaean center -->
+          <g class="oracle-marker" data-region="oracle-sogdian" transform="translate(995, 215)" opacity="0.85">
+            <polygon points="0,-8 2.3,-2.5 8,-2.5 3.3,1.3 5.2,7.6 0,4 -5.2,7.6 -3.3,1.3 -8,-2.5 -2.3,-2.5"
+                     fill="#8a5a8e"/>
+          </g>
+
+          <!-- Steppe shaman (no fixed point — symbolic in steppe) -->
+          <g class="oracle-marker" data-region="oracle-steppe" transform="translate(750, 105)" opacity="0.6">
+            <polygon points="0,-7 2,-2.2 7,-2.2 2.9,1.1 4.5,6.6 0,3.5 -4.5,6.6 -2.9,1.1 -7,-2.2 -2,-2.2"
+                     fill="#8a7e4a"/>
+          </g>
+        </g>
+
+        <!-- Frontier line (Byzantine-Sasanian after 591) -->
+        <g stroke="#2a2418" stroke-width="1.5" stroke-dasharray="6 3" fill="none" opacity="0.45">
+          <path d="M 770 200 Q 760 250 720 290 Q 700 340 700 400 Q 700 440 695 475"/>
+        </g>
+        <text class="region-label" x="675" y="280" font-size="9" opacity="0.55" font-style="italic" transform="rotate(75 675 280)">591 边境</text>
+
+      </svg>
+    </div>
+
+    <div class="map-info" id="map-info-601">
+      <span class="info-tag" style="background: var(--rule-soft); color: var(--ink-soft);">默认视图</span>
+      <h3>这是 601 年的世界</h3>
+      <p>两个主帝国——<strong>拜占庭</strong>（蓝）与<strong>萨珊</strong>（土黄）——隔着 591 年条约新划的边境。</p>
+      <p>夹在中间的<strong>过渡地带</strong>（紫）是埃德萨所在。</p>
+      <p>北方是<strong>突厥可汗国</strong>，南方是<strong>阿拉伯诸部</strong>。<strong>粟特商人</strong>串起整个网络。</p>
+      <p><strong>远东诸天朝</strong>仍在视线边缘的雾里——这是史实。</p>
+      <p style="margin-top: 1rem; color: var(--ink-faint); font-style: italic; font-size: 0.88rem;">点击区域、城市、或星形（神谕点）查看具体设定。</p>
+
+      <div class="map-legend">
+        <span><span class="swatch" style="background: #9eb3cc;"></span>拜占庭</span>
+        <span><span class="swatch" style="background: #cda582;"></span>萨珊</span>
+        <span><span class="swatch" style="background: #c1a3c5;"></span>过渡地带</span>
+        <span><span class="swatch" style="background: #d8b486;"></span>阿拉伯</span>
+        <span><span class="swatch" style="background: #c8c0a0;"></span>草原 (突厥)</span>
+        <span><span class="swatch" style="background: #b4c6a6;"></span>印度</span>
+        <span><span class="swatch" style="background: #4a4a58; border-radius: 50%;"></span>神谕点</span>
+        <span><span class="swatch" style="background: linear-gradient(90deg, #8a7e4a 50%, transparent 50%); background-size: 4px 100%;"></span>商路</span>
+      </div>
+    </div>
   </div>
 
   <div class="grid grid-2">
@@ -802,36 +1236,133 @@
   <p class="section-lede">写小说不靠观点靠物件。下面是一些可以直接搬进场景的具体物质。</p>
 
   <div class="grid grid-2">
-    <div class="card">
+    <div class="card sensorium-card">
+      <div class="sensorium-icon">
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="30" cy="14" r="4.5"/>
+            <path d="M 22 21 L 16 50 L 44 50 L 38 21"/>
+            <path d="M 22 21 L 26 19 L 34 19 L 38 21"/>
+            <line x1="16" y1="36" x2="44" y2="36"/>
+            <path d="M 16 24 Q 10 32 14 42"/>
+          </g>
+        </svg>
+      </div>
       <h3>衣</h3>
       <p>罗马的托加已经死了一百多年。城市男性穿<strong>及膝或及踝束腰长袍（tunica）</strong>，腰束带，外面披斗篷（pallium）。穷人是粗麻或羊毛、未染色（土黄、棕褐、浅灰）；中产是亚麻和染色羊毛（红、蓝、绿）；富人是丝绸。</p>
       <p><strong>552 年两个景教派修士把蚕卵藏在空心竹杖里从中国偷到拜占庭</strong>——这一年前丝绸只能从中国买、单价等同黄金；这一年后拜占庭自己开始养蚕。<strong>裤子（波斯影响）开始普及</strong>——1 世纪罗马人会认为这是野蛮人服饰，6 世纪罗马军人和东方人都穿。</p>
     </div>
 
-    <div class="card">
+    <div class="card sensorium-card">
+      <div class="sensorium-icon">
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <!-- amphora -->
+            <path d="M 12 18 L 12 38 Q 12 46 20 46 Q 28 46 28 38 L 28 18 Z"/>
+            <path d="M 14 16 Q 14 11 20 11 Q 26 11 26 16"/>
+            <!-- bread loaf -->
+            <ellipse cx="42" cy="40" rx="10" ry="5"/>
+            <path d="M 34 38 Q 42 32 50 38"/>
+            <!-- olive branch -->
+            <path d="M 40 8 Q 48 14 46 26"/>
+            <ellipse cx="44" cy="14" rx="1.8" ry="3.2" transform="rotate(-30 44 14)"/>
+            <ellipse cx="46" cy="22" rx="1.8" ry="3.2" transform="rotate(-30 46 22)"/>
+          </g>
+        </svg>
+      </div>
       <h3>食</h3>
       <p>早餐是面包蘸橄榄油、几颗橄榄、白奶酪。市场上有腌鱼（garum——古典时代的鱼露，仍在用）、烘面饼、扁豆、洋葱、大蒜。城北有葡萄园（埃德萨地区盛产葡萄酒）。<strong>从波斯进口的米饭仅在富人桌上、被视作奇珍</strong>。从印度来的胡椒和肉桂、从锡兰来的肉桂——通过粟特商人带来。</p>
       <p><strong>柠檬还没传到地中海</strong>（中世纪阿拉伯人才带过来）。<strong>糖也几乎没有</strong>（蜂蜜是主要甜味来源）。咖啡、茶、烟草、土豆、番茄都不存在。</p>
     </div>
 
-    <div class="card">
+    <div class="card sensorium-card">
+      <div class="sensorium-icon">
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.4">
+            <!-- Byzantine solidus: cross -->
+            <circle cx="22" cy="22" r="12"/>
+            <line x1="22" y1="13" x2="22" y2="31"/>
+            <line x1="13" y1="22" x2="31" y2="22"/>
+            <!-- Sasanian drachm: fire altar -->
+            <circle cx="40" cy="40" r="11"/>
+            <rect x="36" y="38" width="8" height="6"/>
+            <line x1="34" y1="44" x2="46" y2="44"/>
+            <line x1="40" y1="38" x2="40" y2="33"/>
+            <path d="M 38 33 Q 40 31 42 33" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
       <h3>钱</h3>
       <p>拜占庭金币 solidus（4.5 克黄金，纯度近 24K）——著名的"千年硬币"，<strong>从查士丁二世铸的版本到中世纪末几乎不贬值</strong>，是国际贸易标准。萨珊银币 drachm（4 克白银，刻着祆教火坛和国王头像）。</p>
       <p>两种钱在埃德萨都流通，市场上换汇。<strong>银币本身就是一种宣传媒介</strong>——萨珊新王登基第一年发行的银币会送到帝国各角落，"换钱"是政治信号。</p>
     </div>
 
-    <div class="card">
+    <div class="card sensorium-card">
+      <div class="sensorium-icon">
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <!-- Bell -->
+            <path d="M 22 14 Q 22 12 30 12 Q 38 12 38 14 L 42 40 L 18 40 Z"/>
+            <line x1="28" y1="40" x2="32" y2="40"/>
+            <circle cx="30" cy="42.5" r="1.6" fill="currentColor"/>
+            <!-- Sound waves -->
+            <path d="M 50 22 Q 52 30 50 38"/>
+            <path d="M 10 22 Q 8 30 10 38"/>
+            <path d="M 54 17 Q 57 30 54 43" opacity="0.55"/>
+            <path d="M 6 17 Q 3 30 6 43" opacity="0.55"/>
+          </g>
+        </svg>
+      </div>
       <h3>声音</h3>
       <p>清早教堂钟（<strong>钟才刚开始在 6 世纪传入基督教礼仪</strong>；某些修道院仍用木板敲击，叫 semantron）。希腊语和叙利亚语的礼拜诵唱。市场上的多语混杂叫卖。骆驼商队进城时铜铃叮当。锻铁声、织布机声、磨坊水轮声。</p>
       <p><strong>没有任何机械动力声</strong>——人类听到的所有规律性声音都是某个人的身体或动物在做工的声音。</p>
     </div>
 
-    <div class="card">
+    <div class="card sensorium-card">
+      <div class="sensorium-icon">
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <!-- Censer -->
+            <path d="M 16 42 Q 30 50 44 42 L 40 38 L 20 38 Z"/>
+            <line x1="20" y1="42" x2="20" y2="48"/>
+            <line x1="40" y1="42" x2="40" y2="48"/>
+            <line x1="14" y1="48" x2="46" y2="48"/>
+            <!-- Chain -->
+            <line x1="30" y1="38" x2="30" y2="32" stroke-width="0.8"/>
+            <circle cx="30" cy="30" r="1.5" stroke-width="0.8"/>
+            <!-- Smoke (rising sinuous lines) -->
+            <path d="M 24 36 Q 20 30 24 24 Q 28 19 24 13 Q 22 9 26 4"/>
+            <path d="M 36 36 Q 40 30 36 24 Q 32 19 36 13 Q 38 9 34 4"/>
+          </g>
+        </svg>
+      </div>
       <h3>气味</h3>
       <p>清早烤面包、烧木柴。寺院和教堂的乳香。市场上的腌鱼、汗、家畜粪便、热油炸蔬菜。街角公共厕所的尿味（罗马式公共厕所一直用到这个时代）。<strong>没有香水的现代调制</strong>——但有玫瑰水、雪松、檀木、麝香（从东方来）。</p>
     </div>
 
-    <div class="card">
+    <div class="card sensorium-card">
+      <div class="sensorium-icon">
+        <svg viewBox="0 0 60 60" aria-hidden="true">
+          <!-- Stars -->
+          <g fill="currentColor" opacity="0.6">
+            <circle cx="10" cy="10" r="0.9"/>
+            <circle cx="22" cy="6" r="0.9"/>
+            <circle cx="34" cy="10" r="0.7"/>
+            <circle cx="48" cy="14" r="0.9"/>
+            <circle cx="52" cy="22" r="0.7"/>
+            <circle cx="8" cy="22" r="0.7"/>
+            <circle cx="16" cy="18" r="0.6"/>
+          </g>
+          <!-- Crescent moon -->
+          <path d="M 47 8 Q 51 12 51 18 Q 49 14 45 12 Q 47 11 47 8" fill="currentColor" opacity="0.55"/>
+          <!-- Oil lamp -->
+          <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <path d="M 14 44 Q 14 38 22 38 L 38 38 Q 42 38 43 42 L 44 46 Q 30 51 14 46 Z"/>
+            <path d="M 38 38 L 44 32"/>
+            <path d="M 43 31 Q 45 27 44 24 Q 46 25 46 28 Q 47 26 48 29 Q 45 29 43 31 Z" fill="currentColor" stroke="none" opacity="0.7"/>
+          </g>
+        </svg>
+      </div>
       <h3>夜里</h3>
       <p>油灯（橄榄油），蜡烛（蜂蜡或牛脂；蜂蜡很贵，给教堂用）。<strong>一般家庭天黑后大致就睡觉了</strong>，没有"夜生活"。<strong>深夜的城市是真的黑</strong>——星空是日常的天花板。</p>
     </div>
@@ -1409,6 +1940,294 @@
   <div class="signature">《神谕》 · v1 · 古代晚期重构 · 2026 年 5 月 12 日</div>
   <div style="margin-top: 0.6rem;">前作 · <a href="oracle-novel-framework.html">v0 框架草图</a> · 项目目录 · <a href="/projects/oracle-novel/">Oracle</a></div>
 </footer>
+
+<script>
+(function() {
+  const REGION_DATA = {
+    'byzantium': {
+      tag: '大希腊 · 拜占庭',
+      tagStyle: 'background: var(--west-soft); color: var(--west);',
+      title: '拜占庭帝国',
+      desc: '皇帝<strong>莫里斯</strong>（在位 582–602），自称 Romaioi（罗马人）。首都<strong>君士坦丁堡</strong>，世界最大城市之一。官方语言希腊语，国教迦克墩派基督教。<strong>已经丢掉意大利大半</strong>、西班牙只剩沿海、斯拉夫人渗透巴尔干。财政紧张，军队拖欠军饷——这就是 602 年福卡斯篡位的直接原因。',
+      maps: '希腊—罗马 + 北欧西欧的远古对应',
+      role: '"老欧洲 / 晚期美国"——一个自我维持的、知道自己虚弱却仍然演下去的普世主义。'
+    },
+    'sasanid': {
+      tag: '大波斯 · 萨珊',
+      tagStyle: 'background: var(--east-soft); color: var(--east);',
+      title: '萨珊伊朗帝国',
+      desc: '万王之王<strong>霍斯劳二世·帕尔维兹</strong>（在位 590–628）。首都<strong>泰西封</strong>（在今巴格达南方——未来巴格达的建材就来自这里）。官方语言中古波斯语（Pahlavi），但行政多语：阿拉米语、希腊语、亚美尼亚语、阿拉伯语。国教祆教，但基督教（聂斯托利派为主）、犹太教、佛教都合法存在。',
+      maps: '波斯 + 美索不达米亚 + 印度的远古对应',
+      role: '"小一号的天下"——多元主义还在运作，但霍斯劳二世正在悄悄不喜欢这种共治。十年后他会变成另一种人。'
+    },
+    'contested': {
+      tag: '过渡地带',
+      tagStyle: 'background: var(--contested-soft); color: var(--contested);',
+      title: '上美索不达米亚 · 过渡地带',
+      desc: '夹在拜占庭和萨珊之间的破碎地带。<strong>埃德萨、尼西比斯、阿米达</strong>——这些双语三语城市能<strong>同时看见两边</strong>。591 年条约把这里大半划给拜占庭，但本地居民大多是叙利亚一性论派——他们是自己帝国官方教会眼里的异端。',
+      maps: '安纳托利亚 + 黎凡特 + 巴尔干的远古对应',
+      role: '本书最美的篇章很可能发生在这里。这里的人能同时看见两边——既是受害者，也是最锐利的旁观者。'
+    },
+    'levant': {
+      tag: '黎凡特',
+      tagStyle: 'background: var(--contested-soft); color: var(--contested);',
+      title: '黎凡特 · 圣地',
+      desc: '从安条克南下到加沙的一条狭长带。包含<strong>大马士革、耶路撒冷</strong>、腓尼基港口（推罗、西顿、贝鲁特）。<strong>14 年后</strong>（公元 614 年）萨珊会从这里夺走耶路撒冷和真十字架——基督教世界相当于 9/11 的震撼。',
+      role: '本书时间窗口内即将变成战场的地方。当下平静——但十年后这里会成为人类历史上最反复争夺的土地。'
+    },
+    'egypt': {
+      tag: '埃及',
+      tagStyle: 'background: var(--steppe-soft); color: var(--steppe);',
+      title: '埃及 · 拜占庭粮仓',
+      desc: '<strong>亚历山大里亚</strong>仍是古典学问的最后堡垒——欧几里得几何、托勒密天文学、新柏拉图哲学都在这里延续。<strong>科普特一性论派</strong>占人口大多数，皇帝执行的迦克墩派被视为外来。<strong>619 年</strong>萨珊将攻陷亚历山大里亚——粮食断供，君士坦丁堡濒临饥荒。',
+      role: '"觉醒"主题的一个关键节点——沙漠教父运动从这里起源，并蔓延到整个东方基督教世界。'
+    },
+    'caucasus': {
+      tag: '高加索',
+      tagStyle: 'background: var(--steppe-soft); color: var(--steppe);',
+      title: '亚美尼亚 · 伊比利亚',
+      desc: '基督教王国，<strong>双方都试图拉拢的缓冲带</strong>。亚美尼亚 301 年定基督教为国教——比罗马还早 80 年。但在罗马—波斯反复争夺中，亚美尼亚精英常常分裂效忠。',
+      role: '"自由的"和"专制的"两个帝国都在拉拢——而本地人选择哪边的逻辑跟主义无关，跟亲族关系有关。'
+    },
+    'steppe': {
+      tag: '突厥可汗国',
+      tagStyle: 'background: var(--steppe-soft); color: var(--steppe);',
+      title: '北方草原 · 突厥诸部',
+      desc: '从蒙古高原到里海的草原帝国。<strong>581 年东西突厥分裂</strong>。突厥可汗与拜占庭和萨珊都有外交关系，常被双方拉拢以打侧翼。萨满传统活跃。',
+      maps: 'v0 设定的"北方草原不可收编者"在 6–7 世纪的真实历史对应',
+      role: '防止"东方 vs. 西方"二元化。任何关于世界秩序的讨论都必须面对它们的存在。'
+    },
+    'sogdia': {
+      tag: '粟特',
+      tagStyle: 'background: var(--maritime-soft); color: var(--maritime);',
+      title: '粟特 · 撒马尔罕 · 布哈拉',
+      desc: '伊朗系城邦商人网络。从<strong>撒马尔罕、布哈拉</strong>到长安、君士坦丁堡。粟特语 + 粟特文。<strong>敦煌出土的"粟特商人书信"</strong>（4 世纪初）描述这个经济网络。也是<strong>摩尼教传入中亚和中国</strong>的主要通道。',
+      role: '丝绸之路的实际经营者。东西方信息、商品、宗教传播的真正主体。这套秩序<strong>不在乎你信什么、效忠谁——它只在乎契约</strong>。'
+    },
+    'arabia': {
+      tag: '阿拉伯诸部',
+      tagStyle: 'background: rgba(216,180,134,0.4); color: #8a5e3a;',
+      title: '阿拉伯诸部',
+      desc: '部落联盟、商业城邦、绿洲国家。北部的<strong>拉赫米</strong>（首都希拉，亲萨珊）和<strong>加萨尼</strong>（叙利亚，亲拜占庭）是两个帝国的代理人。<strong>麦加</strong>是商业宗教中心；<strong>穆罕默德此时约 30 岁，在麦加做商人，还没得到第一次启示</strong>（610 年才得到）。',
+      role: '本书结尾的"看不见的事件"的孕育地。读者带着史实知识阅读这本书——这是文学杠杆。'
+    },
+    'india': {
+      tag: '印度',
+      tagStyle: 'background: rgba(180,198,166,0.5); color: #5a7a4a;',
+      title: '印度 · 笈多残部',
+      desc: '笈多王朝已经崩溃，进入分裂期。<strong>佛教仍然繁盛</strong>，向东输出到中国，向西通过粟特人渗透。<strong>玄奘还要 30 年才出生</strong>（602 年生），但他要去取经的那个中亚 + 印度的佛教世界，<strong>601 年正在繁荣</strong>。',
+      role: '东方的"另一极"——印度数学、医学、占星术正在通过 Jundishapur 进入波斯，再从波斯进入阿拉伯，再进入欧洲。'
+    },
+    'fareast': {
+      tag: '远东诸天朝',
+      tagStyle: 'background: var(--oracle-soft); color: var(--oracle);',
+      title: '远东 · 隋唐之交的中国',
+      desc: '隋朝刚统一中国（589 年），<strong>即将在 618 年崩溃成唐</strong>。两个帝国知道有这么个地方，<strong>通过粟特商人间接得到丝绸和瓷器，没人见过那边的人</strong>。罗马—汉时代曾有 166 年自称"大秦王安敦"使节到洛阳的记录；之后再无直接接触。',
+      role: '<strong>"两个庞然大物隔着一片他们不能直接见面的中间地带相互模糊地知道彼此存在"</strong>——保住 v0 那个"中国是雾里的庞然大物"的修辞，而且这次它是史实。'
+    },
+    'aksum': {
+      tag: '阿克苏姆',
+      tagStyle: 'background: rgba(196,160,138,0.5); color: #7a4a32;',
+      title: '阿克苏姆王国',
+      desc: '基督教王国（公元 4 世纪皈依，比罗马帝国晚一点，比亚美尼亚晚），控制红海西岸。<strong>是印度洋季风贸易的关键中转</strong>——把印度香料、中国丝绸经红海运到罗马。<strong>它是拜占庭在东方的非正式盟友</strong>。',
+      role: '"南方商业邦联"的一部分。也是基督教超出地中海范围的一个早期实验。'
+    },
+    'city-edessa': {
+      tag: '故事中心',
+      tagStyle: 'background: var(--ink); color: var(--bg);',
+      title: '埃德萨 · Edessa',
+      desc: '今日土耳其尚勒乌尔法。<strong>v1 故事的舞台</strong>。601 年人口五万到八万。叙利亚语日常、希腊语行政、波斯语和阿拉伯语穿越。距离拜占庭—萨珊边界约一天行军。',
+      role: '叙利亚一性论派 + 著名的<strong>曼底林</strong>（基督脸印的圣布，相传保护城市）+ 占星传统的暗流（巴尔达伊桑学派）+ 学校（最好的学问 489 年被关闭，逃到敌国境内的尼西比斯）。<strong>所有母题都能在这一座城里同时被看见。</strong>'
+    },
+    'city-constantinople': {
+      tag: '拜占庭首都',
+      tagStyle: 'background: var(--west-soft); color: var(--west);',
+      title: '君士坦丁堡',
+      desc: '人口约 50 万，世界最大城市之一。<strong>圣索菲亚大教堂</strong>已经建成 64 年（537 年完工）。皇宫、赛车场、城墙——可能是当时人类最复杂的建筑群。',
+      role: '"罗马"自我演出的舞台。也是 532 年尼卡暴动 30000 市民被屠杀的地方——"自由"在 6 世纪罗马的实际形态。'
+    },
+    'city-antioch': {
+      tag: '叙利亚首府',
+      tagStyle: 'background: var(--west-soft); color: var(--west);',
+      title: '安条克',
+      desc: '<strong>这座城在 60 年内经历了什么</strong>：525 年大地震杀死约 25 万人；540 年霍斯劳一世洗劫，把整城居民押到波斯，<strong>在泰西封旁边建了一座"霍斯劳之优于安条克"的复制城</strong>。601 年的安条克已经是个缓慢重建的影子。',
+      role: '"自由的罗马"如何对待自己东方边境城市的活案例。'
+    },
+    'city-alexandria': {
+      tag: '亚历山大里亚',
+      tagStyle: 'background: var(--contested-soft); color: var(--contested);',
+      title: '亚历山大里亚',
+      desc: '古典学问的最后堡垒。新柏拉图主义者<strong>斯特凡努斯（Stephanus of Alexandria）</strong>不久后会进入希拉克略宫廷做占星师——<strong>哲学家最终归化于占星术</strong>。<strong>科普特一性论派</strong>占多数人口，对君士坦丁堡的迦克墩派充满敌意。',
+      role: '"觉醒"主题的关键源头——沙漠教父运动、知识翻译、神秘主义混合理性主义都在这里。'
+    },
+    'city-ctesiphon': {
+      tag: '萨珊首都',
+      tagStyle: 'background: var(--east-soft); color: var(--east);',
+      title: '泰西封 · Ctesiphon',
+      desc: '位于今巴格达南约 35 公里、底格里斯河东岸。萨珊宫廷所在。<strong>塔克—基斯拉（Taq Kasra）</strong>——萨珊王宫的拱门，高 30 米、跨度 26 米，<strong>至今仍站立</strong>，是世界现存最大的单跨砖砌拱顶。',
+      role: '"专制的"波斯帝国的中心——但这个中心容许七个宗教合法存在。'
+    },
+    'city-jundishapur': {
+      tag: '学院城',
+      tagStyle: 'background: var(--east-soft); color: var(--east);',
+      title: 'Jundishapur · 衮迪沙浦尔学院',
+      desc: '霍斯劳一世建立的<strong>综合学院</strong>——医学院 + 天文台 + 翻译院 + 医院。教师包括聂斯托利派基督徒（叙利亚语教医学）、印度学者（教阿育吠陀）、波斯祆教学者、雅典学院流亡的新柏拉图哲人。<strong>这里翻译的医学和天文学著作，将在 8 世纪经阿拉伯人传到巴格达，成为伊斯兰黄金时代科学的种子。</strong>',
+      role: '<strong>真实存在的、连续了几百年的多文明知识中心</strong>——一个完整的天下样本。<strong>主角如果有学问理想，Jundishapur 是他的精神圣城——虽然它在敌国境内。</strong>'
+    },
+    'city-mecca': {
+      tag: '麦加 / 麦地那',
+      tagStyle: 'background: rgba(216,180,134,0.4); color: #8a5e3a;',
+      title: '麦加 · 麦地那',
+      desc: '麦加是商业宗教中心，<strong>克尔白</strong>（Ka\'aba）多神教圣所已存在。<strong>穆罕默德此时约 30 岁，在麦加做商人</strong>。<strong>9 年后</strong>（610 年）他会得到第一次启示。<strong>21 年后</strong>（622 年）他会迁徙到麦地那——伊斯兰纪元元年。',
+      role: '本书"看不见的事件"的孕育地。<strong>读者带着史实知识阅读这本书</strong>——而书中没有任何角色能预见。'
+    },
+    'city-samarkand': {
+      tag: '丝路枢纽',
+      tagStyle: 'background: var(--maritime-soft); color: var(--maritime);',
+      title: '撒马尔罕',
+      desc: '粟特商人的核心城市。<strong>佛教、摩尼教、聂斯托利派基督教、犹太教、祆教在这里并存</strong>。说粟特语 + 写粟特文 + 跟所有方向的人做生意。',
+      role: '丝绸之路真正的中转中心。来自这里的商人会出现在埃德萨。<strong>本书的"远方信息"主要通过他们到达主角手中。</strong>'
+    },
+    'oracle-central': {
+      tag: '中央神谕',
+      tagStyle: 'background: var(--oracle-soft); color: var(--oracle);',
+      title: '埃德萨的"档案"',
+      desc: 'v0 的"中央神谕"在 v1 里不是一个传统神庙——是一份<strong>正在被人秘密汇编的档案</strong>。某位老学者三十年来从各地收集了星象记录、梦记、苦修者启示、商人见闻——表面上是好奇心，实际上是这个网络的<strong>第一个自觉的汇编者</strong>。',
+      role: '故事的轴。<strong>主角继承这份档案</strong>，意外发现：分散看是各种神秘主义，按时间排列阅读，开始呈现一个让人难以承认的事实——它们在描述同一组未来事件。'
+    },
+    'oracle-greek': {
+      tag: '希腊神谕',
+      tagStyle: 'background: var(--oracle-soft); color: var(--oracle);',
+      title: '古典神谕的余烬',
+      desc: '<strong>德尔斐已经被关闭近两百年</strong>（Theodosius 391 年禁令）。雅典学院 529 年被查士丁尼关闭。但<strong>地方占星师、解梦人、女预言者仍在民间执业</strong>。新柏拉图主义残余者把"哲学 = 通神"——理性主义已经神秘化了。',
+      role: '"古典神谕被国家暴力终结的最后阶段"——但传统不死，它只是潜入地下并改换面目。'
+    },
+    'oracle-persian': {
+      tag: '波斯神谕',
+      tagStyle: 'background: var(--oracle-soft); color: var(--oracle);',
+      title: '萨珊宫廷占星术',
+      desc: '萨珊宫廷有官方编制的占星师。<strong>国王每年要根据自己的星盘咨询</strong>。Jundishapur 学院翻译<strong>印度占星术</strong>——印度二十七宿系统、希腊十二宫系统、伊朗本土传统在这里融合。这是当时最系统化的"技术官僚化神谕"。',
+      role: '"专制" 的另一面：把神谕变成可计算的政策建议。'
+    },
+    'oracle-egyptian': {
+      tag: '埃及神谕',
+      tagStyle: 'background: var(--oracle-soft); color: var(--oracle);',
+      title: '亚历山大里亚 / 沙漠苦修者',
+      desc: '古典异教神谕（如锡瓦阿蒙神谕）已死。但<strong>科普特沙漠教父的"梦记和启示"</strong>是新的神谕替代品。<strong>《教父箴言录》</strong>就是这种"神谕"的汇编。',
+      role: '基督教如何把"神谕"内化——不是去神庙问，是去修士那里问。'
+    },
+    'oracle-sogdian': {
+      tag: '摩尼教中心',
+      tagStyle: 'background: var(--awakening-soft); color: var(--awakening);',
+      title: '粟特 / 摩尼教网络',
+      desc: '摩尼（216–274）<strong>亲手画自己的经书（Arzhang）</strong>——历史上唯一一位用图画做圣典的世界宗教创始人。摩尼教<strong>通过粟特商人传到中国</strong>，<strong>福建泉州草庵摩尼教石刻至今存在</strong>。摩尼宇宙论里包含完整的历史预言——这是觉醒和神谕的最深融合。',
+      role: '"觉醒形成跨边界精神网络"的真实历史对应。'
+    },
+    'oracle-steppe': {
+      tag: '草原神谕',
+      tagStyle: 'background: var(--oracle-soft); color: var(--oracle);',
+      title: '突厥萨满',
+      desc: '北方草原的萨满传统。不属于任何固定地点——某些萨满据说能"听见"长生天和祖先。<strong>这是网络中最弱、最难定位的一环</strong>，但 v0 提出"让神谕不是定居文明的专利"——这里就是它的真实历史对应。',
+      role: '让"神谕网络"真的覆盖到那个不可通约的他者。'
+    },
+    'city-jerusalem': {
+      tag: '耶路撒冷',
+      tagStyle: 'background: var(--contested-soft); color: var(--contested);',
+      title: '耶路撒冷',
+      desc: '基督教世界的"圣地"。<strong>真十字架</strong>存放在圣墓教堂——是<strong>基督教世界最高级的政治物理对象</strong>。<strong>14 年后</strong>（614 年）萨珊会攻陷耶路撒冷、屠杀基督徒约 6 万、烧毁圣墓教堂、把真十字架掳到泰西封。同年犹太人短暂控制耶路撒冷开始重建圣殿——三年后萨珊改主意，犹太弥赛亚希望破灭。',
+      role: '"圣物 / 灵性技术"主题的中心。这片木头能改变战争走向——直到它不能。'
+    },
+    'city-damascus': {
+      tag: '叙利亚',
+      tagStyle: 'background: var(--contested-soft); color: var(--contested);',
+      title: '大马士革',
+      desc: '<strong>世界上有人持续居住时间最长的城市之一</strong>。罗马—拜占庭治下的叙利亚行省首府。多语言城市——希腊语、阿拉米语、阿拉伯语。<strong>35 年后</strong>（636 年雅尔木克河战役后）阿拉伯人会接管这里，把它变成第一个伊斯兰帝国的首都（倭马亚王朝）。',
+      role: '"老世界即将翻篇"的另一个标志点。'
+    },
+    'city-hira': {
+      tag: '拉赫米',
+      tagStyle: 'background: rgba(216,180,134,0.4); color: #8a5e3a;',
+      title: '希拉 · al-Hirah',
+      desc: '萨珊在阿拉伯沙漠边缘的<strong>代理王国</strong>——拉赫米王朝（Lakhmids）的首都。<strong>基督教阿拉伯人</strong>。诗歌、辩才、混合波斯—阿拉伯文化。<strong>是阿拉伯文学的源头之一</strong>——前伊斯兰阿拉伯诗的"穆阿莱卡特七首"中有几位来自希拉宫廷。',
+      role: '阿拉伯人不是"野蛮人"——他们有自己的宫廷文化、自己的国王、自己的拉丁化（萨珊化）精英。这是"自由-专制"母题的另一个隐藏维度。'
+    },
+    'city-nisibis': {
+      tag: '尼西比斯',
+      tagStyle: 'background: var(--east-soft); color: var(--east);',
+      title: '尼西比斯 · Nisibis',
+      desc: '萨珊一侧的边境城市。<strong>489 年埃德萨学校被关闭后，教员逃到这里重建</strong>——尼西比斯学派成为萨珊治下聂斯托利派基督教的核心学院。所以<strong>最好的叙利亚学问 601 年在敌国境内</strong>。',
+      role: '"思想避难 + 知识跨越政治边界" 的最直接体现。主角的某位老师可能在这里读过书。'
+    },
+    'city-aksum': {
+      tag: '阿克苏姆',
+      tagStyle: 'background: rgba(196,160,138,0.5); color: #7a4a32;',
+      title: '阿克苏姆',
+      desc: '阿克苏姆王国首都。<strong>基督教（4 世纪皈依）</strong>+ 红海贸易中心 + 国王自称"万王之王"（Negus Negast）。<strong>520 年代曾远征也门</strong>救援当地基督徒。是拜占庭的非正式盟友。',
+      role: '"南方商业邦联"的非洲一翼。'
+    },
+    'city-athens': {
+      tag: '雅典',
+      tagStyle: 'background: var(--west-soft); color: var(--west);',
+      title: '雅典 · 已经不再是雅典',
+      desc: '<strong>529 年雅典学院被查士丁尼关闭</strong>。最后的七位哲人逃到泰西封。601 年的雅典是一座<strong>边缘的省城</strong>——古典哲学的物理中心已经死了 72 年。',
+      role: '"古典自由的终结"的标志点。'
+    },
+    'city-sardis': {
+      tag: '萨第斯',
+      tagStyle: 'background: var(--west-soft); color: var(--west);',
+      title: '萨第斯',
+      desc: '小亚细亚西部古城。<strong>波斯皇家大道（Royal Road）</strong>的西端起点——东端通到萨珊的苏萨。'
+    }
+  };
+
+  const mapInfo = document.getElementById('map-info-601');
+  const regions = document.querySelectorAll('#world-map-601 .region, #world-map-601 .city, #world-map-601 .oracle-marker');
+
+  const defaultHTML = mapInfo.innerHTML;
+
+  function renderRegion(key) {
+    const d = REGION_DATA[key];
+    if (!d) return;
+    let html = '<span class="info-tag" style="' + (d.tagStyle || '') + '">' + d.tag + '</span>';
+    html += '<h3>' + d.title + '</h3>';
+    html += '<p>' + d.desc + '</p>';
+    if (d.maps) {
+      html += '<div class="info-meta"><strong>对应现实</strong>' + d.maps + '</div>';
+    }
+    if (d.role) {
+      html += '<div class="info-meta"><strong>叙述功能</strong>' + d.role + '</div>';
+    }
+    mapInfo.innerHTML = html;
+  }
+
+  regions.forEach(r => {
+    r.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const key = r.dataset.region;
+      regions.forEach(other => {
+        other.classList.remove('active');
+        if (other.classList.contains('region')) {
+          other.classList.add('dim');
+        }
+      });
+      r.classList.remove('dim');
+      r.classList.add('active');
+      if (key) renderRegion(key);
+    });
+  });
+
+  // Click on the SVG background to reset
+  document.getElementById('world-map-601').addEventListener('click', (e) => {
+    const tag = e.target.tagName.toLowerCase();
+    if (tag === 'svg' || tag === 'rect' || tag === 'text') {
+      regions.forEach(r => {
+        r.classList.remove('active', 'dim');
+      });
+      mapInfo.innerHTML = defaultHTML;
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
