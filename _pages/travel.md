@@ -32,37 +32,34 @@ nav_order: 4.5
     color: var(--global-text-color);
   }
   .travel-card-media {
-    flex: 0 0 38%;
-    max-width: 38%;
-    min-height: 210px;
     position: relative;
+    flex: 0 0 40%;
+    max-width: 40%;
+    min-height: 200px;
+    overflow: hidden;
     background: var(--global-bg-color);
   }
-  .travel-card-media > img {
+  /* Absolute fill layer: one image fills it, two images split it 50/50.
+     Using inset:0 (not percentage heights) so it always constrains the photos. */
+  .tc-fill {
+    position: absolute;
+    inset: 0;
+    display: flex;
+  }
+  .tc-fill > img {
+    flex: 1 1 0;
+    min-width: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
-  .travel-card-split {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    min-height: 210px;
-  }
-  .travel-card-split img {
-    flex: 1 1 0;
-    min-width: 0;
-    height: 100%;
-    object-fit: cover;
-  }
-  .travel-card-split img + img {
+  .tc-fill > img + img {
     border-left: 2px solid var(--global-card-bg-color);
   }
   .travel-card-ph {
-    width: 100%;
-    height: 100%;
-    min-height: 210px;
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,10 +191,8 @@ nav_order: 4.5
                 <circle cx="16.5" cy="6" r="2" />
               </svg>
             </div>
-          {% elsif existing_covers.size == 1 %}
-            <img src="{{ existing_covers[0] | relative_url }}" alt="{{ entry.title | escape }}">
           {% else %}
-            <div class="travel-card-split">
+            <div class="tc-fill">
               {% for c in existing_covers %}
                 <img src="{{ c | relative_url }}" alt="{{ entry.title | escape }}">
               {% endfor %}
