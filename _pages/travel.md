@@ -3,7 +3,7 @@ layout: default
 permalink: /travel/
 title: travel
 nav: true
-nav_order: 6
+nav_order: 4.5
 ---
 
 <style>
