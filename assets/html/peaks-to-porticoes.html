@@ -109,6 +109,15 @@
   .leg .rt{color:var(--ink)}
   .leg .tm{color:var(--rust);white-space:nowrap}
   .note{font-size:13px;color:var(--ink-soft);margin-top:9px;font-style:italic}
+  .getting{margin-top:11px;background:#F1F5F1;border:1px solid #DFE7DF;border-radius:10px;padding:11px 13px 10px;counter-reset:step}
+  .getting-h{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--c-nature);margin-bottom:8px}
+  .getting .leg{counter-increment:step;font-size:12px;align-items:baseline;margin-bottom:2px}
+  .getting .leg .rt{color:#37413a}
+  .getting .leg .rt::before{content:counter(step) ". ";color:var(--c-nature);font-weight:600}
+  .getting .leg .rt b{color:var(--rust)}
+  .getting .leg .tm{color:var(--c-nature)}
+  .gnote{font-size:12px;color:var(--ink-soft);margin-top:8px;padding-top:7px;border-top:1px dotted #DFE7DF}
+  .gnote b{color:var(--rust)}
 
   .panel{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
   .ttable{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12.5px}
@@ -262,6 +271,13 @@
             <li class="t-nature i18n" data-theme="nature" data-cn="Renon 缆车上高原，再换窄轨小火车；多洛米蒂群峰的视野，加上土林步道。">Renon cable car up to the plateau + the narrow-gauge tram; Dolomite views and the earth-pyramids walk.</li>
             <li class="t-food i18n" data-theme="food" data-cn="在 Piazza delle Erbe 集市边走边吃——烟熏火腿 speck、山地奶酪、苹果卷 strudel。">Graze the Piazza delle Erbe market — speck, mountain cheese, strudel.</li>
           </ul>
+          <div class="getting">
+            <div class="getting-h i18n" data-cn="怎么去 · 公共交通">Getting there · public transit</div>
+            <div class="leg"><span class="rt i18n" data-cn="步行到 Renon 缆车山谷站（Rittner Straße 12）；周日坐市内 14 路">Walk to the Renon cable-car valley station (Rittner Straße 12); Sun: city bus 14</span><span class="tm">~10 min</span></div>
+            <div class="leg"><span class="rt i18n" data-cn="Rittner Seilbahn 缆车上 Soprabolzano（约每 4 分钟）">Rittner Seilbahn cable car up to Soprabolzano (every ~4 min)</span><span class="tm">~12 min</span></div>
+            <div class="leg"><span class="rt i18n" data-cn="换窄轨小火车 Rittner Bahn 横穿高原到 Collalbo（土林步道）">Switch to the Rittner Bahn narrow-gauge train to Collalbo (earth-pyramids walk)</span><span class="tm">~18 min</span></div>
+            <div class="gnote i18n" data-cn="缆车与小火车都算公共交通，Südtirol Pass / Guest Pass 覆盖，无需单买；每天运营，含周日。">Cable car + train are both public transit — covered by the Südtirol / Guest Pass, no separate ticket. Both run daily, including Sunday.</div>
+          </div>
         </div>
       </article>
 
@@ -275,6 +291,14 @@
             <li class="t-nature i18n" data-theme="nature" data-cn="在 Sciliar 与 Sassolungo 峰下散步，或走长一点的山路。备选：Ortisei 换缆车上 Seceda 的山脊。">Easy strolls or a longer hike under the Sciliar and Sassolungo peaks. Alt: Ortisei + the cable car to Seceda's ridge.</li>
             <li class="t-food i18n" data-theme="food" data-cn="在山间小屋 malga 午餐：面团子 Knödel、Schlutzkrapfen 饺、一杯 Lagrein 红酒。">Lunch at a malga (mountain hut): Knödel, Schlutzkrapfen, a glass of Lagrein.</li>
           </ul>
+          <div class="getting">
+            <div class="getting-h i18n" data-cn="怎么去 · 公共交通">Getting there · public transit</div>
+            <div class="leg"><span class="rt i18n" data-cn="从博尔扎诺公交总站坐 170 路到 Seis / Siusi（每小时一班，Guest Pass 覆盖）">Bus 170 from Bolzano bus station to Seis / Siusi (hourly; on the Guest Pass)</span><span class="tm">~44 min</span></div>
+            <div class="leg"><span class="rt i18n" data-cn="步行上坡到 Seiser Alm 缆车山谷站">Walk uphill to the Seiser Alm cable-car valley station</span><span class="tm">~5 min</span></div>
+            <div class="leg"><span class="rt i18n" data-cn="Seiser Alm 缆车上 Compatsch · <b>需单买，往返约 €30</b>">Seiser Alm cable car up to Compatsch · <b>separate ticket, ~€30 return</b></span><span class="tm">~15 min</span></div>
+            <div class="leg"><span class="rt i18n" data-cn="草甸上的接驳小巴（1/2/3 路，Guest Pass 可用）+ 徒步">On the plateau: shuttle buses (1/2/3, Guest Pass valid) + hiking</span><span class="tm">—</span></div>
+            <div class="gnote i18n" data-cn="<b>周一注意：</b>山区 170 路约每小时一班、缆车夏季约 8:00–18:00——出发前在 südtirolmobil 上确认末班下山。这天放在周一刚好，户外活动不受周一闭馆影响。备选：坐 350 路到 Ortisei 换 Seceda 缆车。"><b>Monday note:</b> bus 170 is ~hourly and the lift runs ~8:00–18:00 in summer — check südtirolmobil for the last ride down. The Monday slot is handy: it's all outdoors, so Monday museum closures don't bite. Alt: bus 350 to Ortisei for the Seceda lift.</div>
+          </div>
         </div>
       </article>
 
@@ -441,7 +465,9 @@
     <h2 class="i18n" data-cn="路上须知">Notes for the road</h2>
     <div class="notes">
       <div class="i18n" data-cn="六月底的艾米利亚很热——上午做一日游，正午歇脚，傍晚留给拱廊。">Emilia is hot in late June — do day trips in the morning, pause midday, save evenings for the porticoes.</div>
+      <div class="i18n" data-cn="<b>周日（第 2 天）：</b>南蒂罗尔的区域/山区巴士周日明显减班，但 Renon 缆车和高原小火车每天都开，所以这天没问题；若要坐巴士，先在 südtirolmobil 上查周日时刻。Ötzi 博物馆周日开放、周一闭馆。"><b>Sunday (Day 2):</b> South Tyrol's regional/mountain buses thin out on Sundays, but the Renon cable car and plateau train run daily, so you're fine — just check südtirolmobil for Sunday bus times if you need one. The Ötzi museum is open Sunday, closed Monday.</div>
       <div class="i18n" data-cn="Schifanoia 与埃斯特相关馆藏周一闭馆——你们的费拉拉日是周三，没问题。">Schifanoia and the Este collections close on Mondays — your Ferrara day is a Wednesday, so you're clear.</div>
+      <div class="i18n" data-cn="周六抵达：慕尼黑往博尔扎诺的末班车约 15:34（比平日稍早），别赶太晚。回程第 9 天是周日，德国 ICE/区域车照常开，但周日区域车班次略稀，记得对一下时刻。">Saturday arrival: the last Munich→Bolzano train is ~15:34 (a touch earlier than weekdays), so don't cut it late. The Day 9 return is a Sunday — German ICE/regional trains run, though Sunday regional frequencies can be slightly thinner; check times.</div>
       <div class="i18n" data-cn="布伦纳线的火车基本都要订座；意大利区域车不用。">Brenner trains effectively need a seat reservation; Italian regionals don't.</div>
       <div class="i18n" data-cn="博洛尼亚是个省心的大本营——每个一日游都很近，行李不用反复打包。">Bologna is the comfortable base — every day trip is a short hop and you never repack.</div>
       <div class="i18n" data-cn="万一博尔扎诺订不到，特伦托可以无缝顶上：同一条布伦纳线，房更好订，照样是上山的门户。">If Bolzano won't book, Trento drops in cleanly: same Brenner line, easier rooms, still your gateway to the peaks.</div>
