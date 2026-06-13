@@ -124,7 +124,7 @@ ninja.data = [{
               window.location.href = "/projects/oracle-novel/";
             },},{id: "travel-在河南-看见农民",
           title: '在河南，看见农民',
-          description: "河南游记 · 在乡野之间，看见农民。",
+          description: "周口婚礼小记",
           section: "Travel",handler: () => {
               window.location.href = "/travel/henan/";
             },},{id: "travel-塞尔维亚-十字与复活-苦难与重生",
