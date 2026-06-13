@@ -30,6 +30,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
+        },{id: "nav-travel",
+          title: "travel",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/travel/";
+          },
         },{id: "nav-teaching",
           title: "teaching",
           description: "Courses taught at University of Tübingen.",
@@ -115,6 +122,11 @@ ninja.data = [{
           description: "A long novel in planning — half-realistic, half-alternate-history. Ancient setting, modern questions. On civilizational encounter and misreading, the fragility of freedom, the political consequences of awakening, and a &quot;tianxia&quot; that has not yet arrived. Living frameworks in Chinese; not even a first draft.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/oracle-novel/";
+            },},{id: "travel-peaks-to-porticoes",
+          title: 'Peaks to Porticoes',
+          description: "Nine days down off the Brenner by rail — from alpine meadows at 2,000 m to the porticoes, Renaissance courts, and Byzantine gold of Emilia-Romagna. A planning notebook for June 20–28, 2026.",
+          section: "Travel",handler: () => {
+              window.location.href = "/travel/peaks-to-porticoes/";
             },},{
         id: 'social-email',
         title: 'email',
