@@ -129,7 +129,7 @@ ninja.data = [{
               window.location.href = "/travel/henan/";
             },},{id: "travel-塞尔维亚-十字与复活-苦难与重生",
           title: '塞尔维亚：十字与复活，苦难与重生',
-          description: "塞尔维亚游记 · 信仰、苦难与重生。",
+          description: "贝尔格莱德游记",
           section: "Travel",handler: () => {
               window.location.href = "/travel/serbia/";
             },},{id: "travel-peaks-to-porticoes",
