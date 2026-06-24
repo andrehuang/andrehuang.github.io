@@ -127,7 +127,7 @@ ninja.data = [{
               window.location.href = "/projects/oracle-novel/";
             },},{id: "projects-translation-of-social-theory-works",
           title: 'Translation of Social Theory Works',
-          description: "一个译丛——把缺乏中文译本的社会理论文献，做成带校注的中英对照「校勘本」。当前主题：群体如何成为实体（how an aggregate of individuals becomes an entity）。以 scholarly-translation skill 完成。",
+          description: "一个译丛——把缺乏中文译本的社会理论著作，做成带校注的中英对照「校勘本」。当前主题：群体如何成为实体（how an aggregate of individuals becomes an entity）。以 scholarly-translation skill 完成。",
           section: "Projects",handler: () => {
               window.location.href = "/projects/social-theory-translations/";
             },},{id: "travel-在河南-看见农民",
