@@ -102,6 +102,9 @@ ninja.data = [{
           section: "News",},{id: "news-i-will-be-joining-prof-moritz-hardt-s-group-at-the-max-planck-institute-for-intelligent-systems-mpi-is-in-tübingen-starting-mid-2026",
           title: 'I will be joining Prof. Moritz Hardt’s group at the Max Planck Institute...',
           description: "",
+          section: "News",},{id: "news-新开译丛-社会理论译丛-translation-of-social-theory-works-主题-群体如何成为实体-首篇-帕吉特与安塞尔-稳健行动与美第奇家族的崛起-ajs-1993-中译完成",
+          title: '新开译丛 社会理论译丛 · Translation of Social Theory Works（主题：群体如何成为实体）：首篇——帕吉特与安塞尔《稳健行动与美第奇家族的崛起》（AJS, 1993）中译完成。',
+          description: "",
           section: "News",},{id: "projects-researcher-pack",
           title: 'researcher-pack',
           description: "A Claude Code research loop that keeps reading, ideation, experiments, and writing connected through shared plain-text state.",
@@ -124,7 +127,7 @@ ninja.data = [{
               window.location.href = "/projects/oracle-novel/";
             },},{id: "projects-translation-of-social-theory-works",
           title: 'Translation of Social Theory Works',
-          description: "An annotated-translation series on one question — how an aggregate of individuals becomes an entity (群体如何成为实体). Chinese critical editions of social-theory texts that lack good translations, produced with the scholarly-translation skill.",
+          description: "一个译丛——把缺乏中文译本的社会理论文献，做成带校注的中英对照「校勘本」。当前主题：群体如何成为实体（how an aggregate of individuals becomes an entity）。以 scholarly-translation skill 完成。",
           section: "Projects",handler: () => {
               window.location.href = "/projects/social-theory-translations/";
             },},{id: "travel-在河南-看见农民",
