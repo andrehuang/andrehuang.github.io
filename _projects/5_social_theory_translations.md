@@ -19,6 +19,10 @@ _styles: >
 
 这些译本都出自我写的开源 [Claude skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) [scholarly-translation](https://github.com/andrehuang/scholarly-translation-skill)——它把工作流（逐章译、累进同一个文件）、术语纪律（先定表、全程沿用）和版式都固定了下来。译丛也是这件工具的试验场：每多译一部，既是用它，也是磨它；每一页都链接回去。
 
+### 动态
+
+- *2026.06.24* · 首篇《[稳健行动与美第奇家族的崛起](/assets/html/robust-action-medici.html)》（Padgett &amp; Ansell, 1993）全文译毕，译丛上线。
+
 ---
 
 ## Theme 1 · 群体如何成为实体
