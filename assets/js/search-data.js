@@ -122,6 +122,11 @@ ninja.data = [{
           description: "A long novel in planning — half-realistic, half-alternate-history. Ancient setting, modern questions. On civilizational encounter and misreading, the fragility of freedom, the political consequences of awakening, and a &quot;tianxia&quot; that has not yet arrived. Living frameworks in Chinese; not even a first draft.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/oracle-novel/";
+            },},{id: "projects-translation-of-social-theory-works",
+          title: 'Translation of Social Theory Works',
+          description: "An annotated-translation series on one question — how an aggregate of individuals becomes an entity (群体如何成为实体). Chinese critical editions of social-theory texts that lack good translations, produced with the scholarly-translation skill.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/social-theory-translations/";
             },},{id: "travel-在河南-看见农民",
           title: '在河南，看见农民',
           description: "周口婚礼小记",
