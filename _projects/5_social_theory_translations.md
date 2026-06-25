@@ -21,6 +21,7 @@ _styles: >
 
 ### 动态
 
+- *2026.06.25* · 第二篇《[涌现问题](/assets/html/problem-of-emergence.html)》（Padgett &amp; Powell, 2012，全书第一章）全文译毕——含 15 幅示意图与 37 条脚注。
 - *2026.06.24* · 首篇《[稳健行动与美第奇家族的崛起](/assets/html/robust-action-medici.html)》（Padgett &amp; Ansell, 1993）全文译毕，译丛上线。
 
 ---
@@ -58,7 +59,7 @@ _styles: >
 **John Padgett & Christopher Ansell — *“Robust Action and the Rise of the Medici”*（AJS, 1993）** · <span style="color:#977028;font-weight:600;">已完成 ↓</span><br>
 一个具体法人行动者的诞生。这里的 corporate actor 是结构的产物，而非意图的产物，且往往不可读：美第奇党在婚姻、生意、庇护几张只半相叠的网的交口上，靠一再多义、读不透的 robust action 慢慢结块；其成员当时谁也说不清这是不是一盘统一的棋。模糊、缓慢、不可读、由结构而非意图推动——恰是 Searle 那条路的背面。
 
-**John Padgett & Walter Powell — *The Emergence of Organizations and Markets*（2012）** · <span style="color:#7a2b25;">计划中</span><br>
+**John Padgett & Walter Powell — *The Emergence of Organizations and Markets*（2012）** · <span style="color:#977028;font-weight:600;">已完成 ↓</span><br>
 群体成为实体，是一种新组织形态的涌现（genesis）：它从亲属、经济、政治多重网络的交叠与外溢中长出，靠把一处的关系做法挪到另一处（transposition）而生出新用，又在网络转为自我再生产（autocatalysis 自催化）时穿过成员更替而留存。生成、长时段、跨域重组——它问的是新行动者从何冒出，而非谁能存活。
 
 ### 术语对照表
@@ -81,6 +82,14 @@ _styles: >
 ### 译本
 
 按时间倒序，每一部独立成页。
+
+#### [《涌现问题》](/assets/html/problem-of-emergence.html)
+
+*Padgett &amp; Powell, “The Problem of Emergence,” in The Emergence of Organizations and Markets (Princeton: Princeton University Press, 2012), 1–28.*
+
+*2026.06.25 · 全文译毕*
+
+全书唯一的纯理论章，也是结构这一极上视野最长的一篇。它奠定全书「自催化＋多重网络」的框架：新组织形态如何作为一种涌现（genesis 发生），从亲属、经济、政治多重网络的交叠与外溢中长出，靠把一处的关系做法挪到另一处（transposition 移植）而生出新用，并在网络转入自我再生产（autocatalysis 自催化）后穿过成员更替而存续；书中归纳出八种组织发生机制，从文艺复兴佛罗伦萨直贯邓小平的改革。完整校勘本含 §0 术语表、15 幅按原书摹出的「发生／催化」示意图、37 条悬停脚注，以及关于梳毛工起义、法人（corpus）、退火等的校注。[阅读全文 →](/assets/html/problem-of-emergence.html)
 
 #### [《稳健行动与美第奇家族的崛起，1400–1434》](/assets/html/robust-action-medici.html)
 

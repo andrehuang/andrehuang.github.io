@@ -50,10 +50,11 @@
     <text x="254" y="345" font-size="13" fill="#221d18">稳健行动 · <tspan fill="#977028" font-weight="600">已完成</tspan></text>
   </g>
 
-  <!-- Padgett &amp; Powell : emergence, longue-durée, cross-domain genesis -->
+  <!-- Padgett &amp; Powell : emergence, longue-durée, cross-domain genesis (DONE) -->
+  <circle cx="208" cy="392" r="10" fill="none" stroke="#977028" stroke-width="1.4"/>
   <circle cx="208" cy="392" r="6.5" fill="#7a2b25"/>
   <g text-anchor="start">
     <text x="150" y="412" font-size="14.5" font-style="italic" fill="#3f5560">Padgett &amp; Powell 2012</text>
-    <text x="150" y="431" font-size="13" fill="#221d18">组织与市场的涌现 · 计划中</text>
+    <text x="150" y="431" font-size="13" fill="#221d18">组织与市场的涌现 · <tspan fill="#977028" font-weight="600">已完成</tspan></text>
   </g>
 </svg>
