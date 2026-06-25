@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《组织与市场的涌现》· 选译</title>
+<meta name="description" content="John F. Padgett 与 Walter W. Powell 主编《组织与市场的涌现》(The Emergence of Organizations and Markets, 2012) 的选章中文校勘本——每章独立成页。属「社会理论译丛」。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ece8df; --paper-2:#e3dfd3; --panel:#e7e3d8;
+    --ink:#221d18; --ink-soft:#4a443b;
+    --porphyry:#7a2b25; --porphyry-soft:#9a463e;
+    --gild:#977028; --slate:#3f5560; --slate-soft:#5c727d;
+    --rule:#cdc6b7; --rule-soft:#dad4c6;
+  }
+  *{box-sizing:border-box;}
+  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  @media(prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 18% 8%, #f0ece3 0%, rgba(240,236,227,0) 40%),
+      radial-gradient(circle at 88% 92%, #e6e1d6 0%, rgba(230,225,214,0) 45%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+    font-weight:400; line-height:1.95; font-size:18px; letter-spacing:.01em;
+  }
+  .page{ max-width:1080px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.4rem); }
+
+  /* ---------- 标头 ---------- */
+  .masthead{ padding:clamp(2.4rem,7vw,4.4rem) 0 2.4rem; border-bottom:1px solid var(--rule); margin-bottom:2.8rem; position:relative; }
+  .series-nav{ font-family:"EB Garamond",serif; font-size:.84rem; letter-spacing:.04em; margin:0 0 1.6rem; color:var(--slate-soft); }
+  .series-nav a{ color:var(--slate); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:1px; }
+  .series-nav a:hover{ color:var(--porphyry); }
+  .eyebrow{ font-family:"EB Garamond",serif; font-size:.86rem; letter-spacing:.32em; text-transform:uppercase; color:var(--gild); margin:0 0 1.4rem; }
+  .masthead-grid{ display:flex; gap:2.4rem; align-items:flex-start; flex-wrap:wrap; }
+  .mark{ flex:0 0 auto; margin-top:.4rem; }
+  .mark svg{ display:block; width:104px; height:104px; }
+  .title-block{ flex:1 1 320px; min-width:0; }
+  h1.title{ font-weight:500; font-size:clamp(2rem,5vw,3.1rem); line-height:1.24; margin:0 0 .5rem; letter-spacing:.02em; }
+  .title-en{ font-family:"EB Garamond",serif; font-style:italic; font-size:clamp(1.05rem,2.4vw,1.4rem); color:var(--ink-soft); margin:0 0 1.2rem; line-height:1.4; }
+  .byline{ font-size:.98rem; color:var(--ink-soft); line-height:1.7; }
+  .byline .src{ font-family:"EB Garamond",serif; font-style:italic; }
+  .byline b{ font-weight:500; color:var(--ink); }
+
+  /* ---------- 导言 ---------- */
+  .intro{ max-width:46rem; }
+  .intro p{ margin:0 0 1.3rem; text-align:justify; }
+  .intro .lead{ font-size:1.07rem; }
+  .intro .t{ border-bottom:1px dotted var(--porphyry-soft); }
+  .intro .en{ font-family:"EB Garamond",serif; font-style:italic; color:var(--porphyry); font-size:.82em; margin-left:.12em; }
+  .intro .lat{ font-family:"EB Garamond",serif; font-style:italic; color:var(--ink-soft); }
+  .intro a.inl{ color:var(--porphyry); text-decoration:none; border-bottom:1px solid var(--rule); }
+  .intro a.inl:hover{ border-bottom-color:var(--porphyry); }
+
+  .note-box{
+    background:var(--panel); border:1px solid var(--rule); border-left:3px solid var(--slate);
+    padding:1.3rem 1.6rem; margin:2.4rem 0 0; font-size:.92rem; line-height:1.85; color:var(--ink-soft); border-radius:2px;
+  }
+  .note-box h3{ margin:0 0 .6rem; font-size:.82rem; letter-spacing:.22em; text-transform:uppercase; color:var(--slate); font-weight:600; font-family:"Noto Sans SC",sans-serif; }
+
+  /* ---------- 章节目录 ---------- */
+  section.chapters{ margin:3.4rem 0 1rem; }
+  .sec-head{ display:flex; align-items:baseline; gap:.9rem; margin:0 0 .4rem; }
+  .sec-num{ font-family:"EB Garamond",serif; font-size:1.1rem; color:var(--gild); letter-spacing:.06em; }
+  .sec-title{ font-size:1.2rem; font-weight:500; margin:0; letter-spacing:.04em; }
+  .progress{ font-family:"Noto Sans SC",sans-serif; font-size:.84rem; color:var(--slate); margin:.2rem 0 2rem; }
+  .progress b{ color:var(--porphyry); font-weight:600; }
+
+  .part{ margin:0 0 1.9rem; }
+  .part-head{
+    font-family:"Noto Sans SC",sans-serif; display:flex; align-items:baseline; gap:.7rem;
+    border-bottom:1.5px solid var(--rule); padding:0 0 .5rem; margin:0 0 .3rem;
+  }
+  .part-no{ font-family:"EB Garamond",serif; font-style:italic; color:var(--gild); font-size:.95rem; letter-spacing:.04em; flex:0 0 auto; }
+  .part-zh{ font-weight:600; font-size:.96rem; color:var(--slate); letter-spacing:.04em; }
+  .part-en{ font-family:"EB Garamond",serif; font-style:italic; color:var(--slate-soft); font-size:.86rem; margin-left:auto; }
+
+  .ch-row{
+    display:flex; align-items:baseline; gap:1rem; padding:.62rem .55rem; border-bottom:1px solid var(--rule-soft);
+    text-decoration:none; color:inherit; transition:background .15s;
+  }
+  .ch-row:last-child{ border-bottom:none; }
+  a.ch-row:hover{ background:rgba(151,112,40,.06); }
+  a.ch-row:hover .ch-zh{ color:var(--porphyry); }
+  .ch-no{ font-family:"EB Garamond",serif; font-size:1rem; color:var(--gild); flex:0 0 1.7rem; text-align:right; font-variant-numeric:tabular-nums; }
+  .ch-titles{ flex:1 1 auto; min-width:0; line-height:1.5; }
+  .ch-zh{ font-weight:500; transition:color .15s; }
+  .ch-en{ display:block; font-family:"EB Garamond",serif; font-style:italic; color:var(--ink-soft); font-size:.84rem; margin-top:.05rem; }
+  .ch-status{
+    flex:0 0 auto; font-family:"Noto Sans SC",sans-serif; font-size:.72rem; letter-spacing:.08em;
+    padding:.16rem .6rem; border-radius:999px; white-space:nowrap; align-self:center;
+  }
+  .ch-status.done{ color:#fff; background:var(--porphyry); }
+  .ch-status.plan{ color:var(--slate-soft); background:transparent; border:1px solid var(--rule); }
+  a.ch-row .ch-arrow{ flex:0 0 auto; color:var(--porphyry); font-size:.9rem; opacity:0; transition:opacity .15s; align-self:center; }
+  a.ch-row:hover .ch-arrow{ opacity:1; }
+  div.ch-row .ch-zh{ color:var(--ink-soft); font-weight:400; }
+
+  footer.foot{
+    margin-top:3rem; padding:2rem 0 3rem; border-top:1px solid var(--rule);
+    font-size:.8rem; color:var(--slate); font-family:"Noto Sans SC",sans-serif; line-height:1.8;
+  }
+  footer.foot a{ color:var(--porphyry); text-decoration:none; border-bottom:1px solid var(--rule); }
+  footer.foot a.muted{ color:var(--slate); }
+
+  @media(max-width:560px){
+    body{ font-size:16.5px; }
+    .ch-en, .part-en{ font-size:.78rem; }
+    .part-en{ display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ 标头 ============ -->
+  <header class="masthead">
+    <p class="series-nav">
+      <a href="/projects/social-theory-translations/">← 社会理论译丛 · Translation of Social Theory Works</a>
+    </p>
+    <p class="eyebrow">Princeton University Press · 2012</p>
+    <div class="masthead-grid">
+      <div class="mark" aria-hidden="true">
+        <!-- 多重网络的叠层：同一个体垂直穿过经济、亲属、政治三个域 -->
+        <svg viewBox="0 0 120 120">
+          <g fill="none" stroke="#977028" stroke-width="1.2">
+            <path d="M24 26 L88 18 L98 40 L34 48 Z"/>
+            <path d="M24 56 L88 48 L98 70 L34 78 Z"/>
+            <path d="M24 86 L88 78 L98 100 L34 108 Z"/>
+          </g>
+          <line x1="61" y1="30" x2="61" y2="98" stroke="#7a2b25" stroke-width="1.3"/>
+          <g fill="#7a2b25">
+            <circle cx="61" cy="34" r="3.4"/><circle cx="61" cy="64" r="3.4"/><circle cx="61" cy="94" r="3.4"/>
+          </g>
+          <g fill="#977028">
+            <circle cx="42" cy="38" r="2.1"/><circle cx="78" cy="30" r="2.1"/>
+            <circle cx="44" cy="68" r="2.1"/><circle cx="80" cy="60" r="2.1"/>
+            <circle cx="42" cy="98" r="2.1"/><circle cx="78" cy="90" r="2.1"/>
+          </g>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1 class="title">组织与市场的涌现</h1>
+        <p class="title-en">The Emergence of Organizations and Markets</p>
+        <p class="byline">
+          <b>约翰·F·帕吉特</b>(John F. Padgett)　与　<b>沃尔特·W·鲍威尔</b>(Walter W. Powell) 主编<br>
+          <span class="src">Princeton University Press</span>，2012 年。全书四编、十八章及一篇结语，逾六百页，由多位作者合撰。
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ 导言 ============ -->
+  <div class="intro">
+    <p class="lead">这是一部论文集，也是一项纲领。帕吉特与鲍威尔想回答达尔文式的发问在社会科学里的版本：新的组织形态究竟如何<span class="t">涌现<span class="en">emergence</span></span>——银行、合伙制、股份公司、民族国家、生物技术公司，这些前所未有的「东西」是从哪里冒出来的？他们的答案是一套统一的机制：新颖性从亲属、经济、政治、科学多重网络的交叠与外溢中长出，靠把一处的关系做法挪到另一处（<span class="t">移植<span class="en">transposition</span></span>）而生出新用，又在网络转入自我再生产（<span class="t">自催化<span class="en">autocatalysis</span></span>）后穿过成员更替而存续。</p>
+
+    <p>全书十八章，跨越文艺复兴的佛罗伦萨、近代尼德兰与德意志、共产主义的苏联与中国，直到当代的硅谷与生物技术产业。<strong>除第一章那篇纯理论的导论之外，其余各章多为经验个案研究</strong>——这正是本书最厚重、却也最难一次译完的部分。因此这里不取「全书逐章翻译」之策，而是<strong>择要选译</strong>：先立住理论骨架，再挑选其中我看重、且自成一体的篇章译出。每一章都是一份独立的中英对照校勘本，各章共用同一套 §0 术语表。</p>
+
+    <p>目前已译两章。<strong>第一章「涌现问题」</strong>是全书唯一的纯理论章，奠定「自催化＋多重网络」的总框架与八种组织发生机制。<strong>第九章「共产主义经济改革的政治」</strong>由帕吉特独撰，把这套框架对准斯大林、赫鲁晓夫、毛泽东、邓小平、戈尔巴乔夫五人的改革，解释了同样的「双重科层」为何在中国翻转成市场、在苏联却走向解体——对中文读者而言，这一篇尤其切近。下表按原书编次排列，已译章可点击进入；其余章节列出以见全书架构。</p>
+
+    <div class="note-box">
+      <h3>关于本选译本</h3>
+      译文以学术研读为目的，依 <a class="inl" href="https://github.com/andrehuang/scholarly-translation-skill">scholarly-translation</a> skill 的体例分章产出：译文求顺，关键术语首次出现时附原文，校注列于边栏，原书图表照样摹出，并配页内导航与悬停脚注。未译章节的中文标题为暂拟，仅供检索全书结构之用。专名与术语在可考时对齐既有中文学界译法，并在校注中说明取舍。
+    </div>
+  </div>
+
+  <!-- ============ 章节目录 ============ -->
+  <section class="chapters">
+    <div class="sec-head"><span class="sec-num">§</span><h2 class="sec-title">分章目次 <small style="font-family:'EB Garamond',serif;font-style:italic;color:var(--ink-soft);font-weight:400;font-size:.78em;">Contents</small></h2></div>
+    <p class="progress">选译 · <b>已完成 2 章</b> / 全书 18 章 + 结语。按原书编次排列；已译章可点击进入，余章列出以见全书架构。</p>
+
+    <!-- 导论 -->
+    <div class="part">
+      <div class="part-head"><span class="part-no">导论</span><span class="part-zh">理论框架</span><span class="part-en">Theoretical Framework</span></div>
+      <a class="ch-row" href="/assets/html/problem-of-emergence.html">
+        <span class="ch-no">1</span>
+        <span class="ch-titles"><span class="ch-zh">涌现问题</span><span class="ch-en">The Problem of Emergence · Padgett &amp; Powell</span></span>
+        <span class="ch-status done">已完成</span>
+        <span class="ch-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- 第一编 -->
+    <div class="part">
+      <div class="part-head"><span class="part-no">第一编</span><span class="part-zh">自催化</span><span class="part-en">Autocatalysis</span></div>
+      <div class="ch-row"><span class="ch-no">2</span><span class="ch-titles"><span class="ch-zh">化学中的自催化与生命起源</span><span class="ch-en">Autocatalysis in Chemistry and the Origin of Life · Padgett</span></span></div>
+      <div class="ch-row"><span class="ch-no">3</span><span class="ch-titles"><span class="ch-zh">作为化学的经济生产 II</span><span class="ch-en">Economic Production as Chemistry II · Padgett, McMahan &amp; Zhong</span></span></div>
+      <div class="ch-row"><span class="ch-no">4</span><span class="ch-titles"><span class="ch-zh">从化学网络到社会网络</span><span class="ch-en">From Chemical to Social Networks · Padgett</span></span></div>
+    </div>
+
+    <!-- 第二编 -->
+    <div class="part">
+      <div class="part-head"><span class="part-no">第二编</span><span class="part-zh">早期资本主义与国家形成</span><span class="part-en">Early Capitalism and State Formation</span></div>
+      <div class="ch-row"><span class="ch-no">5</span><span class="ch-titles"><span class="ch-zh">十三世纪托斯卡纳法人商人银行的涌现</span><span class="ch-en">The Emergence of Corporate Merchant-Banks in Dugento Tuscany · Padgett</span></span></div>
+      <div class="ch-row"><span class="ch-no">6</span><span class="ch-titles"><span class="ch-zh">移植与功能转用：文艺复兴佛罗伦萨合伙制的诞生</span><span class="ch-en">Transposition and Refunctionality: The Birth of Partnership Systems in Renaissance Florence · Padgett</span></span></div>
+      <div class="ch-row"><span class="ch-no">7</span><span class="ch-titles"><span class="ch-zh">作为全球市场的国家：尼德兰、加尔文宗与股份公司</span><span class="ch-en">Country as Global Market: Netherlands, Calvinism, and the Joint-Stock Company · Padgett</span></span></div>
+      <div class="ch-row"><span class="ch-no">8</span><span class="ch-titles"><span class="ch-zh">冲突转移与双重纳入：德意志的建构</span><span class="ch-en">Conflict Displacement and Dual Inclusion in the Construction of Germany · Obert &amp; Padgett</span></span></div>
+    </div>
+
+    <!-- 第三编 -->
+    <div class="part">
+      <div class="part-head"><span class="part-no">第三编</span><span class="part-zh">共产主义转型</span><span class="part-en">Communist Transitions</span></div>
+      <a class="ch-row" href="/assets/html/communist-economic-reform.html">
+        <span class="ch-no">9</span>
+        <span class="ch-titles"><span class="ch-zh">共产主义经济改革的政治：苏联与中国</span><span class="ch-en">The Politics of Communist Economic Reform: Soviet Union and China · Padgett</span></span>
+        <span class="ch-status done">已完成</span>
+        <span class="ch-arrow">→</span>
+      </a>
+      <div class="ch-row"><span class="ch-no">10</span><span class="ch-titles"><span class="ch-zh">偏离设计：叶利钦时代俄国新金融市场与组织的涌现</span><span class="ch-en">Deviations from Design: ... in Yeltsin's Russia · Spicer</span></span></div>
+      <div class="ch-row"><span class="ch-no">11</span><span class="ch-titles"><span class="ch-zh">俄国移动电信市场的涌现：国家阴影下的本土技术领导与全球投资者</span><span class="ch-en">The Emergence of the Russian Mobile Telecom Market · Yakubovich &amp; Shekshnia</span></span></div>
+      <div class="ch-row"><span class="ch-no">12</span><span class="ch-titles"><span class="ch-zh">社会序列分析：匈牙利的所有权网络、政治关系与外国投资</span><span class="ch-en">Social Sequence Analysis: ... in Hungary · Stark &amp; Vedres</span></span></div>
+    </div>
+
+    <!-- 第四编 -->
+    <div class="part">
+      <div class="part-head"><span class="part-no">第四编</span><span class="part-zh">当代资本主义与科学</span><span class="part-en">Contemporary Capitalism and Science</span></div>
+      <div class="ch-row"><span class="ch-no">13</span><span class="ch-titles"><span class="ch-zh">机遇、必然与天真：缔造新组织形态的配料</span><span class="ch-en">Chance, Nécessité, et Naïveté · Powell &amp; Sandholtz</span></span></div>
+      <div class="ch-row"><span class="ch-no">14</span><span class="ch-titles"><span class="ch-zh">组织与制度的发生：生命科学中高科技产业区的涌现</span><span class="ch-en">Organizational and Institutional Genesis · Powell, Packalen &amp; Whittington</span></span></div>
+      <div class="ch-row"><span class="ch-no">15</span><span class="ch-titles"><span class="ch-zh">开放精英：产业演化中的仲裁者、催化者，还是守门人？</span><span class="ch-en">An Open Elite · Powell &amp; Owen-Smith</span></span></div>
+      <div class="ch-row"><span class="ch-no">16</span><span class="ch-titles"><span class="ch-zh">学术实验室与专有科学的再生产</span><span class="ch-en">Academic Laboratories and the Reproduction of Proprietary Science · Colyvas &amp; Maroulis</span></span></div>
+      <div class="ch-row"><span class="ch-no">17</span><span class="ch-titles"><span class="ch-zh">硅谷何以先行：区域发明者网络中的聚合与涌现</span><span class="ch-en">Why the Valley Went First · Fleming, Colfer, Marin &amp; McPhie</span></span></div>
+      <div class="ch-row"><span class="ch-no">18</span><span class="ch-titles"><span class="ch-zh">管理一个「开放」项目的边界</span><span class="ch-en">Managing the Boundaries of an "Open" Project · Ferraro &amp; O'Mahony</span></span></div>
+      <div class="ch-row"><span class="ch-no" style="font-style:italic;font-size:.82rem;">尾</span><span class="ch-titles"><span class="ch-zh">结语：关于多重网络研究的反思</span><span class="ch-en">Coda: Reflections on the Study of Multiple Networks · Powell &amp; Padgett</span></span></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    Padgett, John F., and Walter W. Powell, eds. <i>The Emergence of Organizations and Markets</i>. Princeton: Princeton University Press, 2012.<br>
+    本选译本供学术研读之用 · 各章术语依 §0 对照表统一。<br>
+    译自 <a href="https://github.com/andrehuang/scholarly-translation-skill">scholarly-translation</a> skill · 归属 <a class="muted" href="https://andrehuang.github.io/projects/social-theory-translations/">社会理论译丛</a>。
+  </footer>
+
+</div>
+</body>
+</html>
