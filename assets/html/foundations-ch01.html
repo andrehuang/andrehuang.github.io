@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社会理论的基础 · 第一章 元理论 · 中译</title>
+<meta name="description" content="James S. Coleman《社会理论的基础》第一章「元理论：社会科学中的解释」的中英对照校勘本。属「社会理论译丛」。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ece8df; --paper-2:#e3dfd3; --panel:#e7e3d8;
+    --ink:#221d18; --ink-soft:#4a443b;
+    --porphyry:#7a2b25; --porphyry-soft:#9a463e;
+    --gild:#977028; --slate:#3f5560; --slate-soft:#5c727d;
+    --rule:#cdc6b7; --rule-soft:#dad4c6;
+  }
+  *{box-sizing:border-box;}
+  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  @media(prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 18% 8%, #f0ece3 0%, rgba(240,236,227,0) 40%),
+      radial-gradient(circle at 88% 92%, #e6e1d6 0%, rgba(230,225,214,0) 45%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+    font-weight:400; line-height:1.95; font-size:18px; letter-spacing:.01em;
+  }
+  .page{ max-width:1180px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.4rem); }
+
+  /* ---------- 标头 ---------- */
+  .masthead{ padding:clamp(2.2rem,7vw,4.4rem) 0 2.4rem; border-bottom:1px solid var(--rule); margin-bottom:2.8rem; position:relative; }
+  .series-nav{ font-family:"EB Garamond",serif; font-size:.84rem; letter-spacing:.04em; margin:0 0 1.6rem; color:var(--slate-soft); }
+  .series-nav a{ color:var(--slate); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:1px; }
+  .series-nav a:hover{ color:var(--porphyry); }
+  .eyebrow{ font-family:"EB Garamond",serif; font-size:.86rem; letter-spacing:.32em; text-transform:uppercase; color:var(--gild); margin:0 0 1.4rem; }
+  .masthead-grid{ display:flex; gap:2.4rem; align-items:flex-start; flex-wrap:wrap; }
+  .mark{ flex:0 0 auto; margin-top:.4rem; }
+  .mark svg{ display:block; width:104px; height:88px; }
+  .title-block{ flex:1 1 320px; min-width:0; }
+  h1.title{ font-weight:500; font-size:clamp(1.9rem,4.6vw,2.9rem); line-height:1.26; margin:0 0 .5rem; letter-spacing:.02em; }
+  h1.title .chno{ color:var(--gild); font-family:"EB Garamond",serif; font-style:italic; font-weight:400; font-size:.62em; display:block; margin-bottom:.3rem; letter-spacing:.06em; }
+  .title-en{ font-family:"EB Garamond",serif; font-style:italic; font-size:clamp(1.05rem,2.4vw,1.35rem); color:var(--ink-soft); margin:0 0 1.2rem; line-height:1.4; }
+  .byline{ font-size:.98rem; color:var(--ink-soft); line-height:1.7; }
+  .byline .src{ font-family:"EB Garamond",serif; font-style:italic; }
+  .byline b{ font-weight:500; color:var(--ink); }
+
+  /* ---------- 译注说明 ---------- */
+  .colophon{ background:var(--panel); border:1px solid var(--rule); border-left:3px solid var(--slate); padding:1.4rem 1.7rem; margin:0 0 3rem; font-size:.92rem; line-height:1.85; color:var(--ink-soft); border-radius:2px; }
+  .colophon h3{ margin:0 0 .7rem; font-size:.84rem; letter-spacing:.22em; text-transform:uppercase; color:var(--slate); font-weight:600; font-family:"Noto Sans SC",sans-serif; }
+  .colophon .legend{ display:flex; flex-wrap:wrap; gap:.5rem 1.6rem; margin-top:.8rem; }
+  .colophon .legend span{ display:inline-flex; align-items:center; gap:.45rem; font-size:.86rem; }
+  .swatch{ width:1.5em; height:.4em; border-radius:2px; display:inline-block; }
+
+  /* ---------- 术语表 ---------- */
+  section.glossary{ margin:0 0 3.4rem; }
+  .sec-head{ display:flex; align-items:baseline; gap:.9rem; margin:0 0 1.3rem; }
+  .sec-num{ font-family:"EB Garamond",serif; font-size:1.1rem; color:var(--gild); letter-spacing:.06em; flex:0 0 auto; }
+  .sec-title{ font-size:1.18rem; font-weight:500; margin:0; letter-spacing:.04em; }
+  .sec-title small{ font-family:"EB Garamond",serif; font-style:italic; color:var(--ink-soft); font-weight:400; font-size:.8em; margin-left:.5em; }
+  .gloss-table{ width:100%; border-collapse:collapse; font-size:.92rem; }
+  .gloss-table th{ text-align:left; font-family:"Noto Sans SC",sans-serif; font-weight:500; font-size:.76rem; letter-spacing:.12em; text-transform:uppercase; color:var(--slate); border-bottom:1.5px solid var(--rule); padding:.5rem .7rem .55rem; white-space:nowrap; }
+  .gloss-table td{ padding:.62rem .7rem; border-bottom:1px solid var(--rule-soft); vertical-align:top; line-height:1.7; }
+  .gloss-table tr:hover td{ background:rgba(151,112,40,.05); }
+  .gloss-table .en{ font-family:"EB Garamond",serif; font-style:italic; color:var(--porphyry); }
+  .gloss-table .zh{ font-weight:500; white-space:nowrap; }
+  .gloss-table .note{ color:var(--ink-soft); font-size:.88rem; line-height:1.65; }
+
+  /* ---------- 阅读区 + 校注边栏 ---------- */
+  article.reading{ max-width:44rem; }
+  article.reading h2.ch{ font-size:clamp(1.45rem,3.4vw,1.9rem); font-weight:500; letter-spacing:.05em; margin:3.4rem 0 .4rem; padding-top:1.6rem; border-top:1px solid var(--rule); }
+  article.reading h2.ch:first-of-type{ margin-top:0; }
+  article.reading h2.ch .chn{ color:var(--gild); font-family:"EB Garamond",serif; font-style:italic; margin-right:.5rem; }
+  article.reading h2.ch .en{ display:block; font-family:"EB Garamond",serif; font-style:italic; font-weight:400; font-size:.6em; color:var(--ink-soft); letter-spacing:.04em; margin-top:.25rem; }
+  article.reading h3.sub{ font-size:1.12rem; font-weight:500; margin:2.4rem 0 .2rem; color:var(--porphyry); letter-spacing:.03em; }
+  article.reading h3.sub .en{ font-family:"EB Garamond",serif; font-style:italic; font-weight:400; font-size:.8em; color:var(--ink-soft); margin-left:.5em; }
+  article.reading p{ margin:0 0 1.35rem; text-align:justify; }
+  article.reading p.lead{ font-size:1.05rem; }
+  .runin{ font-family:"Noto Sans SC",sans-serif; font-weight:600; color:var(--slate); letter-spacing:.02em; }
+  .runin .en{ font-family:"EB Garamond",serif; font-style:italic; font-weight:500; color:var(--slate-soft); font-size:.86em; }
+  ol.props{ margin:0 0 1.35rem; padding-left:1.5rem; }
+  ol.props li{ margin:.3rem 0; padding-left:.3rem; }
+  ul.cases{ margin:.2rem 0 1.35rem; padding-left:1.3rem; list-style:none; }
+  ul.cases li{ margin:.35rem 0; padding-left:.6rem; border-left:2px solid var(--rule); }
+
+  .t{ border-bottom:1px dotted var(--porphyry-soft); }
+  .t .en{ font-family:"EB Garamond",serif; font-style:italic; color:var(--porphyry); font-size:.82em; margin-left:.12em; letter-spacing:.01em; }
+  .lat{ font-family:"EB Garamond",serif; font-style:italic; color:var(--ink-soft); }
+  sup.fnref{ font-family:"EB Garamond",serif; color:var(--porphyry); font-size:.72em; padding:0 .12em; cursor:pointer; font-style:normal; vertical-align:super; }
+  sup.fnref a{ color:var(--porphyry); text-decoration:none; }
+  sup.fnref a:hover{ text-decoration:underline; }
+
+  /* 校注（边栏） */
+  .jiaozhu{ background:linear-gradient(180deg,#e9ece9,#e4e8e6); border-left:2px solid var(--slate); padding:.85rem 1rem; margin:1.4rem 0; font-size:.84rem; line-height:1.7; color:var(--slate); font-family:"Noto Sans SC",sans-serif; border-radius:2px; }
+  .jiaozhu .tag{ display:block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--slate-soft); margin-bottom:.35rem; font-weight:500; }
+  .jiaozhu .lat{ color:var(--slate); }
+  @media(min-width:1080px){ .jiaozhu{ float:right; clear:right; width:16rem; margin:.35rem -17.6rem 1.1rem 0; } }
+
+  blockquote{ margin:1.5rem 0; padding:.4rem 0 .4rem 1.4rem; border-left:2px solid var(--gild); color:var(--ink-soft); font-size:.96rem; line-height:1.85; }
+  blockquote cite{ display:block; margin-top:.5rem; font-style:normal; font-size:.85rem; color:var(--slate); font-family:"EB Garamond",serif; }
+  blockquote cite::before{ content:"—— "; }
+
+  /* 脚注区 */
+  .footnotes{ margin:3rem 0 1rem; padding-top:1.4rem; border-top:1px solid var(--rule); font-size:.83rem; line-height:1.72; color:var(--ink-soft); }
+  .footnotes h4{ font-family:"Noto Sans SC",sans-serif; font-weight:500; font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--slate); margin:0 0 1rem; }
+  .footnotes ol{ margin:0; padding-left:1.6rem; }
+  .footnotes li{ margin:0 0 .7rem; padding-left:.3rem; scroll-margin-top:1rem; }
+  .footnotes li:target{ background:rgba(151,112,40,.14); border-radius:2px; }
+  .footnotes .lat{ color:var(--porphyry-soft); }
+
+  .continue{ margin:3.2rem 0 1rem; padding:1.5rem 1.7rem; background:var(--panel); border:1px dashed var(--rule); text-align:center; font-family:"Noto Sans SC",sans-serif; font-size:.92rem; color:var(--slate); border-radius:3px; line-height:1.8; }
+  .continue b{ color:var(--porphyry); font-weight:500; }
+  .continue a{ color:var(--porphyry); text-decoration:none; border-bottom:1px solid var(--rule); }
+
+  footer.foot{ margin-top:3rem; padding:2rem 0 3rem; border-top:1px solid var(--rule); font-size:.8rem; color:var(--slate); font-family:"Noto Sans SC",sans-serif; line-height:1.8; }
+  footer.foot a{ color:var(--porphyry); text-decoration:none; border-bottom:1px solid var(--rule); }
+  footer.foot a.muted{ color:var(--slate); }
+
+  @media(max-width:560px){
+    body{ font-size:16.5px; line-height:1.9; }
+    .gloss-table .note{ display:none; }
+    .gloss-table .zh,.gloss-table .en{ white-space:normal; }
+  }
+
+  /* ---------- 目录 ---------- */
+  nav.toc{ margin:0 0 3rem; padding:1.3rem 1.6rem; background:linear-gradient(180deg,#e9e5da,#e4e0d4); border:1px solid var(--rule); border-radius:3px; columns:2; column-gap:2.4rem; }
+  nav.toc .toc-head{ column-span:all; font-family:"Noto Sans SC",sans-serif; font-weight:600; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--slate); margin:0 0 .9rem; padding-bottom:.6rem; border-bottom:1px solid var(--rule); }
+  nav.toc .toc-head span{ font-family:"EB Garamond",serif; font-style:italic; text-transform:none; letter-spacing:.02em; color:var(--ink-soft); }
+  nav.toc ol{ list-style:none; margin:0; padding:0; }
+  nav.toc > ol > li{ margin:.32rem 0; break-inside:avoid; }
+  nav.toc ol ol{ padding-left:1.1rem; margin:.18rem 0 .35rem; }
+  nav.toc a{ color:var(--ink); text-decoration:none; font-size:.95rem; border-bottom:1px solid transparent; transition:border-color .15s,color .15s; }
+  nav.toc a:hover{ color:var(--porphyry); border-bottom-color:var(--porphyry-soft); }
+  nav.toc ol ol a{ font-size:.88rem; color:var(--ink-soft); }
+  @media(max-width:560px){ nav.toc{ columns:1; } }
+
+  /* ---------- 图 ---------- */
+  figure.fig{ margin:2.2rem 0; padding:1.2rem 1rem .6rem; background:#fbfaf6; border:1px solid var(--rule); border-radius:3px; }
+  figure.fig svg{ display:block; width:100%; max-width:560px; height:auto; margin:0 auto; }
+  figure.fig figcaption{ margin-top:.9rem; padding-top:.7rem; border-top:1px solid var(--rule-soft); font-family:"Noto Sans SC",sans-serif; font-size:.85rem; line-height:1.72; color:var(--ink-soft); }
+  figure.fig .fnum{ color:var(--porphyry); font-weight:600; }
+  figure.fig .src-line{ display:inline-block; margin-top:.4rem; font-size:.8rem; color:var(--slate); }
+  .dgm-zh{ font-family:"Noto Serif SC",serif; font-size:14px; fill:var(--ink); }
+  .dgm-en{ font-family:"EB Garamond",serif; font-style:italic; font-size:11px; fill:var(--slate); }
+  .dgm-no{ font-family:"EB Garamond",serif; font-size:14px; fill:var(--porphyry); }
+
+  /* ---------- 悬停脚注 ---------- */
+  #fn-tooltip{ position:fixed; z-index:9999; display:none; background:#fbfaf6; color:var(--ink); border:1px solid var(--slate); border-left:3px solid var(--slate); box-shadow:0 8px 30px rgba(30,24,18,.18); padding:.75rem .95rem; border-radius:3px; font-family:"Noto Sans SC",sans-serif; font-size:.82rem; line-height:1.68; max-height:46vh; overflow:auto; }
+  #fn-tooltip b{ color:var(--porphyry); }
+  #fn-tooltip .lat{ color:var(--porphyry-soft); }
+
+  #to-top{ position:fixed; right:18px; bottom:18px; z-index:9998; display:none; width:44px; height:44px; align-items:center; justify-content:center; background:var(--porphyry); color:#f3efe6; border:none; border-radius:50%; cursor:pointer; box-shadow:0 4px 16px rgba(30,24,18,.28); font-size:1.1rem; }
+  #to-top:hover{ background:var(--porphyry-soft); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ 标头 ============ -->
+  <header class="masthead">
+    <p class="series-nav">
+      <a href="/assets/html/foundations-of-social-theory.html">← 《社会理论的基础》分章目次 · Foundations of Social Theory</a>
+    </p>
+    <p class="eyebrow">Foundations of Social Theory · 1990</p>
+    <div class="masthead-grid">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 120 100">
+          <g fill="none" stroke="#7a2b25" stroke-width="1.3" stroke-linecap="round">
+            <line x1="22" y1="30" x2="98" y2="30"/>
+            <line x1="22" y1="30" x2="40" y2="74"/>
+            <line x1="40" y1="74" x2="80" y2="74"/>
+            <line x1="80" y1="74" x2="98" y2="30"/>
+          </g>
+          <g fill="#977028">
+            <circle cx="22" cy="30" r="4"/><circle cx="98" cy="30" r="4"/>
+            <circle cx="40" cy="74" r="3.4"/><circle cx="80" cy="74" r="3.4"/>
+          </g>
+          <path d="M95 26 l6 4 -6 4 z" fill="#7a2b25"/>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1 class="title"><span class="chno">第一章 · Chapter 1</span>元理论：社会科学中的解释</h1>
+        <p class="title-en">Metatheory: Explanation in Social Science</p>
+        <p class="byline">
+          <b>詹姆斯·S·科尔曼</b>(James S. Coleman)　芝加哥大学<br>
+          选自 <span class="src">Foundations of Social Theory</span>（《社会理论的基础》），Cambridge, MA: The Belknap Press of Harvard University Press, 1990，第 1–23 页。
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ 译注说明 ============ -->
+  <div class="colophon">
+    <h3>译注体例</h3>
+    本译本为分章进行的学术性翻译，力求忠实与连贯。版式采用「校勘」格式以便研读：
+    <span style="color:var(--porphyry);font-weight:500;">关键术语</span>于首次出现时以赭红色标注英文原文；人名、地名、拉丁文以斜体小字附原文；<span style="color:var(--slate);font-weight:500;">校注</span>置于右侧边栏（窄屏则内嵌）。原书三幅示意图（图 1.1–1.3）为线条图，已照原样原生重绘为 SVG，图内文字一并译出。脚注全部译出，置于各节末；正文中的<sup class="fnref" style="cursor:default">N</sup>可悬停查看。
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--porphyry)"></i>关键术语 / 英文原文</span>
+      <span><i class="swatch" style="background:var(--slate)"></i>校注 / 译者按</span>
+      <span><i class="swatch" style="background:var(--gild)"></i>序号 / 纹饰 / 长引文</span>
+    </div>
+  </div>
+
+  <!-- ============ 目录 ============ -->
+  <nav class="toc" aria-label="目录">
+    <div class="toc-head">本章目录　<span>Contents</span></div>
+    <ol>
+      <li><a href="#sec-glossary">§0　关键术语对照表</a></li>
+      <li><a href="#sec-open">开篇 · 两种解释模式</a></li>
+      <li><a href="#sec-systems">一　社会系统行为的解释</a>
+        <ol>
+          <li><a href="#sub-points">支持系统行为内部分析的理由</a></li>
+          <li><a href="#sub-mi">关于方法论个人主义的说明</a></li>
+          <li><a href="#sub-major">核心难题（韦伯 · 革命理论）</a></li>
+        </ol>
+      </li>
+      <li><a href="#sec-components">二　理论的诸构成</a>
+        <ol>
+          <li><a href="#sub-action">个体层面的行动理论</a></li>
+          <li><a href="#sub-trans">宏观—微观与微观—宏观转换</a></li>
+          <li><a href="#sub-interdep">行动的相互依赖</a></li>
+        </ol>
+      </li>
+      <li><a href="#sec-conceptions">三　微观与宏观层次之关系的构想</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ 术语对照表 ============ -->
+  <section class="glossary" id="sec-glossary">
+    <div class="sec-head"><span class="sec-num">§ 0</span><h2 class="sec-title">关键术语对照表 <small>Glossary</small></h2></div>
+    <table class="gloss-table">
+      <thead><tr><th>英文术语</th><th>中文译法</th><th>简注</th></tr></thead>
+      <tbody>
+        <tr><td class="en">social system</td><td class="zh">社会系统</td><td class="note">待解释其行为的单位；小至二人对偶（dyad），大至一个社会乃至世界体系。</td></tr>
+        <tr><td class="en">internal analysis of system&nbsp;behavior</td><td class="zh">系统行为的内部分析</td><td class="note">借系统较低层部件（尤指个体）的行动来解释系统行为；本书通篇采用的解释模式。</td></tr>
+        <tr><td class="en">micro-to-macro / macro-to-micro transition</td><td class="zh">微观—宏观 / 宏观—微观转换</td><td class="note">由个体层上升到系统层、或反向下行；前者是本书的核心难题。</td></tr>
+        <tr><td class="en">micro–macro problem</td><td class="zh">微观—宏观问题</td><td class="note">如何从较低层正确上升到系统层；贯穿整个社会科学。</td></tr>
+        <tr><td class="en">purposive action</td><td class="zh">有目的的行动</td><td class="note">朝目标而行、目标由价值或偏好塑造；本书所取的个体层面行动原理。</td></tr>
+        <tr><td class="en">rational actor / rationality</td><td class="zh">理性行动者 / 理性</td><td class="note">经济学式理性观：各行动对行动者各有特定效用。</td></tr>
+        <tr><td class="en">maximization of utility</td><td class="zh">效用最大化</td><td class="note">行动者选取使效用最大的行动；仅理论的定量发展（第五编）需此假定。</td></tr>
+        <tr><td class="en">corporate actor</td><td class="zh">法人行动者</td><td class="note">能换人存续、持有资源、以己名行动的超个体行动者；对齐译丛术语表。</td></tr>
+        <tr><td class="en">actor / agent</td><td class="zh">行动者 / 代理人</td><td class="note">本书「行动者」=采取行动者（即哲学家所谓 agent）；「代理人」专指为委托人之利益代行者（见注 14）。</td></tr>
+        <tr><td class="en">methodological individualism / holism</td><td class="zh">方法论个人主义 / 整体主义</td><td class="note">前者把系统行为的解释下探到较低层（本书取其一特别变种）；后者停留在系统层面。</td></tr>
+        <tr><td class="en">emergent phenomena</td><td class="zh">涌现现象</td><td class="note">个体相互作用在系统层催生、而个体既未意图也未预见者。</td></tr>
+        <tr><td class="en"><span class="lat">homo sociologicus</span></td><td class="zh">社会人</td><td class="note">「从社会系统入手」之理论所要求的人之图像：被社会化的系统元件。</td></tr>
+        <tr><td class="en">teleology</td><td class="zh">目的论</td><td class="note">以（所欲的）未来状态、而非以在先状态来解释当下；「目的」概念即目的论的。</td></tr>
+        <tr><td class="en">frustration theories</td><td class="zh">挫折理论</td><td class="note">以「状况好转滋生挫折 → 攻击 → 革命」解释革命；第十八章将批评之。</td></tr>
+        <tr><td class="en">interdependence of actions</td><td class="zh">行动的相互依赖</td><td class="note">行动彼此组合而生出宏观结果的诸形态（外部性、交换、市场、社会选择、组织、规范）。</td></tr>
+        <tr><td class="en">marriage squeeze</td><td class="zh">婚姻挤压</td><td class="note">出生率骤变致某性别世代婚配对象不足的人口学现象。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ 正文 ============ -->
+  <article class="reading">
+
+    <div id="sec-open">
+    <p class="lead">社会科学有一个核心问题：如何解释某种<span class="t">社会系统<span class="en">social system</span></span>的运作。然而在大多数社会研究中，观察的对象并非系统整体，而是它的某个部分。事实上，最自然的观察单位就是个体的人；而随着量化研究方法的发展，对个体层面数据的依赖——多半是访谈，有时则是行为的行政记录、直接观察或别的形式的数据——已大大加深。由此，理论与研究之间裂开了一道越来越宽的口子：社会理论谈的始终是行为之社会系统如何运作，经验研究关心的却往往是解释个体行为。</p>
+
+    <p>把个体行为当作待解释之物，在社会科学里也并非全然错位。当代社会研究中，有相当一部分正是以解释个体行为为务：投票行为、消费选择、职业选择、态度与价值观，都被当作有待解释的现象。用来作解释的因素，既包括所研究个体自身的特征，也包括其社会环境的特征——从家庭、朋友，一直到更大的社会情境。社会学里的一种解释方法是统计关联，大量旨在解释个体行为的量化研究都用它；它通常基于个体样本，而这些个体在待解释的行为上、在可能用以解释该行为的特征上，都彼此有别。</p>
+
+    <p>第二种解释方法，质性与量化研究中都用，靠的是考察个体内部的过程。对这些过程的认识，有时来自观察者的内省或同情式理解，有时来自对个体内部变化的量化监测——某些心理学分支即如此。原则上，这类观察只对单个个体也能进行。</p>
+
+    <p>这两种解释模式的不同，不止在方法。前者用作解释的，主要是个体外部的因素，或刻画个体之整体的因素；后者主要诉诸个体内部的因素，着眼于这些内部变化导致行为的过程。</p>
+
+    <p>关于个体行为的解释，本书后文还会细说，因为它与社会理论的关系，比乍看起来要复杂。眼下我只想指出一点：许多社会研究着力于解释个体行为，这一着力点往往把人引离社会理论的核心问题——而那些问题，关乎的是社会系统的运作。</p>
+    </div>
+
+    <h2 class="ch" id="sec-systems"><span class="chn">一</span>社会系统行为的解释<span class="en">Explanation of the Behavior of Social Systems</span></h2>
+
+    <p>社会科学的首要任务，在于解释社会现象，而非解释单个个体的行为。个别情形下，社会现象或许能由个体行为直接经求和而来，但更多时候并非如此。于是，焦点必须落在那个其行为有待解释的社会系统上。这系统小可至一对二人（<span class="lat">dyad</span>），大可至一个社会乃至一个世界体系；但关键的要求始终是：解释的焦点要对准作为<em>一个单位</em>的系统本身，而不是对准构成它的那些个体或别的部件。</p>
+
+    <p>与解释个体行为一样，解释社会系统的行为也有两种模式。一种靠的是一批系统行为的案例样本，或对系统整体在一段时期内之行为的观察；其分析方法，建立在「所关注的系统行为」与「作为该行为之背景的社会系统其他特征」之间的统计关联上。用案例样本的研究，例子之一是因子分析，有时在国家层面进行，以解释政治变迁或经济发展。对系统作长期观察的研究，例子则有社会学中的「自然史」（<span class="lat">natural history</span>）取向，以及施于宏观经济数据的经济周期分析（如 <span class="lat">Burns and Mitchell, 1946</span>）。</p>
+
+    <p>第二种解释社会系统行为的模式，则要去考察系统内部的过程——这些过程牵涉它的组成部件，或者说，牵涉低于系统这一层级的诸单位。最典型的情形，是组成部件即身为该社会系统成员的个体；另一些情形里，组成部件也可能是系统内部的制度，或作为系统一部分的次群体。无论哪种情形，这种分析都可看作下移到了比系统更低的一层，借助部件的行为来解释系统的行为。这一模式既不专属于量化，也不专属于质性，两者皆可。</p>
+
+    <p>第二种模式有若干可取之处，也有若干特有的难处。由于本书通篇将采用这一模式，在转入它的核心难题之前，不妨先列出几条支持采用它的理由。为便于称呼，我把这一模式叫作<span class="t">系统行为的内部分析<span class="en">internal analysis of system behavior</span></span>。</p>
+
+    <h3 class="sub" id="sub-points">支持系统行为内部分析的理由 <span class="en">Points Favoring the Internal Analysis</span></h3>
+
+    <p><strong>一、</strong>当系统体量庞大、数目又少时，凭系统层面的数据去确证理论，会遇到数据充分性的大问题：竞争性的假说太多，数据无从把它们一一驳倒。部分正因如此，社会科学的研究数据往往采自低于所关注系统那一层的诸单位。最常见的观察落点，大概就是个体——经由访谈、直接观察或别的方法。许多社会学研究建立在个体的抽样调查上，几乎全部人口学研究都建立在个体层面的数据上；研究经济系统所用的数据，通常也采自单个企业和单个家庭，尽管这些数据在投入研究前常被加总。</p>
+
+    <p>既然数据这么经常采自个体、或采自低于待解释系统那一层的别的单位，那么，从观察所在的那一层入手，再把系统行为从这些单位的行动「合成」或「综合」出来，就成了解释系统行为的自然起点。</p>
+
+    <p><strong>二、</strong>正如观察往往最自然地落在低于系统整体的层级上，干预也必须在这些较低的层级上落实。因此，把系统行为解释为较低层单位之行动或取向的解释，就一般而言比同样成功、却停留在系统自身层面的解释更有用于干预。即便干预本身发生在系统层面——譬如一国政府的某项政策变动——它的落实通常也得在较低层级进行，而正是这一落实，决定了对系统的后果。于是，一种一路下探到「将去落实政策者」之行动与取向的系统行为解释，多半比不这么做的解释更管用。<sup class="fnref">1</sup></p>
+
+    <p><strong>三、</strong>把系统行为作内部分析、落到较低层单位之行动与取向上的解释，往往比停留在系统层面的解释更稳定、更普遍。既然系统的行为实际上是其组成部件之行动的合成结果，那么，弄清这些部件的行动如何组合而生出系统行为，理应比依赖系统表层特征之统计关系的解释，给出更强的可预测性。当然，这未必总成立：倘若那些表层特征与待解释的行为离得很近，便不然。譬如在气象学里，凭近旁稍前的天气状况所作的预测，也许就胜过凭众多组成部件（各种气团、海陆表面）的相互作用所作的预测。同理，凭一些与系统后续表现有已知统计关联的领先指标所作的宏观经济预测，也可能胜过依据系统各部件相互作用的经济模型。不过，这些例子之所以成立，既因为基于内部过程的解释（即「理论」）尚不完整，也因为那些系统层面的指标恰好离得近；一旦这些指标离得远了，其预测价值便迅速跌落。</p>
+
+    <p><strong>四、</strong>如第三点所示，落到较低层单位之行动与取向上的内部分析，可视为更根本的解释——它比停留在系统层面的解释，更接近于一种关于系统行为的理论；可以说，它给出了纯系统层面解释所给不出的那种「理解」。但这随即引出一个问题：怎样的解释才算足够根本？是凡下探到低于系统本身那一层之单位的解释都算？是要一路下探到个体的人？还是不止于个人、还要再往下探的那种？</p>
+
+    <p>这个问题我不打算笼统作答，只想说：第二点在实践中提供了一条令人满意的判准——只要一种解释能为「可改变系统行为的、有把握的干预」提供依据，它对手头的目的而言就足够根本了。后文我会指出：社会科学（心理学除外）有一个自然的止步点，那就是个体这一层。固然，把社会系统的行为解释为某些介于系统层与个人层之间的实体之行动与取向，对手头目的也许够用；但一种落到个体之行动与取向上的、更根本的解释，一般说来更令人满意。譬如，把某个经济系统的运作解释为企业与家庭的行动与取向，可能相当令人满意；可换些目的，企业与家庭的这些行动与取向，就还得用「在控制它们的过程中扮演某种角色的个体的人」之行动与取向来解释。</p>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · <span class="lat">homo sociologicus</span></span>
+      「社会人」是杜伦多夫（Ralf Dahrendorf）一篇名作的标题所点出的形象：人作为社会角色与规范的承载者、社会系统中一个被社会化的元件。科尔曼借它来指那种「从系统层入手」的理论所默认的人之图像，并指出其代价——一旦人只剩「遵从或偏离规范」一条进场之路，关于自由、关于人与社会之张力的问题便无从在理论内提起。这正是他要从个体的<span class="t" style="border:none"><span class="en">purposive action</span></span>重起炉灶的动因。
+    </aside>
+
+    <p><strong>五、</strong>系统行为的内部分析，立足于一种在人文上更可亲的人之图像；而社会理论的许多路数则谈不上这一点。对许多社会理论家来说，社会规范是理论的起点。一种从社会系统这一层入手的理论所要求的人之图像，是<span class="t">社会人<span class="en">homo sociologicus</span></span>——社会系统中一个被社会化了的元件。这样一来，道德哲学与政治哲学里那些直面「人与社会之根本张力」的问题就无从提起；个体随其意愿行动的自由、社会相互依赖加诸这一自由的约束，统统进不了理论；自由与平等的诸问题也无从研究。个体之为个体，只经由其对规范系统的遵从或偏离才得以进场。一旦把人设想成社会系统里一个被社会化的元件，要在社会理论的框架内评判一个社会系统、一种社会组织的行动，就成了不可能之事。希特勒治下的德国、或斯大林治下的俄国，作为民族—国家，在任何评判意义上都与瑞士无从分别；而<span class="lat">Charles Manson</span>（查尔斯·曼森）与<span class="lat">Jim Jones</span>（吉姆·琼斯）那些指向死亡的公社，与一个指向生命的以色列基布兹（<span class="lat">kibbutz</span>），在道德上也无从分别。这尤其令人费解：许多社会学家明明持守着「以人道与否来严格区分各类社会组织」的价值观，却又安于一种使他们对这些价值视而不见的社会理论——这种姿态，恐怕更多源于思想上的浅尝辄止，而非道德上的不端。</p>
+
+    <p>当然，无论在社会科学内外，都有人反对这种「从社会系统层入手」的社会理论，反对它所呈现的人之图像。一批明确把「人的自由」问题摆上台面的著作——《逃避自由》（<span class="lat">Escape from Freedom</span>，Fromm, 1941）、《孤独的人群》（<span class="lat">The Lonely Crowd</span>，Riesman, Glazer, and Denney, 1953）、《组织人》（<span class="lat">The Organization Man</span>，Whyte, 1956）——以及把「人的权利及其异化」摆上台面的著作（马克思、恩格斯、马尔库塞的论著）广受欢迎，正表明这些问题对社会中的人何等紧要。</p>
+
+    <p>如上所言，本书提出的理论，以个体为起点，这在诸社会理论中并不独一无二。但它所处理的问题，与十七、十八世纪政治哲学家霍布斯、洛克、卢梭所提的问题之贴近，丝毫不亚于它与当下大量社会理论所处理之问题的贴近。若说有哪一个问题最为它所牵挂，那就是：人与社会，作为两个彼此交叠的行动系统，如何和平共处。</p>
+
+    <h3 class="sub" id="sub-mi">关于方法论个人主义的一点说明 <span class="en">A Note on Methodological Individualism</span></h3>
+
+    <p>熟悉<span class="t">方法论整体主义<span class="en">methodological holism</span></span>与<span class="t">方法论个人主义<span class="en">methodological individualism</span></span>之争的读者会看出，上文就解释所取的立场，是方法论个人主义的一个变种——但是一个特别的变种。这里并不假定：对系统行为的解释，无非就是把个体的行动与取向加总起来。个体之间的相互作用，被看作会在系统层面催生出<span class="t">涌现现象<span class="en">emergent phenomena</span></span>——即个体既未曾意图、也未曾预见的现象。再者，这里也不暗示：为某一目的而作的解释，非得一路下探到个体层才算令人满意。判准毋宁是实用主义的：只要一种解释对它所要服务的那类特定干预有用，它就令人满意。这条判准通常要求解释下探到系统整体之下，但未必要求它扎根于个体的行动与取向。这一方法论个人主义的变种，也许与波普尔（Karl Popper）在《开放社会及其敌人》（<span class="lat">The Open Society and Its Enemies</span>，1963）中所用的最为相近——尽管波普尔主要关心的是社会层面（<span class="lat">societal-level</span>）现象的解释，而非任意规模之社会系统的行为。</p>
+
+    <h3 class="sub" id="sub-major">核心难题 <span class="en">The Major Problem</span></h3>
+
+    <p>对「以低于系统那一层之行动与取向为本」的系统行为解释来说，核心难题是：如何从较低层上升到系统层。这被称为<span class="t">微观—宏观问题<span class="en">micro-to-macro problem</span></span>，它贯穿整个社会科学。譬如在经济学里，既有微观经济理论，也有宏观经济理论；而经济理论的一个核心缺陷，正是二者之间联结的薄弱——这一薄弱，被「加总」（<span class="lat">aggregation</span>）的观念、被宏观经济理论中无处不在的「代表性行动者」（<span class="lat">representative agent</span>）概念，含糊地遮掩了过去。</p>
+
+    <p>在这一节里，我将展示「妥当地完成微观—宏观转换」所牵涉的若干难处，指出几处转换已被正确完成的实例，并就一些尚未成功之处，指出朝正确转换迈进的步骤。</p>
+
+    <p><span class="runin">韦伯与资本主义精神　<span class="en">Max Weber and the Spirit of Capitalism</span></span>　要见出「妥当的微观—宏观转换」牵涉些什么，不妨先看一个未曾妥当完成的实例。这个例子是社会学的经典：马克斯·韦伯的《新教伦理与资本主义精神》（<span class="lat">The Protestant Ethic and the Spirit of Capitalism</span>，1958［1904］）。</p>
+
+    <p>从一个粗略的层面看，韦伯无非是在陈述一个宏观社会命题：宗教改革中转向新教（尤其是加尔文宗）的那些社会，其宗教伦理含有一些有利于资本主义经济组织成长的价值。用图示来表达，便是图 1.1。倘若仅止于此，这个命题不过是前文所说第一种解释模式的一个例子——停留在系统的层面。要给它任何程度的确证，都需两类证据依据之一。其一，是系统地比较新教社会与非新教社会的经济系统，看前者是否更可能走向资本主义；其二，是纵向考察那些转向新教之社会的经济组织，看资本主义是否在新教降临后不久即告发展。这两类证据韦伯都摆出了一些：他按宗教构成、按资本主义发展的程度与时机来比较各国。然而这些证据远谈不上确凿，韦伯本人也没把大部分气力押在它们上面。</p>
+
+    <figure class="fig" id="fig-1-1">
+      <svg viewBox="0 0 600 150" role="img" aria-label="图1.1：一个社会的宗教价值，箭头指向一个社会的经济组织。">
+        <defs>
+          <marker id="ar1" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#4a443b"/></marker>
+        </defs>
+        <text class="dgm-zh" x="130" y="56" text-anchor="middle">一个社会的宗教价值</text>
+        <text class="dgm-en" x="130" y="73" text-anchor="middle">Religious values of a society</text>
+        <text class="dgm-zh" x="470" y="56" text-anchor="middle">一个社会的经济组织</text>
+        <text class="dgm-en" x="470" y="73" text-anchor="middle">Economic organization of a society</text>
+        <circle cx="130" cy="100" r="4" fill="#977028"/>
+        <circle cx="470" cy="100" r="4" fill="#977028"/>
+        <line x1="146" y1="100" x2="452" y2="100" stroke="#4a443b" stroke-width="1.6" marker-end="url(#ar1)"/>
+      </svg>
+      <figcaption><span class="fnum">图 1.1</span>　宏观社会命题：加尔文宗促进资本主义。<br><span class="src-line">据原书 Figure 1.1 原生重绘。</span></figcaption>
+    </figure>
+
+    <p>这一路数的缺陷，正落在前文列为「支持内部分析」的那几点上。其中经验上的缺陷（前列第一点）大概最为刺眼：可供比较的社会数目寥寥，而资本主义发展最迅猛的那些社会，彼此相异之处又不止于宗教，还有许多别的方面。于是，纵使新教与资本主义之间的关联很高，统计上的比较仍会任人作种种不同的解读。</p>
+
+    <p>但韦伯并未止步于这一个命题。他考察加尔文宗教义的内容，尤其是它加诸信徒的那类道德诫命；接着考察现代资本主义的「精神」，并以若干别的时代、别的经济制度作对照，析出两样东西作为其核心、用以与他者区分：一是在「天职」中勤勉尽责的观念（第 54 页），二是对传统主义的反对（第 58–63 页）。他在加尔文宗教义里发现了同样的反传统主义取向、同样的「勤于天职」之诫，便以此为据，论证这一宗教教义的兴起提供了让资本主义得以发展的价值系统。这第二类证据，使图 1.1 所示的关系得以进一步具体化：新教伦理的内容，可描述为源自一个社会之宗教信仰的价值；而韦伯所谓资本主义精神的内容，可描述为支配该社会经济活动的价值。这两者，是一个社会之价值系统的两个组成部分，分别支配着两个不同制度领域里的活动。</p>
+
+    <p>这样来看韦伯的论旨，它易受批评的几处弱点便显出来了。一个重要批评——托尼（Tawney, 1947）连同其前后的他人都曾道出——是：宗教价值与经济价值在内容上的共通，并不能证明前者对后者有影响，倒可能是「另有变迁同时改动了宗教与经济两套价值系统」的一个征象。又或者，这种内容上的共通，恰恰来自经济活动中新生价值的反作用——是它重塑了那些最易受此影响的宗教价值，也就是加尔文宗教徒的价值。</p>
+
+    <p>韦伯为支撑其论证而展开的讨论，有一部分远远越出国与国的比较，纳入了国内各地区之间、地区内宗教次群体之间、乃至家庭内个体之间的比较（尤可参看他第一章的脚注）。譬如，他大段征引本杰明·富兰克林（<span class="lat">Benjamin Franklin</span>）的文字来道出资本主义精神之精髓，并指出富兰克林那位加尔文宗父亲教给他的种种宗教伦理诫命；他还比较了德国某地区新教徒与天主教徒的应税财富。</p>
+
+    <p>对这些材料的运用，又引出了进一步的问题：韦伯究竟想证明的是怎样一种命题？尤其是，命题里牵涉的是哪一个、或哪几个单位？他当真意在把命题定在个体层面吗？从他对这类个体层面证据的运用、从他的某些表述看来，这恰恰正是他的本意。<sup class="fnref">2</sup> 若果真如此，那么图 1.1 的命题就须修订。原本单一的命题裂为三个：第一个，自变量刻画社会、因变量刻画个体；第二个，自变量与因变量都刻画个体；第三个，自变量刻画个体、因变量刻画社会。于是，这一命题系统起于宏观、终于宏观，中途却下潜到了个体的层面。这三个命题，粗略地说，可表述如下：</p>
+
+    <ol class="props">
+      <li>新教教义在其信徒身上生出某些价值。</li>
+      <li>持有某些价值（命题一所言）的个体，采取某类对待经济行为的取向。（韦伯所刻画的核心经济行为取向，即反传统主义与对天职的尽责。）</li>
+      <li>个体的某些经济行为取向（命题二所言），有助于在一个社会中促成资本主义经济组织。</li>
+    </ol>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · 「科尔曼之舟」</span>
+      图 1.2 即社会学里赫赫有名的「科尔曼之舟」（Coleman's boat，又称浴缸图 bathtub diagram）。它把一条看似纯宏观的命题（上沿：新教 → 资本主义）拆开：先<em>下潜</em>到个体层（箭 1，宏观→微观），经由个体的行动（箭 2），再<em>上升</em>回宏观层（箭 3，微观→宏观）。科尔曼的要害在于：真正费解、也最常被略过的，是<strong>箭 3</strong>——个体行动如何<em>组合</em>成宏观结果。本图与图 1.1、1.3 均照原书线条图原样重绘。
+    </aside>
+
+    <p>图 1.2 给出了为这类跨层命题系统作图的一种办法。上方那道水平箭头，代表宏观层面的命题；那三道相连的箭头——第一道与宏观命题起于同一点、随即下行到较低的层面，第三道则上行回到宏观命题的终点——代表前述三个相扣的命题。</p>
+
+    <figure class="fig" id="fig-1-2">
+      <svg viewBox="0 0 600 320" role="img" aria-label="图1.2：科尔曼之舟。上沿由新教教义指向资本主义；箭1自新教教义下行至价值观，箭2自价值观横行至经济行为，箭3自经济行为上行至资本主义。">
+        <defs>
+          <marker id="ar2" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#4a443b"/></marker>
+        </defs>
+        <!-- 顶部标签 -->
+        <text class="dgm-zh" x="100" y="44" text-anchor="middle">新教教义</text>
+        <text class="dgm-en" x="100" y="61" text-anchor="middle">Protestant religious doctrine</text>
+        <text class="dgm-zh" x="500" y="44" text-anchor="middle">资本主义</text>
+        <text class="dgm-en" x="500" y="61" text-anchor="middle">Capitalism</text>
+        <!-- 底部标签 -->
+        <text class="dgm-zh" x="180" y="272" text-anchor="middle">价值观</text>
+        <text class="dgm-en" x="180" y="289" text-anchor="middle">Values</text>
+        <text class="dgm-zh" x="420" y="272" text-anchor="middle">经济行为</text>
+        <text class="dgm-en" x="420" y="289" text-anchor="middle">Economic behavior</text>
+        <!-- 节点 -->
+        <circle cx="100" cy="90" r="4.2" fill="#977028"/>
+        <circle cx="500" cy="90" r="4.2" fill="#977028"/>
+        <circle cx="180" cy="232" r="4.2" fill="#977028"/>
+        <circle cx="420" cy="232" r="4.2" fill="#977028"/>
+        <!-- 宏观沿 -->
+        <line x1="118" y1="90" x2="478" y2="90" stroke="#4a443b" stroke-width="1.6" marker-end="url(#ar2)"/>
+        <!-- 箭1 -->
+        <line x1="104" y1="104" x2="174" y2="220" stroke="#4a443b" stroke-width="1.6" marker-end="url(#ar2)"/>
+        <!-- 箭2 -->
+        <line x1="198" y1="232" x2="400" y2="232" stroke="#4a443b" stroke-width="1.6" marker-end="url(#ar2)"/>
+        <!-- 箭3 -->
+        <line x1="426" y1="220" x2="496" y2="104" stroke="#4a443b" stroke-width="1.6" marker-end="url(#ar2)"/>
+        <!-- 序号 -->
+        <text class="dgm-no" x="124" y="170" text-anchor="end">1</text>
+        <text class="dgm-no" x="300" y="222" text-anchor="middle">2</text>
+        <text class="dgm-no" x="476" y="170" text-anchor="start">3</text>
+      </svg>
+      <figcaption><span class="fnum">图 1.2</span>　宏观与微观层次的命题：宗教教义对经济组织的影响。上沿水平箭头为宏观命题；箭 1（宏观→微观）、箭 2（个体层）、箭 3（微观→宏观）为三个相扣的命题。<br><span class="src-line">据原书 Figure 1.2 原生重绘。</span></figcaption>
+    </figure>
+
+    <p>在这组命题中，最堪玩味的是第三个，因为它是从个体层面回升到社会层面的那一步。它的自变量刻画个体，因变量却刻画一个社会单位——此处即社会。显然，这样一种命题，除非它是那类把重大社会变迁归功于个别领袖人物的历史命题，否则它要说的，便不是「单个个体的属性足以带来社会变迁」。毋宁说，它提出的是：众多个体的经济行为，经由某种合并、联合或加总的效应，促成了资本主义的发展。可恰恰在这里，韦伯的分析几乎完全缄默。<sup class="fnref">3</sup> 纵然假定图 1.2 的诸命题都对，又是怎样的合并或加总带来了那一发展呢？</p>
+
+    <p>这里成问题的，是谁的经济行为——是资本主义企业里未来工人的，是未来企业家的，还是两者都算？若两者都算，那是否在主张：宗教价值对工人的经济行为、对企业家的经济行为，恰好都同样合适？就某些价值而言——尤其是「资本主义精神」核心处那种反传统主义——韦伯显然是这么论证的。但他对这一问题缺乏认真的考量，恰恰暴露出他的理论里缺了一个重要环节。<sup class="fnref">4</sup> 要解释任何一种社会组织（无论是资本主义经济组织还是别的什么）之成长或出现，必须交代的是：构成该组织的诸位置之结构如何形成，那些来占据组织中各个位置的人因何被激励去占据它，以及这套相互依赖的激励系统何以能维系。这些，才是社会组织分析的核心问题。马克思对「资本主义如何从封建制中脱胎」的分析，尽管为论战所累而有瑕疵，却比韦伯在《新教伦理》中的分析更接近于做到了这一点。</p>
+
+    <p>有一大批理论工作——或可称之为文化心理学——试图单凭文化或价值来解释社会变迁，而不诉诸社会组织。这一取向，或许在亚伯拉姆·卡迪纳（<span class="lat">Abram Kardiner</span>, 1945）的著作里表达得最充分，但在玛格丽特·米德（<span class="lat">Margaret Mead</span>）、鲁思·本尼迪克特（<span class="lat">Ruth Benedict</span>）等别的文化人类学家那里也能见到。一如图 1.2 中的命题三，这类工作里，解释的某些关键环节是缺失的——而缺的恰恰就是构成社会组织分析的那些环节。</p>
+
+    <p><span class="runin">革命的诸理论　<span class="en">Theories of Revolution</span></span>　以「对个体态度或取向的简单加总」来完成微观—宏观转换，当代有一个实例，见于某些革命理论。这些理论大体可称为<span class="t">挫折理论<span class="en">frustration theories</span></span>。</p>
+
+    <p>挫折论者所要处理的，是一个耐人寻味的难题：为什么革命往往恰在社会状况整体好转的变迁期发生？挫折论者的解答是：社会状况的好转，在社会成员个体身上滋生出挫折，从而导向革命。与韦伯在《新教伦理》中的诸命题一样，这里也有三个相扣的关系：第一个从系统层面到个体层面，第二个完全在个体层面，第三个从个体层面回到系统层面。图 1.3 即以图示给出这些命题。</p>
+
+    <figure class="fig" id="fig-1-3">
+      <svg viewBox="0 0 600 320" role="img" aria-label="图1.3：上沿由社会状况改善指向革命；自社会状况改善下行至挫折，挫折横行至攻击，攻击上行至革命。">
+        <defs>
+          <marker id="ar3" markerWidth="10" markerHeight="10" refX="7.5" refY="3" orient="auto"><path d="M0,0 L7.5,3 L0,6 Z" fill="#4a443b"/></marker>
+        </defs>
+        <text class="dgm-zh" x="100" y="44" text-anchor="middle">社会状况改善</text>
+        <text class="dgm-en" x="100" y="61" text-anchor="middle">Improved social conditions</text>
+        <text class="dgm-zh" x="500" y="44" text-anchor="middle">革命</text>
+        <text class="dgm-en" x="500" y="61" text-anchor="middle">Revolution</text>
+        <text class="dgm-zh" x="180" y="272" text-anchor="middle">挫折</text>
+        <text class="dgm-en" x="180" y="289" text-anchor="middle">Frustration</text>
+        <text class="dgm-zh" x="420" y="272" text-anchor="middle">攻击</text>
+        <text class="dgm-en" x="420" y="289" text-anchor="middle">Aggression</text>
+        <circle cx="100" cy="90" r="4.2" fill="#977028"/>
+        <circle cx="500" cy="90" r="4.2" fill="#977028"/>
+        <circle cx="180" cy="232" r="4.2" fill="#977028"/>
+        <circle cx="420" cy="232" r="4.2" fill="#977028"/>
+        <line x1="118" y1="90" x2="478" y2="90" stroke="#4a443b" stroke-width="1.6" marker-end="url(#ar3)"/>
+        <line x1="104" y1="104" x2="174" y2="220" stroke="#4a443b" stroke-width="1.6" marker-end="url(#ar3)"/>
+        <line x1="198" y1="232" x2="400" y2="232" stroke="#4a443b" stroke-width="1.6" marker-end="url(#ar3)"/>
+        <line x1="426" y1="220" x2="496" y2="104" stroke="#4a443b" stroke-width="1.6" marker-end="url(#ar3)"/>
+      </svg>
+      <figcaption><span class="fnum">图 1.3</span>　宏观与微观层次的命题：社会状况改善对革命潜势的影响。<br><span class="src-line">据原书 Figure 1.3 原生重绘。</span></figcaption>
+    </figure>
+
+    <p>第一个关系有几种说法，端看理论家把挫折的来由安在何处：是短期的挫败，是相对剥夺（<span class="lat">relative deprivation</span>），是急剧变迁所撩起的期望抬升，还是别的什么缘由（见第十八章）。第二个关系，无非是心理学里的「挫折—攻击」命题。第三个关系则是隐而未明的——它把个体的攻击简单加总，以得出一个社会产物，也就是革命。可革命牵涉组织，牵涉众多行动者之行动的彼此交织。</p>
+
+    <p>无论是韦伯的分析，还是革命挫折论者的分析，其微观—宏观转换都只是把个体的取向、态度或信念简单加总而成。然而，倘若理论问题牵涉的是一个社会系统的运作——解释资本主义经济之兴起、解释革命之发生，正都是这样的问题——那么显而易见：恰当的转换，绝不能止于对个体行为的简单加总。</p>
+
+    <div class="footnotes">
+      <h4>第一节 · 脚注</h4>
+      <ol>
+        <li value="1">舒尔策（Schultze, 1977）举了若干例子：联邦政府层面的某项法令变动，因未立足于「对那些负责执行该法令者之取向」的理论或理解，结果与本意大相径庭。</li>
+        <li value="2">譬如韦伯说：「这种关于『天职』尽责的独特观念……最能代表资本主义文化的社会伦理，在某种意义上正是其根本基础。它是一种义务，个体被认为应当、且确实对其职业活动的内容怀有这种义务感」（第 54 页）。在后面几章里，韦伯表明，这种「天职尽责」之感是新教、尤其是加尔文宗教义的核心。</li>
+        <li value="3">这并不是说韦伯在别处对这些事一无所言。此处所用的例子是一部特定的著作，而非韦伯的全部著作。然而，韦伯的论旨几乎从一开始便屡遭质疑，这一事实本身就表明：他后续的工作，并未平息这部著作所引起的疑虑。</li>
+        <li value="4">也大可论辩说（韦伯的文本在许多地方也支持这一论辩）：韦伯在这部著作里所关心的，仅仅是表明新教宗教价值之内容对资本主义企业所特有之价值内容的影响。但这一解读会引出别的问题：表明个体所持的两套价值在内容上有共通之处，并不构成「其中一套影响了另一套」的证据；而通篇不曾从价值之域涉足世俗活动，则意味着没有提供任何「此种影响得以发生」的机制。另一方面，倘若「资本主义精神」不应仅被视为个体的属性、而应被视为社会的属性（即一种共有的规范），那么韦伯既未能展示「个体的信念经由怎样的过程生出该社会规范」，也未能证明这样一种规范与资本主义实际运作的相关性。</li>
+      </ol>
+    </div>
+
+    <h2 class="ch" id="sec-components"><span class="chn">二</span>理论的诸构成<span class="en">Components of the Theory</span></h2>
+
+    <p>凡是「系统行为由身为系统元素的行动者之行动而来」的理论，都有三类构成。它们对应图 1.2 中标为第 1、2、3 类的关系：第 1 类与第 3 类，分别牵涉从宏观到微观、从微观到宏观的移动；第 2 类则建立在描述行动者之行动的<em>行动原理</em>之上。这一行动原理，构成一个必备的、固定的内核；当它置身不同的社会情境、当不同人的行动以不同方式组合时，便生出不同的系统行为——亦即不同的社会现象。</p>
+
+    <p>其实，有充分理由可以主张：社会理论之有别于心理学理论，正在于它是关于「成套的人在其中行动的种种规则如何展开」的理论。<sup class="fnref">5</sup> 这一看法，连同宏观—微观、微观—宏观转换的性质，都可借想象一种教育中偶尔会用到的社会模拟博弈（<span class="lat">social-simulation game</span>）来领会。<sup class="fnref">6</sup> 这样一种博弈，由以下几项组成：</p>
+
+    <ul class="cases">
+      <li>一套供参与者担当的角色，每个角色界定该参与者的利益或目标；</li>
+      <li>若干规则，规定各角色的参与者可作哪类行动，以及出手的次序；</li>
+      <li>若干规则，规定每个参与者的行动对局中其他参与者有何后果。</li>
+    </ul>
+
+    <p>如果把这局博弈的展开，看作对某个社会系统某一侧面之行为的模拟（只要博弈构造得好，就确会如此），那么其中有两个自然可分的部分：参与者，与博弈的结构。参与者自身内含某种行动原理（这原理简直只能描述为「有目的的」）；而博弈则是那套结构——它发动这些行动，并把它们组合起来，生出系统的行为。</p>
+
+    <p>正是这一结构，对应于我所说的两种转换：宏观到微观，与微观到宏观。前一种转换，在博弈中由所有「为参与者之行动设定条件」的要素来映现：参与者的利益（由规则所立的目标给定）；行动上的约束（由别的规则加诸）；初始条件（提供行动于其中展开的情境）；以及参与者入局之后，他人行动所造成的新情境。后一种转换，则映现于参与者行动的种种后果：它如何与他人的行动相结合、相干扰，或以别的方式相互作用（在博弈中一如在现实中，他人的行动可与该参与者的行动同时发生，或先于、后于它），从而造出下一个行动于其中发生的新情境。</p>
+
+    <p>可是，倘若这番对博弈过程的描述意在映现「从宏观到微观、再返回宏观」的转换，那宏观层面在哪儿呢？博弈过程显然能代表微观层面，宏观层面却没有一个可触可见的实体。答案是：宏观层面、即系统行为，是一种<em>抽象</em>——但仍是一种要紧的抽象。譬如，若所玩的是《外交》（<span class="lat">Diplomacy</span>）这款商业博弈——参与者各自代表 1914 年的欧洲列强——那么「系统行为」便是逐渐形成的同盟与冲突、战争的爆发，以及作为参与者行动之后果的欧洲版图变迁。</p>
+
+    <p>这里不妨插一句：在《外交》里，参与者代表的不是个人，而是国家——这正好例示了「微观层面的行动者并非个人、而是<span class="t">法人行动者<span class="en">corporate actors</span></span>」的情形。此局中，宏观层面是整个欧洲，微观层面则是单个国家。对这类「以单个目标导向的参与者代表一个国家」的外交博弈，有一种反对意见是：它们对现实映现得不够好——现实中，国家的行动有时表达着某种内部冲突。譬如人们常说，统治者有时会挑起对外冲突以凝聚内部。<sup class="fnref">7</sup> 正因如此，更复杂的外交博弈里，一个国家有时由不止一名参与者代表，各人分管国家的某些内部活动，而这些活动又可能左右国家对外的行动。在这样的布置下，国家本身被当作一个行动系统来对待——它实际上又是更大那个行动系统里的一个行动者。</p>
+
+    <p>系统行为——本书术语里的宏观层面——有时恰当的设想，不过是「一群行动彼此依赖的行动者所构成之系统」的行为。某些情形下，系统行为可视为一个超个体行动者（<span class="lat">supraindividual actor</span>）的行动，譬如一个国家的行动，乃由该国内部诸行动者相互依赖的行动而来。与此相类的，是宏观层面为一个正式组织、而微观层面由组织内各部门、或由占据其中位置的人所构成的情形。</p>
+
+    <p>有一端，系统行为纯是一种抽象，落实为某些宏观层面的结果（如欧洲版图的变迁）；另一端，宏观层面是一个可设想为行动者的正式组织。介于两端之间的，是这样一种情形：宏观层面并未浮现出一个统一的行动者，却有界定明确的属性或概念在刻画着那一层面。经济市场上价格的形成，是很好地说明这种情形的一个例子。微观层面的行动者是单个的交易者；每种商品的价格，在均衡之时——即除已谈成者外不再有新交易发生之时——给出该商品（相对于某种交换媒介，或曰计价物 <span class="lat">numeraire</span>）的交换比率。刻画整个市场的「两种商品的相对价格」（而不只是某两个特定交易者之间那笔交易所采的交换比率），乃是一种抽象；它之所以可能，是因为市场竞争把不同交易伙伴之间「同一对商品」的种种交换比率，压向了单一的比率——因为每个交易者都力图为自己手中的商品换得最好的价。</p>
+
+    <h3 class="sub" id="sub-action">个体层面的行动理论 <span class="en">The Individual-Level Theory of Action</span></h3>
+
+    <p>前文引入的几个例子，所用的行动理论并不相同。革命挫折论者用的是一种表达性行动（<span class="lat">expressive action</span>）模型——攻击行为是挫折的发泄，不受任何目标或意图的调节。涂尔干（<span class="lat">Émile Durkheim</span>, 1951［1897］）研究自杀所凭的心理学模型，与挫折论者相似：他的分析把自杀视为一种表达性行为，是个人与其社会环境之关系所引起的某种心理状态之结果。韦伯对新教与资本主义的分析则不同，它暗中假定人朝着某个目标有目的地行动，而目标（连同行动）由价值或偏好所塑造。在韦伯看来，加尔文宗经由其对「与经济行为相关之价值」的影响，调节了人有经济生产力的行动；对持守加尔文宗所体现之价值的人来说，那些经济行动是「合情理的」「可理解的」「理性的」行动，径直随之而来。<sup class="fnref">8</sup></p>
+
+    <p>本书所采用的个体层面行动理论，正是韦伯研究新教与资本主义时所用的那种<span class="t">有目的的行动<span class="en">purposive action</span></span>理论。它也是大多数社会理论家暗中所用的行动理论，是大多数人据以解释自己与他人行动的那套常识心理学所默认的行动理论。当我们说自己理解了另一个人的行动时，通常套用的就是这一占主导地位的模型：我们说自己懂得那人如此行动的「理由」，意思便是我们懂得他意图中的目标，懂得在他看来这些行动如何有助于达成那目标。</p>
+
+    <p>就本书理论的某些用途而言，有这个常识性的「有目的行动」概念也就够了。然而对理论的许多部分来说，还需一个更精确的概念。为此，我将采用经济学所用的<span class="t">理性<span class="en">rationality</span></span>观——即构成经济理论中「理性行动者」之基础的那种理性观。这一理性观立基于这样一个想法：不同的行动（某些情形下是不同的商品）对行动者各有某种特定的<em>效用</em>；与之相伴的，是一条行动原理，可表述为：行动者选取那个能使<span class="t">效用最大化<span class="en">maximize utility</span></span>的行动。</p>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · 行动者 vs 代理人</span>
+      本书把 <span class="lat">actor</span> 一律译作「行动者」、把 <span class="lat">agent</span> 译作「代理人」，是依科尔曼在注 14 中立下的术语约定。哲学家常以 agent 泛指「行动者／能动者」，但科尔曼为处理委托—代理（principal–agent）问题，把 agent 收窄为「为他人之利益代行者」。故本书之「行动者」即哲学家的 agent，而「代理人」另有专指。译丛术语表沿用此分。
+    </aside>
+
+    <p>关于把这一相对狭义的「有目的行动」版本用作社会理论的个体层面构件，有若干点须加澄清，其中有些带告诫性质。第一，这显然只是更宽泛的「有目的行动」观念的一种特定刻画；别的刻画也与那一宽泛观念相容。譬如特沃斯基（<span class="lat">Tversky</span>, 1972）的「按方面剔除」（<span class="lat">elimination by aspects</span>）理论——它看来比标准理性选择理论更切合某些选择实际作成的方式——便意味着：有目的的选择是分阶段作出的，每一阶段都依据「选择对象彼此相异的某一维度或方面」来取舍。标准理性选择理论无从让这样的维度浮现出来，也容不下层级化结构的选择。</p>
+
+    <p>在别的研究中，卡尼曼、特沃斯基等人（如 <span class="lat">Kahneman, Slovic, and Tversky, 1982</span>）已确凿表明：人在意图理性行动时，怀有种种系统性偏差，使其行动按某种客观标准衡量达不到理性。也就是说，个体会系统性地行动，得出在他们自己看来逊于「换作别的行动本可得到之结果」的结果。这类系统性偏差之一，是高估小概率事件的概率；<sup class="fnref">9</sup> 另一种，是任由「对须作选择之情境的知觉」（从而所作的选择）受描述中那些与结果无关之成分的影响。<sup class="fnref">10</sup></p>
+
+    <p>另一种对理性的偏离，在于「决意不去做某事、事后却又做了」之间的不一致（这种情形下，或可说此人「经不住诱惑」）。埃尔斯特（<span class="lat">Elster</span>, 1979）描述过这类情形——人们为免经不住诱惑，会预先自我约束（<span class="lat">precommit</span>）。这些情形，一如可由层级化结构来解释的那些选择一样，看来选择或许更宜设想为「自我之诸成分的某种组织」之结果，而非「效用的简单最大化」之结果。</p>
+
+    <p>除了「个体如何有目的地行动」之刻画的不同，除了「意图理性行动时偏离客观最优」的种种偏差之外，还有一些行动，似乎更宜描述为表达性的或冲动的（即心中并无目标）——它们导向行动者并不偏好的结果，甚至可描述为弄巧成拙、自败其事。前文谈过的「挫折—攻击」假说，以及涂尔干关于「社会情境作用于心理状态而导致自杀」的理论，都是想捕捉这一类行动。尽管我将在第十八章论证：作为革命理论之构件，「挫折—攻击」模型是不对的，但这并不是说挫折从不导向攻击。我们不必表态赞成或反对「这类行动能否被重新表述得与目的或理性相容」，也须承认：某些行动，最直截了当的描述就是不涉目的的那种。</p>
+
+    <p>还有一种反对「以有目的行动为社会理论之基」的意见，针对的是任何行动理论对<span class="t">目的论<span class="en">teleology</span></span>的使用。「目的」概念是明白无误地目的论的：它以（所欲的或所意图的）未来状态、而非以在先的状态来解释当下状态；它导向以终极因（<span class="lat">final causes</span>）、而非以近因（<span class="lat">proximate causes</span>）为本的解释；它与科学中惯常的因果解释相悖。在别的学科里，目的论解释即便偶有用处，也只是充当中途站，是通往「消除目的论之理论」途中的中间点。<sup class="fnref">11</sup></p>
+
+    <p>面对上述种种对「有目的行动」概念本身、或对「效用最大化原理所给之狭义理性观」的偏离、例外与反对，我把它用作社会理论之基本构件，理由何在？这问题可分作两半：其一，为什么要用一种有目的行动的理论，而不用一种对个体行动不置可否的理论？其二，为什么要用经济学家所发展的那个狭隘而格外简单的刻画，即效用最大化？</p>
+
+    <p><span class="runin">为何采用一种有目的行动的理论？　<span class="en">Why Use a Theory of Purposive Action?</span></span>　反对在科学理论中使用目的论原理，大体是有道理的。不过有两条理由，使这一反对在本例中分量小得多。</p>
+
+    <p>第一，本书将提出的理论以方法论个人主义为特征，这一点使大半的反目的论理由失效。这里待解释的行动，处在比「目的被指定的那一层」更高的社会组织层级上。倘若不然——倘若理论是整体主义的，即停留在系统层面——那么在那一层引入目的论，就成了「用某成分为系统所履行的功能来解释该成分」。而这恰恰预设了本应被社会理论当作问题的东西：系统的整合与组织。这类解释（或曰「理论」），在社会科学里叫作功能主义（<span class="lat">functionalism</span>）；而功能主义解释，要承受针对目的论解释所提的一切反对。<sup class="fnref">12</sup></p>
+
+    <p>旨在解释个体行动的心理学理论，若是目的论的，便要承受同样的反对，因为在那项事业里，目的被引入来刻画「待解释的行动」本身，而非某个更低层面的行动。<sup class="fnref">13</sup> 心理学里用「奖赏」（<span class="lat">reward</span>）概念的理论便属此类——奖赏是按其功能来定义的，于是给出的解释至少有部分是循环的。但当被当作有目的的行动是个体的行动，而待解释的却是一个社会系统的行为——一种只极间接地源自个体行动的行为——时，对系统行为的解释便不是诉诸终极因，而是诉诸动力因（<span class="lat">efficient causes</span>）了。</p>
+
+    <p>第二条理由是说，一种立于个体层面、以目的论原理为本的有目的行动理论，对社会科学非但无害，反而可取；这缘于社会科学与其研究对象之间一种特别的关系。社会科学家本身是人，而他们研究的对象，正是人的行动。这意味着：任何别种人类行为理论，都会给理论家自己招来一个悖论。要看清这个悖论，最好设想有这么一套发展完备的人类行为理论——它不以有目的的行动为本，而以一个「个体目标或意图绝不进入其中」的因果框架为本。</p>
+
+    <p>譬如，想想那些把社会变迁奠基于技术变迁、或奠基于自然力的社会理论路数。倘若这样一种理论被当真，便意味着一种对未来的宿命论看法，其中人类是自然力摆布的卒子。还有一些理论并无个人主义的根基，而是把根基扎在宏观社会层面，把「在以个体有目的行动为本的理论中本属待解之物」的那个社会组织，当作既定前提领受下来。这类理论所提的行动之因，不是人的目标或意图，而是人之外的某些力、或人之内的无意识冲动。其结果是，这类理论除了描述那一波波卷过我们的变迁之潮外，别无所能；它们只配描摹一种不可抗拒的命运。在这些不受控制的外在或内在力量的摆布下，人无从有目的地塑造自己的命运。</p>
+
+    <p>悖论之所以生出，是因为这类理论意味着：理论本身——它本是有目的行动的产物——竟对未来的行动毫无作用。于是，按理论自身之言，任何有目的地运用该理论的尝试，都注定失败。更深一层的悖论，在于无目的理论所隐含的人之图像：既然这一构想里目的、目标、意志统统不得入内，它便与理论家本人的取向相抵触——而理论家恰恰把「发展出这样一套理论」立为自己的目标。凡此种种，都缘于理论的对象是人，其中也包括理论家与理论的使用者。</p>
+
+    <p>把社会理论奠基于个体的有目的行动，还有另一项与此密切相关的好处。在一类学术事业中——包括伦理学、道德哲学、政治哲学、经济学与法学——理论都奠基于「人是有目的、负责任的行动者」这一图像。<sup class="fnref">14</sup> 这些领域之间，存在着一种富有成效的相互交流，而大多数社会学家却被摒于其外，原因仅仅是社会学家不曾选择以同样的方式来奠定其理论工作。从康德到罗尔斯的道德哲学家，把工作奠基于「有目的、负责任的个体」之构想上；边沁、卢梭、密尔、洛克等政治哲学家亦然。某些理论家，如边沁与哈耶克，正因这一共通的概念基底，得以横跨上述所有领域。采用这一基底的社会理论，自能从这片共通地基所成就的思想对话中获益。</p>
+
+    <p>还有一点要紧的，是回应「个体并不总是理性行动」这一反对。这一点我不争辩，因为人显然有时自毁，有时其理性也大可怀疑。但我要说的是：既然社会科学家以理解为务——理解那源自个体行动的社会组织——而理解一个个体的行动，通常又意味着看出行动背后的理由，那么社会科学的理论目标就必得是：把那一行动设想成「从行动者的视角看是理性的」。或者换个说法：通常被描述为非理性或不理性的许多东西，之所以如此，仅仅是因为观察者尚未发现行动者的那个视角——从那个视角看，行动本是理性的。</p>
+
+    <p>于是，本书将取的立场是：一种以理性为本的社会理论，其成功在于一步步缩小那片「该理论无从交代的社会活动」之域。看待这种以理性行动者为本之理论的另一种方式是：明确它是为一组<em>抽象的</em>理性行动者而构造的；于是，「如此构造的理论能否映现牵涉真实之人的现实社会系统之运作」，便成了一个经验问题。</p>
+
+    <p><span class="runin">为何采用效用最大化？　<span class="en">Why Use Maximization of Utility?</span></span>　纵然接受「有目的的行动」为社会理论中恰当的个体行动原理，也并不就推出「把目的狭义地刻画为效用最大化」。首先我得说明：无论是本书第一至四编所展开之理论的定性形态，还是这一定性理论在研究中的运用，都不曾明引「效用最大化」之念。效用最大化的假定，仅在理论的定量发展（见第五编）中才是必需的——无论对数学建模，还是对运用这些模型的定量研究而言。尽管如此，把「这样一种狭义刻画何以对社会理论有价值」的两条理由在此说清，仍是有益的。</p>
+
+    <p>第一，把「有目的的行动」之所指弄精确，这样一种刻画便提供了更大的力量。凡是「指定某个量被最大化或最小化」的目的论原理，都比不那么明确的原理更有力。就那条目的论原理（见脚注 11）而言这是显然的：光从一个表面反射，会取「路径总长被最小化」的方式。此原理可对光在任何表面的反射角作精确预测：反射角将等于入射角，因为正是这个角使路径总长最小。这种「最小化或最大化原理」的预测力，在「待最小化或最大化之量」的测度不像上述物理例子那么明确无歧义时——效用即是如此——会有所削弱。<sup class="fnref">15</sup> 不过这增益的力量并未尽失，因为效用并不能任意、随性地变动；故而这一原理，确为它在其中发挥作用的那些理论，平添了更大的预测力。</p>
+
+    <p>赞成采用这一狭义「有目的行为」刻画的第二条理由，在于它的简单。对一个由三部分构成的社会理论——宏观—微观部分、个体行动部分、微观—宏观部分——来说，让个体行动这一部分保持简单尤为重要。这当然不是说，在同等简单程度上，对有目的行为的这一刻画就是最好的；但确乎如此的是：若要整套理论仍可驾驭，就必须在「另两个部分的复杂度」与「这一部分的复杂度」之间作权衡。我选择在心理学这一头尽量舍弃复杂，以便在理论的另两个部分——那「社会组织」的部分——引入更多的复杂。即便如此，正如第二章将表明的，这一行动原理一旦置于此处将用的情境中，便会生出好几种不同类型的行动，而这些不同类型的行动，又是不同种类社会组织的建筑构件。</p>
+
+    <h3 class="sub" id="sub-trans">宏观—微观与微观—宏观转换 <span class="en">The Macro-to-Micro and Micro-to-Macro Transitions</span></h3>
+
+    <p>所议这类社会理论另外两个部分——从宏观到微观、再返回宏观的转换正经由它们发生——可设想为「博弈的规则」：一些规则把个体行动的后果传递给别的个体，另一些规则则从个体行动的种种组合中导出宏观层面的结果。一套理论如何涵纳这一点，可借更深一层地考察「解释宏观现象的三段范式」来见得；该范式由第 1、2、3 类关系组成：宏观—微观转换、个体的有目的行动、微观—宏观转换。</p>
+
+    <p>对许多宏观层面的关系而言，这一范式恰好提供了贴切的意象。前文用过的「经济状况好转与革命之间的关系」即说明了这种贴切。但在另一些情形里，待在宏观层面解释的，并非「一个宏观变量（如经济状况之变化）与另一个宏观变量（如革命活动）之间的关系」；毋宁说，待解释的是一个宏观层面的<em>现象</em>本身。下面这个例子可作说明。</p>
+
+    <p>1720 年的英格兰，似有一种投机的疯狂感染了一部分人口。南海公司（<span class="lat">South Sea Company</span>）——它为与太平洋诸岛、与西属智利、墨西哥、秘鲁殖民地通商而设立（Mackay, 1932［1852］）——其股票的投机蔚然成风，一大批小股份公司也随之冒出。慢慢地，人们对公司董事、对公司成功之能力的信任被抽走，投机的泡沫终告破裂——尽管英格兰银行与英国政府为阻止此事多方出手。在此例中，待解释的，不是一个带自变量与因变量的宏观经验概括，而是 1720 年前后英格兰那场广泛股票投机的兴与衰。这是一个宏观层面的现象；理论的任务，是如图 1.2、图 1.3 所示，下探到个体行动的层面、再回升到宏观社会层面，以交代它。在此例中，解释或许由这样一个系统构成：微观层面的行动，它们的组合，这些组合所生的、影响后续微观行动的反馈，继之以进一步的组合，如此往复——遂造出投机的泡沫，又造出泡沫的破裂。</p>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · 南海泡沫</span>
+      南海泡沫（South Sea Bubble, 1720）是英国早期的一场股市狂热与崩盘。南海公司以承接国债、垄断对西属南美贸易为名，股价被推至高位后骤跌，殃及大批跟风设立的小公司，史称英国「泡沫法」（Bubble Act）出台的由头。科尔曼用它示范：要解释的不是「甲变量→乙变量」的宏观概括，而是「泡沫的鼓起与破裂」这一宏观现象本身——非得下到个体、再借反馈回环（个体行动→组合→反馈→再行动）上升不可。
+    </aside>
+
+    <p>这个例子说明了一种更普遍的情形：在那里，理论描述的是一个行动系统的运作，而三类关系在其中并不易于分离。这类解释系统虽兼涉个体层面的行动与系统层面的行为，却不宜设想为「把这三类关系串接起来」。像图 1.1、图 1.2 所描述的那种关系，通常最好看作宏观层面的经验概括——它们或可作为从某理论推演出的结论而被预测。而能把这类关系作为具体命题生成出来的理论，则可设想为：一套个体行动的理论，加上一套「这些行动如何在特定规则下组合而生出系统行为」的理论。</p>
+
+    <h3 class="sub" id="sub-interdep">行动的相互依赖 <span class="en">Interdependence of Actions</span></h3>
+
+    <p><span class="t">行动有种种组合方式<span class="en">interdependence of actions</span></span>以生出宏观层面的结果，把其中一些略加讨论是有益的。下面对「行动相互依赖」之诸形态的胪列，并不求穷尽。</p>
+
+    <p>一种简单的情形是：某一行动者的独立行动，把外部性（正的或负的）加诸他人，从而改变了他人所面对的激励结构。经典的「公地悲剧」（<span class="lat">tragedy of the commons</span>，见 Hardin, 1968）即一例——每个农户放牧自家的羊，都会减少留给别家农户之羊的草场。但同类的例子还有许多很不一样的。南海泡沫，或剧院失火可能引发的恐慌，也都例示着这一情形。</p>
+
+    <p>第二种情形是双边交换，如劳资谈判。由此而成的「系统」只由两个行动者构成，却有系统层面的结果：双方达成的交换协议或合同。</p>
+
+    <p>第三种情形，是把双边交换扩展为市场中的竞争结构。市场的结果——即价格与交易——取决于市场在其中运作的那套特定制度规则；因为正是这些规则，支配着行动者之间相互作用的形态（譬如暗标还是明标，有无再订约，定价者与受价者，物物交换，以计价物交换，等等）。（实验市场的结果，见 Plott and Smith, 1978 及 Smith, 1982。）</p>
+
+    <p>第四种情形，是集体决策或社会选择：其系统层面的结果，由个体的投票或其他偏好表达，经一条明确的决策规则加以组合，最终选定单一的备选项而得。</p>
+
+    <p>第五种情形，是构成「生产某种产品之正式组织」的那种相互依赖的行动结构。组织结构由一套规则与激励组成，它们生出种种不对称的相互依赖——这是双方交换所无从造就的。</p>
+
+    <p>第六种情形，是（经由某个尚不甚了了的过程）确立起一种集体权利，用以对某些行动者的行动施加社会控制——靠的是以制裁来执行的规范。这些规范一旦确立，便成为辅助性的「博弈规则」，由系统中的行动者或多或少地加以执行。</p>
+
+    <p>这几种「行动相互依赖」的形态，显示出微观—宏观转换发生方式之多种多样。其中某些情形里，宏观—微观转换已隐含在行动的相互依赖之中；另一些情形里却不然。譬如在市场中，「报价借以传遍系统」的信息流变化甚大。信息从宏观层面传向个体行动者，能大大影响他们所采的行动，从而影响系统的行为。更一般地说，任何大型系统中，信息都经由媒介传递，而这些媒介本身就是系统中的行动者，自有其利益。这便塑造了别的行动者所能得到之信息的数量与性质；不同的传播结构，会以不同的方式改动这些信息。</p>
+
+    <p>信息由宏观层面传向个体行动者时的这种变化，不过是宏观—微观转换种种可能变化中的一例。一般而言，一个人在其中行动的环境、或曰社会情境，会影响不同行动之相对收益的大小；而塑造这一社会情境的，正是宏观—微观转换。</p>
+
+    <div class="footnotes">
+      <h4>第二节 · 脚注</h4>
+      <ol>
+        <li value="5">关于规则在一种社会秩序中所起的作用，参见 Brennan and Buchanan, 1985, 第 1–18 页的讨论。</li>
+        <li value="6">正是这类社会模拟博弈的开发与运用，把我从先前那种涂尔干式的理论取向，引向了一种以有目的行动为本的取向。当时我清楚地觉得：无论是在制定博弈规则时，还是在观察这些规则于博弈过程中之后果时，一项朝着社会理论之发展方向推进的事业，正在其中发生。</li>
+        <li value="7">关于把二战前墨索里尼对埃塞俄比亚的冒险视为这样一种行动，参见 Lederer, 1940 的讨论。</li>
+        <li value="8">这一表述未顾及上一节所讨论的微观—宏观问题。个体的行动不仅取决于偏好或价值，也取决于环境所提供的机会与激励。资本主义的成长，正牵涉这些机会与激励的变化。</li>
+        <li value="9">譬如，人们在赛马投注中往往过度押注胜算渺茫的冷门，或宁愿去买一种奖额更大、期望值却低于另一种彩票的彩票。</li>
+        <li value="10">譬如，特沃斯基与卡尼曼（Tversky and Kahneman, 1981）用过这样一个实验情境：设美国正预备应对一场罕见疾病的爆发，预计将致约 600 人死亡。该假想情境的第一种说法是：若采用方案 A，将有 200 人获救；若采用方案 B，则有 1/3 的概率 600 人全数获救、2/3 的概率无人获救。你赞成哪个方案？第二种说法是：若采用方案 C，将有 400 人死亡；若采用方案 D，则有 1/3 的概率无人死亡、2/3 的概率 600 人全数死亡。你赞成哪个方案？在其实验中，二人表明：选方案 B 的人远少于选方案 A 的人，而选方案 C 的人又远少于选方案 D 的人——可第一、二两种说法所描述的情境其实完全相同。</li>
+        <li value="11">内格尔（Nagel）用过一个例子，关乎「光从一个表面反射时，反射角为何等于入射角」。一种目的论的解释是：反射之所以如此发生，是为使从光源到受体所行的总路程最短。这显然只是个表面的解释——倘若它还配称作解释的话。它并未回答「为什么路程应当最短」（除非以「勒夏特列最小作用原理」的某种推广来作答——而那是化学中所用的一条目的论原理，实则不过是在描述光之行为的一种规律性）。关于科学中目的论原理及其逻辑性质、其在科学理论中所扮角色的更详尽讨论，参见 Nagel, 1970。</li>
+        <li value="12">关于社会科学中功能分析的讨论，参见 Stinchcombe, 1968 与 Nagel, 1970。</li>
+        <li value="13">心理学里的一些工作提示：关键并不在于行动层级的差别，而在于「待解释的行动」与「目的所归属的行动」之间存在任何差别。譬如伯恩（Berne, 1964）表明，成人看似不理性的行为，可用幼年习得的理性反应来解释——那些反应在当年构成了对孩子之社会环境的理性应对。在这一解释中，目的论用于交代早年的行为（譬如孩子逃避惩罚、博取奖赏的目标）；但真正构成「对后来另一种社会情境中不理性之行动」之解释的，是这类行动的习得，以及「它们不易被遗忘」这一假定。</li>
+        <li value="14">在上述各学科中，有一个术语问题须在此点明。常常——尤其在哲学里——行动者被称为「agent」（施事者／能动者），并且确乎是行动的「施事者」。但「agent」一词在经济学与法学里另有用法。代理法（the law of agency）关乎委托人、代理人与第三方，而对代理的经济学分析则关乎委托人与代理人之间的关系。在法学与经济学的这些分支里，「代理人」明确是指「为他人（而非自己）之利益、代其行事」的行动者。由于本书要处理委托—代理关系的问题，我将把「代理人」（agent）一词限于这一含义；而用「行动者」（actor）一词来指采取行动的个体（或法人行动者）。于是，我所谓的「行动者」，相当于哲学家所说的「agent」。</li>
+        <li value="15">自然科学中亦有相似之例。勒夏特列的最小作用原理（Le Châtelier's principle of least effort）称：一个系统会以「使变化之效应最小化」的方式来回应任何变化；长期以来，它因「究竟何物被最小化」含糊不清而屡遭非议。尽管如此，化学仍沿用此原理，因为它在「提示物理系统如何回应外加作用」上有启发价值。（关于勒夏特列原理的讨论，参见 Glasstone, 1946。）</li>
+      </ol>
+    </div>
+
+    <h2 class="ch" id="sec-conceptions"><span class="chn">三</span>微观与宏观层次之关系的几种构想<span class="en">Conceptions of the Relations between Micro and Macro Levels</span></h2>
+
+    <p>在进入第二章、对理论本身作明确展开之前，我想在此指出：对「个体层面与系统层面之关系」的恰当构想，何以对社会研究举足轻重。</p>
+
+    <p>第一点观察是：好的社会史，能成功地完成微观与宏观层面之间的转换。一部好的社会史，若要确立譬如「加尔文宗教义之降临」与「西方资本主义经济之兴起」之间的因果联系，便不仅会展示教义如何传递给个体、继而影响其行为，还会展示这些行为如何被组合起来——亦即构成资本主义企业的那个社会组织如何成形。读罢这样的历史，读者对论证的性质便不再有疑：究竟所主张为加尔文宗之结果、并导向资本主义成长的，是工人行为的某种改变，是企业家行为的增多，是经理人更勤勉的行为，是这一切，还是别的什么。</p>
+
+    <p>但是，能像史家那样追溯某一具体事例中社会组织的发展，是一回事；就这类过程发展出概括，又是另一回事；而为宏观—微观、微观—宏观过程构造<em>模型</em>，则更是第三回事。十分清楚的是，在我所描述的那类情形里，必须为某种相互依赖建模，因为待解释的现象牵涉个体行动的相互依赖，而非仅仅是被加总的个体行为。</p>
+
+    <p>有一个与经济市场颇有相似、且已有些研究的领域，便是所谓的婚姻市场。人口学里有一个现象，叫作<span class="t">婚姻挤压<span class="en">marriage squeeze</span></span>。当出生率骤升时——譬如二战之后那样——出生在升幅前后或稍后的女性世代便面临一个难题：可供她们婚配的男性不够。男性所娶的女性，平均比自己小两岁。这意味着，1946 年出生女性的「正常」配偶，应是 1944 年前后出生的男性；可 1946 年这一世代庞大，1944 年这一世代却弱小。于是自 1960 年代中期起，女性遭遇了一场婚姻挤压：更多人终身不婚，更多人嫁给更年轻的男性、或离异丧偶的年长得多的男性。若出生率骤降，则会发生约略相反的情形——随后是男性的婚姻挤压。</p>
+
+    <p>难题在于：当出生率骤变造成婚姻挤压时，究竟什么会「松动」——即稀缺的男性将如何分配于过剩的女性之间——完全不清楚。（也不清楚还会出现别的什么效应：譬如大量适婚女性的存在会如何影响离婚率，又会如何影响性道德的标准。）<sup class="fnref">16</sup> 在世代规模有起伏时，「按年龄择偶配对」（<span class="lat">assortative mating by age</span>）缺乏一个模型，这意味着：人口学家想发展一种所谓「双性别人口模型」（<span class="lat">two-sex population model</span>）以推一个人口逐代向前演进的目标，一直受阻。</p>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · 婚姻市场 · 双性别模型</span>
+      此处科尔曼以婚姻市场作微观—宏观建模的范例：每人只持「自己」这一件商品、又受一夫一妻之约束，故无法靠调节数量来配平价值。所引盖尔—沙普利（Gale &amp; Shapley, 1962）的稳定匹配算法，与贝克尔（Becker）的婚姻经济学，正是把个体的偏好排序「上升」为系统层面之稳定配对的模型——也即注 17 所举医院—住院医师匹配（后来的诺奖工作）的同源思路。
+    </aside>
+
+    <p>显然，婚姻可看作发生在一种市场里，但这是相当特殊的市场：每个行动者只有一件商品——他自己或她自己——可供易换，而交换比率又受一夫一妻之约束的支配，这一约束使人无法靠调节数量来达成等值交换。婚姻市场中微观—宏观转换的模型已经发展出来，关于特定匹配算法之稳定性的定理也已有之（见 Gale and Shapley, 1962；Becker, 1973, 1974；Schoen, 1983；以及 Roth 1984a, 1985a）。于是，一个开端已经有了——但也仅仅是一个开端——向着解决人口学家的婚姻挤压难题、向着促成一个双性别人口模型迈进。<sup class="fnref">17</sup></p>
+
+    <p>在本章中，我考察了在我看来社会科学中的理论应有的结构。本章构成了对本书将提出之理论的背景交代与理据。从第二章起，我将以定性的、文字的形式着手铺陈这一理论，并将这项工作贯穿于第一至四编其余各章。</p>
+
+    <div class="footnotes">
+      <h4>第三节 · 脚注</h4>
+      <ol>
+        <li value="16">在《女人太多？》（Too Many Women?, 1983）一书中，古滕塔格与塞科德（Guttentag and Secord）论证说，这样的时期会使施于女性的性行为标准趋于松弛。</li>
+        <li value="17">有一个例子，显示出在匹配市场中关联微观与宏观层面的模型确实可行，那就是医学院毕业生与医院之间为住院医师培训而进行匹配的程序。医院为其住院医师职位提交首选、次选等次序名单，申请者则提交对医院的排序选择。一套自 1957 年起沿用的计算机算法，把医院与申请者匹配起来。该算法构成一个匹配过程，而这一过程的一条稳定性定理已获证明：在假定偏好次序未发生变化的前提下，不存在某位住院医师与某家医院彼此更属意对方、甚于各自已匹配到的医院与住院医师（见 Roth, 1984b）。</li>
+      </ol>
+    </div>
+
+    <div class="continue">
+      <b>第一章（元理论）译毕。</b><br>
+      下一步：第二章《行动者与资源，利益与控制》（Actors and Resources, Interest and Control）——本书正式展开理论的起点，引入「行动者—资源—利益—控制」的基本要素，并从中长出几种基本的行动类型。<br>
+      译丛各章共用同一套 §0 术语对照表；新章译毕将续接于<a href="/assets/html/foundations-of-social-theory.html">分章目次</a>。
+    </div>
+
+  </article>
+
+  <footer class="foot">
+    Coleman, James S. “Metatheory: Explanation in Social Science.” Chap. 1 in <i>Foundations of Social Theory</i>, 1–23. Cambridge, MA: The Belknap Press of Harvard University Press, 1990.<br>
+    本中译本供学术研读之用 · 术语依 §0 对照表统一 · 图 1.1–1.3 据原书线条图原生重绘。<br>
+    译自 <a href="https://github.com/andrehuang/scholarly-translation-skill">scholarly-translation</a> skill · 归属 <a class="muted" href="https://andrehuang.github.io/projects/social-theory-translations/">社会理论译丛</a> · 全书目次见 <a class="muted" href="/assets/html/foundations-of-social-theory.html">《社会理论的基础》</a>。
+  </footer>
+
+</div>
+<button id="to-top" aria-label="回到顶部">↑</button>
+<script>
+  (function(){
+    document.querySelectorAll('.footnotes li').forEach(function(li){ li.id = 'fn-' + li.value; });
+    var tip = document.createElement('div'); tip.id = 'fn-tooltip'; document.body.appendChild(tip);
+    function hide(){ tip.style.display='none'; }
+    document.querySelectorAll('sup.fnref').forEach(function(ref){
+      var n = ref.textContent.replace(/[^0-9]/g,'');
+      if(!n) return;
+      if(!ref.querySelector('a')){
+        var a=document.createElement('a'); a.href='#fn-'+n; a.textContent=ref.textContent;
+        ref.textContent=''; ref.appendChild(a);
+      }
+      ref.addEventListener('mouseenter', function(){
+        var li=document.getElementById('fn-'+n); if(!li) return;
+        tip.innerHTML='<b>注 '+n+'　</b>'+li.innerHTML;
+        tip.style.display='block';
+        var tw=Math.min(360, window.innerWidth-32); tip.style.width=tw+'px';
+        var r=ref.getBoundingClientRect();
+        var left=Math.min(Math.max(12, r.left), window.innerWidth-tw-12);
+        var top=r.bottom+8, th=tip.offsetHeight;
+        if(top+th>window.innerHeight-12 && r.top-8-th>12){ top=r.top-8-th; }
+        tip.style.left=left+'px'; tip.style.top=top+'px';
+      });
+      ref.addEventListener('mouseleave', hide);
+    });
+    tip.addEventListener('mouseenter', function(){ tip.style.display='block'; });
+    tip.addEventListener('mouseleave', hide);
+    var btn=document.getElementById('to-top');
+    window.addEventListener('scroll', function(){ btn.style.display = window.scrollY>700 ? 'flex':'none'; });
+    btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  })();
+</script>
+</body>
+</html>
