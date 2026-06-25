@@ -21,6 +21,7 @@ _styles: >
 
 ### 动态
 
+- *2026.06.25* · 把《[组织与市场的涌现](/assets/html/emergence-of-organizations-and-markets.html)》（Padgett &amp; Powell, 2012）扩为多章选译：新设全书选译主页，并译出第九章「[共产主义经济改革的政治：苏联与中国](/assets/html/communist-economic-reform.html)」（帕吉特独撰）——以「双重科层＋自催化」框架比较斯大林、赫鲁晓夫、毛、邓、戈尔巴乔夫五人的改革，解释同一副结构何以在中国翻转成市场、在苏联走向解体；含 5 幅示意图与 181 条脚注。
 - *2026.06.25* · 《社会理论的基础》第二章「[行动者与资源，利益与控制](/assets/html/foundations-ch02.html)」译毕——立起全书的基本要素与那张「社会行动结构地图」（图 2.2，忠实提取＋中英对照图例）。
 - *2026.06.25* · 启动多卷本《[社会理论的基础](/assets/html/foundations-of-social-theory.html)》（Coleman, 1990）的分章翻译——全书五编、二十五章，每章独立成页；第一章「[元理论：社会科学中的解释](/assets/html/foundations-ch01.html)」已译毕，并含原书三幅「科尔曼之舟」示意图的重绘。
 - *2026.06.25* · 第二篇《[涌现问题](/assets/html/problem-of-emergence.html)》（Padgett &amp; Powell, 2012，全书第一章）全文译毕——含 15 幅示意图与 37 条脚注。
@@ -61,8 +62,8 @@ _styles: >
 **John Padgett & Christopher Ansell — *“Robust Action and the Rise of the Medici”*（AJS, 1993）** · <span style="color:#977028;font-weight:600;">已完成 ↓</span><br>
 一个具体法人行动者的诞生。这里的 corporate actor 是结构的产物，而非意图的产物，且往往不可读：美第奇党在婚姻、生意、庇护几张只半相叠的网的交口上，靠一再多义、读不透的 robust action 慢慢结块；其成员当时谁也说不清这是不是一盘统一的棋。模糊、缓慢、不可读、由结构而非意图推动——恰是 Searle 那条路的背面。
 
-**John Padgett & Walter Powell — *The Emergence of Organizations and Markets*（2012）** · <span style="color:#977028;font-weight:600;">已完成 ↓</span><br>
-群体成为实体，是一种新组织形态的涌现（genesis）：它从亲属、经济、政治多重网络的交叠与外溢中长出，靠把一处的关系做法挪到另一处（transposition）而生出新用，又在网络转为自我再生产（autocatalysis 自催化）时穿过成员更替而留存。生成、长时段、跨域重组——它问的是新行动者从何冒出，而非谁能存活。
+**John Padgett & Walter Powell — *[The Emergence of Organizations and Markets](/assets/html/emergence-of-organizations-and-markets.html)*（2012）** · <span style="color:#977028;font-weight:600;">选译 · 已译 2 章 ↓</span><br>
+群体成为实体，是一种新组织形态的涌现（genesis）：它从亲属、经济、政治多重网络的交叠与外溢中长出，靠把一处的关系做法挪到另一处（transposition）而生出新用，又在网络转为自我再生产（autocatalysis 自催化）时穿过成员更替而留存。生成、长时段、跨域重组——它问的是新行动者从何冒出，而非谁能存活。因其余各章多为经验个案，本书[择要选译](/assets/html/emergence-of-organizations-and-markets.html)：已译理论总纲（第一章）与苏中改革比较（第九章）。
 
 ### 术语对照表
 
@@ -93,13 +94,13 @@ _styles: >
 
 本主题的原点之作。科尔曼以个体的目的性行动为起点，沿微观—宏观转换一路上行，并在第三编正面把 corporate actor（法人行动者）理论化——也正因如此，他点出了这条上行之路的空缺。因卷帙浩大，本书分章翻译、每章独立成页，各章共用同一套 §0 术语表：第一章[元理论：社会科学中的解释](/assets/html/foundations-ch01.html)（含「科尔曼之舟」三图重绘），第二章[行动者与资源，利益与控制](/assets/html/foundations-ch02.html)（含全书纲领「社会行动结构地图」）。[分章目次与进度 →](/assets/html/foundations-of-social-theory.html)
 
-#### [《涌现问题》](/assets/html/problem-of-emergence.html)
+#### [《组织与市场的涌现》· 选译](/assets/html/emergence-of-organizations-and-markets.html)
 
-*Padgett &amp; Powell, “The Problem of Emergence,” in The Emergence of Organizations and Markets (Princeton: Princeton University Press, 2012), 1–28.*
+*John F. Padgett &amp; Walter W. Powell, eds., The Emergence of Organizations and Markets. Princeton: Princeton University Press, 2012.*
 
-*2026.06.25 · 全文译毕*
+*2026.06.25 · 选译进行中 · 已译第一、第九两章*
 
-全书唯一的纯理论章，也是结构这一极上视野最长的一篇。它奠定全书「自催化＋多重网络」的框架：新组织形态如何作为一种涌现（genesis 发生），从亲属、经济、政治多重网络的交叠与外溢中长出，靠把一处的关系做法挪到另一处（transposition 移植）而生出新用，并在网络转入自我再生产（autocatalysis 自催化）后穿过成员更替而存续；书中归纳出八种组织发生机制，从文艺复兴佛罗伦萨直贯邓小平的改革。完整校勘本含 §0 术语表、15 幅按原书摹出的「发生／催化」示意图、37 条悬停脚注，以及关于梳毛工起义、法人（corpus）、退火等的校注。[阅读全文 →](/assets/html/problem-of-emergence.html)
+结构这一极上视野最长的一部。全书以「自催化＋多重网络」为框架，追问新组织形态如何作为一种涌现（genesis 发生），从亲属、经济、政治多重网络的交叠与外溢中长出。因其余各章多为经验个案，本书取选译之策、择要译出，每章独立成页：第一章[涌现问题](/assets/html/problem-of-emergence.html)立起全书理论骨架与八种组织发生机制（含 §0 术语表、15 幅「发生／催化」示意图、37 注，及梳毛工起义、法人 corpus、退火等校注）；第九章[共产主义经济改革的政治：苏联与中国](/assets/html/communist-economic-reform.html)由帕吉特独撰，以同一框架比较斯大林、赫鲁晓夫、毛、邓、戈尔巴乔夫的改革，解释了同一副「双重科层」为何在中国翻转成市场、在苏联却走向解体（含 5 幅示意图、181 条脚注，及关于官职名录制、家庭圈子、突击、blat/tolkach 等的校注）。[全书选译目次 →](/assets/html/emergence-of-organizations-and-markets.html)
 
 #### [《稳健行动与美第奇家族的崛起，1400–1434》](/assets/html/robust-action-medici.html)
 
