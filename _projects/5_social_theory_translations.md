@@ -21,6 +21,7 @@ _styles: >
 
 ### 动态
 
+- *2026.06.25* · 启动多卷本《[社会理论的基础](/assets/html/foundations-of-social-theory.html)》（Coleman, 1990）的分章翻译——全书五编、二十五章，每章独立成页；第一章「[元理论：社会科学中的解释](/assets/html/foundations-ch01.html)」已译毕，并含原书三幅「科尔曼之舟」示意图的重绘。
 - *2026.06.25* · 第二篇《[涌现问题](/assets/html/problem-of-emergence.html)》（Padgett &amp; Powell, 2012，全书第一章）全文译毕——含 15 幅示意图与 37 条脚注。
 - *2026.06.24* · 首篇《[稳健行动与美第奇家族的崛起](/assets/html/robust-action-medici.html)》（Padgett &amp; Ansell, 1993）全文译毕，译丛上线。
 
@@ -50,8 +51,8 @@ _styles: >
 
 这四家，是对同一个问题的四种答法。从最可读、最有意图、最瞬时的一端（Searle 的声明时刻），排到最不可读、最结构、最缓慢的另一端（Padgett 笔下那场安静的凝结）；Coleman 框住全局，两部 Padgett 锚住结构这一极。
 
-**James Coleman — *Foundations of Social Theory*（1990）** · <span style="color:#7a2b25;">计划中</span><br>
-群体成为实体，是那条最难的微观→宏观上行之路的极端形态：不是个体行动汇成一个宏观统计量，而是结晶出一种全新范畴的存在——corporate actor，它能换人而存续、能持有资源、能与自然人不对称地博弈。这是把「成为实体」立为问题、立为范畴的一路；他点出了空缺，却把法人当作外来的既成之物搬了进来。
+**James Coleman — *[Foundations of Social Theory](/assets/html/foundations-of-social-theory.html)*（1990）** · <span style="color:#977028;font-weight:600;">进行中 · 分章翻译（已译 1/25 章）↓</span><br>
+群体成为实体，是那条最难的微观→宏观上行之路的极端形态：不是个体行动汇成一个宏观统计量，而是结晶出一种全新范畴的存在——corporate actor，它能换人而存续、能持有资源、能与自然人不对称地博弈。这是把「成为实体」立为问题、立为范畴的一路；他点出了空缺，却把法人当作外来的既成之物搬了进来。因卷帙浩大（五编二十五章），本书[分章翻译、每章独立成页](/assets/html/foundations-of-social-theory.html)。
 
 **John Searle — *The Construction of Social Reality*（1995）/ *Making the Social World*（2010）** · <span style="color:#7a2b25;">计划中</span><br>
 群体凭一句构成性的话成为实体：有人宣告「我们就此结为 X」，这宣告一旦被集体接住（uptake），整套权利义务（deontic powers）随之点亮，实体便算数。声明式、瞬时、可读——诞生有一个分明的语言时刻。
@@ -82,6 +83,14 @@ _styles: >
 ### 译本
 
 按时间倒序，每一部独立成页。
+
+#### [《社会理论的基础》· 分章进行中](/assets/html/foundations-of-social-theory.html)
+
+*James S. Coleman, Foundations of Social Theory. Cambridge, MA: The Belknap Press of Harvard University Press, 1990.*
+
+*2026.06.25 起 · 第一章「元理论」译毕（全书五编二十五章，逐章推进）*
+
+本主题的原点之作。科尔曼以个体的目的性行动为起点，沿微观—宏观转换一路上行，并在第三编正面把 corporate actor（法人行动者）理论化——也正因如此，他点出了这条上行之路的空缺。因卷帙浩大，本书分章翻译、每章独立成页，各章共用同一套 §0 术语表；首章为[元理论：社会科学中的解释](/assets/html/foundations-ch01.html)，含原书三幅「科尔曼之舟」示意图的重绘与全部脚注、校注。[分章目次与进度 →](/assets/html/foundations-of-social-theory.html)
 
 #### [《涌现问题》](/assets/html/problem-of-emergence.html)
 
