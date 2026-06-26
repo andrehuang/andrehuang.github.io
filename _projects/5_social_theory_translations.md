@@ -21,6 +21,7 @@ _styles: >
 
 ### 动态
 
+- *2026.06.26* · 《社会理论的基础》第二十章「[自然人与新型法人行动者](/assets/html/foundations-ch20.html)」译毕（跳译至第四编「现代社会」）——追溯 corporate actor 自罗马法 universitas、中世纪 Genossenschaft 到现代公司的兴起，借「国王的两个身体／单体法人」厘清法人与自然人之别，区分人—人、人—法人、法人—法人三类互动（表 20.1、图 20.1），并指出法人行动者得以不对称地利用自然人的「意志薄弱」。
 - *2026.06.25* · 把《[组织与市场的涌现](/assets/html/emergence-of-organizations-and-markets.html)》（Padgett &amp; Powell, 2012）扩为多章选译：新设全书选译主页，并译出第九章「[共产主义经济改革的政治：苏联与中国](/assets/html/communist-economic-reform.html)」（帕吉特独撰）——以「双重科层＋自催化」框架比较斯大林、赫鲁晓夫、毛、邓、戈尔巴乔夫五人的改革，解释同一副结构何以在中国翻转成市场、在苏联走向解体；含 5 幅示意图与 181 条脚注。
 - *2026.06.25* · 《社会理论的基础》第二章「[行动者与资源，利益与控制](/assets/html/foundations-ch02.html)」译毕——立起全书的基本要素与那张「社会行动结构地图」（图 2.2，忠实提取＋中英对照图例）。
 - *2026.06.25* · 启动多卷本《[社会理论的基础](/assets/html/foundations-of-social-theory.html)》（Coleman, 1990）的分章翻译——全书五编、二十五章，每章独立成页；第一章「[元理论：社会科学中的解释](/assets/html/foundations-ch01.html)」已译毕，并含原书三幅「科尔曼之舟」示意图的重绘。
@@ -53,7 +54,7 @@ _styles: >
 
 这四家，是对同一个问题的四种答法。从最可读、最有意图、最瞬时的一端（Searle 的声明时刻），排到最不可读、最结构、最缓慢的另一端（Padgett 笔下那场安静的凝结）；Coleman 框住全局，两部 Padgett 锚住结构这一极。
 
-**James Coleman — *[Foundations of Social Theory](/assets/html/foundations-of-social-theory.html)*（1990）** · <span style="color:#977028;font-weight:600;">进行中 · 分章翻译（已译 2/25 章）↓</span><br>
+**James Coleman — *[Foundations of Social Theory](/assets/html/foundations-of-social-theory.html)*（1990）** · <span style="color:#977028;font-weight:600;">进行中 · 分章翻译（已译 3/25 章）↓</span><br>
 群体成为实体，是那条最难的微观→宏观上行之路的极端形态：不是个体行动汇成一个宏观统计量，而是结晶出一种全新范畴的存在——corporate actor，它能换人而存续、能持有资源、能与自然人不对称地博弈。这是把「成为实体」立为问题、立为范畴的一路；他点出了空缺，却把法人当作外来的既成之物搬了进来。因卷帙浩大（五编二十五章），本书[分章翻译、每章独立成页](/assets/html/foundations-of-social-theory.html)。
 
 **John Searle — *The Construction of Social Reality*（1995）/ *Making the Social World*（2010）** · <span style="color:#7a2b25;">计划中</span><br>
@@ -90,9 +91,9 @@ _styles: >
 
 *James S. Coleman, Foundations of Social Theory. Cambridge, MA: The Belknap Press of Harvard University Press, 1990.*
 
-*2026.06.25 起 · 已译第一、二章（全书五编二十五章，逐章推进）*
+*2026.06.25 起 · 已译第一、二、二十章（全书五编二十五章，逐章推进）*
 
-本主题的原点之作。科尔曼以个体的目的性行动为起点，沿微观—宏观转换一路上行，并在第三编正面把 corporate actor（法人行动者）理论化——也正因如此，他点出了这条上行之路的空缺。因卷帙浩大，本书分章翻译、每章独立成页，各章共用同一套 §0 术语表：第一章[元理论：社会科学中的解释](/assets/html/foundations-ch01.html)（含「科尔曼之舟」三图重绘），第二章[行动者与资源，利益与控制](/assets/html/foundations-ch02.html)（含全书纲领「社会行动结构地图」）。[分章目次与进度 →](/assets/html/foundations-of-social-theory.html)
+本主题的原点之作。科尔曼以个体的目的性行动为起点，沿微观—宏观转换一路上行，并在第三编正面把 corporate actor（法人行动者）理论化——也正因如此，他点出了这条上行之路的空缺。因卷帙浩大，本书分章翻译、每章独立成页，各章共用同一套 §0 术语表：第一章[元理论：社会科学中的解释](/assets/html/foundations-ch01.html)（含「科尔曼之舟」三图重绘），第二章[行动者与资源，利益与控制](/assets/html/foundations-ch02.html)（含全书纲领「社会行动结构地图」），第二十章[自然人与新型法人行动者](/assets/html/foundations-ch20.html)（第四编，正面理论化 corporate actor 的兴起与人—法人互动类型）。[分章目次与进度 →](/assets/html/foundations-of-social-theory.html)
 
 #### [《组织与市场的涌现》· 选译](/assets/html/emergence-of-organizations-and-markets.html)
 

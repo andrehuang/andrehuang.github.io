@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社会理论的基础 · 第二十章 自然人与新型法人行动者 · 中译</title>
+<meta name="description" content="James S. Coleman《社会理论的基础》第二十章「自然人与新型法人行动者」的中英对照校勘本。属「社会理论译丛」。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ece8df; --paper-2:#e3dfd3; --panel:#e7e3d8;
+    --ink:#221d18; --ink-soft:#4a443b;
+    --porphyry:#7a2b25; --porphyry-soft:#9a463e;
+    --gild:#977028; --slate:#3f5560; --slate-soft:#5c727d;
+    --rule:#cdc6b7; --rule-soft:#dad4c6;
+  }
+  *{box-sizing:border-box;}
+  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  @media(prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 18% 8%, #f0ece3 0%, rgba(240,236,227,0) 40%),
+      radial-gradient(circle at 88% 92%, #e6e1d6 0%, rgba(230,225,214,0) 45%),
+      var(--paper);
+    color:var(--ink);
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;
+    font-weight:400; line-height:1.95; font-size:18px; letter-spacing:.01em;
+  }
+  .page{ max-width:1180px; margin:0 auto; padding:0 clamp(1.1rem,4vw,2.4rem); }
+  .masthead{ padding:clamp(2.2rem,7vw,4.4rem) 0 2.4rem; border-bottom:1px solid var(--rule); margin-bottom:2.8rem; position:relative; }
+  .series-nav{ font-family:"EB Garamond",serif; font-size:.84rem; letter-spacing:.04em; margin:0 0 1.6rem; color:var(--slate-soft); }
+  .series-nav a{ color:var(--slate); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:1px; }
+  .series-nav a:hover{ color:var(--porphyry); }
+  .eyebrow{ font-family:"EB Garamond",serif; font-size:.86rem; letter-spacing:.32em; text-transform:uppercase; color:var(--gild); margin:0 0 1.4rem; }
+  .masthead-grid{ display:flex; gap:2.4rem; align-items:flex-start; flex-wrap:wrap; }
+  .mark{ flex:0 0 auto; margin-top:.4rem; }
+  .mark svg{ display:block; width:104px; height:88px; }
+  .title-block{ flex:1 1 320px; min-width:0; }
+  h1.title{ font-weight:500; font-size:clamp(1.9rem,4.6vw,2.9rem); line-height:1.26; margin:0 0 .5rem; letter-spacing:.02em; }
+  h1.title .chno{ color:var(--gild); font-family:"EB Garamond",serif; font-style:italic; font-weight:400; font-size:.62em; display:block; margin-bottom:.3rem; letter-spacing:.06em; }
+  .title-en{ font-family:"EB Garamond",serif; font-style:italic; font-size:clamp(1.05rem,2.4vw,1.35rem); color:var(--ink-soft); margin:0 0 1.2rem; line-height:1.4; }
+  .byline{ font-size:.98rem; color:var(--ink-soft); line-height:1.7; }
+  .byline .src{ font-family:"EB Garamond",serif; font-style:italic; }
+  .byline b{ font-weight:500; color:var(--ink); }
+  .colophon{ background:var(--panel); border:1px solid var(--rule); border-left:3px solid var(--slate); padding:1.4rem 1.7rem; margin:0 0 3rem; font-size:.92rem; line-height:1.85; color:var(--ink-soft); border-radius:2px; }
+  .colophon h3{ margin:0 0 .7rem; font-size:.84rem; letter-spacing:.22em; text-transform:uppercase; color:var(--slate); font-weight:600; font-family:"Noto Sans SC",sans-serif; }
+  .colophon .legend{ display:flex; flex-wrap:wrap; gap:.5rem 1.6rem; margin-top:.8rem; }
+  .colophon .legend span{ display:inline-flex; align-items:center; gap:.45rem; font-size:.86rem; }
+  .swatch{ width:1.5em; height:.4em; border-radius:2px; display:inline-block; }
+  section.glossary{ margin:0 0 3.4rem; }
+  .sec-head{ display:flex; align-items:baseline; gap:.9rem; margin:0 0 1.3rem; }
+  .sec-num{ font-family:"EB Garamond",serif; font-size:1.1rem; color:var(--gild); letter-spacing:.06em; flex:0 0 auto; }
+  .sec-title{ font-size:1.18rem; font-weight:500; margin:0; letter-spacing:.04em; }
+  .sec-title small{ font-family:"EB Garamond",serif; font-style:italic; color:var(--ink-soft); font-weight:400; font-size:.8em; margin-left:.5em; }
+  .gloss-table{ width:100%; border-collapse:collapse; font-size:.92rem; }
+  .gloss-table th{ text-align:left; font-family:"Noto Sans SC",sans-serif; font-weight:500; font-size:.76rem; letter-spacing:.12em; text-transform:uppercase; color:var(--slate); border-bottom:1.5px solid var(--rule); padding:.5rem .7rem .55rem; white-space:nowrap; }
+  .gloss-table td{ padding:.62rem .7rem; border-bottom:1px solid var(--rule-soft); vertical-align:top; line-height:1.7; }
+  .gloss-table tr:hover td{ background:rgba(151,112,40,.05); }
+  .gloss-table .en{ font-family:"EB Garamond",serif; font-style:italic; color:var(--porphyry); }
+  .gloss-table .zh{ font-weight:500; white-space:nowrap; }
+  .gloss-table .note{ color:var(--ink-soft); font-size:.88rem; line-height:1.65; }
+  article.reading{ max-width:44rem; }
+  article.reading h2.ch{ font-size:clamp(1.45rem,3.4vw,1.9rem); font-weight:500; letter-spacing:.05em; margin:3.4rem 0 .4rem; padding-top:1.6rem; border-top:1px solid var(--rule); }
+  article.reading h2.ch:first-of-type{ margin-top:0; }
+  article.reading h2.ch .chn{ color:var(--gild); font-family:"EB Garamond",serif; font-style:italic; margin-right:.5rem; }
+  article.reading h2.ch .en{ display:block; font-family:"EB Garamond",serif; font-style:italic; font-weight:400; font-size:.6em; color:var(--ink-soft); letter-spacing:.04em; margin-top:.25rem; }
+  article.reading h3.sub{ font-size:1.12rem; font-weight:500; margin:2.4rem 0 .2rem; color:var(--porphyry); letter-spacing:.03em; }
+  article.reading h3.sub .en{ font-family:"EB Garamond",serif; font-style:italic; font-weight:400; font-size:.8em; color:var(--ink-soft); margin-left:.5em; }
+  article.reading p{ margin:0 0 1.35rem; text-align:justify; }
+  article.reading p.lead{ font-size:1.05rem; }
+  .runin{ font-family:"Noto Sans SC",sans-serif; font-weight:600; color:var(--slate); letter-spacing:.02em; }
+  .runin .en{ font-family:"EB Garamond",serif; font-style:italic; font-weight:500; color:var(--slate-soft); font-size:.86em; }
+  ol.props,ol.cases{ margin:0 0 1.35rem; padding-left:1.5rem; }
+  ol.props li,ol.cases li{ margin:.45rem 0; padding-left:.3rem; }
+  ol.episodes{ margin:0 0 1.35rem; padding-left:1.6rem; }
+  ol.episodes li{ margin:.5rem 0; padding-left:.3rem; }
+  .t{ border-bottom:1px dotted var(--porphyry-soft); }
+  .t .en{ font-family:"EB Garamond",serif; font-style:italic; color:var(--porphyry); font-size:.82em; margin-left:.12em; letter-spacing:.01em; }
+  .lat{ font-family:"EB Garamond",serif; font-style:italic; color:var(--ink-soft); }
+  sup.fnref{ font-family:"EB Garamond",serif; color:var(--porphyry); font-size:.72em; padding:0 .12em; cursor:pointer; font-style:normal; vertical-align:super; }
+  sup.fnref a{ color:var(--porphyry); text-decoration:none; }
+  sup.fnref a:hover{ text-decoration:underline; }
+  .jiaozhu{ background:linear-gradient(180deg,#e9ece9,#e4e8e6); border-left:2px solid var(--slate); padding:.85rem 1rem; margin:1.4rem 0; font-size:.84rem; line-height:1.7; color:var(--slate); font-family:"Noto Sans SC",sans-serif; border-radius:2px; }
+  .jiaozhu .tag{ display:block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--slate-soft); margin-bottom:.35rem; font-weight:500; }
+  .jiaozhu .lat{ color:var(--slate); }
+  @media(min-width:1080px){ .jiaozhu{ float:right; clear:right; width:16rem; margin:.35rem -17.6rem 1.1rem 0; } }
+  blockquote{ margin:1.5rem 0; padding:.4rem 0 .4rem 1.4rem; border-left:2px solid var(--gild); color:var(--ink-soft); font-size:.96rem; line-height:1.85; }
+  blockquote cite{ display:block; margin-top:.5rem; font-style:normal; font-size:.85rem; color:var(--slate); font-family:"EB Garamond",serif; }
+  blockquote cite::before{ content:"—— "; }
+  .footnotes{ margin:3rem 0 1rem; padding-top:1.4rem; border-top:1px solid var(--rule); font-size:.83rem; line-height:1.72; color:var(--ink-soft); }
+  .footnotes h4{ font-family:"Noto Sans SC",sans-serif; font-weight:500; font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--slate); margin:0 0 1rem; }
+  .footnotes ol{ margin:0; padding-left:1.6rem; }
+  .footnotes li{ margin:0 0 .7rem; padding-left:.3rem; scroll-margin-top:1rem; }
+  .footnotes li:target{ background:rgba(151,112,40,.14); border-radius:2px; }
+  .footnotes .lat{ color:var(--porphyry-soft); }
+  .continue{ margin:3.2rem 0 1rem; padding:1.5rem 1.7rem; background:var(--panel); border:1px dashed var(--rule); text-align:center; font-family:"Noto Sans SC",sans-serif; font-size:.92rem; color:var(--slate); border-radius:3px; line-height:1.8; }
+  .continue b{ color:var(--porphyry); font-weight:500; }
+  .continue a{ color:var(--porphyry); text-decoration:none; border-bottom:1px solid var(--rule); }
+  footer.foot{ margin-top:3rem; padding:2rem 0 3rem; border-top:1px solid var(--rule); font-size:.8rem; color:var(--slate); font-family:"Noto Sans SC",sans-serif; line-height:1.8; }
+  footer.foot a{ color:var(--porphyry); text-decoration:none; border-bottom:1px solid var(--rule); }
+  footer.foot a.muted{ color:var(--slate); }
+  @media(max-width:560px){ body{ font-size:16.5px; line-height:1.9; } .gloss-table .note{ display:none; } .gloss-table .zh,.gloss-table .en{ white-space:normal; } }
+  nav.toc{ margin:0 0 3rem; padding:1.3rem 1.6rem; background:linear-gradient(180deg,#e9e5da,#e4e0d4); border:1px solid var(--rule); border-radius:3px; columns:2; column-gap:2.4rem; }
+  nav.toc .toc-head{ column-span:all; font-family:"Noto Sans SC",sans-serif; font-weight:600; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:var(--slate); margin:0 0 .9rem; padding-bottom:.6rem; border-bottom:1px solid var(--rule); }
+  nav.toc .toc-head span{ font-family:"EB Garamond",serif; font-style:italic; text-transform:none; letter-spacing:.02em; color:var(--ink-soft); }
+  nav.toc ol{ list-style:none; margin:0; padding:0; }
+  nav.toc > ol > li{ margin:.32rem 0; break-inside:avoid; }
+  nav.toc ol ol{ padding-left:1.1rem; margin:.18rem 0 .35rem; }
+  nav.toc a{ color:var(--ink); text-decoration:none; font-size:.95rem; border-bottom:1px solid transparent; transition:border-color .15s,color .15s; }
+  nav.toc a:hover{ color:var(--porphyry); border-bottom-color:var(--porphyry-soft); }
+  nav.toc ol ol a{ font-size:.88rem; color:var(--ink-soft); }
+  @media(max-width:560px){ nav.toc{ columns:1; } }
+  figure.fig{ margin:2.2rem 0; padding:1.2rem 1rem .6rem; background:#fbfaf6; border:1px solid var(--rule); border-radius:3px; }
+  figure.fig svg{ display:block; width:100%; max-width:560px; height:auto; margin:0 auto; }
+  figure.fig img{ display:block; width:100%; max-width:520px; height:auto; margin:0 auto; border-radius:2px; }
+  figure.fig figcaption{ margin-top:.9rem; padding-top:.7rem; border-top:1px solid var(--rule-soft); font-family:"Noto Sans SC",sans-serif; font-size:.85rem; line-height:1.72; color:var(--ink-soft); }
+  figure.fig .fnum{ color:var(--porphyry); font-weight:600; margin-right:.4em; }
+  figure.fig .src-line{ display:inline-block; margin-top:.4rem; font-size:.8rem; color:var(--slate); }
+  table.dtable{ width:100%; border-collapse:collapse; font-size:.9rem; margin:1.6rem 0 .4rem; font-family:"Noto Sans SC",sans-serif; }
+  table.dtable caption{ caption-side:top; text-align:left; font-size:.92rem; font-weight:500; color:var(--ink); margin-bottom:.55rem; }
+  table.dtable caption .fnum{ color:var(--porphyry); font-weight:600; margin-right:.45em; }
+  table.dtable th,table.dtable td{ border:1px solid var(--rule); padding:.6rem .7rem; text-align:center; vertical-align:middle; }
+  table.dtable th{ font-weight:500; font-size:.78rem; letter-spacing:.03em; color:var(--slate); background:rgba(151,112,40,.05); }
+  table.dtable th .en,table.dtable td.rowhead .en{ display:block; font-family:"EB Garamond",serif; font-style:italic; font-size:.86em; color:var(--slate-soft); font-weight:400; }
+  table.dtable td.cell{ font-family:"EB Garamond",serif; font-size:1.05rem; color:var(--porphyry); }
+  table.dtable td.rowhead{ font-weight:500; color:var(--slate); background:rgba(151,112,40,.03); }
+  .tbl-note{ font-size:.82rem; color:var(--ink-soft); line-height:1.7; margin:.2rem 0 1.6rem; font-family:"Noto Sans SC",sans-serif; }
+  #fn-tooltip{ position:fixed; z-index:9999; display:none; background:#fbfaf6; color:var(--ink); border:1px solid var(--slate); border-left:3px solid var(--slate); box-shadow:0 8px 30px rgba(30,24,18,.18); padding:.75rem .95rem; border-radius:3px; font-family:"Noto Sans SC",sans-serif; font-size:.82rem; line-height:1.68; max-height:46vh; overflow:auto; }
+  #fn-tooltip b{ color:var(--porphyry); }
+  #fn-tooltip .lat{ color:var(--porphyry-soft); }
+  #to-top{ position:fixed; right:18px; bottom:18px; z-index:9998; display:none; width:44px; height:44px; align-items:center; justify-content:center; background:var(--porphyry); color:#f3efe6; border:none; border-radius:50%; cursor:pointer; box-shadow:0 4px 16px rgba(30,24,18,.28); font-size:1.1rem; }
+  #to-top:hover{ background:var(--porphyry-soft); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <p class="series-nav">
+      <a href="/assets/html/foundations-of-social-theory.html">← 《社会理论的基础》分章目次 · Foundations of Social Theory</a>
+    </p>
+    <p class="eyebrow">Foundations of Social Theory · 1990 · Part IV</p>
+    <div class="masthead-grid">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 120 100">
+          <g fill="none" stroke="#7a2b25" stroke-width="1.3" stroke-linecap="round">
+            <line x1="22" y1="30" x2="98" y2="30"/>
+            <line x1="22" y1="30" x2="40" y2="74"/>
+            <line x1="40" y1="74" x2="80" y2="74"/>
+            <line x1="80" y1="74" x2="98" y2="30"/>
+          </g>
+          <g fill="#977028">
+            <circle cx="22" cy="30" r="4"/><circle cx="98" cy="30" r="4"/>
+            <circle cx="40" cy="74" r="3.4"/><circle cx="80" cy="74" r="3.4"/>
+          </g>
+          <path d="M95 26 l6 4 -6 4 z" fill="#7a2b25"/>
+        </svg>
+      </div>
+      <div class="title-block">
+        <h1 class="title"><span class="chno">第二十章 · Chapter 20 · 第四编「现代社会」</span>自然人与新型法人行动者</h1>
+        <p class="title-en">Natural Persons and the New Corporate Actors</p>
+        <p class="byline">
+          <b>詹姆斯·S·科尔曼</b>(James S. Coleman)　芝加哥大学<br>
+          选自 <span class="src">Foundations of Social Theory</span>（《社会理论的基础》），第四编「现代社会」，第 531–552 页。
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="colophon">
+    <h3>译注体例</h3>
+    本译本为分章进行的学术性翻译，力求忠实与连贯。版式采用「校勘」格式以便研读：
+    <span style="color:var(--porphyry);font-weight:500;">关键术语</span>于首次出现时以赭红色标注英文原文；人名、拉丁文以斜体小字附原文；<span style="color:var(--slate);font-weight:500;">校注</span>置于右侧边栏（窄屏则内嵌）。表 20.1 原生重建为 HTML 表格；图 20.1（美国法人公司数的增长曲线）为数据图，据原书数据原生重绘为 SVG，附中英对照图注。脚注全部译出，置于各节末；正文中的<sup class="fnref" style="cursor:default">N</sup>可悬停查看。术语承前数章 §0 沿用。
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--porphyry)"></i>关键术语 / 英文原文</span>
+      <span><i class="swatch" style="background:var(--slate)"></i>校注 / 译者按</span>
+      <span><i class="swatch" style="background:var(--gild)"></i>序号 / 纹饰 / 长引文</span>
+    </div>
+  </div>
+
+  <nav class="toc" aria-label="目录">
+    <div class="toc-head">本章目录　<span>Contents</span></div>
+    <ol>
+      <li><a href="#sec-glossary">§0　关键术语对照表</a></li>
+      <li><a href="#sec-sovereignty">一　个体主权</a></li>
+      <li><a href="#sec-changing">二　主权观念的变迁</a></li>
+      <li><a href="#sec-emergence">三　法人行动者在社会组织与法律中的兴起</a></li>
+      <li><a href="#sec-examples">四　自然人与法人行动者互动举例</a></li>
+      <li><a href="#sec-types">五　涉及法人行动者与人的互动类型</a>
+        <ol>
+          <li><a href="#sub-type1">第一类互动</a></li>
+          <li><a href="#sub-type2">第二类互动</a></li>
+          <li><a href="#sub-type3">第三类互动</a></li>
+        </ol>
+      </li>
+      <li><a href="#sec-displacement">六　人造之物对自然的取代</a></li>
+    </ol>
+  </nav>
+
+  <section class="glossary" id="sec-glossary">
+    <div class="sec-head"><span class="sec-num">§ 0</span><h2 class="sec-title">关键术语对照表 <small>Glossary</small></h2></div>
+    <table class="gloss-table">
+      <thead><tr><th>英文术语</th><th>中文译法</th><th>简注</th></tr></thead>
+      <tbody>
+        <tr><td class="en">natural person</td><td class="zh">自然人</td><td class="note">血肉之躯的个人；与法人行动者相对。本章用「人」时即指此。</td></tr>
+        <tr><td class="en">corporate actor</td><td class="zh">法人行动者</td><td class="note">能作连贯、指向目标之行动的法人团体；由「位置」而非「人」构成。承前数章。</td></tr>
+        <tr><td class="en">individual sovereignty</td><td class="zh">个体主权</td><td class="note">权利与资源最初归于个人；法人行动者的主权由个人让渡而来。本书的价值前提。</td></tr>
+        <tr><td class="en">juristic / fictional person</td><td class="zh">法律人格 / 拟制人</td><td class="note">法律所设、可持有权利义务的「人」，未必是血肉之躯。</td></tr>
+        <tr><td class="en"><span class="lat">universitas</span></td><td class="zh">社团（罗马法）</td><td class="note">罗马法中的法人团体，作为拟制人受私法管辖。</td></tr>
+        <tr><td class="en"><span class="lat">Genossenschaft</span></td><td class="zh">合作社团 / 伙伴体</td><td class="note">基尔克之术语（Maitland 译为 fellowship）；中世纪自治的结社传统。</td></tr>
+        <tr><td class="en">corporation sole</td><td class="zh">单体法人</td><td class="note">仅由一人构成的法人；用以把「国王之为法人」与「国王之为个人」相区分。</td></tr>
+        <tr><td class="en">the king's two bodies</td><td class="zh">国王的两个身体</td><td class="note">自然之身（body natural）与政治之身（body politic）之分；后者无生老病死。</td></tr>
+        <tr><td class="en">perpetual succession</td><td class="zh">永续存续</td><td class="note">法人越过成员更替而保持同一；社团法人格的核心特征之一。</td></tr>
+        <tr><td class="en">agent / role</td><td class="zh">代理人 / 角色</td><td class="note">人作为法人行动者之代理人行事时所占的位置；本章批评角色理论抹平了二者之别。</td></tr>
+        <tr><td class="en">type 1 / 2 / 3 interaction</td><td class="zh">第一 / 二 / 三类互动</td><td class="note">人—人、人—法人、法人—法人三种两方互动（表 20.1）。</td></tr>
+        <tr><td class="en">weakness of will / willpower</td><td class="zh">意志薄弱 / 意志力</td><td class="note">短期利益压倒长期利益之倾向，及抵御它的能力；标准理性选择论无此位置。</td></tr>
+        <tr><td class="en">precommitment</td><td class="zh">预先承诺</td><td class="note">事先自缚以防日后屈从于短期诱惑（如零存整取、互助会）。</td></tr>
+        <tr><td class="en">short-term / long-term interests</td><td class="zh">短期 / 长期利益</td><td class="note">二者之冲突；法人行动者可不对称地利用人的意志薄弱。</td></tr>
+        <tr><td class="en">constructed / built environment</td><td class="zh">建构 / 建造的环境</td><td class="note">有目的造出的环境，逐步取代原生的自然环境（物理与社会两面）。</td></tr>
+        <tr><td class="en">rationalization</td><td class="zh">理性化</td><td class="note">韦伯之命题；本章「人造取代自然」之说与之相类。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <article class="reading">
+    <h2 class="ch" id="sec-sovereignty"><span class="chn">一</span>个体主权<span class="en">Individual Sovereignty</span></h2>
+
+    <p class="lead">本书大部分篇幅里，我设想的都是这样一个社会系统：一切权利与资源最初都由作为行动者的个人持有，事态的走向只由他们的利益来定夺。可在任何一个「人降生于其中」的、运转着的社会系统里，这一假定都不成立：大量权力其实驻留在<span class="t">法人行动者<span class="en">corporate actors</span></span>手中。于是看上去，本书的理论在对社会系统的设想上，似乎天真、或过分个人主义了。</p>
+
+    <p>然而两项指责都不对。本理论承认：在一个给定的社会系统里，很大一部分权利与资源、因而很大一部分<span class="t">主权<span class="en">sovereignty</span></span>，可能驻留在法人行动者手中。这一事实于人是利是害，要看法人行动者的行动如何由这些人的利益派生而来、或如何与之相隔绝。倘若本理论不把「权利与资源——因而主权——握于个人之手」当作概念上的起点，那就无从追问：这主权究竟如何从个人那里被让渡出去、转而由「未必对他们完全负责」的法人行动者持有。</p>
+
+    <p>当然，事情比这要复杂，不仅在经验上，也在概念上。如第三章、第十三章所论，一项权利唯有在「关于其归属的共识」形成之时才告存在。然而个人确有优先性，因为决定权利之初始归属的，是人的共识，而非法人行动者的共识。前几章的许多论述——尤其是关于权威的几章（第四、七章）——我都假定权利已然存在、且为个人所持有。这些假定使那几章里的分析得以进行，但要紧的是要认识到：权利源出于共识。</p>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · 何以从个人起步</span>
+      此处道出全书的「价值前提」：一切主权先验地归于个人，法人行动者的主权全是个人让渡的产物。这不是经验断言（现实里权力多在法人手中），而是一个<em>评价支点</em>——唯有把原点设在个人，才能反过来量度任一社会系统把个人的终极利益实现得如何，也才能追问「主权如何被法人攫走、法人是否对人负责」。在「群体如何成为实体」这一主题里，科尔曼正是<em>立于原点</em>者：他不急于讲机制，先把「成为实体」立成一个待评判的问题。</aside>
+
+    <p>撇开权利的归属不谈，还有「构造理论是为了什么」这一问题。社会科学家本身是人，他们构造理论是为了人的福祉；他们对法人行动者的关切，只是工具性的。法人行动者之值得存在，仅以其增进自然人的目的为限。因此，唯有在概念上从「一切主权都系于个人」这一点出发，才可能看清：任何一个现存的社会系统，把个人的终极利益实现得究竟如何。「个人是主权者」这一公设，为社会学家提供了一条评判社会系统之运作的途径。</p>
+
+    <p>不妨指出：上一段的第二、三句，明白地含着本书这一编在若干处将要用到的<em>核心价值前提</em>。这虽是一条小而孤立的价值前提，却能由它推出关于某些类型之社会系统的有力评判。</p>
+
+    <h2 class="ch" id="sec-changing"><span class="chn">二</span>主权观念的变迁<span class="en">Changing Conceptions of Sovereignty</span></h2>
+
+    <p>自十七世纪以来，围绕权利之起源兴起的大量哲学论争，对「为法律、以及与法律相洽的社会组织提供哲学基础」一事至关重要。若权利是神授予国王的（如早期君主制的设想），或授予教会的（如中世纪教会法），那么一切权利的尘世起源便都在国王或教会；除非明白地让与他人或团体，权利终将归还此源。若国家才是权利的原初所在（如罗马公法），那么一切个人与团体都得以「得自国家的让与」来为自己的权利主张作辩。若把共同体（民众）看作权利的原初承载者（如中欧的黑暗时代），那么个体便只能作为该共同体的成员才享有权利，根本不存在所谓个体自身的权利。</p>
+
+    <p>这场哲学论争所关涉的，不只是权利的法律地位，还有社会组织所采取的形态。在罗马法之下，法人团体实际上只是国家的从属机关，既不受私法管辖，也不被公法承认为独立实体。<sup class="fnref">1</sup></p>
+
+    <p>在法律上，围绕这几种「权利起源观」的最有趣、也许也最有文献可考的较量，发生在中欧，自十二世纪延至十九世纪。基尔克（<span class="lat">Gierke</span>, 1934［1913］）把德意志结社（<span class="t">合作社团<span class="en">Genossenschaft</span></span>，梅特兰译作 fellowship；见 Gierke, 1968［1900］）的源头，追溯到十二世纪以前的中世纪普通法。这类结社——一类是手工业者的行会，另一类是农庄共同体（<span class="lat">Markgemeinde</span>）——在封建时期并未全然消失，而是成了一个层级结构的一部分，居间斡旋于底层的个体与顶端的君主之间。中世纪的式微，伴随着这一居间结构之力量的衰退，以及权力向君主的漂移。与现实状况的这一变化相应的，是政治哲学、以及对现实之法律建构的变化。基尔克展示了：十五、十六世纪，随着罗马法在德意志被继受，一种新的国家观如何把 Genossenschaft 及其自主权利淹没——在这种国家观里，法人团体全然派生自国家，其权利由国家让与而得。</p>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · <span class="lat">Genossenschaft</span></span>
+      基尔克（Otto von Gierke）毕生之作，是为中世纪「自下而生」的结社传统正名：手工业行会、农庄共同体、宣誓结成的城市公社，本是凭成员彼此结盟而获自主权利的<em>伙伴体</em>（fellowship），而非君主恩赐的产物。这与译丛导读所说的 <span class="lat">universitas</span> / <span class="lat">coniuratio</span> 同源——「靠誓言黏起来的兄弟会」如何被钉成一个法律人格。科尔曼借基尔克点出本章的枢纽：现代公司最终从这层层嵌套的结构里<em>脱钩</em>，变成像自然人一样自由行动的实体。</aside>
+
+    <p>罗马法的引入，还带来了「法人团体」之念——即 <span class="t">社团<span class="en">universitas</span></span>，一个法律人格，尽管是个拟制的人格。「法人团体从国家领受权利、在国家之下不具自主、却作为拟制人受私法管辖」这一观念，在十七世纪之后，遇到了霍布斯的自然权利学说与卢梭的社会契约——在那里，权利全然出自个体，法人团体并无独立的存在。（不过霍布斯在个体把主权让与国家、即「利维坦」之后，又让法人团体回到「由国家让与、且全然派生于国家」的境地。）最后，在十七、十八、十九世纪，「法人团体之为法律人格」这一观念被重新构造，但这回它成了权利的自由主体，不再依赖国家的让与，也在任何意义上都不是国家的机关。它在存在这一事实之后仍需国家的认证，但自然人作为公民也同样需要认证。（我将用法律术语「<span class="t">自然人<span class="en">natural person</span></span>」，或在不致含混处径用「人」，来指血肉之躯；用「法人行动者」来指那些可视为「作出指向某一目标之连贯行动」的法人团体。）然而实际上，德意志的结社从未获得基尔克理论所设想的那种摆脱国家的自由。倒是在英格兰和美国，它们获得了摆脱国家的最大自由。</p>
+
+    <p>中世纪关于法人团体的种种观念，无论出自罗马法、德意志法还是英格兰普通法，都承认有一个「总的法人统一体」，而这些团体不过是它的部分。存在着一个固定的集体团体的层级——一个由共同体或结社层层嵌套而成的结构，正如基尔克（1968［1900］）与齐美尔（<span class="lat">Simmel</span>, 1950）所描述。后来在英、德法律中浮现出来的、本质上崭新的要素，是这样一种法人团体的存在：它独立而自由，不再是某个层级结构中的一环，而像真实的人那样，是其自身所择之任何行动的主体。现代公司从「结构中一个固定位置」上的这一<em>脱离</em>，代表了社会组织中最重要的发展。这一脱离，与更早的一次脱离相类——个体从「社会结构中一个固定位置」上的脱离——后者催生了「自然权利内在于主权个体」这一哲学论旨。</p>
+
+    <p>基尔克为权利发展出一种法律基础，它介于两端之间：一端是「一切权利都内在于单一实体」的一元论传统（无论那实体是有机体式的国家，还是专断的统治者），另一端是洛克的自然权利论（其中唯有个体享有主权权利）。基尔克在「德意志结社」与「十九世纪那种把公司视为享有法律权利之法律人格的理论」之间发现了一种对应，并试图据这些法律权利发展出一套社会理论。他的论旨是：自然权利内在于一切「人」之中——既包括自然人，也包括那些作为法律人格的法人行动者——因为人类既作为个体的人、又作为集体团体的部分而存在。因此，人理应在两种身份上都享有自然（或主权）权利：作为自然人，也作为法人团体的部分或成员。</p>
+
+    <p>从本书理论、乃至一般社会理论的角度看，这一论旨唯一的麻烦是：它堵死了某些问题的考察。既然自然人可以自由地加入或退出法人行动者、向其授予权利与资源或从其收回，那么理论家若把法人行动者连同个体一并当作起点，就会把以下问题排除在考察之外：个体如何作出这些选择，他们如何经由法人团体把自己关联于社会，以及这些团体如何构成个体行使其权利的载体。同样被排除在考察之外的，还有：当权利被授予法人行动者时它们如何诞生、又如何能因权利被收回而消亡——因为法人行动者确会诞生、确会变化、也确会死亡。</p>
+
+    <div class="footnotes">
+      <h4>第二节 · 脚注</h4>
+      <ol>
+        <li value="1">例如参见 Lewis, 1935, 第 48 页；以及 Mogi, 1935, 第 5 页。</li>
+      </ol>
+    </div>
+
+    <h2 class="ch" id="sec-emergence"><span class="chn">三</span>法人行动者在社会组织与法律中的兴起<span class="en">Emergence of Corporate Actors in Social Organization and Law</span></h2>
+
+    <p>由于法人团体不像自然人那样是物理实体，把法人团体当作行动者来对待，其重要性未必一望即知。因此，回顾一下过去几个世纪里法人团体作为行动者的兴起，是有益的。因为「发展一套带有这种结构的社会组织理论」，并非在任何时候、任何地方都恰当。</p>
+
+    <p>正如现代经济系统从早期社会里非正式的买卖与物物交换安排中发展而来，现代法律系统也从那些社会所特有的地方习俗、规则与程序中发展而来。这一类比并不完美，因为经济活动是在法律系统之内进行、并依赖于法律的。因此，若无法律的成文化，现代经济系统那种量化、系统的性格便无从存在。尽管如此，现代社会的法律系统与经济系统，确曾朝着成文化、可计算与精确的方向平行发展。</p>
+
+    <p>我强调这一发展，是因为它与社会科学的潜在发展相关。在原始经济里，至多只能发展出一套关于经济系统运作的原始而定性的理论。<sup class="fnref">2</sup> 交易随意，不依对价值的仔细计算而作；现代经济系统所内具的许多制度（譬如银行）尚不存在。因此，经济科学所能企及的最高状态，受限于「经济系统的具体现实所达到的复杂与可计算程度」。今天作为一门科学学科的经济学，映现着现实经济系统的复杂。它或许映现得并不充分，但那具体现实，为这门学科的发展提供了向导、也划定了界限。<sup class="fnref">3</sup> 而经济系统并非固定不变，而是始终处在变化的过程之中。</p>
+
+    <p>由此引出的一个意涵是：社会理论必须不断变化，即便在其成熟之后亦然。随着社会现实经由新组织形态的发明、新过程的发展而变化，社会理论也必须随之充实或改变。</p>
+
+    <p>就生物演化的漫长历程而言，作为科学学科的生物学原则上也处于同样的境地。关于光合作用一类生物过程的理论，不可能在那些过程本身经演化发展出来之前就出现。当然，实际上生物组织可被视为稳定的，因为相对于理论发展所覆盖的时间尺度，演化的移动实在太慢。然而社会组织并非如此：社会发明发生在与理论发展相同的时间尺度上。当这些发明使新结构、新过程成为可能时，理论就必须随之改变。<sup class="fnref">4</sup></p>
+
+    <p>正如经济系统的理性化为经济学的发展提供了向导，法律系统的理性化也理应为政治学与社会学的发展提供向导。对政治学的某些部分，它确实如此——譬如对政府的研究与对宪法的研究便密不可分地交织在一起。然而社会学家把自己的学科设想为行为性的，因而大体上忽略了法律。对社会学的某些分支（譬如人口学），这种忽略也许说得过去；但在对社会组织的研究中，它会引社会学家去无视「在一个特定社会里构成社会组织之核心」的那些结构与过程。</p>
+
+    <p>这方面的一个例证，见于波洛克与梅特兰（<span class="lat">Pollock and Maitland</span>, 1968［1898］）的下面这段话，它描述了十三世纪英格兰宪法的一个侧面：</p>
+
+    <blockquote>论及形形色色、境况各异的人，我们十三世纪的法律颇有可说；有许多类人，须视为法律所构成的类。在俗人中间，确乎已经到了这样的时候：有一类人，即自由而合法之人（<span class="lat">liberi et legales homines</span>），可当作普通的、寻常的、或许可以说正常的一类；而其余各类人，则或享有特权、或承受我们或可称为「例外」的种种不能。那自由而非贵族、已届成年、未因罪或恶而丧失任何权利的在俗英格兰人，是法律的典型之人、典型人格。但除这类人之外，世俗秩序之内还有贵族与非自由人；还有遁世如死的修士修女；还有自成一「等级」的教士；有犹太人，有外邦人；有被逐出教门者、不受法律保护者、以及丧失部分或全部公民权的已决重罪犯；我们或还可在此提及婴幼儿与女性（无论已婚未婚），尽管她们的境况更宜在家庭法中讨论；也许还该为疯人、痴愚者与麻风病人说上一句。最后，还有「法律人格」有待考量，因为法律已开始认识「公司」。<cite>波洛克与梅特兰《英格兰法律史》卷一，第 407 页</cite></blockquote>
+
+    <p>这段话点出了：在法律之下被算作不同、并与社会组织有着不同关系的，是哪些类的人。一套适用于十三世纪法兰西或德意志的社会组织理论，所需在不同等级之人之间作的区分，会比适用于英格兰的更多。但无论在英格兰还是在欧陆，当时不同的人都以不同的方式关联于社会组织。那一时期的法律既承认又细载了这些区分；一套切合那一时期的社会组织理论，就不得不利用这些分类所隐含的功能性区分。</p>
+
+    <p>一套切合现代西方社会的社会理论，在某些方面也许看似比切合中世纪的更简单。各等级已经消失，法律上区别对待各类人的种种区分也已消失、或几近消失。然而，这种表面的简化具有误导性，本章后文将会显明。社会组织里发展出了更高一层的复杂：非人格的法人行动者已蔚然繁盛，社会组织的很大一部分，就由这类行动者之间的关系构成。这些法人行动者不是由人、而是由位置构成的——这一事实使同一个自然人得以同时占据若干位置。这构成了对社会的一次根本重构；社会学里的<span class="t">角色理论<span class="en">role theory</span></span>（一种不适用于中世纪社会生活之组织的理论），正是这一新现实的反映。</p>
+
+    <p>从十三世纪到二十世纪间发生的社会组织之重构，其完整历史尚待书写。这一变化的初始要素在十三世纪即已在场，这一点由上文波洛克与梅特兰所提的「人之种类与境况」之一——以公司为形式的「法律人格」——可见一斑。</p>
+
+    <p>对「公司这一概念在法律中如何发展」有个感性的认识，是有益的。法律自然是在力图跟上现实社会组织中正在发生的变化。波洛克与梅特兰（1968［1898］）这样开启他们对公司的讨论：</p>
+
+    <blockquote>每一个达到一定成熟度的法律体系，似乎都被人类事务日增的复杂所迫，去创造一些并非「人」的人格——或者更确切地说（这或许是更真实的说法），去承认这样的人格已经、并且正在出现，并去规整他们的权利与义务。<cite>波洛克与梅特兰，卷一，第 486 页</cite></blockquote>
+
+    <p>「社会中除自然人或国家之外尚有其他要素」这一观念，最早清晰的发展，是在罗马法里作为 <span class="lat">universitas</span> 的概念出现的；但要到十三、十四世纪，欧陆与英格兰社会的组织才需要用到它。到那时，人们已在法人意义上、且独立于任何君主地行动，以致那行动可被看作并非「总和之行动」。从功能上说，整体之成其为整体，并不是<em>大于</em>、而是<em>不同于</em>其部分之和。</p>
+
+    <p>在某些地方，要在法律上被视为一个法人实体，需要国家颁发的特许状（<span class="lat">charter</span>），尽管这并非普遍。在某些法律体系里（如古罗马法），对法人团体的判决不能施加于构成它的个人身上，但这也并非处处如此。股份公司之设立法的历史，在这一原则上呈现出极大的参差。但随着法人之为人格越来越成为社会中一个独立的实体，法人责任与个人责任的分离，也越来越普遍、越来越明确。<sup class="fnref">5</sup></p>
+
+    <p>在回顾了「整体确实异于其部分而行动」的各种法人实体之后，波洛克与梅特兰（1968［1898］）描述了法律上「公司」的本质性质：</p>
+
+    <blockquote>事情的核心，似乎在于：为或多或少的种种目的，某个有组织的人群被当作一个单位来对待，这个单位拥有的权利与义务，不同于其全体成员、或其任一成员的权利与义务。对这一整体为真者，未必对其部分之和为真；对其部分之和为真者，亦未必对这一整体为真。譬如，公司可以拥有土地，而它的土地并不为「股东之和」所拥有；反过来，倘若全体股东都是某物的共有人，那么该物便不为公司所拥有。<cite>波洛克与梅特兰，卷一，第 488 页</cite></blockquote>
+
+    <p>在十二、十三、十四世纪德意志与英格兰「公司」概念的早期发展中，教堂扮演了重要角色。问题是这样产生的：一个地主在自己的地产上盖一座教堂，再把这教堂作为一种「借贷」交给神父。但他这么做，便放弃了对教堂所在那块地的某些权利，从而被视为仅仅是教堂的「赞助人」（<span class="lat">patron</span>）。神父作为教堂的代理人，不能被正当地视为这些权利的所有者，而只是其「现世监护人」。于是就有必要设想另一个行动者——既非教堂的赞助人、亦非神父——来持有这些权利。有一阵子，教堂所奉的那位圣徒被当作这个行动者。于是，教堂连同其所在之地，便独立于原先的所有者—赞助人，成了一位圣徒的财产，由神父充任现世监护人。既然圣徒已不在人世，那么再走一小步，便可把教堂设想为一个持有所有权的法人行动者了。而在任何社会系统里，这样的权利都带来责任、带来越界的可能，因而也带来「须把权利持有者同时视为行动之客体与主体」的必要。在教堂这件事上，这是慢慢成形的，但最终它们也能因侵害他人权利而被判罪。</p>
+
+    <p>另一些法人行动者，开始在十三世纪的英格兰发展起来——这就是自治市镇（<span class="lat">boroughs</span>），即由国王特许设立的共同体。这些共同体既成了行动的客体（常见于国王提起的诉讼中），又凭借对土地与通行税权的所有，成了行动的主体。与教堂的法人统一体不同（教堂的法人统一体是经由「教堂成为行动的主体（即财产所有者）」而开始发展的），地理性共同体走向法人地位，则始于它们成为行动的客体。梅特兰（<span class="lat">Maitland</span>, 1908）举了「百户区」（the hundred）如何走过这一程的例子——百户区是英格兰历史上一个重要的地理单位，却从未完全获得法人行动者的地位：</p>
+
+    <blockquote>依征服者之法，若发现有人被杀而凶手未被交出，则该百户区受罚金之罚，除非它能证明被杀者是英格兰人。在法律的一般施行中，百户区是一个重要的单位。它尤其在亨利二世所引入的陪审制中举足轻重。<cite>梅特兰（1908），第 46 页</cite></blockquote>
+
+    <p>这样，社会现实就赋予了地理性共同体以目的与行动的统一。然而，法律理论要追上现实——以权利与责任来界定法人行动者、并把它清楚地区分为一个法律人格、一个与其成员相分离的法律实体——却还要再过几个世纪。梅特兰也指出了英格兰的法律理论就自治市镇而言是如何发展的：</p>
+
+    <blockquote>到后世，自十五世纪起，我们能得出对自治市镇的法律定义：「公司」之念这时已被找到——一个法律人格，拥有与其成员之权利义务全然不同的权利与义务……不过，爱德华治下那些较大的市镇，实质上已经获得了后世律师视为法人统一体之必要的全部、或几乎全部的特征。这些特征有五：<span class="t" style="border:none">永续存续<span class="en">perpetual succession</span></span>之权，作为一个整体、以法人之名起诉与被诉之权，持有土地之权，使用共同印章之权，以及制定附则之权。<cite>梅特兰（1908），第 54 页</cite></blockquote>
+
+    <p>法律理论曾难以把「总和」、即共同体，与法人行动者区分开来。在一个共同体里，怀有共同利益的自然人可以彼此结盟，经由集体行动来共同护卫那一利益。但在一家公司里，被造出的是一个新实体，其利益与资源不同于那些使它得以存在的人。即便它作为一个独立实体须负责任，作为其创立者的自然人却未必须负责任。公司以其自有的资源作出统一的行动，而不仅仅是「把成员引入行动的某种集体意志或共同目的」之显现。这一区分，唯有经由自十三世纪迄今的法律论辩与法院判决才得以发展出来——这些论辩与判决，为那个自十三世纪开始浮现的新社会现象提供了规则。</p>
+    <p>法人行动者与自然人之别，也许在这样一种情形下看得最清楚：有一个单一的人，法人行动者可与之相认同——此人以两种身份行事。最好的例子是国王。<span class="t">单体法人<span class="en">corporation sole</span></span>（一个只由一人构成的法人实体）这一概念，正是为了能把他作为国王的行为同他作为个人的行为区分开来而发展出来的。<span class="t">国王的两个身体<span class="en">the king's two bodies</span></span>之说——自然之身（body natural）与政治之身（body politic）——在十五、十六、十七世纪逐渐确立，用以分开这两组行为（这是在「有地产的或教会的法人作为法律人格」确立之后的事）。</p>
+
+    <p>围绕国王的行为、以及「某一行为是否应视为政治之身的行为」这一问题，打过许多官司。例如，爱德华四世九岁时——按法律尚属未成年——曾封让兰开斯特公爵领地内的若干土地（<span class="lat">Kantorowitz</span>, 1957）。倘若以适用于自然人的法律来评判这一行为，它便不合法，因为国王尚未成年；但若把它视为国王之政治之身的行为，它就合法，因为政治之身无生无死，没有未成年、也没有体弱之说。于是浮现出「王冠（<span class="lat">the Crown</span>）即国王之政治之身」这一概念——一个独立而分离的人格，拥有自己的利益与资源。正是这一区分，使议会得以在 1642 年起而反抗作为肉身之人的查理一世，同时继续拥戴王冠。这一在法兰西并不存在的区分，使「国王可被处决而君主制依旧延续」成为可能。</p>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · 国王的两个身体</span>
+      此典出自康托洛维茨（Ernst Kantorowicz）名著《国王的两个身体》（1957）。其要旨：中世纪晚期的法学家为了让王权越过个别君主的生死而保持连续，把国王析为「自然之身」（会出生、衰老、犯错、死亡的肉身）与「政治之身」（不死、无未成年、承载王权与公共利益）。科尔曼借此说明<em>单体法人</em>的逻辑——一个仅由一人「充任」的法人行动者，其权利与利益并不随那个肉身之人转移。1649 年查理一世被送上断头台而英格兰的「王冠」依旧续存，正是这一概念区分在政治上的极端兑现。</aside>
+
+    <p>单体法人这一概念更清楚地表明：一个法人无需「一群人」站在它背后，它也不仅仅是诸人的代表。法人行动者这一概念的精髓，在于存在着一套独立的权利与责任、一套独立的资源与利益——它们既不能归派给某一个肉身之人，也不能在一群人之间分摊。正是法人行动者的这些属性，对社会组织的运作至关紧要（法律系统已然承认这一点），对社会理论中的「法人行动者」概念也至关紧要。</p>
+
+    <p>单体法人这一概念，还照亮了「含法人行动者的理论」与「<span class="t">角色理论<span class="en">role theory</span></span>」之间的鲜明对照。在单体法人概念浮现之际，法学家们正与一个真切的难题搏斗：同一个肉身之人可能作出某些行为，而这些行为若不归属于两个不同的行动者，法律便无从妥善处置。难题之所以产生，是因为作为肉身之人的国王具有任何肉身之人都有的属性（出生、死亡、体弱等等），而作为法人之人的国王却没有。于是，国王之行为的功能意义因「以两种身份中的哪一种作出」而不同——尽管这两种身份并不容易辨认。</p>
+
+    <p>同样，公司经理对其秘书所作的某一行为，其功能意义也随情形而异——看他是以「公司之<span class="t">代理人<span class="en">agent</span></span>」的身份行事（这时，在公司章程之内，他对秘书有某些发号施令之权），还是以「个人行动者」的身份行事（这时，唯有秘书把这种权利让与他，他才有）。在前一情形里，这是两个代理人之间的关系，公司明示与默示的组织规则规定了二者的权利与责任。这些代理人所占的位置可称为「角色」，角色理论能够描述它们之间的关系。然而，把这样一种「人作为法人行动者之代理人而行事」的情形，连同同样被贴上「角色」标签的那一堆性质各异的描述性词语（譬如懦夫、朋友、基督徒）一并归在「角色」名下，就抹掉了「个人行为」与「作为法人行动者之代理人的行为」之间的功能区分。如此一来，角色理论便无视了那些精心厘定、并被发现为「在社会运作中施行法律所必需」的法律区分。社会学家不能无视这些法律区分——单凭这一事实就够了：把某些实体当作法律之前的实体来对待，就使它们成为社会组织中实际运作的实体。而且犹有进者：法律之必须造出拟制人（即法人行动者），恰恰提示我们：一套妥当的社会组织理论，同样会发现自己非得动用这一抽象概念不可。</p>
+
+    <p>角色理论家也认识到了法律理论家所认识到的同一现象，即：同一个人可以在不同场合以不同身份行事，并带来功能上举足轻重的后果。然而，由于急于把全部社会组织一网打尽，又因为他们从不像法学家那样被迫依据自己的理论去行动，角色理论家就把这一认识本可提供的力量给抛掉了。值得一提的是：基本区分一旦被冲淡，角色理论家便不得不放弃「内在于『行动者』或『当事方』这一精确法学概念之中的利益」概念，并连带放弃了「利益冲突」的任何可能。既然角色没有利益，而不过像一个人在适当场合戴上的不同帽子，那么个体内部的「角色冲突」便无法被设想为社会中两个行动者之间的利益冲突。</p>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · 何以不取角色理论</span>
+      这是本章对主流社会学的一处关键交锋。角色理论把「人作为法人代理人」与「人作为某种类型的人」（懦夫、朋友、基督徒）统统装进「角色」一词，从而把<em>有利益的行动者</em>降格为<em>无利益的帽子</em>。代价是：一旦角色不再承载利益，「角色冲突」就只剩心理紧张，而无法被分析为「两个行动者之间的利益冲突」。科尔曼坚持用法学早已厘清的「行动者—代理人」之分，正是为了把利益、责任、以及利益冲突重新放回理论中心——这与全书「从个人利益出发评判社会系统」的取向一脉相承。</aside>
+
+    <p>因此，不必作严肃的实体化（reification），便可以说：社会中在功能上存在着两类人、或两类行动者，而本书的理论正是一套二者皆登场的行动理论。倘若有朝一日浮现出一种更新的社会组织形态——正如当下这一形态在过去几个世纪里浮现出来那样——本书的理论便不再适用。一切社会组织理论都必然依赖于实际存在的社会结构，本书的理论也不例外。法人行动者的发展意味着：自然人不再是「可言说彼此之间存在关系」的唯一社会单元。这一发展构成了一次社会激进重组的框架，而这一重组终于在发达国家蔚为普遍。然而，它最终也可能被另一种社会组织形态所取代——也许在那种形态里，自然人将更彻底地从「充当稳定的功能要素」这一必要中解脱出来。倘若社会组织真的发生这样的变化，那就势必要求法律与社会理论随之改变。</p>
+
+    <p>然而就眼下而言，一套关于有目的行动的社会理论，必须把自然人与法人团体双双当作其基本行动者，因为二者都具备行动者的本质属性：对资源与事件的控制，对资源与事件的利益，以及「凭这种控制采取行动以实现那些利益」的能力。</p>
+
+    <div class="footnotes">
+      <h4>第三节 · 脚注</h4>
+      <ol>
+        <li value="2">在另一处语境中，琼·罗宾逊（<span class="lat">Joan Robinson</span>, 1956）说：「把词的定义弄得比它们所指的实质更精确，并无好处（反倒多有谬误）」（第 236 页）。我们或可把这一点推广到活动的结构本身——在原始经济里，这些结构极其松散而随意。</li>
+        <li value="3">当然，当一个真实系统呈现出我所描述的那种松散耦合与高度随机的性格时，它在原则上也可以由一套「含有较大不确定性」的理论来映现。这样一套理论，会比映现一个更具确定性之系统的理论更为复杂。</li>
+        <li value="4">有些作者大做文章，强调社会学知识本身即是促成那一变化的要素之一。例如，默顿（<span class="lat">Merton</span>, 1968，第 183–184 页）指出，这在理论发展中造成了一个悖论：知识改变了理论本意要去映现的现实。但这一悖论只有在「把当下的社会理论视为固定不变」时才成立。弗里德里希斯（<span class="lat">Friedrichs</span>, 1972）主张，这种反馈使通常的科学探索成为不可能。然而只要社会理论本身被看作可变的，便不存在任何问题。</li>
+        <li value="5">在美国近来的一些法律裁决中，出现了一种向更早阶段回摆的动向——即在存在法人责任时设法找出个人责任：某些案件中高层管理者被判负责，另一些案件中公司董事被判负责（见第二十一章）。</li>
+      </ol>
+    </div>
+    <h2 class="ch" id="sec-examples"><span class="chn">四</span>自然人与法人行动者互动举例<span class="en">Examples of Interactions of Natural Persons and Corporate Actors</span></h2>
+
+    <p>几个互动的例子，可以显示法人行动者如何经由其代理人参与其中。看似发生在人与人之间的互动，未必真是如此。</p>
+
+    <p>当餐馆里的女侍者招待一位顾客、记下他点的菜、为他上菜时，她并非作为一个个体行动者在行事，而是作为餐馆——一个法人行动者——的代理人在行事。她递给顾客的菜单，并不是她作为个人行动者向顾客提供的一组选择，而是她所代理的那家餐馆所提供的一组选择。餐费付清时，她不能把钱留下（不过别人专门留给她个人的小费，她可以收下），而必须把钱交给收银员——法人行动者（即餐馆）的另一个代理人。因此，这一情境中互动的两个行动者，是餐馆（一个法人行动者）与顾客（一个自然人）。</p>
+
+    <p>再举一例。设想一个工头请求厂长改变车间里机器的布置。这里有两个法人行动者：工头主管的生产班组，以及厂长主管的整个工厂。工头是作为本班组的代理人提出请求的，厂长则作为工厂的代理人作出回应。工头提出请求，所依据的（或被期待所依据的）并非这一变动给他个人带来的好处，而是给他的生产班组——他以其名义提出请求的那个法人行动者——带来的好处。厂长则按这一请求对整个工厂（他是其代理人）的成本与收益来衡量它，而非按其对他个人的成本与收益来衡量。因此，他们作为自然人的资源、以及落到他们身上的后果，在这两者的互动中并不占有正当的位置。介入其中的，只是他们所代理的那些法人行动者的资源、以及落到这些法人行动者身上的后果。这是两个法人行动者之间的互动，其中一个从属于另一个。</p>
+
+    <p>这两个例子，都不同于「一个男子约一位女子共度一晚」这样的互动。后者是两个个人行动者之间的互动，男子动用的是属于他个人的资源，以求取他个人所关切的结果。</p>
+
+    <p>在「一方或双方作为法人行动者之代理人」的互动中，总有可能伴随着一场个人行动者之间的互动。餐馆里的顾客可能与女侍者攀谈，并在某一刻转入与她个人的互动——问起她的身世，或约她下班后相见。厂长可能拒绝工头的请求，并非出于任何关乎工厂利益的考量，而是出于他对工头个人的敌意。在这两种情形里，一场具体的互动都可以为分析之便而一分为二。第一种情形里，既有一个法人行动者（餐馆）与一个自然人之间的互动，又有两个自然人之间的互动。第二种情形里，既有两个法人行动者（生产班组与工厂，一个从属于另一个）之间的互动，又有两个自然人之间的互动。</p>
+
+    <p>社会理论家对「在正式组织内部自发生长出来的非正式社会组织」多有著述（例如 Homans, 1950；Blau, 1963）。这类作品所区分的，恰是本书理论中所设想的「个人行动者之间的关系」，与「当人以法人行动者之代理人的身份行事时、发生在正式组织结构中的法人行动者之间的关系」。某些社会理论家区分的是角色关系与个人关系；而我区分的，是关系中所涉的两类行动者：法人行动者与自然人。</p>
+
+    <p>在涉及法人行动者之代理人的具体情境里，有时必须作出某种决定，而这决定会把个人行动者与法人行动者之别凸显得格外鲜明。例如，设想一个少年第一份工作是在杂货店（<span class="lat">drugstore</span>）柜台后头，给顾客盛冰激凌蛋筒、调汽水。在某些时候，他会面临一个道德两难：当一位朋友走进店来，他该不该给朋友盛一份比通常更大的冰激凌？这一两难的根源在于：冰激凌不是这少年的，而是杂货店的。这道德难题有一种确定的性质——少年能否把物理上由他掌控的资源（即冰激凌）用于他个人的目的。从正当性上说，他不能。按他与杂货店之间合约的默示条款，凡他所掌控的店里资源，他都必须作为杂货店的代理人来处置，必须用这些资源去增进杂货店的利益，而非他自己的利益。</p>
+
+    <p>从分析上看，处在这种境地的任何人，显然都拥有两套资源：他自己的资源，即他作为个人行动者的资源；以及他所代理的那个法人行动者的资源。任何一个出公差、由公司报销的雇员，都揣着两种钱——他若愿意，大可在物理上把它们分装进两个口袋。一个口袋里是他自己的钱，他爱怎么花就怎么花；另一个口袋里是公司的钱，他只能用于因办理公司业务而发生的开支。由于代理人在物理上掌控着支出，一种常见的情形便是：代理人把法人行动者的资源用于自己的利益。社会组织里已采用过形形色色的手段，来防止这种侵占发生。</p>
+
+    <p>当个人作为法人行动者之代理人行事时，个人行动者与法人行动者之间的混淆，并不只有「侵占法人资源」这一种。另一种常见的模式，是<em>表面上</em>建立一段个人关系（即个人行动者之间的关系），而其中一方实则是在以法人行动者之代理人的身份行事。一个典型例子是受雇为某国政府效力的女谍报员：她作为政府的代理人，表面上结成一段个人关系，实则全为给她的委托人（principal）获取情报。这类伪饰在别的情形里也会出现。报社记者可能施展种种手法，与某个对象建立私人关系，以便从对方那里获取报社想要的信息——这些信息，倘若他显出十足的报社代理人模样，对方是不会吐露的。<sup class="fnref">6</sup></p>
+
+    <p>另有一例——围绕一桩事件接连发生的一组活动——能让我们进一步看清个人行动者与法人行动者之别，以及「人与人之间的关系」与「构成法人行动者结构之一部分的诸位置之间的关系」之别。这组活动，就社会组织的性质、以及意在解释这种组织的理论，提出了一些棘手的问题。下面这些片段，发生在一个小镇上一位男子去世之后，围绕着他的遗孀与儿子展开。这位男子在镇上住了五年，有若干朋友，但他的遗孀在镇上没什么熟人，他的儿子在镇上则完全无人相识。这些活动在某些读者看来稀奇，在另一些读者看来则平常。这种反应上的差异本身，就与它们所引出的关于社会组织的问题密切相关。</p>
+
+    <ol class="episodes">
+      <li>死讯之后的第二天，遗体正在整理，遗孀也正梳妆，准备到殡仪馆接待吊唁者，这时她觉得自己需要一副耳环。她走进镇中心广场上、离殡仪馆两个街区的一家店去买。招待她的女店员开始拿耳环给她看，两人攀谈起来。遗孀拿不定主意时，女店员便提出把自己正戴着的那副借给她。遗孀接受了。</li>
+      <li>吊唁者陆续来到殡仪馆，其中一位——住在亡者农场那条路尽头的男子——讲起每逢主人外出，他便如何替农场「留神照看」有无异动。他提到，就在上一周，他注意到农场亮着灯，尽管他以为主人不在家。于是他把车开到离屋子够近处，看清停在那里的车是主人的车、而非外来闯入者的车，这才放心。</li>
+      <li>次日清晨六点，遗孀与儿子准备离开农场，却发现汽车发动不起来。他们的反应是给亡者的女儿打电话——她住在约三十英里外，他们正要在赶赴葬礼（葬礼将在另一个镇举行）的途中先到她家——请她来接。女儿提议：若是请一位曾与亡者交好的邻居把他们捎下来，可省下一个小时。他们给那位邻居打了电话，他迅速穿好衣服，把他们送到了女儿家。</li>
+      <li>抛锚的汽车留在了农场，但那天遗孀与儿子都没有回去。遗孀给那位朋友打了电话，他便张罗着把车修好，又为稳妥起见，把车开到自己家中，留待遗孀与儿子日后来取。</li>
+      <li>几周之后，遗孀与儿子重回小镇，与一位律师（亡者早先聘请的）会面，处置那笔不大的遗产。遗孀与儿子同律师谈起共同的熟人与朋友，发现律师相熟的几个人正是遗孀或亡者的朋友。遗孀与儿子都担心律师可能多收费。问及遗嘱认证法庭的费用时，律师答说花费很小，不到一百美元。问及他自己的酬金时，他答说自己按一个固定的递减表收费，随遗产规模增大，费率从 5% 降到 2%。遗孀与儿子都颇感意外，因为他们听说别处的律师费要高得多。</li>
+      <li>遗孀与儿子同一位朋友在附近一家餐馆共进午餐，与她谈起这位律师。朋友说，她认识好几个用过这位律师的人，都确信他诚实而干练；还说亡者当初是从他在附近一家贷款公司的一个朋友那里听说这位律师的——那人把律师举荐为自己私下相熟、诚实可靠之人。</li>
+    </ol>
+
+    <p>在头一个片段里，有可能被「激活」的是两个行动者中的任一个——二者都由同一个具体的人（女店员）来代表。一个是店铺，女店员是它的代理人；另一个是那个自然人。真正介入「借耳环给遗孀」这一互动的，是那个自然人。看来，被激活的之所以是人与人之间的关系，是因为对话主要关乎人与人之间的关系（女店员与亡者的交情，以及亡者与遗孀的关系），而非「作为法人行动者的店铺」与「作为顾客的遗孀」之间的关系。</p>
+
+    <p>在第二、三、四个片段里，问题不在于「同一个人所代表的两个相互竞争的行动者之间的冲突」，而在于「某个个人行动者是否会出手」。人与人之间的关系足够牢固，以致在这三个片段里，个人行动者都出了手。</p>
+
+    <p>在第五个片段里，律师身上又有可能被激活两个行动者中的任一个：一个自然人，或一家律师事务所的代理人。<sup class="fnref">7</sup> 实际上，两者都在某种程度上被激活了。但律师、遗孀与儿子最初的那番交谈，强化了人与人之间的关系结构，而淡化了涉及法人行动者的关系结构。律师在定夺酬金时，本大可收取高于镇上惯例的费用，因为他打交道的是镇外来的人。他没有这样做，这并不能确凿地证明是那个自然人介入了交易，但它确实提示了这种可能。</p>
+
+    <p>无论是否如此，在最后一个片段里，遗孀与儿子同那位朋友的交谈，所涉的只是律师作为一个人所参与的个人关系，而非那个法人行动者（律师事务所）的关系或活动。</p>
+
+    <p>这些自然人作为行动者的行为，全都是善意的。当然，事情本不必如此：从个人行动者指向个人行动者的，既可以是善意的行为，也可以是恶意的行为。要点在于：这些人的行为，是由个人关系所激活的，而非由「他们作为代理人所服务的法人行动者」所牵涉的关系所激活的。</p>
+
+    <p>从这些片段中浮现出来的，是这样一幅图景：一个其主要关系发生在人与人之间的共同体。人们几乎把所遇见的每一个人都当作「人」、而非「位置的占据者」来相识。记忆栖居在人身上，而非在办公档案里，而那些记忆关乎的是别的一个个具体的人。这个共同体里许多活动，在多数共同体中本不会有人、以及人与人之间的关系参与其中；但在这每一个片段里，人都作为行动者浮现了出来。维系这个共同体的，看来远更多地是人与人之间的关系，而非法人行动者之间、或法人行动者与人之间的关系。</p>
+
+    <div class="footnotes">
+      <h4>第四节 · 脚注</h4>
+      <ol>
+        <li value="6">与此相似、却全然不涉及任何法人行动者的伪饰，所在多有。也就是说，某人可能表面上为关系本身而与另一人结成关系，实则是为了这关系之外、属于他自己的目的。不过在此处所举的诸例中，关系中所获取之物的最终接收者，是一个法人行动者。</li>
+        <li value="7">律师事务所，一如大学，是一种社会上的「不合时宜之物」（<span class="lat">anachronism</span>），因为其中的法人行动者并未与构成它的成员全然分离。因此「代理人」一词在此并不完全贴切。</li>
+      </ol>
+    </div>
+    <h2 class="ch" id="sec-types"><span class="chn">五</span>涉及法人行动者与人的互动类型<span class="en">Types of Interactions Involving Corporate Actors and Persons</span></h2>
+
+    <p>法人行动者作为社会系统中的结构要素而存在，造就了若干具有特殊性质之互动类型的可能。两类行动者——法人行动者与人——使得在一场给定的两方互动中，可能有三种不同的类型组合：</p>
+
+    <ol class="cases">
+      <li>人与人</li>
+      <li>人与法人行动者</li>
+      <li>法人行动者与法人行动者</li>
+    </ol>
+
+    <p>这些可见于表 20.1。</p>
+
+    <table class="dtable">
+      <caption><span class="fnum">表 20.1</span>行动者之间的关系类型　<span style="font-family:'EB Garamond',serif;font-style:italic;font-weight:400;color:var(--slate-soft);font-size:.92em">Types of relations between actors</span></caption>
+      <thead>
+        <tr>
+          <th colspan="2" style="border:none;background:none"></th>
+          <th colspan="2">行动之客体<span class="en">Object of action</span></th>
+        </tr>
+        <tr>
+          <th colspan="2" style="border:none;background:none"></th>
+          <th>人<span class="en">Person</span></th>
+          <th>法人行动者<span class="en">Corporate actor</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2" class="rowhead" style="white-space:nowrap">行动之主体<span class="en">Subject of action</span></td>
+          <td class="rowhead">人<span class="en">Person</span></td>
+          <td class="cell">1</td>
+          <td class="cell">2a</td>
+        </tr>
+        <tr>
+          <td class="rowhead">法人行动者<span class="en">Corporate actor</span></td>
+          <td class="cell">2b</td>
+          <td class="cell">3</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="tbl-note">注：表中数字对应正文所论的三类互动。「人对人」为第 1 类；「人与法人行动者」为第 2 类（依谁为行动主体而分 2a、2b）；「法人行动者对法人行动者」为第 3 类。</p>
+
+    <h3 class="sub">第一类互动<span class="en">Type 1 Interactions</span></h3>
+
+    <p>第一类互动，是人们自幼便被社会化进入其中的那种互动，是「黄金律」（<span class="lat">Golden Rule</span>）或康德的「绝对命令」（<span class="lat">categorical imperative</span>）为之而构造的那种互动，也是关于社会互动的大多数常识观念、以及社会心理学的大多数研究所依据的那种互动。</p>
+
+    <h3 class="sub">第二类互动<span class="en">Type 2 Interactions</span></h3>
+
+    <p>第二类互动的典型，是顾客与店铺的关系，是雇员与公司的关系（在没有工会或其他议价代理人的情形下），是当事人与社会福利机构的关系，以及公民与政府的关系。在所有这些关系里，一方是个人行动者，另一方是法人行动者。</p>
+
+    <p>这类互动给社会组织带来若干问题。与人与人之间的关系不同，第二类互动通常显出双方在规模上的不对称，而在其他条件不变时，这往往造成一种权力上的不对称。第二个问题在于：个体是被社会化进入第一类关系的，可成年后却发现自己生活在这样一种社会组织形态里——在互动中，他们必须频频与法人行动者打交道。</p>
+
+    <p>第二类互动的一些问题，社会学家已有注意。例如，卡茨与艾森施塔特（<span class="lat">Katz and Eisenstadt</span>, 1960）展示了：原本生活在以家族为本的原始环境里的中东犹太人，初次在以色列遭遇政府科层机构时会产生哪些问题。他们难以把「与自己打交道的那个人」（此人不仅是一个人，也是科层机构的代理人）同「科层机构本身」区分开来。他们指望每次与科层机构打交道时，面对的都是同一个人。他们试图与所打交道的各个代理人逐一建立私人关系。他们试图凭借「影响」把事情办成——也就是凭借「自己经由私人关系而与科层机构的代理人相连」这样的主张。</p>
+
+    <p>法人行动者与人之间的关系，还会产生别种问题。有证据表明：个体在与法人行动者互动时，并不觉得自己受「黄金律」的约束（譬如，有些人会去坑骗电话公司，却不会去坑骗别的人）。还有一些问题，源于这一事实：在某些情形下，法人行动者无法因人而异地作出回应，而必须对所有人作出同一回应。另有一些问题，则由自然人与法人行动者之间的根本差异所造成。其中重要的一项，关乎短期利益与长期利益。</p>
+
+    <p><span class="runin">第二类互动中对短期与长期利益之冲突的利用　<span class="en">Exploitation of the Conflict between Short-Term and Long-Term Interests</span></span>行动者的某些属性，在涉及第二类关系的交换中引出特殊的问题。其中一个问题，便是第十九章提到过的短期利益与长期利益之冲突。这一冲突的一种表现，见于<span class="t">意志力<span class="en">willpower</span></span>与<span class="t">意志薄弱<span class="en">weakness of will</span></span>这一对相关概念（见 Elster, 1979；Ainslie, 1986）。意志力——即「阻止短期利益压倒长期利益」的能力——在标准的理性选择理论里并无位置；然而它在自然人的行动中却是一个寻常的要素。</p>
+
+    <p>人能够<span class="t">预先承诺<span class="en">precommitment</span></span>、能够施展意志力，唯一的凭借是经验——亲历的，或借自他人的。他们必定在更早的时候面对过类似的行动选项，见识过其短期与长期的后果。<sup class="fnref">8</sup> 倘若人的经验完美无缺，他们就只会朝正确的方向预先承诺自己——即当且仅当某一行动的长期利益大于其短期利益时才如此。然而人并非如此。人会放纵行事，事后又懊悔；他们屈从于诱惑，事后又后悔，哪怕屈从带来了所预期的全部好处；他们会冲动购物、会强迫性地暴食。</p>
+
+    <p>在第一类互动里，交易的双方都受意志薄弱之累。有些人也许比另一些人更能抵御自己的冲动，因而可能在长期里得到更好的结果。有些人甚至能利用他人的意志薄弱，损人而自利。儿童尤其以「无力抗拒诱惑」为特征，因为他们尚未经历过行动的长期后果。儿童之所以要有法定监护人，部分正是出于这一缘由——即保护他们的长期利益不被「放纵其短期利益的行动」所损害，并保护他们不被他人利用其短期利益。然而，意志薄弱是人之境况的一部分，所有人都难以幸免。预先承诺、把长期后果记挂在心、以及其他种种心智努力，或可减轻其影响，但它终归是人的一种特性。<sup class="fnref">9</sup></p>
+
+    <p>而在第二类关系里，有一方是法人行动者，其构造方式与人不同。其结果是：法人行动者处在一个独特的位置上，得以利用自然人的意志薄弱——甚至能通过怂恿冲动行动，来利用这种意志薄弱的潜在可能。</p>
+
+    <p>倘若没有那么多迹象表明现代法人行动者广泛地利用着自然人的这一弱点，那么以上不过是一个有趣的学术论点而已。在消费市场里，这类迹象比比皆是。最显眼的是鼓励冲动购买的广告（在「消费者本身就是法人行动者」的市场里，并不出现这类广告）；更一般地说，是任何利用「吸引注意」之手段、去钻自然人欲望之空子的广告。公司广泛怂恿人们使用信用卡，是这种利用的又一个鲜明例子。</p>
+
+    <p>信用卡消费与「分期预付购货」（<span class="lat">lay-away buying</span>）之间的对照很有教益。通过「分期预付」计划购货，是一种储蓄。它是预先承诺自己定期付款，直到攒足某一数额，届时再取走货物。它是一种承诺：甘愿放弃「构成各期付款的那一小笔小笔钱」的即时好处，以求实现一项较长期的利益。而在信用卡消费里，时间视角恰好相反：人立刻拿到货物，事后才付款。储蓄在这里不是正向的（如「分期预付」计划、或诸如「圣诞俱乐部」之类的相关活动那样），而是负向的。</p>
+
+    <p>正向储蓄式的消费形态总体上衰落、并被负向储蓄式的形态所取代，标志着现代法人行动者利用自然人意志薄弱的能力在增强。这种增强，也从美国居高不下的个人破产率中显露出来。（法人行动者利用人之意志薄弱的能力，在美国尤为突出——那里的个人储蓄率是所有发达国家中最低的，信用卡消费则高于任何其他国家。）</p>
+
+    <p>利用自然人的意志薄弱，并不只有消费市场里的公司在做。政府也行此事。在有定期选举的民主政治系统里，政府要维持执政，须仰赖自然人的赞同；政治学家已注意到：选举年的经济政策往往给经济以短期提振，从而给选民带来短期的经济好处。某些社会主义国家的政府则被指责：故意把烈性酒定为低价，以迎合人们的口腹之欲、消解政治不满之凝聚成形。</p>
+
+    <p>自然人或许会变得更有能力抵御现代法人行动者的这种利用——藉由发展出诸如预先承诺之类的心理手段。也有可能，教育机构会减少「克服意志薄弱所需的实际经验」之量。然而，由于寿命有限，在任何一个年龄参差的自然人群体里，经验的程度都是有限而参差不齐的。因此，法人行动者利用自然人意志薄弱的潜在可能，仍将居高不下。甚至有可能，由于自然人寿命有限、而法人行动者寿命无限，这种利用的潜在可能还会增大。</p>
+
+    <p>人与法人行动者在意志力上的不对称，只是第二类关系中诸多问题的一个来源。其他来源还有：法人行动者与自然人构造不同这一事实，以及许多第二类关系在规模与权力上呈现巨大不对称这一事实。</p>
+
+    <p><span class="runin">第二类互动的增长　<span class="en">The Growth of Type 2 Interactions</span></span>第二类互动的问题，对现代社会有着特殊的重要性。二十世纪以来，就社会中的普通个体而言，第二类关系与第一类关系之比已大幅上升。这一比值很可能还会继续增长。因此，「人与法人行动者之间的互动大量增加」所给社会系统运作带来的问题，无论当下还是将来都举足轻重。这一结构性变化，自然源于法人行动者与人之比的大幅上升。虽说社会中人的数目（因而密度）有所增加，但法人行动者在数目与种类上的增加要大得多。例如，对 1916 至 1969 年间美国申报所得税的营利性公司数目的一项统计，呈现出爆炸式的增长，如图 20.1 所示。</p>
+
+    <figure class="fig" id="fig-20-1">
+      <svg viewBox="0 0 580 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="图 20.1：1917–1969 年美国申报所得税的营利性公司数目，呈爆炸式增长">
+        <g stroke="var(--rule-soft)" stroke-width="1">
+          <line x1="70" y1="295" x2="540" y2="295"/>
+          <line x1="70" y1="259" x2="540" y2="259"/>
+          <line x1="70" y1="224" x2="540" y2="224"/>
+          <line x1="70" y1="189" x2="540" y2="189"/>
+          <line x1="70" y1="154" x2="540" y2="154"/>
+          <line x1="70" y1="118" x2="540" y2="118"/>
+          <line x1="70" y1="83" x2="540" y2="83"/>
+          <line x1="70" y1="48" x2="540" y2="48"/>
+        </g>
+        <g stroke="var(--slate)" stroke-width="1.3" fill="none">
+          <line x1="70" y1="30" x2="70" y2="330"/>
+          <line x1="70" y1="330" x2="540" y2="330"/>
+        </g>
+        <g stroke="var(--slate)" stroke-width="1">
+          <line x1="70" y1="330" x2="70" y2="335"/>
+          <line x1="137" y1="330" x2="137" y2="335"/>
+          <line x1="204" y1="330" x2="204" y2="335"/>
+          <line x1="271" y1="330" x2="271" y2="335"/>
+          <line x1="339" y1="330" x2="339" y2="335"/>
+          <line x1="406" y1="330" x2="406" y2="335"/>
+          <line x1="473" y1="330" x2="473" y2="335"/>
+          <line x1="540" y1="330" x2="540" y2="335"/>
+        </g>
+        <g font-family="'EB Garamond',serif" font-size="11" fill="var(--ink-soft)" text-anchor="end">
+          <text x="62" y="334">0</text>
+          <text x="62" y="299">200</text>
+          <text x="62" y="263">400</text>
+          <text x="62" y="228">600</text>
+          <text x="62" y="193">800</text>
+          <text x="62" y="158">1000</text>
+          <text x="62" y="122">1200</text>
+          <text x="62" y="87">1400</text>
+          <text x="62" y="52">1600</text>
+          <text x="62" y="34">1700</text>
+        </g>
+        <g font-family="'EB Garamond',serif" font-size="11" fill="var(--ink-soft)" text-anchor="middle">
+          <text x="70" y="348">1916</text>
+          <text x="137" y="348">1924</text>
+          <text x="204" y="348">1932</text>
+          <text x="271" y="348">1940</text>
+          <text x="339" y="348">1948</text>
+          <text x="406" y="348">1956</text>
+          <text x="473" y="348">1964</text>
+          <text x="540" y="348">1972</text>
+        </g>
+        <text x="20" y="180" transform="rotate(-90 20 180)" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="11.5" fill="var(--slate)">公司数目 · Number of corporations</text>
+        <text x="305" y="372" text-anchor="middle" font-family="'Noto Sans SC',sans-serif" font-size="11.5" fill="var(--slate)">年份 · Year</text>
+        <polyline fill="none" stroke="var(--porphyry)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"
+          points="78,280 104,277 129,266 154,255 179,245 196,247 213,252 238,248 263,244 280,245 297,252 313,258 330,250 347,240 364,226 381,208 397,189 414,168 431,143 448,122 464,102 481,83 498,60 515,36"/>
+      </svg>
+      <figcaption><span class="fnum">图 20.1</span>1917–1969 年美国申报所得税的营利性公司数目。<span class="src-line">Number of profit-making corporations filing an income tax return in the United States, 1917–1969.（数据出自 Wu, 1974；曲线据原书图 20.1 重绘，纵轴单位千家。）</span></figcaption>
+    </figure>
+
+    <p>既然自然人既是这类法人行动者的所有者、又是其代理人，乍看之下，这种增长似乎无关紧要。但法人行动者激增的一个后果是：每个个体「作为一个人与法人行动者（实则是与其代理人）打交道」的互动频率，已大为增加。于是，环绕着每个人的社会环境，与其说住满了像他自己一样的别的个体，不如说住满了「由个体充任代理人」的那些非人格实体。后面几章将考察这一变化对现代社会运作的某些后果。</p>
+
+    <h3 class="sub">第三类互动<span class="en">Type 3 Interactions</span></h3>
+
+    <p>第三类互动，是完全不涉及自然人、只发生在法人行动者之间的互动：公司、组织、协会，或其他法人实体之间。在第三类互动里，个体并非作为「人」行事，而是作为他们所代表的法人行动者的代理人行事。前面所举「工头与厂长作为代理人互动」的例子，便是这样一种互动。这类交易有些是纯经济的，涉及商品与货币的交换；另一些则涉及形形色色的其他资源——例如，工会就某项立法提案进行游说时，可能把「在投票箱前不予支持」这一威胁当作一种资源来运用。</p>
+
+    <p>显然，随着法人行动者的激增，这第三类互动的数目也在增长。于是，正如普通个体越来越多地卷入第二类互动（或作为个人行动者，或作为法人行动者的代理人），他也越来越多地作为「与另一代理人互动的法人行动者之代理人」而卷入第三类互动。这一趋势的后果，将在随后几章中讨论。</p>
+
+    <div class="footnotes">
+      <h4>第五节 · 脚注</h4>
+      <ol>
+        <li value="8">若要行动者在决定一项行动时把某一后果纳入考量，那么行动与后果之间的关联就必须在认知上被察觉到。例如，有些孩子在需要进食时会变得烦躁易怒，而这早于他们体验到饥饿的感觉。事实上，所谓「饥饿」的感觉（包括对食物的种种想象与念头）也许只有在那种烦躁被「进食并体验其缓解」反复满足若干次之后，才会产生。</li>
+        <li value="9">轮转储蓄会（<span class="lat">rotating credit associations</span>）在远东地区十分普遍，第十二章有讨论；它构成了一种「拉上他人」的特殊预先承诺形式。戒酒互助会（<span class="lat">Alcoholics Anonymous</span>）是「借助他人来维系预先承诺」的又一个例子。</li>
+      </ol>
+    </div>
+    <h2 class="ch" id="sec-displacement"><span class="chn">六</span>人造之物对自然的取代<span class="en">Displacement of Nature by Human Constructions</span></h2>
+
+    <p>现代法人行动者的兴起与增长，可被看作一段长程历史发展的一部分——在这段发展里，原初的、自然的环境被一种有目的地建构起来的环境所取代。这一变化同时发生在物理环境与社会环境两方面。城市的楼宇与街道所构成的、有目的建构的环境（即所谓<span class="t">建造的环境<span class="en">built environment</span></span>），在二十世纪取代了乡村地区的自然环境——而后者在十九世纪曾构成大多数人的物理环境。在社会方面，原初的纽带、以及奠基其上的旧式法人行动者（家庭、宗族、族群与共同体），也日益被新的、有目的建构的法人行动者、及其存在所衍生的关系所取代。</p>
+
+    <p>这一论旨——自然环境被有目的建构的环境逐步取代——与马克斯·韦伯关于「社会逐步<span class="t">理性化<span class="en">rationalization</span></span>」的论旨相类。两个论旨都在说：那些在不受控制的状态下会生出自然环境的现象，经由人类知识的增长，渐渐落入人的掌控之中。在我所提出的这一论旨里，「人造取代自然」构成了一种质的变化，因为社会组织的形态本身在改变。</p>
+
+    <p>这种看待历史发展的总体进路，并不能让我们预言建构的环境（无论物理的还是社会的）未来会是何种状态。那取决于尚未作出的发明。摩天楼有赖于电梯的发明，在那一发明之前，无人能预见到中心城区林立摩天楼的城市。现代法人行动者——其构成要素是位置而非人——是一项社会发明，在那一发明之前，无人能预见到一种密布着这类行动者的社会结构。现代法人行动者也不会是最后一项被作出的社会发明。因此，我在本章所描述的社会结构，并非社会组织的终极形态，它终将被取代。然而就眼下而言，它是社会理论的一个内在要素：社会中一类重要的行动者，其自身便是一个行动的系统。</p>
+
+    <aside class="jiaozhu">
+      <span class="tag">校注 · 本章在译丛中的位置</span>
+      本章正是「社会理论译丛」主题<em>群体如何成为实体</em>的枢纽文本之一：科尔曼不去讲一个团体「内部如何运作」，而是追问它<em>如何作为一个行动者</em>登场——拥有自己的权利、资源、利益，可以起诉与被诉，越过成员的生死而存续（即<span class="lat">universitas</span> 到现代公司这条线）。末段把这一切收束为韦伯式的「理性化／人造取代自然」命题：法人行动者只是社会发明长链中的当前一环，「终将被取代」。这与塞尔的「宣告式建构」、帕吉特与鲍威尔的「长程涌现」各执一端，恰好标出本译丛的问题坐标。</aside>
+    <div class="continue">
+      <b>第二十章（自然人与新型法人行动者）译毕。</b><br>
+      本章从「个体主权」这一价值前提出发，追溯了法人行动者自罗马法 <span class="lat">universitas</span>、中世纪 <span class="lat">Genossenschaft</span> 直至现代公司的兴起，区分了人—人、人—法人、法人—法人三类互动（表 20.1、图 20.1），并指出法人行动者得以不对称地利用自然人的「意志薄弱」；最终把这一切归入「人造取代自然」的理性化命题。<br>
+      下一章：第二十一章《法人行动者的责任》（Responsibility of Corporate Actors）——既然现代社会已重组为「法人行动者纵横其间」的结构，那么这些既无肉身、又异常庞大有力的新造物，究竟该向谁负责、责任又如何得到落实？续接于<a href="/assets/html/foundations-of-social-theory.html">分章目次</a>。
+    </div>
+  </article>
+
+  <footer class="foot">
+    Coleman, James S. “Natural Persons and the New Corporate Actors.” Chap. 20 in <i>Foundations of Social Theory</i>, 531–552. Cambridge, MA: The Belknap Press of Harvard University Press, 1990.<br>
+    本中译本供学术研读之用 · 术语依 §0 对照表统一 · 表 20.1 原生重建、图 20.1 据原书数据原生重绘。<br>
+    译自 <a href="https://github.com/andrehuang/scholarly-translation-skill">scholarly-translation</a> skill · 归属 <a class="muted" href="https://andrehuang.github.io/projects/social-theory-translations/">社会理论译丛</a> · 全书目次见 <a class="muted" href="/assets/html/foundations-of-social-theory.html">《社会理论的基础》</a>。
+  </footer>
+
+</div>
+<button id="to-top" aria-label="回到顶部">↑</button>
+<script>
+  (function(){
+    document.querySelectorAll('.footnotes li').forEach(function(li){ li.id = 'fn-' + li.value; });
+    var tip = document.createElement('div'); tip.id = 'fn-tooltip'; document.body.appendChild(tip);
+    function hide(){ tip.style.display='none'; }
+    document.querySelectorAll('sup.fnref').forEach(function(ref){
+      var n = ref.textContent.replace(/[^0-9]/g,'');
+      if(!n) return;
+      if(!ref.querySelector('a')){
+        var a=document.createElement('a'); a.href='#fn-'+n; a.textContent=ref.textContent;
+        ref.textContent=''; ref.appendChild(a);
+      }
+      ref.addEventListener('mouseenter', function(){
+        var li=document.getElementById('fn-'+n); if(!li) return;
+        tip.innerHTML='<b>注 '+n+'　</b>'+li.innerHTML;
+        tip.style.display='block';
+        var tw=Math.min(360, window.innerWidth-32); tip.style.width=tw+'px';
+        var r=ref.getBoundingClientRect();
+        var left=Math.min(Math.max(12, r.left), window.innerWidth-tw-12);
+        var top=r.bottom+8, th=tip.offsetHeight;
+        if(top+th>window.innerHeight-12 && r.top-8-th>12){ top=r.top-8-th; }
+        tip.style.left=left+'px'; tip.style.top=top+'px';
+      });
+      ref.addEventListener('mouseleave', hide);
+    });
+    tip.addEventListener('mouseenter', function(){ tip.style.display='block'; });
+    tip.addEventListener('mouseleave', hide);
+    var btn=document.getElementById('to-top');
+    window.addEventListener('scroll', function(){ btn.style.display = window.scrollY>700 ? 'flex':'none'; });
+    btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  })();
+</script>
+</body>
+</html>
