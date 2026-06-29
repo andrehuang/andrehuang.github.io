@@ -19,6 +19,12 @@ url: https://andrehuang.github.io
 baseurl: # leave blank for username.github.io
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
+
+# Footer visitor counter ("You are the Nth visitor"), powered by the free abacus.jasoncameron.dev service
+visitor_counter:
+  enabled: true
+  namespace: andrehuang-github-io # unique id for this site's counter; change if you ever want to reset
+  key: visitors
 back_to_top: true # set to false to disable the back to top button
 
 # -----------------------------------------------------------------------------

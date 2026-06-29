@@ -9,6 +9,48 @@
   {% if site.last_updated %}
     Last updated: {{ 'now' | date: '%B %d, %Y' }}.
   {% endif %}
+  {% if site.visitor_counter.enabled %}
+    <span class="visitor-counter" style="display: none; white-space: nowrap">
+      &middot; You are the <span id="visitor-count"></span> visitor.
+    </span>
+    <script>
+      (function () {
+        var ns = "{{ site.visitor_counter.namespace }}";
+        var key = "{{ site.visitor_counter.key }}";
+        var wrap = document.querySelector(".visitor-counter");
+        var out = document.getElementById("visitor-count");
+        if (!wrap || !out) return;
+        function ordinal(n) {
+          var s = ["th", "st", "nd", "rd"],
+            v = n % 100;
+          return n.toLocaleString() + (s[(v - 20) % 10] || s[v] || s[0]);
+        }
+        function show(n) {
+          out.textContent = ordinal(Number(n));
+          wrap.style.display = "";
+        }
+        var storeKey = "visitorNumber:" + ns + ":" + key;
+        var saved = localStorage.getItem(storeKey);
+        if (saved) {
+          show(saved); // returning visitor keeps their original number
+          return;
+        }
+        fetch("https://abacus.jasoncameron.dev/hit/" + ns + "/" + key)
+          .then(function (r) {
+            return r.json();
+          })
+          .then(function (d) {
+            if (d && typeof d.value === "number") {
+              localStorage.setItem(storeKey, d.value);
+              show(d.value);
+            }
+          })
+          .catch(function () {
+            /* counter service unavailable: leave the line hidden */
+          });
+      })();
+    </script>
+  {% endif %}
 {% endcapture %}
 
 {% if site.footer_fixed %}
