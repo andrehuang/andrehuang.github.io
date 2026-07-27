@@ -8,10 +8,10 @@ middle_name:
 last_name: Huang
 contact_note:
 description: >
-  PhD student at University of Tübingen, researching vision and multimodal model generalization. ELLIS PhD student.
+  Postdoc in Moritz Hardt's group at the Max Planck Institute for Intelligent Systems (MPI-IS), Tübingen, building computational foundations for social simulation.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-keywords: haiwen huang, computer vision, machine learning, university of tübingen, ELLIS, deep learning
+keywords: haiwen huang, machine learning, social simulation, max planck institute for intelligent systems, tübingen, computer vision, deep learning
 lang: en
 icon: 🔬
 
