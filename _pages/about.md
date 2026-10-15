@@ -23,7 +23,9 @@ latest_posts:
   enabled: false
 ---
 
-I am Haiwen Huang (黄海文), a postdoc in [Prof. Moritz Hardt](https://mrtz.org/)'s group at the [Max Planck Institute for Intelligent Systems](https://is.mpg.de/) (MPI-IS) in Tübingen. Previously, I completed my PhD at the University of Tübingen, co-supervised by [Prof. Andreas Geiger](http://www.cvlibs.net/) and [Dr. Dan Zhang](https://www.bosch-ai.com/research/researcher-pages/t_overviewpage_133.html). My current research interests are in building **computational foundations for social simulation**, from benchmarks to simulation methodologies.
+I am Haiwen Huang (黄海文), a postdoc in [Prof. Moritz Hardt](https://mrtz.org/)'s group at the [Max Planck Institute for Intelligent Systems](https://is.mpg.de/) (MPI-IS) in Tübingen. Previously, I completed my PhD at the University of Tübingen, co-supervised by [Prof. Andreas Geiger](http://www.cvlibs.net/) and [Dr. Dan Zhang](https://www.bosch-ai.com/research/researcher-pages/t_overviewpage_133.html).
+
+I currently work on **social simulation**. My long-term goal is to use computational methods to understand how large-scale cooperation emerges from heterogeneous individuals, and how norms and institutions make it stable. As a first step, I am asking what it would mean for an AI simulator to understand society, and how we can get closer to that goal.
 
 My PhD research focused on **improving the generalization of vision and multimodal models**, enabling them to perform robustly across diverse tasks and domains. For example, I have developed methods that leverage 3D priors to enhance 2D object detection in [GOOD](https://openreview.net/forum?id=W-nZDQyuy8D) (ICLR 2023) and use self-distillation to upsample features in Vision Foundation Models in [LoftUp](https://arxiv.org/abs/2504.14032) (ICCV 2025). I have also contributed to building more reliable evaluations of open-vocabulary generalization in [RENOVATE](https://openreview.net/forum?id=Uw2eJOI822) (NeurIPS 2024).
 
